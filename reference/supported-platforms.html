@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Supported platforms and requirements | CandyConc 0.1.0</title>
+    <title>Supported platforms and requirements | CandyConc 0.1.1</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
 
-    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/documentation_options.js?v=a58bc63e"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -54,7 +54,7 @@
     <link rel="prev" title="Interface reference" href="interface.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.0" />
+  <meta name="docsearch:version" content="0.1.1" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -122,7 +122,7 @@
   
   
   
-    <p class="title logo__title">CandyConc 0.1.0</p>
+    <p class="title logo__title">CandyConc 0.1.1</p>
   
 </a></div>
     
@@ -427,13 +427,13 @@
   <section class="tex2jax_ignore mathjax_ignore" id="supported-platforms-and-requirements">
 <h1>Supported platforms and requirements<a class="headerlink" href="#supported-platforms-and-requirements" title="Link to this heading">#</a></h1>
 <p>This page lists the operating systems, processors, and Python versions of
-CandyConc 0.1.0, what each download contains, and what CandyConc needs at
+CandyConc 0.1.1, what each download contains, and what CandyConc needs at
 runtime. The steps of the installation are in
 <a class="reference internal" href="../get-started/install.html"><span class="std std-doc">Install CandyConc</span></a> and
 <a class="reference internal" href="../get-started/install-python-package.html"><span class="std std-doc">Install the Python package</span></a>.</p>
 <section id="support-matrix">
 <h2>Support matrix<a class="headerlink" href="#support-matrix" title="Link to this heading">#</a></h2>
-<p>The local release candidate targets macOS on Apple silicon. Its binary
+<p>Release 0.1.1 targets macOS on Apple silicon. Its binary
 artifacts are one application bundle and four wheels:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -453,8 +453,7 @@ artifacts are one application bundle and four wheels:</p>
 </table>
 </div>
 <p>The release workflow also configures the following targets. They have no
-built or verified artifacts in this local candidate because the workflow
-has not run on GitHub:</p>
+built or verified artifacts in this release:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Operating system</p></th>
@@ -483,7 +482,7 @@ has not run on GitHub:</p>
 </table>
 </div>
 <p>These targets need a workflow build and installation checks before their
-artifacts can join the release. The candidate also includes a source
+artifacts can join the release. The release also includes a source
 distribution for building from source.</p>
 <p>Windows is not supported. CandyConc uses functions of POSIX systems that
 Windows does not provide. Linux distributions with musl instead of glibc,
@@ -527,7 +526,7 @@ such as Alpine Linux, are not supported.</p>
 </table>
 </div>
 <p>Each wheel carries the tag of its platform, for example
-<code class="docutils literal notranslate"><span class="pre">candyconc-0.1.0-cp312-cp312-macosx_11_0_arm64.whl</span></code>. The local macOS wheels
+<code class="docutils literal notranslate"><span class="pre">candyconc-0.1.1-cp312-cp312-macosx_11_0_arm64.whl</span></code>. The local macOS wheels
 use macOS 11 as the deployment target for CandyConc’s own extensions. The
 complete installation requires macOS 13 because of its dependencies. The
 bundle includes a compatible Python interpreter and dependency set. The
@@ -537,11 +536,11 @@ compiler, no Node.js, and no clone of the repository.</p>
 </section>
 <section id="read-the-documentation-offline">
 <h2>Read the documentation offline<a class="headerlink" href="#read-the-documentation-offline" title="Link to this heading">#</a></h2>
-<p>Unzip <code class="docutils literal notranslate"><span class="pre">candyconc-0.1.0-docs-html.zip</span></code> and open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> in the extracted
+<p>Unzip <code class="docutils literal notranslate"><span class="pre">candyconc-0.1.1-docs-html.zip</span></code> and open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> in the extracted
 folder. Pages, diagrams, and formulas work locally. Search lists matching
 page titles. For search results with text previews, use <strong>Help &gt; Documentation</strong>
 in CandyConc or serve the extracted folder with Python 3:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8090</span><span class="w"> </span>--bind<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--directory<span class="w"> </span>candyconc-0.1.0-docs-html
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8090</span><span class="w"> </span>--bind<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--directory<span class="w"> </span>candyconc-0.1.1-docs-html
 </pre></div>
 </div>
 <p>Run this command from the folder containing the extracted directory, then
@@ -761,7 +760,7 @@ interface. See <a class="reference internal" href="../contribute/development-set
   
     <div class="footer-items__center">
       
-        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.1, built from commit c61ff23cd5a02292dbd36ea2960cdf9417dfe51d.</p></div>
       
     </div>
   

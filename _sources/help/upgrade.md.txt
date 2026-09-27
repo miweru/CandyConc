@@ -5,8 +5,8 @@ file, saved analyses, and preferences live in the data directory
 (`~/.candyconc`), which an upgrade does not change. See
 [Where your data lives](../concepts/where-data-lives.md).
 
-CandyConc 0.1.0 is the first release. The steps on this page apply to later
-versions.
+Use these steps to upgrade from 0.1.0 to 0.1.1. This update requires no
+change to existing corpora.
 
 ## Before you begin
 

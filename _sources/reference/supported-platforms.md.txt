@@ -1,14 +1,14 @@
 # Supported platforms and requirements
 
 This page lists the operating systems, processors, and Python versions of
-CandyConc 0.1.0, what each download contains, and what CandyConc needs at
+CandyConc 0.1.1, what each download contains, and what CandyConc needs at
 runtime. The steps of the installation are in
 [Install CandyConc](../get-started/install.md) and
 [Install the Python package](../get-started/install-python-package.md).
 
 ## Support matrix
 
-The local release candidate targets macOS on Apple silicon. Its binary
+Release 0.1.1 targets macOS on Apple silicon. Its binary
 artifacts are one application bundle and four wheels:
 
 | Operating system | Processor | Application bundle | Python wheels |
@@ -16,8 +16,7 @@ artifacts are one application bundle and four wheels:
 | macOS 13 or later | Apple silicon (arm64) | private CPython 3.12 | CPython 3.11, 3.12, 3.13, 3.14 |
 
 The release workflow also configures the following targets. They have no
-built or verified artifacts in this local candidate because the workflow
-has not run on GitHub:
+built or verified artifacts in this release:
 
 | Operating system | Processor | Configured application bundle | Configured Python wheels |
 | --- | --- | --- | --- |
@@ -26,7 +25,7 @@ has not run on GitHub:
 | Linux with glibc 2.28 or later | aarch64 (arm64) | none configured | CPython 3.11, 3.12, 3.13, 3.14 |
 
 These targets need a workflow build and installation checks before their
-artifacts can join the release. The candidate also includes a source
+artifacts can join the release. The release also includes a source
 distribution for building from source.
 
 Windows is not supported. CandyConc uses functions of POSIX systems that
@@ -45,7 +44,7 @@ such as Alpine Linux, are not supported.
 | `SHA256SUMS` | SHA-256 checksums of all files | checking a download |
 
 Each wheel carries the tag of its platform, for example
-`candyconc-0.1.0-cp312-cp312-macosx_11_0_arm64.whl`. The local macOS wheels
+`candyconc-0.1.1-cp312-cp312-macosx_11_0_arm64.whl`. The local macOS wheels
 use macOS 11 as the deployment target for CandyConc’s own extensions. The
 complete installation requires macOS 13 because of its dependencies. The
 bundle includes a compatible Python interpreter and dependency set. The
@@ -55,13 +54,13 @@ compiler, no Node.js, and no clone of the repository.
 
 ## Read the documentation offline
 
-Unzip `candyconc-0.1.0-docs-html.zip` and open `index.html` in the extracted
+Unzip `candyconc-0.1.1-docs-html.zip` and open `index.html` in the extracted
 folder. Pages, diagrams, and formulas work locally. Search lists matching
 page titles. For search results with text previews, use **Help > Documentation**
 in CandyConc or serve the extracted folder with Python 3:
 
 ```bash
-python3 -m http.server 8090 --bind 127.0.0.1 --directory candyconc-0.1.0-docs-html
+python3 -m http.server 8090 --bind 127.0.0.1 --directory candyconc-0.1.1-docs-html
 ```
 
 Run this command from the folder containing the extracted directory, then

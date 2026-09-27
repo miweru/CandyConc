@@ -22,7 +22,7 @@ xattr -dr com.apple.quarantine BUNDLE_FOLDER
 ```
 
 Replace `BUNDLE_FOLDER` with the name of the unpacked folder, for example
-`CandyConc-0.1.0-macos-arm64`. Alternatively, download the archive in the
+`CandyConc-0.1.1-macos-arm64`. Alternatively, download the archive in the
 Terminal with `curl -LO ADDRESS`, which sets no quarantine attribute. Replace
 `ADDRESS` with the address of the archive on the release page.
 

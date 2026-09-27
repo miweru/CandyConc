@@ -10,7 +10,8 @@ This page describes what the workflow does and the steps around it.
 
 The version is `version` in the `[project]` table of `app/pyproject.toml`.
 The package metadata, `candy --version`, the API, and the footer of this
-documentation read it from there. Change it there and nowhere else.
+documentation read it from there. Update the citation version in `CITATION.cff` and the versioned download
+examples when preparing a release.
 
 ## What the release workflow builds
 
@@ -28,8 +29,8 @@ The workflow runs when a tag that starts with `v` is pushed, for example
 The workflow creates a draft marked as a prerelease. A person reviews and
 publishes it.
 
-State of this workflow for 0.1.0: the builds were run locally for macOS
-arm64. The workflow itself has not yet run on GitHub.
+For 0.1.0 and 0.1.1, release artifacts were built and checked locally for
+macOS arm64. The GitHub test workflow checks the public source separately.
 
 ## Steps for a release
 

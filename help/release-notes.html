@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Release notes | CandyConc 0.1.0</title>
+    <title>Release notes | CandyConc 0.1.1</title>
   
   
   
@@ -40,7 +40,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
 
-    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/documentation_options.js?v=a58bc63e"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -54,7 +54,7 @@
     <link rel="prev" title="Uninstall CandyConc" href="uninstall.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="0.1.0" />
+  <meta name="docsearch:version" content="0.1.1" />
   
     
     <script src="../_static/searchtools.js"></script>
@@ -122,7 +122,7 @@
   
   
   
-    <p class="title logo__title">CandyConc 0.1.0</p>
+    <p class="title logo__title">CandyConc 0.1.1</p>
   
 </a></div>
     
@@ -420,10 +420,40 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="release-notes">
 <h1>Release notes<a class="headerlink" href="#release-notes" title="Link to this heading">#</a></h1>
-<!-- Draft for 0.1.0, written from the commits on the product branch since the
-first snapshot of the repository (254ed01c17). Before the release: add the
-date, check every line against the merged branches and the built files, and
-update the test status of the platforms. -->
+<section id="candyconc-0-1-1">
+<h2>CandyConc 0.1.1<a class="headerlink" href="#candyconc-0-1-1" title="Link to this heading">#</a></h2>
+<p>Released 27 September 2026.</p>
+<p><strong><a class="reference external" href="https://miweru.github.io/CandyConc/">Online documentation and help</a></strong></p>
+<section id="fixes-and-improvements">
+<h3>Fixes and improvements<a class="headerlink" href="#fixes-and-improvements" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Copilot count breakdowns by generation procedure now include a combined
+generator row when several generators and other procedures are present.
+Its rate uses the combined hit count and token denominator. Editing
+procedures remain separate, and the extra row leaves dispersion unchanged.</p></li>
+<li><p>Local word clustering also works before a corpus has been selected, using
+the configured language pipeline. With an active corpus, it uses that
+corpus's word vectors.</p></li>
+<li><p>The README links directly to the online manual. Bug reports, improvement
+suggestions, and pull requests have short templates. The repository now
+includes a code of conduct and a private route for security reports.</p></li>
+<li><p>The web interface CI job installs the Python dependencies needed by its
+backend contract tests.</p></li>
+</ul>
+</section>
+<section id="downloads">
+<h3>Downloads<a class="headerlink" href="#downloads" title="Link to this heading">#</a></h3>
+<p>The application bundle is for macOS 13 or later on Apple silicon. Python
+wheels are provided for CPython 3.11, 3.12, 3.13, and 3.14 on macOS arm64.
+The release also includes a source distribution, the offline HTML manual,
+these release notes, and <code class="docutils literal notranslate"><span class="pre">SHA256SUMS</span></code>.</p>
+<p>See <a class="reference internal" href="../get-started/install.html"><span class="std std-doc">Install CandyConc</span></a> and
+<a class="reference internal" href="../reference/supported-platforms.html"><span class="std std-doc">Supported platforms</span></a>.
+The bundle is unsigned. The <a class="reference internal" href="troubleshooting.html#macos-refuses-to-run-the-bundle-after-a-browser-download"><span class="std std-ref">first-start instructions</span></a>
+explain the macOS download check.</p>
+<p>Version 0.1.0 and its downloads remain available unchanged.</p>
+</section>
+</section>
 <section id="candyconc-0-1-0">
 <h2>CandyConc 0.1.0<a class="headerlink" href="#candyconc-0-1-0" title="Link to this heading">#</a></h2>
 <p>CandyConc 0.1.0 is the first release. It is an installable application for
@@ -434,8 +464,8 @@ lists, collocations, dispersion, keyness, trends, n-grams, and word sketches,
 and export concordances and evidence packages. A copilot that calls the same
 analyses is optional and works with a language model endpoint that you
 provide.</p>
-<section id="downloads">
-<h3>Downloads<a class="headerlink" href="#downloads" title="Link to this heading">#</a></h3>
+<section id="id1">
+<h3>Downloads<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>The local candidate targets macOS 13 or later on Apple silicon. Intel macOS and Linux
 are configured in the release workflow but have no built or verified
 artifacts for this candidate. See the full
@@ -674,8 +704,13 @@ release.</p></li>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#candyconc-0-1-0">CandyConc 0.1.0</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#candyconc-0-1-1">CandyConc 0.1.1</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fixes-and-improvements">Fixes and improvements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloads">Downloads</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#candyconc-0-1-0">CandyConc 0.1.0</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Downloads</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-since-the-first-snapshot-of-the-repository">Changes since the first snapshot of the repository</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#known-limitations">Known limitations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checksums">Checksums</a></li>
@@ -729,7 +764,7 @@ release.</p></li>
   
     <div class="footer-items__center">
       
-        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.1, built from commit c61ff23cd5a02292dbd36ea2960cdf9417dfe51d.</p></div>
       
     </div>
   

@@ -67,7 +67,7 @@ You need:
    The output is similar to the following:
 
    ```text
-   CandyConc 0.1.0 (Python 3.12.8)
+   CandyConc 0.1.1 (Python 3.12.8)
    ```
 
 In this setup you run CandyConc as `python -m candyconc.entrypoints.cli` with

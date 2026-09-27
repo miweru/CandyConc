@@ -1,9 +1,39 @@
 # Release notes
 
-<!-- Draft for 0.1.0, written from the commits on the product branch since the
-first snapshot of the repository (254ed01c17). Before the release: add the
-date, check every line against the merged branches and the built files, and
-update the test status of the platforms. -->
+## CandyConc 0.1.1
+
+Released 27 September 2026.
+
+**[Online documentation and help](https://miweru.github.io/CandyConc/)**
+
+### Fixes and improvements
+
+- Copilot count breakdowns by generation procedure now include a combined
+  generator row when several generators and other procedures are present.
+  Its rate uses the combined hit count and token denominator. Editing
+  procedures remain separate, and the extra row leaves dispersion unchanged.
+- Local word clustering also works before a corpus has been selected, using
+  the configured language pipeline. With an active corpus, it uses that
+  corpus's word vectors.
+- The README links directly to the online manual. Bug reports, improvement
+  suggestions, and pull requests have short templates. The repository now
+  includes a code of conduct and a private route for security reports.
+- The web interface CI job installs the Python dependencies needed by its
+  backend contract tests.
+
+### Downloads
+
+The application bundle is for macOS 13 or later on Apple silicon. Python
+wheels are provided for CPython 3.11, 3.12, 3.13, and 3.14 on macOS arm64.
+The release also includes a source distribution, the offline HTML manual,
+these release notes, and `SHA256SUMS`.
+
+See [Install CandyConc](../get-started/install.md) and
+[Supported platforms](../reference/supported-platforms.md).
+The bundle is unsigned. The [first-start instructions](troubleshooting.md#macos-refuses-to-run-the-bundle-after-a-browser-download)
+explain the macOS download check.
+
+Version 0.1.0 and its downloads remain available unchanged.
 
 ## CandyConc 0.1.0
 

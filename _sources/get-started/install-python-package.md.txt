@@ -73,7 +73,7 @@ To see your Python version, run `python3 --version`.
    The output is similar to the following:
 
    ```text
-   CandyConc 0.1.0 (Python 3.13.11)
+   CandyConc 0.1.1 (Python 3.13.11)
    ```
 
 ## Install with uv
