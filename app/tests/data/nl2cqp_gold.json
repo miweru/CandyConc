@@ -1,0 +1,94 @@
+[
+  {
+    "prompt": "verbs before eyes",
+    "query": "pos=\"VB\" \"eyes\""
+  },
+  {
+    "prompt": "nouns before dog",
+    "query": "pos=\"NN\" \"dog\""
+  },
+  {
+    "prompt": "adjectives after quick",
+    "query": "\"quick\" pos=\"JJ\""
+  },
+  {
+    "prompt": "dummy 0",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 1",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 2",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 3",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 4",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 5",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 6",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 7",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 8",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 9",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 10",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 11",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 12",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 13",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 14",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 15",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 16",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 17",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 18",
+    "query": "word"
+  },
+  {
+    "prompt": "dummy 19",
+    "query": "word"
+  }
+]

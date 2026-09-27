@@ -1,0 +1,7 @@
+{%- extends "!layout.html" %}
+{#- The basic theme joins page title and project title with an em dash, which
+    the house style forbids. The check of the rendered title lives in
+    _ext/candyconc_docs.py. -#}
+{%- block htmltitle %}
+    <title>{{ title|striptags|e }}{% if not embedded and docstitle %} | {{ docstitle|e }}{% endif %}</title>
+{%- endblock %}

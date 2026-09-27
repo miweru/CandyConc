@@ -1,0 +1,6 @@
+# Sample and test data are stored directly in Git, so that source archives
+# (git archive, GitHub source downloads) contain the files themselves.
+*.csv -filter -diff -merge text
+*.tsv -filter -diff -merge text
+*.jsonl -filter -diff -merge text
+*.txt -filter -diff -merge text

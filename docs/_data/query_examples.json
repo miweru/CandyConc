@@ -1,0 +1,539 @@
+{
+ "about": "Example queries of the query language reference with their recorded results. Rendered by the query-example directive, checked and recorded by docs/_tools/check_query_examples.py.",
+ "corpora": {
+  "sotu": {
+   "label": "State of the Union sample corpus",
+   "default_name": "sotu_en"
+  },
+  "dta": {
+   "label": "German DTA sample corpus",
+   "default_name": "dta_de"
+  },
+  "tea": {
+   "label": "synthetic tea corpus",
+   "default_name": "tea_demo"
+  }
+ },
+ "examples": [
+  {
+   "id": "plain-word",
+   "corpus": "sotu",
+   "query": "freedom",
+   "status": "ok",
+   "hits": 495,
+   "docs": 62
+  },
+  {
+   "id": "plain-word-capital",
+   "corpus": "sotu",
+   "query": "Freedom",
+   "status": "ok",
+   "hits": 495,
+   "docs": 62
+  },
+  {
+   "id": "plain-star",
+   "corpus": "sotu",
+   "query": "free*",
+   "status": "ok",
+   "hits": 1005,
+   "docs": 64
+  },
+  {
+   "id": "plain-question",
+   "corpus": "sotu",
+   "query": "defen?e",
+   "status": "ok",
+   "hits": 346,
+   "docs": 56
+  },
+  {
+   "id": "plain-regex",
+   "corpus": "sotu",
+   "query": "/liber.*/",
+   "status": "ok",
+   "hits": 129,
+   "docs": 51
+  },
+  {
+   "id": "plain-phrase",
+   "corpus": "sotu",
+   "query": "\"the American people\"",
+   "status": "ok",
+   "hits": 209,
+   "docs": 56
+  },
+  {
+   "id": "plain-or",
+   "corpus": "sotu",
+   "query": "freedom OR liberty",
+   "status": "ok",
+   "hits": 575,
+   "docs": 64
+  },
+  {
+   "id": "plain-and",
+   "corpus": "sotu",
+   "query": "freedom AND [pos=NOUN]",
+   "status": "ok",
+   "hits": 486,
+   "docs": 62
+  },
+  {
+   "id": "plain-near",
+   "corpus": "sotu",
+   "query": "freedom NEAR/5 peace",
+   "status": "ok",
+   "hits": 106,
+   "docs": 31
+  },
+  {
+   "id": "plain-attr",
+   "corpus": "sotu",
+   "query": "[lemma=freedom]",
+   "status": "ok",
+   "hits": 499,
+   "docs": 62
+  },
+  {
+   "id": "plain-dep",
+   "corpus": "sotu",
+   "query": "defend >dobj freedom",
+   "status": "ok",
+   "hits": 12,
+   "docs": 10
+  },
+  {
+   "id": "plain-dep-amod",
+   "corpus": "sotu",
+   "query": "freedom >amod political",
+   "status": "ok",
+   "hits": 5,
+   "docs": 5
+  },
+  {
+   "id": "plain-dep-attr",
+   "corpus": "sotu",
+   "query": "[pos=VERB] >nsubj [lemma=freedom]",
+   "status": "ok",
+   "hits": 17,
+   "docs": 15
+  },
+  {
+   "id": "plain-sequence-rejected",
+   "corpus": "sotu",
+   "query": "the people",
+   "status": "rejected",
+   "hits": null,
+   "docs": null
+  },
+  {
+   "id": "cql-word",
+   "corpus": "sotu",
+   "query": "cql:[word=\"freedom\"]",
+   "status": "ok",
+   "hits": 481,
+   "docs": 62
+  },
+  {
+   "id": "cql-word-capital",
+   "corpus": "sotu",
+   "query": "cql:[word=\"Freedom\"]",
+   "status": "ok",
+   "hits": 14,
+   "docs": 9
+  },
+  {
+   "id": "cql-word-c",
+   "corpus": "sotu",
+   "query": "cql:[word=\"freedom\"%c]",
+   "status": "ok",
+   "hits": 495,
+   "docs": 62
+  },
+  {
+   "id": "cql-lemma",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"freedom\"]",
+   "status": "ok",
+   "hits": 499,
+   "docs": 62
+  },
+  {
+   "id": "cql-lemma-c",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"FREEDOM\"%c]",
+   "status": "ok",
+   "hits": 507,
+   "docs": 62
+  },
+  {
+   "id": "cql-bare",
+   "corpus": "sotu",
+   "query": "[lemma=\"freedom\"]",
+   "status": "ok",
+   "hits": 499,
+   "docs": 62
+  },
+  {
+   "id": "cql-and",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"freedom\" & morph~\".*Number=Plur.*\"]",
+   "status": "ok",
+   "hits": 12,
+   "docs": 9
+  },
+  {
+   "id": "cql-rel",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"freedom\" & rel=\"nsubj\"]",
+   "status": "ok",
+   "hits": 39,
+   "docs": 24
+  },
+  {
+   "id": "cql-eq-regex",
+   "corpus": "sotu",
+   "query": "cql:[word=\"free.*\"]",
+   "status": "ok",
+   "hits": 965,
+   "docs": 64
+  },
+  {
+   "id": "cql-tilde",
+   "corpus": "sotu",
+   "query": "cql:[word~\"liber(ty|ties)\"]",
+   "status": "ok",
+   "hits": 85,
+   "docs": 43
+  },
+  {
+   "id": "cql-tilde-c",
+   "corpus": "sotu",
+   "query": "cql:[word~\"liber(ty|ties)\"%c]",
+   "status": "ok",
+   "hits": 88,
+   "docs": 43
+  },
+  {
+   "id": "cql-in",
+   "corpus": "sotu",
+   "query": "cql:[lemma in {\"freedom\",\"liberty\"}]",
+   "status": "ok",
+   "hits": 584,
+   "docs": 64
+  },
+  {
+   "id": "cql-in-c",
+   "corpus": "sotu",
+   "query": "cql:[lemma in {\"Freedom\",\"LIBERTY\"}%c]",
+   "status": "ok",
+   "hits": 595,
+   "docs": 64
+  },
+  {
+   "id": "cql-neq",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"freedom\"] [pos!=\"PUNCT\"]",
+   "status": "ok",
+   "hits": 312,
+   "docs": 59
+  },
+  {
+   "id": "cql-neq-and",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"defend\"] [word!=\"freedom\" & word!=\"Freedom\"]",
+   "status": "ok",
+   "hits": 64,
+   "docs": 33
+  },
+  {
+   "id": "cql-neq-c",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"defend\"] [word!=\"freedom\"%c]",
+   "status": "ok",
+   "hits": 64,
+   "docs": 33
+  },
+  {
+   "id": "cql-adj-noun",
+   "corpus": "sotu",
+   "query": "cql:[pos=\"ADJ\"] [lemma=\"freedom\"]",
+   "status": "ok",
+   "hits": 67,
+   "docs": 35
+  },
+  {
+   "id": "cql-seq3",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"freedom\"] [word=\"of\"] [pos=\"NOUN\"]",
+   "status": "ok",
+   "hits": 17,
+   "docs": 12
+  },
+  {
+   "id": "cql-any",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"defend\"] [] [lemma=\"freedom\"]",
+   "status": "ok",
+   "hits": 8,
+   "docs": 7
+  },
+  {
+   "id": "cql-gap",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"defend\"] []{0,3} [lemma=\"freedom\"]",
+   "status": "ok",
+   "hits": 17,
+   "docs": 14
+  },
+  {
+   "id": "cql-optional",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"freedom\"] [word=\"and\"]? [lemma=\"justice\"]",
+   "status": "ok",
+   "hits": 5,
+   "docs": 4
+  },
+  {
+   "id": "cql-plus",
+   "corpus": "sotu",
+   "query": "cql:[pos=\"ADJ\"]+ [lemma=\"freedom\"]",
+   "status": "ok",
+   "hits": 67,
+   "docs": 35
+  },
+  {
+   "id": "cql-range",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"free\"] [pos=\"NOUN\"]{1,2}",
+   "status": "ok",
+   "hits": 290,
+   "docs": 53
+  },
+  {
+   "id": "cql-alt",
+   "corpus": "sotu",
+   "query": "cql:([lemma=\"freedom\"] | [lemma=\"liberty\"]) [word=\"of\"]",
+   "status": "ok",
+   "hits": 40,
+   "docs": 23
+  },
+  {
+   "id": "cql-alt-inner",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"freedom\"] ([word=\"and\"] | [word=\"or\"]) [pos=\"NOUN\"]",
+   "status": "ok",
+   "hits": 52,
+   "docs": 33
+  },
+  {
+   "id": "cql-scope-default",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"freedom\"] []{0,30} [lemma=\"peace\"]",
+   "status": "ok",
+   "hits": 22,
+   "docs": 14
+  },
+  {
+   "id": "cql-scope-s",
+   "corpus": "sotu",
+   "query": "cql:within(<s>, [lemma=\"freedom\"] []{0,30} [lemma=\"peace\"])",
+   "status": "ok",
+   "hits": 22,
+   "docs": 14
+  },
+  {
+   "id": "cql-scope-doc",
+   "corpus": "sotu",
+   "query": "cql:within(<doc>, [lemma=\"freedom\"] []{0,30} [lemma=\"peace\"])",
+   "status": "ok",
+   "hits": 45,
+   "docs": 27
+  },
+  {
+   "id": "cql-where",
+   "corpus": "sotu",
+   "query": "cql:where(party=\"Republican\", [lemma=\"freedom\"])",
+   "status": "ok",
+   "hits": 329,
+   "docs": 33
+  },
+  {
+   "id": "cql-where-neq",
+   "corpus": "sotu",
+   "query": "cql:where(party!=\"Republican\", [lemma=\"freedom\"])",
+   "status": "ok",
+   "hits": 170,
+   "docs": 29
+  },
+  {
+   "id": "cql-where-or",
+   "corpus": "sotu",
+   "query": "cql:where(decade=\"1980s\" | decade=\"1990s\", [lemma=\"freedom\"])",
+   "status": "ok",
+   "hits": 157,
+   "docs": 20
+  },
+  {
+   "id": "cql-where-and",
+   "corpus": "sotu",
+   "query": "cql:where(party=\"Republican\" & decade=\"1980s\", [lemma=\"freedom\"])",
+   "status": "ok",
+   "hits": 99,
+   "docs": 8
+  },
+  {
+   "id": "cql-where-set",
+   "corpus": "sotu",
+   "query": "cql:where(party={\"Republican\",\"Democratic\"}, [lemma=\"freedom\"])",
+   "status": "ok",
+   "hits": 499,
+   "docs": 62
+  },
+  {
+   "id": "cql-where-within",
+   "corpus": "sotu",
+   "query": "cql:where(president=\"Ronald Reagan\", within(<s>, [lemma=\"freedom\"] []{0,5} [lemma=\"peace\"]))",
+   "status": "ok",
+   "hits": 3,
+   "docs": 3
+  },
+  {
+   "id": "cql-reject-stts",
+   "corpus": "sotu",
+   "query": "cql:[pos=\"NN\"]",
+   "status": "rejected",
+   "hits": null,
+   "docs": null
+  },
+  {
+   "id": "cql-reject-d",
+   "corpus": "sotu",
+   "query": "cql:[word=\"freedom\"%d]",
+   "status": "rejected",
+   "hits": null,
+   "docs": null
+  },
+  {
+   "id": "cql-reject-repeat",
+   "corpus": "sotu",
+   "query": "cql:[]{300}",
+   "status": "rejected",
+   "hits": null,
+   "docs": null
+  },
+  {
+   "id": "cql-reject-range",
+   "corpus": "sotu",
+   "query": "cql:where(year>=\"1990\", [lemma=\"freedom\"])",
+   "status": "rejected",
+   "hits": null,
+   "docs": null
+  },
+  {
+   "id": "cql-reject-attr",
+   "corpus": "sotu",
+   "query": "cql:[ent=\"PERSON\"]",
+   "status": "rejected",
+   "hits": null,
+   "docs": null
+  },
+  {
+   "id": "cql-reject-token-compare",
+   "corpus": "sotu",
+   "query": "cql:[word>\"a\"]",
+   "status": "rejected",
+   "hits": null,
+   "docs": null
+  },
+  {
+   "id": "cql-reject-unclosed",
+   "corpus": "sotu",
+   "query": "cql:[lemma=\"freedom\"",
+   "status": "rejected",
+   "hits": null,
+   "docs": null
+  },
+  {
+   "id": "de-lemma",
+   "corpus": "dta",
+   "query": "cql:[lemma=\"Freiheit\"]",
+   "status": "ok",
+   "hits": 135,
+   "docs": 18
+  },
+  {
+   "id": "de-adj-noun",
+   "corpus": "dta",
+   "query": "cql:[pos=\"ADJ\"] [lemma=\"Freiheit\"]",
+   "status": "ok",
+   "hits": 27,
+   "docs": 12
+  },
+  {
+   "id": "de-diacritic-class",
+   "corpus": "dta",
+   "query": "cql:[word~\".*fl[uü]cht.*\"%c]",
+   "status": "ok",
+   "hits": 63,
+   "docs": 19
+  },
+  {
+   "id": "de-diacritic-plain",
+   "corpus": "dta",
+   "query": "cql:[word~\".*flucht.*\"%c]",
+   "status": "ok",
+   "hits": 30,
+   "docs": 14
+  },
+  {
+   "id": "de-dass-old",
+   "corpus": "dta",
+   "query": "cql:[word=\"daß\"]",
+   "status": "ok",
+   "hits": 2043,
+   "docs": 23
+  },
+  {
+   "id": "de-dass-new",
+   "corpus": "dta",
+   "query": "cql:[word=\"dass\"]",
+   "status": "ok",
+   "hits": 716,
+   "docs": 7
+  },
+  {
+   "id": "de-where",
+   "corpus": "dta",
+   "query": "cql:where(genre=\"Wissenschaft\", [lemma=\"Freiheit\"])",
+   "status": "ok",
+   "hits": 26,
+   "docs": 6
+  },
+  {
+   "id": "de-reject-stts",
+   "corpus": "dta",
+   "query": "cql:[pos=\"ADJA\"]",
+   "status": "rejected",
+   "hits": null,
+   "docs": null
+  },
+  {
+   "id": "tea-gap-1",
+   "corpus": "tea",
+   "query": "cql:[word=\"green\"%c] []{0,1} [word=\"tea\"]",
+   "status": "ok",
+   "hits": 7,
+   "docs": 4
+  },
+  {
+   "id": "tea-gap-4",
+   "corpus": "tea",
+   "query": "cql:[word=\"green\"%c] []{0,4} [word=\"tea\"]",
+   "status": "ok",
+   "hits": 6,
+   "docs": 4
+  }
+ ]
+}

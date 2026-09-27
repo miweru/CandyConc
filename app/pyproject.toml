@@ -1,0 +1,249 @@
+[project]
+name = "candyconc"
+version = "0.1.0"
+description = "Local corpus analysis: KWIC concordancer with its own index, corpus statistics and an optional research copilot"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Michael Ruppert", email = "michael.ruppert@fau.de" }]
+requires-python = ">=3.11"
+keywords = ["corpus linguistics", "concordancer", "KWIC", "CQP", "collocation", "keyness"]
+classifiers = [
+    "Environment :: Web Environment",
+    "Intended Audience :: Science/Research",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Cython",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Text Processing :: Linguistic",
+]
+# Runtime dependencies. requirements.txt repeats this list for
+# `pip install -r`, tests/infra/test_native_packaging.py keeps both equal.
+# Upper bounds mark the versions the test suite runs against. A bound is
+# only added where a test shows a newer release breaking something.
+dependencies = [
+    "fastapi>=0.111,<0.112",
+    "uvicorn>=0.23,<0.24",
+    "pydantic>=2.7,<3",
+    "pydantic-settings>=2.2,<3",
+    "numpy>=1.26,<3",
+    "scipy>=1.11",
+    "pyarrow>=14",
+    "pandas>=2.2,<3",
+    "polars>=0.20,<0.21",
+    "platformdirs>=4.3,<5",
+    "orjson>=3.9,<4",
+    "openpyxl>=3.1,<4",
+    "jsonschema>=4.23,<5",
+    "httpx>=0.28,<0.29",
+    "anytree>=2.12.1,<3",
+    "networkx>=3.1,<4",
+    "rapidfuzz>=3.9,<4",
+    "google-re2==1.1.20251105",
+    "spacy>=3.7,<4",
+    "websockets>=12.0,<13",
+    "psutil>=5.9",
+]
+
+[project.optional-dependencies]
+# Word thesaurus index and semantic passage search (FAISS).
+semantic = ["faiss-cpu>=1.7.4,<2"]
+# `candy import --input-format hf` (Hugging Face datasets).
+hf = ["datasets>=2.19"]
+# Prometheus counters for the tool registry.
+metrics = ["prometheus-client>=0.20,<1"]
+# HDBSCAN for semantic clustering (a graph clustering runs without it).
+cluster = ["hdbscan>=0.8,<0.9"]
+all = [
+    "faiss-cpu>=1.7.4,<2",
+    "datasets>=2.19",
+    "prometheus-client>=0.20,<1",
+    "hdbscan>=0.8,<0.9",
+]
+
+[project.scripts]
+candy = "candyconc.entrypoints.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/miweru/CandyConc"
+Source = "https://github.com/miweru/CandyConc"
+Issues = "https://github.com/miweru/CandyConc/issues"
+Changelog = "https://github.com/miweru/CandyConc/releases"
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+strict = true
+files = ["src"]
+
+[tool.ruff.lint]
+# Keep the established release gate stable when Ruff adds default rule families.
+select = ["E4", "E7", "E9", "F"]
+
+[build-system]
+requires = ["setuptools>=77,<81", "wheel", "Cython>=3.0,<4", "numpy>=1.26,<3"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+addopts = "-m 'not integration'"
+norecursedirs = ["archived"]
+markers = [
+    "integration: live external integration tests, disabled unless explicitly selected",
+]
+
+[tool.importlinter]
+# B1 refactor safety net (see server.py refactor masterplan). Only THREE contracts
+# exist today. A fourth contract ("Fachmodule importieren server nicht") will be
+# added in B2+ once the extracted target modules for server.py exist — until then
+# there is nothing yet for such a contract to constrain.
+#
+# Run with (from app):
+#   PYTHONPATH=src /path/to/venv/bin/lint-imports --config pyproject.toml
+root_packages = ["candyconc", "cqlhpc"]
+# TYPE_CHECKING-Importe sind reine Typ-Annotations-Kanten (z.B. B12:
+# copilot_sessions -> candyconc_copilot.orchestrator NUR fuer die
+# "ReActOrchestrator"-String-Annotation) und keine Laufzeit-Kopplung; ohne
+# diese Option wuerde Contract 4 solche Kanten als Leaf-Verstoss werten.
+exclude_type_checking_imports = true
+
+[[tool.importlinter.contracts]]
+name = "cqlhpc ist Leaf"
+type = "forbidden"
+source_modules = ["cqlhpc"]
+forbidden_modules = ["candyconc"]
+# allow_indirect_imports=true: gleiche Begruendung wie bei den anderen beiden
+# Contracts. Prueft die direkte Kopplung cqlhpc->candyconc statt des gesamten
+# transitiven Graphen.
+allow_indirect_imports = "true"
+# Ist-Zustand (B1): cqlhpc.fast_corpus und cqlhpc.predicates importieren heute
+# tatsaechlich aus candyconc.core (Cython-Kernels/Native-Erweiterungen). Ermittelt
+# per: grep -rln "^from candyconc\|^import candyconc" src/cqlhpc/*.py
+ignore_imports = [
+    "cqlhpc.fast_corpus -> candyconc.core.counting_kernels",
+    "cqlhpc.fast_corpus -> candyconc.core.fast_index_backend",
+    "cqlhpc.fast_corpus -> candyconc.core.token_store",
+    "cqlhpc.fast_corpus -> candyconc.core.fast_index_native",
+    "cqlhpc.fast_corpus -> candyconc.core.index_format",
+    "cqlhpc.predicates -> candyconc.core.fast_index_native",
+    # Bilingual user messages. Falls back to German without candyconc.
+    "cqlhpc.errors -> candyconc.i18n",
+]
+
+[[tool.importlinter.contracts]]
+name = "Routes importieren server nicht"
+type = "forbidden"
+source_modules = ["candyconc.services.backend.routes"]
+forbidden_modules = ["candyconc.services.backend.server"]
+# allow_indirect_imports=true: der Contract prueft DIREKTE Importe von server.py
+# durch Routes-Module. Ohne dieses Flag sucht import-linter den kuerzesten Pfad
+# durch den GESAMTEN Abhaengigkeitsgraphen (z.B. routes.analysis ->
+# candyconc_copilot.analysis -> server, oder routes.semantic ->
+# services.cluster_labeler -> services.llm_client -> server) und wuerde so auch
+# tief transitive, architektonisch unabhaengige Pfade als Verstoss werten. Das
+# waere ein Full-Graph-Refactor, kein B1-Scope. Die direkte Kopplung
+# Routes->server ist der eigentliche Rueckfall, den dieser Contract verhindern
+# soll; sie wird erst ab B2+ abgebaut.
+allow_indirect_imports = "true"
+# Ist-Zustand (B1): jede Route, die server.py heute tatsächlich DIREKT importiert
+# (auch lazy/function-local Importe zählen für grimp). Ermittelt per:
+#   grep -rn "backend\.server\|backend import server\|from \.\. import server" \
+#     src/candyconc/services/backend/routes/*.py
+# Diese Allowlist wird erst in B2+ abgebaut, wenn server.py entflochten wird.
+# B15-Kartierung (K1 = auf Fachmodul umgestellt, K2 = gepatchte Fassaden-Namen
+# konservativ belassen, K3 = server-residente Restkanten, blockiert bis B16-Codemod):
+ignore_imports = [
+    "candyconc.services.backend.routes.annotations -> candyconc.services.backend.server",  # K3-Restkanten: 1
+    # routes.auth: Kante ist mit S1 (be8b07a074) entfallen. Der stale
+    # Ignore-Eintrag brach lint-imports ("No matches for ignored import")
+    # und wurde in K3 Slice 3 gestrichen.
+    "candyconc.services.backend.routes.analysis -> candyconc.services.backend.server",  # B16-Paket (60+ Stellen, nicht kartiert)
+    "candyconc.services.backend.routes.exports -> candyconc.services.backend.server",  # K3-Restkanten: 3
+    "candyconc.services.backend.routes.system -> candyconc.services.backend.server",  # K3-Restkanten: 20 (B5-Zaehler-Rebinds+K1 umgestellt)
+    "candyconc.services.backend.routes.corpora -> candyconc.services.backend.server",  # K3-Restkanten: 3 (reload/registry)
+    "candyconc.services.backend.routes.subcorpora -> candyconc.services.backend.server",  # K3-Restkanten: 6 (K1: 2 umgestellt)
+    "candyconc.services.backend.routes.semantic -> candyconc.services.backend.server",  # K3: 8 + K2: 1 (_get_docset-Patch-Seam)
+    "candyconc.services.backend.routes.projects -> candyconc.services.backend.server",  # K3-Restkanten: 9 (_PROJECT_STORE-Naht)
+    # B13: transitional, faellt in B15 (etabliertes Late-Import-Muster fuer die
+    # server-residenten Patch-Seams; siehe routes/query.py-Docstring).
+    "candyconc.services.backend.routes.query -> candyconc.services.backend.server",
+    # B14: transitional, faellt in B15.
+    "candyconc.services.backend.routes.copilot -> candyconc.services.backend.server",
+    "candyconc.services.backend.routes.copilot_ws -> candyconc.services.backend.server",
+]
+
+[[tool.importlinter.contracts]]
+name = "Copilot/MCP importieren server nicht"
+type = "forbidden"
+source_modules = ["candyconc.candyconc_copilot"]
+forbidden_modules = ["candyconc.services.backend.server"]
+# allow_indirect_imports=true: gleiche Begruendung wie beim Routes-Contract oben.
+# Ohne dieses Flag flaggt import-linter auch tief transitive Pfade wie
+# candyconc_copilot.query_suggest -> services.llm_client -> server oder
+# candyconc_copilot.tool_wrappers -> tooling.registry -> server (dort nur ein
+# TYPE_CHECKING-Import), was den gesamten Abhaengigkeitsgraphen statt der
+# direkten Kopplung Copilot->server prueft.
+allow_indirect_imports = "true"
+# Ist-Zustand (B1): ermittelt per
+#   grep -rln "backend\.server\|backend import server" src/candyconc/candyconc_copilot/*.py
+ignore_imports = [
+    "candyconc.candyconc_copilot.analysis -> candyconc.services.backend.server",
+    "candyconc.candyconc_copilot.tool_wrappers -> candyconc.services.backend.server",
+]
+
+[[tool.importlinter.contracts]]
+name = "Fachmodule importieren weder server noch routes"
+type = "forbidden"
+# B2+: waechst pro Etappe um die jeweils neu extrahierten Fachmodule
+# (Masterplan §6 Contract 4). Nur bereits existierende Module sind gelistet;
+# sentinels/caches/docsets/query_count/kwic_render/doc_meta/alignment/
+# analysis_runners/index_registry/copilot_sessions folgen mit B3-B12.
+# KEINE Allowlist: Fachmodule sind Leaves unterhalb von server/routes,
+# ein Verstoss ist hier immer ein echter Architektur-Rueckfall.
+source_modules = [
+    "candyconc.services.backend.limits",
+    "candyconc.services.backend.http_sse",
+    "candyconc.services.backend.textnorm",
+    "candyconc.services.backend.executors",
+    "candyconc.services.backend.docsets",
+    "candyconc.services.backend.query_count",
+    "candyconc.services.backend.kwic_render",
+    "candyconc.services.backend.doc_meta",
+    "candyconc.services.backend.alignment",
+    "candyconc.services.backend.analysis_runners",
+    "candyconc.services.backend.copilot_sessions",
+    "candyconc.services.backend.copilot_helpers",
+]
+forbidden_modules = [
+    "candyconc.services.backend.server",
+    "candyconc.services.backend.routes",
+]
+
+[[tool.importlinter.contracts]]
+name = "claim_rules ist Leaf innerhalb candyconc_copilot"
+type = "forbidden"
+# K3 Slice 3: die Regel-Schicht (claim_rules inkl. _table) liegt UNTER der
+# Fassade analysis_grounding und ihren Traegern. Sie importiert nur
+# grounding_schemas/-evidence/-contracts und sich selbst, nie den
+# Orchestrator, den Verifier, die Fassade oder deren Verbraucher. Ein
+# Verstoss hier ist immer ein echter Architektur-Rueckfall, daher KEINE
+# Allowlist.
+source_modules = ["candyconc.candyconc_copilot.claim_rules"]
+forbidden_modules = [
+    "candyconc.candyconc_copilot.orchestrator",
+    "candyconc.candyconc_copilot.grounding_verifier",
+    "candyconc.candyconc_copilot.analysis_grounding",
+    "candyconc.candyconc_copilot.grounding_facts",
+    "candyconc.candyconc_copilot.grounding_validation",
+    "candyconc.candyconc_copilot.grounding_markdown",
+    "candyconc.candyconc_copilot.grounding_pipeline",
+    "candyconc.candyconc_copilot.tool_wrappers",
+    "candyconc.candyconc_copilot.session_manager",
+]
+# allow_indirect_imports=true: gleiche Begruendung wie bei den uebrigen
+# Contracts: geprueft wird die direkte Kopplung, nicht der Gesamtgraph.
+allow_indirect_imports = "true"

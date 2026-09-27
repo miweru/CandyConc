@@ -1,0 +1,31 @@
+include LICENSE
+include README.md
+include pyproject.toml
+include requirements.txt
+include requirements-dev.txt
+include requirements.lock.txt
+include setup.py
+include setup_native.py
+
+recursive-include src *.py
+recursive-include src *.pyx
+# Built web interface (python packaging/build_web.py). A wheel built from the
+# sdist ships it without Node.
+recursive-include src/candyconc/web_dist *
+# Optional HTML documentation (built by packaging/build_web.py when Sphinx is
+# installed), served under /docs/.
+recursive-include src/candyconc/docs_html *
+# Sample corpora with README, attribution and license text (copied from the
+# repository root by packaging/build_web.py). In the sdist only, not in wheels.
+graft examples
+
+# Generated C can embed local absolute build paths; regenerate from .pyx instead
+# of shipping checked-in C blindly in source distributions.
+prune build
+recursive-exclude src *.c
+
+global-exclude *.so
+global-exclude *.pyd
+global-exclude *.dylib
+global-exclude *.pyc
+recursive-exclude * __pycache__

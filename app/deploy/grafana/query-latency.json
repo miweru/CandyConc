@@ -1,0 +1,16 @@
+{
+  "title": "CandyConc Query Latency",
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Query latency",
+      "targets": [
+        {
+          "expr": "rate(candyconc_query_latency_seconds_sum[1m]) / rate(candyconc_query_latency_seconds_count[1m])",
+          "legendFormat": "avg latency"
+        }
+      ],
+      "datasource": "Prometheus"
+    }
+  ]
+}

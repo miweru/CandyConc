@@ -1,0 +1,6 @@
+{
+  "name": "example",
+  "owner": "alice",
+  "users": ["bob"],
+  "quota": 1000
+}

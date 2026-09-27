@@ -1,0 +1,74 @@
+[
+  {
+    "exactness": "exact",
+    "fact_kind": "ranked_row",
+    "grounding_quotes": [
+      "zeile[1] {'rank': 1, 'word': 'Haus', 'f': 1429}",
+      "metric[1] word=Haus rank=1 f=1429",
+      "rank=1",
+      "analysis_input=Haus"
+    ],
+    "id": "E1_freq_1",
+    "limitations": [
+      "Die Rangliste ist auf sichtbare Top-N-Einträge begrenzt; diese Begrenzung macht die f-Werte der sichtbaren Einträge nicht zu Stichprobenzählungen.",
+      "Die Zeile ist nach Oberflächenform gruppiert und enthält keinen POS-Filter; sie belegt keine Wortartzuweisung für sämtliche Vorkommen der Form."
+    ],
+    "source_evidence_ids": [
+      "E1"
+    ],
+    "statement": "Die sichtbare Frequenzzeile für Oberflächenformen zeigt 'Haus' auf Rang 1 mit f=1429; f ist die Zählung im gewählten Korpus- oder Subkorpus-Scope.",
+    "supports_claims": [
+      "counts",
+      "interpretation_anchor",
+      "ranks"
+    ]
+  },
+  {
+    "exactness": "exact",
+    "fact_kind": "ranked_row",
+    "grounding_quotes": [
+      "zeile[2] {'rank': 2, 'word': 'Hausarbeit', 'f': 312}",
+      "metric[2] word=Hausarbeit rank=2 f=312",
+      "rank=2",
+      "analysis_input=Haus"
+    ],
+    "id": "E1_freq_2",
+    "limitations": [
+      "Die Rangliste ist auf sichtbare Top-N-Einträge begrenzt; diese Begrenzung macht die f-Werte der sichtbaren Einträge nicht zu Stichprobenzählungen.",
+      "Die Zeile ist nach Oberflächenform gruppiert und enthält keinen POS-Filter; sie belegt keine Wortartzuweisung für sämtliche Vorkommen der Form."
+    ],
+    "source_evidence_ids": [
+      "E1"
+    ],
+    "statement": "Die sichtbare Frequenzzeile für Oberflächenformen zeigt 'Hausarbeit' auf Rang 2 mit f=312; f ist die Zählung im gewählten Korpus- oder Subkorpus-Scope.",
+    "supports_claims": [
+      "counts",
+      "interpretation_anchor",
+      "ranks"
+    ]
+  },
+  {
+    "exactness": "exact",
+    "fact_kind": "ranked_row",
+    "grounding_quotes": [
+      "zeile[3] {'rank': 3, 'word': 'Haushalt', 'f': 207}",
+      "metric[3] word=Haushalt rank=3 f=207",
+      "rank=3",
+      "analysis_input=Haus"
+    ],
+    "id": "E1_freq_3",
+    "limitations": [
+      "Die Rangliste ist auf sichtbare Top-N-Einträge begrenzt; diese Begrenzung macht die f-Werte der sichtbaren Einträge nicht zu Stichprobenzählungen.",
+      "Die Zeile ist nach Oberflächenform gruppiert und enthält keinen POS-Filter; sie belegt keine Wortartzuweisung für sämtliche Vorkommen der Form."
+    ],
+    "source_evidence_ids": [
+      "E1"
+    ],
+    "statement": "Die sichtbare Frequenzzeile für Oberflächenformen zeigt 'Haushalt' auf Rang 3 mit f=207; f ist die Zählung im gewählten Korpus- oder Subkorpus-Scope.",
+    "supports_claims": [
+      "counts",
+      "interpretation_anchor",
+      "ranks"
+    ]
+  }
+]

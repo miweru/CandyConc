@@ -1,0 +1,27 @@
+CandyConc sample corpora
+========================
+
+sotu_en_1945_2006.jsonl
+  Content: 65 US presidential addresses to Congress, 1945-2006, as compiled
+  in the "C-Span State of the Union Address Corpus" (compiled by Kathleen
+  Ahrens from C-SPAN sources) and distributed by NLTK Data, package
+  "state_union".
+  Source: https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/state_union.zip
+  Rights: works of the US federal government (17 U.S.C. 105), listed as
+  "public domain" in the NLTK Data index.
+  Changes: character encoding normalised to UTF-8 (Big5 punctuation in the
+  Nixon files and cp1252 characters decoded), metadata fields added
+  (president, party, year, decade, date, title). Text otherwise unchanged.
+
+dta_de_1800_1899_sample.jsonl
+  Content: 30 complete texts from the DTA core corpus (normalised plain text
+  release 2020-10-23, period 1800-1899), one per decade and main genre.
+  Source: Deutsches Textarchiv. Grundlage fuer ein Referenzkorpus der
+  neuhochdeutschen Sprache. Herausgegeben von der Berlin-Brandenburgischen
+  Akademie der Wissenschaften, Berlin. https://www.deutschestextarchiv.de/
+  Metadata: DTA Dublin Core metadata release 2026-02-12.
+  License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).
+  Attribution: "Deutsches Textarchiv". Each document carries its DTA URL.
+  Changes: selection of 30 texts, metadata fields added (author, title,
+  year, decade, genre, subgenre, url, edition). Text unchanged.
+  This prepared file is distributed under CC BY-SA 4.0.

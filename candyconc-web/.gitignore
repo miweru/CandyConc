@@ -1,0 +1,33 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Local audit/probe artifacts. Keep real tests under src/__tests__ and e2e
+# explicitly named; underscore/probe files are scratch outputs from manual UI
+# audits and must not drift into release commits.
+.claude/
+/_*.mjs
+/_*.png
+/e2e/*-probe.spec.ts
+/src/__tests__/_*.test.ts
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

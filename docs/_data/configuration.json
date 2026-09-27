@@ -1,0 +1,319 @@
+{
+  "_comment": "Settings for docs/reference/configuration.md. docs/_tools/generate_configuration.py takes the default of every AppConfig field from candyconc/config.py and checks that every other name is read by the code. This list covers the public configuration reference. The runtime also accepts internal, experimental, and compatibility settings.",
+  "sections": [
+    {
+      "id": "user",
+      "title": "User decisions",
+      "groups": [
+        {
+          "title": "Language model for the copilot",
+          "intro": "The copilot is optional. Without `COPILOT_ENDPOINT` every other function works and the chat answers that no language model is configured. **Settings > Model connection** in the web interface changes endpoint, model, and key at once, until the server stops.",
+          "settings": [
+            {
+              "name": "COPILOT_ENDPOINT",
+              "text": "Address of an OpenAI-compatible endpoint, ending in `/v1/responses` or `/v1/chat/completions`, for example `http://127.0.0.1:1234/v1/responses` for a local server. Empty: no copilot."
+            },
+            {
+              "name": "COPILOT_MODEL",
+              "text": "Model name that the endpoint expects. CandyConc checks the `model` field of every answer and stops with an error when the endpoint answers with a different model."
+            },
+            {
+              "name": "COPILOT_API_KEY",
+              "text": "Key sent as `Authorization: Bearer` to the endpoint. Local servers usually accept any value."
+            },
+            {
+              "name": "COPILOT_REASONING_EFFORT",
+              "text": "Reasoning effort (`low`, `medium`, `high`) for providers that support it. Unset: not sent."
+            },
+            {
+              "name": "COPILOT_THINKING_MODE",
+              "text": "For models of the Qwen3 family: `off` adds `/no_think`, `on` adds `/think` to the question. Unset: unchanged."
+            }
+          ]
+        },
+        {
+          "title": "Passage search with a remote embedding model",
+          "intro": "These settings matter only for a corpus whose passage index was built with a remote embedding model. Similar words use the word vectors of the annotation pipeline of each corpus, see [Languages and annotation pipelines](languages.md#word-vectors).",
+          "settings": [
+            {
+              "name": "CANDYCONC_GEMMA_EMB_ENDPOINT",
+              "text": "OpenAI-compatible embeddings endpoint for passage search in such a corpus. The search text is sent to this endpoint."
+            },
+            {
+              "name": "CANDYCONC_GEMMA_EMB_MODEL",
+              "text": "Model name for `CANDYCONC_GEMMA_EMB_ENDPOINT`."
+            }
+          ]
+        },
+        {
+          "title": "Corpus at start",
+          "intro": "Without these settings the server opens the active corpus of the corpus catalog, or the most recent corpus in the data directory.",
+          "settings": [
+            {
+              "name": "CANDYCONC_INDEX_PATH",
+              "default": "",
+              "text": "Directory of a corpus index that the server opens at every start. The server refuses to start when the directory is not a complete index. The HTTP API addresses this corpus with the name `default`, and the corpus catalog gives the folder name in `display_name`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "admin",
+      "title": "Administration",
+      "groups": [
+        {
+          "title": "Locations",
+          "intro": "`candy paths` prints the locations that are in effect. See [Where your data lives](../concepts/where-data-lives.md).",
+          "settings": [
+            {
+              "name": "CANDYCONC_HOME",
+              "default": "`~/.candyconc`",
+              "text": "Data directory: corpora, corpus catalog, project file, preferences, logs, downloaded pipelines, temporary files."
+            },
+            {
+              "name": "CANDYCONC_CONFIG_FILE",
+              "default": "`config.toml` in the platform configuration directory",
+              "text": "Location of the configuration file. The default is `~/Library/Application Support/candyconc/config.toml` on macOS and `$XDG_CONFIG_HOME/candyconc/config.toml` (usually `~/.config/candyconc/config.toml`) on Linux."
+            },
+            {
+              "name": "CANDYCONC_PROJECT_FILE",
+              "text": "Project file with subcorpora, line annotations, and the coding scheme. Empty: `proj.ccproj` in the working directory if one exists there (older versions kept it there), otherwise `proj.ccproj` in the data directory. A relative path is resolved against the working directory."
+            },
+            {
+              "name": "CANDYCONC_PROJECTS_DIR",
+              "text": "Directory with saved analyses, cluster lists, and project members. Empty: `config/projects` in the working directory if it exists there, otherwise `projects` in the data directory."
+            },
+            {
+              "name": "CANDYCONC_PREFS_PATH",
+              "default": "`prefs.json` in the data directory",
+              "text": "File with the saved preferences of the web interface."
+            },
+            {
+              "name": "index_dir",
+              "text": "Same as `CANDYCONC_INDEX_PATH`, as a setting of the configuration file (environment name `INDEX_DIR`). `CANDYCONC_INDEX_PATH` wins when both are set."
+            },
+            {
+              "name": "CANDYCONC_FRONTEND_DIST",
+              "default": "",
+              "text": "Directory of a built web interface to serve instead of the one in the package. The directory must contain `index.html`."
+            }
+          ]
+        },
+        {
+          "title": "Security and access",
+          "intro": "The two security modes are described in [Deployment](deployment.md).",
+          "settings": [
+            {
+              "name": "CANDYCONC_SECURITY_MODE",
+              "text": "`local_dev_unsafe`: single-user mode, bound to the local computer, no sign-in. `release`: multi-user mode with sign-in, roles, host check, and without the OpenAPI pages."
+            },
+            {
+              "name": "CANDYCONC_ENABLE_RBAC",
+              "text": "Role-based access control. Multi-user mode needs it. `candy --enable-rbac` sets it for one start."
+            },
+            {
+              "name": "CANDYCONC_USER_FILE",
+              "text": "User file with password hashes and roles, written by `python -m candyconc.tools.user_bootstrap`. Multi-user mode does not start without at least one user. An absolute path is used directly. A relative path is first resolved from the installation. If that file is absent, CandyConc reads `users.json` from its data directory."
+            },
+            {
+              "name": "CANDYCONC_TRUSTED_HOSTS",
+              "default": "`localhost,127.0.0.1,::1,testserver`",
+              "text": "Comma-separated host names that multi-user mode accepts in the `Host` header. Add the host name of your server or reverse proxy. `*` switches the check off."
+            },
+            {
+              "name": "CANDYCONC_TOKEN_TTL_SECONDS",
+              "default": "`43200` (12 hours)",
+              "text": "Lifetime of a sign-in token in seconds. `0`: tokens do not expire."
+            },
+            {
+              "name": "CANDYCONC_ALLOW_UNSAFE_NETWORK_DEV",
+              "default": "",
+              "text": "`1` lets single-user mode bind to a network address. Without it, `candy --host 0.0.0.0` stops in single-user mode. Anyone who reaches the address then has full access."
+            },
+            {
+              "name": "CANDYCONC_ENABLE_COPILOT_PII_MASK",
+              "text": "Replaces e-mail addresses, IBANs, and telephone numbers in the question and the interface context with placeholders before they reach the language model. It does not mask the tool results, which contain corpus text."
+            },
+            {
+              "name": "CANDYCONC_ENABLE_PII_MASK",
+              "text": "Replaces concordance tokens with `<PII>` when their indexed entity label is recognized. Requires named entity annotations. Recognizes English labels such as `PERSON`, but not the German person label `PER`. This corpus-text masking is independent of `CANDYCONC_ENABLE_COPILOT_PII_MASK`. See [Languages and annotation](../concepts/languages-and-annotation.md)."
+            }
+          ]
+        },
+        {
+          "title": "Logs",
+          "intro": "",
+          "settings": [
+            {
+              "name": "CANDYCONC_LOG_LEVEL",
+              "text": "Log level of the server: `DEBUG`, `INFO`, `WARNING`, or `ERROR`. `candy --log-level` sets it for one start."
+            },
+            {
+              "name": "CANDYCONC_LOG_FILE",
+              "text": "File that receives the server log in addition to the terminal. `candy --log-file` sets it for one start."
+            },
+            {
+              "name": "CANDYCONC_AUDIT_LOG_PATH",
+              "default": "`logs/audit.jsonl` in the data directory",
+              "text": "Log of sign-ins, failed sign-ins, sign-outs, and WebSocket tickets, one JSON object per line, rotated at 5 MiB. `off` switches it off."
+            },
+            {
+              "name": "CANDYCONC_ENABLE_LLM_TRACE",
+              "text": "Record of every call to the language model in `traces.jsonl` in the data directory: user, model, tool names, and for each message its role and size, without the text. Unset: on in single-user mode, off in multi-user mode."
+            }
+          ]
+        },
+        {
+          "title": "Request limits",
+          "intro": "Limits protect a shared server. A request above a limit receives an error, the server never shortens a result without saying so.",
+          "settings": [
+            {
+              "name": "CANDYCONC_RATE_LIMIT_ANON",
+              "default": "`300`",
+              "text": "Requests per minute and client address without a token. `0`: no limit."
+            },
+            {
+              "name": "CANDYCONC_RATE_LIMIT_DEFAULT",
+              "default": "`600`",
+              "text": "Requests per minute and user with a token. `0`: no limit."
+            },
+            {
+              "name": "CANDYCONC_MAX_REQUEST_BYTES",
+              "default": "`8388608` (8 MiB)",
+              "text": "Largest request body. Larger requests receive 413. `0`: no limit."
+            },
+            {
+              "name": "CANDYCONC_QUERY_MAX_CONTEXT",
+              "text": "Largest context width, in tokens on each side of a hit."
+            },
+            {
+              "name": "CANDYCONC_ANALYSIS_PAGE_LIMIT_MAX",
+              "text": "Largest page of result rows that one request may ask for."
+            },
+            {
+              "name": "CANDYCONC_ANALYSIS_JOB_TOP_N_MAX",
+              "text": "Largest number of rows that an analysis job keeps."
+            },
+            {
+              "name": "CANDYCONC_ANALYSIS_NGRAM_MAX_N",
+              "text": "Longest n-gram."
+            },
+            {
+              "name": "CANDYCONC_ANALYSIS_COLLOCATE_MAX_WINDOW",
+              "text": "Largest collocation window, in tokens on each side."
+            },
+            {
+              "name": "CANDYCONC_ANALYSIS_RESULT_MAX_BYTES",
+              "text": "Largest result of one analysis job, in bytes."
+            },
+            {
+              "name": "CANDYCONC_ALIGNMENT_MAX_EDIT_CELLS",
+              "text": "Largest sentence alignment of paired texts, in comparisons. A larger alignment is refused, not shortened."
+            },
+            {
+              "name": "CANDYCONC_MAX_REGEX_TYPES",
+              "default": "`200000`",
+              "text": "Largest number of distinct values matched by a regular expression when concordance lines are requested. Larger matches are rejected. Set this environment variable before starting the server."
+            },
+            {
+              "name": "CANDYCONC_MAX_REGEX_FREQ",
+              "default": "`5000000`",
+              "text": "Largest summed corpus frequency, in tokens, of the values matched by a regular expression when concordance lines are requested. Larger matches are rejected. Set this environment variable before starting the server."
+            }
+          ]
+        },
+        {
+          "title": "Copilot operation",
+          "intro": "The time limits are safeguards against a connection that hangs. A question can legitimately take long on slow hardware.",
+          "settings": [
+            {
+              "name": "COPILOT_TIMEOUT",
+              "text": "Time limit in seconds for one call to the language model. `0`: no limit."
+            },
+            {
+              "name": "CANDYCONC_COPILOT_MAX_TIME_SEC",
+              "default": "no budget",
+              "text": "Time budget in seconds for one copilot turn. Empty or `0`: no budget."
+            },
+            {
+              "name": "CANDYCONC_LM_STUDIO_REQUIRE_LOADED_MODEL",
+              "text": "For endpoints on the local computer: check the model list of the endpoint before each question and answer 424 when the model is not loaded. The check never loads a model."
+            },
+            {
+              "name": "CANDYCONC_MAX_COPILOT_STEPS",
+              "default": "`240`",
+              "text": "Largest number of tool steps that one question may use. A client that requests more is limited to this value."
+            },
+            {
+              "name": "CANDYCONC_COPILOT_MAX_QUESTION_CHARS",
+              "default": "`8000`",
+              "text": "Longest question in characters. Longer questions receive 413."
+            },
+            {
+              "name": "CANDYCONC_COPILOT_MAX_MESSAGES",
+              "default": "`50`",
+              "text": "Largest number of messages in one chat request."
+            },
+            {
+              "name": "CANDYCONC_COPILOT_MAX_HISTORY_CHARS",
+              "default": "`64000`",
+              "text": "Largest total length of the messages in one chat request, in characters."
+            },
+            {
+              "name": "CANDYCONC_MCP_URL",
+              "text": "Address of a remote CandyConc tool service. When set, the copilot sends every tool call with its arguments to `<address>/mcp/call` instead of running it in the server, and uses the results that come back. Leave it empty to run the tools in the server itself."
+            },
+            {
+              "name": "CANDYCONC_MODEL_CONTEXT_TOKENS",
+              "default": "`173312`",
+              "text": "Context window of the model in tokens. CandyConc shortens the working record of a question in the model's copy before it outgrows this window. Set it to the context size of your model if that is smaller."
+            },
+            {
+              "name": "COPILOT_RECIPE_CLASSIFIER_TIMEOUT_S",
+              "text": "Time limit in seconds of the model call that chooses the analysis recipe. Unset, the limit is 300 seconds. When it runs out, the question continues with the recipe from the keyword rules or without a recipe."
+            }
+          ]
+        },
+        {
+          "title": "Import",
+          "intro": "Before an import CandyConc estimates the disk space the index needs and refuses the import when the volume of the output directory has too little free space.",
+          "settings": [
+            {
+              "name": "CANDYCONC_BUILD_DISK_FACTOR",
+              "default": "`2.5`",
+              "text": "Estimated index size as a multiple of the input size."
+            },
+            {
+              "name": "CANDYCONC_BUILD_DISK_RESERVE_GB",
+              "default": "`5`",
+              "text": "Free space in GB that must remain after the estimated index size."
+            },
+            {
+              "name": "CANDYCONC_BUILD_ALLOW_LOW_DISK",
+              "default": "",
+              "text": "`1` turns the refusal into a warning."
+            }
+          ]
+        },
+        {
+          "title": "Other",
+          "intro": "",
+          "settings": [
+            {
+              "name": "CANDYCONC_VERSION",
+              "default": "the package version",
+              "text": "Label of a deployment that `GET /api/v1/system/info` reports instead of the package version."
+            },
+            {
+              "name": "CANDYCONC_NO_BROWSER",
+              "default": "",
+              "source": "launcher",
+              "text": "`1` makes `./candyconc` of the application bundle start without opening the browser."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

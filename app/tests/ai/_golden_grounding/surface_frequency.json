@@ -1,0 +1,18 @@
+[
+  "status=success",
+  "message=frequency list for 'Haus'",
+  "total=1429",
+  "rows_seen=3",
+  "rows[0] {'rank': 1, 'word': 'Haus', 'f': 1429}",
+  "word=Haus",
+  "kwic[0] \"Haus\"",
+  "metric[0] word=Haus rank=1 f=1429",
+  "rows[1] {'rank': 2, 'word': 'Hausarbeit', 'f': 312}",
+  "word=Hausarbeit",
+  "kwic[1] \"Hausarbeit\"",
+  "metric[1] word=Hausarbeit rank=2 f=312",
+  "rows[2] {'rank': 3, 'word': 'Haushalt', 'f': 207}",
+  "word=Haushalt",
+  "kwic[2] \"Haushalt\"",
+  "metric[2] word=Haushalt rank=3 f=207"
+]

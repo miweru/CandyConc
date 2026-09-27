@@ -1,0 +1,35 @@
+# systemd unit for a CandyConc server.
+#
+# Prerequisites (once):
+#   useradd --system --home-dir /var/lib/candyconc --create-home candyconc
+#   python3 -m venv /opt/candyconc/.venv
+#   /opt/candyconc/.venv/bin/pip install candyconc-<version>-<tag>.whl
+#   mkdir -p /etc/candyconc
+#   /opt/candyconc/.venv/bin/python -m candyconc.tools.user_bootstrap \
+#     --username admin --role admin --output /etc/candyconc/users.json
+#   chown root:candyconc /etc/candyconc/users.json && chmod 640 /etc/candyconc/users.json
+# Corpora live in /var/lib/candyconc/corpora (import them in the web interface
+# as admin, or with candy import as the candyconc user). To pin one corpus
+# for everybody, add Environment="CANDYCONC_INDEX_PATH=/var/lib/candyconc/corpora/<name>".
+# The server listens on loopback. Put a reverse proxy in front for network
+# access and set CANDYCONC_TRUSTED_HOSTS to its host name.
+
+[Unit]
+Description=CandyConc server
+After=network.target
+
+[Service]
+Type=simple
+User=candyconc
+Group=candyconc
+WorkingDirectory=/var/lib/candyconc
+Environment="CANDYCONC_HOME=/var/lib/candyconc"
+Environment="CANDYCONC_USER_FILE=/etc/candyconc/users.json"
+Environment="CANDYCONC_ENABLE_RBAC=1"
+Environment="CANDYCONC_SECURITY_MODE=release"
+ExecStart=/opt/candyconc/.venv/bin/candy --host 127.0.0.1 --port 8010
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

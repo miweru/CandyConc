@@ -1,0 +1,1258 @@
+{
+ "about": "Recorded responses of CandyConc on the synthetic tea corpus (docs/methods/data/tea_demo.jsonl). Written by docs/_tools/check_worked_examples.py --record, checked by the same script without --record. The keys columns, caption, source and from_facts control the display and are kept when the tables are recorded again.",
+ "tables": {
+  "frequency-tea": {
+   "columns": [
+    {
+     "key": "word",
+     "label": "Row label",
+     "code": true
+    },
+    {
+     "key": "f",
+     "label": "Frequency"
+    }
+   ],
+   "facts": {
+    "corpus_tokens": 162,
+    "word_tokens": 136,
+    "row_tea": 17,
+    "total_candidates": 66,
+    "plain_tea": 17,
+    "plain_Tea": 17,
+    "plain_Tea_case_sensitive": 3,
+    "cql_Tea": 3,
+    "cql_tea_c": 17,
+    "exact_tea": 13,
+    "exact_Tea": 3,
+    "exact_TEA": 1
+   },
+   "rows": [
+    {
+     "word": "tea",
+     "f": 17
+    },
+    {
+     "word": "coffee",
+     "f": 10
+    },
+    {
+     "word": "a",
+     "f": 8
+    },
+    {
+     "word": "green",
+     "f": 7
+    },
+    {
+     "word": "cup",
+     "f": 6
+    },
+    {
+     "word": "of",
+     "f": 5
+    },
+    {
+     "word": "is",
+     "f": 5
+    },
+    {
+     "word": "the",
+     "f": 4
+    },
+    {
+     "word": "I",
+     "f": 3
+    },
+    {
+     "word": "for",
+     "f": 3
+    },
+    {
+     "word": "and",
+     "f": 3
+    },
+    {
+     "word": "my",
+     "f": 2
+    }
+   ]
+  },
+  "keyness-blog-news": {
+   "columns": [
+    {
+     "key": "word",
+     "label": "Word",
+     "code": true
+    },
+    {
+     "key": "target_freq",
+     "label": "a"
+    },
+    {
+     "key": "reference_freq",
+     "label": "c"
+    },
+    {
+     "key": "ll",
+     "label": "G²",
+     "format": ".4f"
+    },
+    {
+     "key": "chi2",
+     "label": "χ²",
+     "format": ".4f"
+    },
+    {
+     "key": "log_ratio",
+     "label": "Log Ratio",
+     "format": ".4f"
+    },
+    {
+     "key": "log_ratio_ci_low",
+     "label": "CI low",
+     "format": ".4f"
+    },
+    {
+     "key": "log_ratio_ci_high",
+     "label": "CI high",
+     "format": ".4f"
+    },
+    {
+     "key": "lrc",
+     "label": "LRC",
+     "format": ".4f"
+    },
+    {
+     "key": "p_value",
+     "label": "p",
+     "format": ".4f"
+    },
+    {
+     "key": "q_value",
+     "label": "q",
+     "format": ".4f"
+    },
+    {
+     "key": "bic",
+     "label": "BIC",
+     "format": ".4f"
+    }
+   ],
+   "facts": {
+    "target_total": 77,
+    "reference_total": 59,
+    "target_tokens_raw": 92,
+    "reference_tokens_raw": 70,
+    "total_candidates": 7
+   },
+   "rows": [
+    {
+     "word": "a",
+     "target_freq": 8,
+     "reference_freq": 0,
+     "target_per_million": 103896.1038961039,
+     "reference_per_million": 0.0,
+     "ll": 9.483044025738637,
+     "ll_signed": 9.483044025738637,
+     "chi2": 6.512987012987013,
+     "log_ratio": 3.703319349917279,
+     "log_ratio_ci_low": -0.38252046985115795,
+     "log_ratio_ci_high": 7.789159169685716,
+     "lrc": 0.0,
+     "p_value": 0.0020737959148815397,
+     "q_value": 0.014516571404170777,
+     "bic": 4.570389140002585
+    },
+    {
+     "word": "cup",
+     "target_freq": 6,
+     "reference_freq": 0,
+     "target_per_million": 77922.07792207792,
+     "reference_per_million": 0.0,
+     "ll": 7.037679376154195,
+     "ll_signed": 7.037679376154195,
+     "chi2": 4.8095904095904105,
+     "log_ratio": 3.316296226808032,
+     "log_ratio_ci_low": -0.8048100144862214,
+     "log_ratio_ci_high": 7.437402468102285,
+     "lrc": 0.0,
+     "p_value": 0.007981237893291615,
+     "q_value": 0.027503901459460613,
+     "bic": 2.1250244904181423
+    },
+    {
+     "word": "of",
+     "target_freq": 5,
+     "reference_freq": 0,
+     "target_per_million": 64935.064935064926,
+     "reference_per_million": 0.0,
+     "ll": 5.834316414349076,
+     "ll_signed": 5.834316414349076,
+     "chi2": 3.977396649152374,
+     "log_ratio": 3.0752881273042374,
+     "log_ratio_ci_low": -1.072864089327624,
+     "log_ratio_ci_high": 7.223440343936099,
+     "lrc": 0.0,
+     "p_value": 0.015716515119691778,
+     "q_value": 0.027503901459460613,
+     "bic": 0.9216615286130239
+    },
+    {
+     "word": "tea",
+     "target_freq": 13,
+     "reference_freq": 4,
+     "target_per_million": 168831.16883116882,
+     "reference_per_million": 67796.61016949153,
+     "ll": 3.30875374397748,
+     "ll_signed": 3.30875374397748,
+     "chi2": 3.117637810131757,
+     "log_ratio": 1.2008190093880962,
+     "log_ratio_ci_low": -0.2591430926447662,
+     "log_ratio_ci_high": 2.6607811114209587,
+     "lrc": 0.0,
+     "p_value": 0.06891173436933458,
+     "q_value": 0.09647642811706841,
+     "bic": -1.6039011417585725
+    },
+    {
+     "word": "green",
+     "target_freq": 6,
+     "reference_freq": 1,
+     "target_per_million": 77922.07792207792,
+     "reference_per_million": 16949.15254237288,
+     "ll": 2.8853785557662595,
+     "ll_signed": 2.8853785557662595,
+     "chi2": 2.543712120602711,
+     "log_ratio": 1.7313337260868757,
+     "log_ratio_ci_low": -0.7831958542581767,
+     "log_ratio_ci_high": 4.245863306431929,
+     "lrc": 0.0,
+     "p_value": 0.08938699568802412,
+     "q_value": 0.10428482830269481,
+     "bic": -2.027276329969793
+    },
+    {
+     "word": "is",
+     "target_freq": 3,
+     "reference_freq": 2,
+     "target_per_million": 38961.03896103896,
+     "reference_per_million": 33898.30508474576,
+     "ll": 0.024338552425518162,
+     "ll_signed": 0.024338552425518162,
+     "chi2": 0.02417745277106124,
+     "log_ratio": 0.10128333583718169,
+     "log_ratio_ci_low": -2.1889302432581137,
+     "log_ratio_ci_high": 2.391496914932477,
+     "lrc": 0.0,
+     "p_value": 0.8760265729635807,
+     "q_value": 0.8760265729635807,
+     "bic": -4.888316333310534
+    },
+    {
+     "word": "coffee",
+     "target_freq": 2,
+     "reference_freq": 8,
+     "target_per_million": 25974.025974025975,
+     "reference_per_million": 135593.22033898305,
+     "ll": 6.0650181196555035,
+     "ll_signed": -6.0650181196555035,
+     "chi2": 5.8922926951982655,
+     "log_ratio": -2.1496782376960373,
+     "log_ratio_ci_low": -4.1248485753834885,
+     "log_ratio_ci_high": -0.1745079000085863,
+     "lrc": 0.0,
+     "p_value": 0.013788533952188776,
+     "q_value": 0.027503901459460613,
+     "bic": 1.1523632339194512
+    }
+   ]
+  },
+  "collocation-tea": {
+   "columns": [
+    {
+     "key": "word",
+     "label": "Collocate",
+     "code": true
+    },
+    {
+     "key": "observed",
+     "label": "O11"
+    },
+    {
+     "key": "f2",
+     "label": "f(v)"
+    },
+    {
+     "key": "expected",
+     "label": "E11",
+     "format": ".2f"
+    },
+    {
+     "key": "mi",
+     "label": "MI",
+     "format": ".4f"
+    },
+    {
+     "key": "ll",
+     "label": "G²",
+     "format": ".2f"
+    },
+    {
+     "key": "logdice",
+     "label": "logDice",
+     "format": ".4f"
+    },
+    {
+     "key": "logdice_window",
+     "label": "logDice (window)",
+     "format": ".4f"
+    },
+    {
+     "key": "delta_p_nc",
+     "label": "ΔP node to coll.",
+     "format": ".4f"
+    },
+    {
+     "key": "delta_p_cn",
+     "label": "ΔP coll. to node",
+     "format": ".4f"
+    },
+    {
+     "key": "log_ratio",
+     "label": "Log Ratio",
+     "format": ".4f"
+    }
+   ],
+   "facts": {
+    "node_frequency": 17,
+    "effective_min_cooccurrence": 2,
+    "window": 3,
+    "within_sentence": true,
+    "target_total": 162
+   },
+   "rows": [
+    {
+     "word": "green",
+     "observed": 6,
+     "f2": 6,
+     "expected": 2.74,
+     "mi": 1.1304,
+     "mi3": 6.3003,
+     "lmi": 6.7824,
+     "npmi": 0.2377,
+     "t": 1.33,
+     "z": 1.9687,
+     "chi2_cell": 3.88,
+     "ll": 9.68,
+     "dice": 0.15,
+     "logdice_window": 11.263,
+     "logdice": 13.0614,
+     "delta_p_nc": 0.0811,
+     "delta_p_cn": 0.5641,
+     "log_ratio": 3.9504,
+     "lrc": 0.0
+    },
+    {
+     "word": "a",
+     "observed": 4,
+     "f2": 5,
+     "expected": 2.28,
+     "mi": 0.8085,
+     "mi3": 4.8085,
+     "lmi": 3.2339,
+     "npmi": 0.1514,
+     "t": 0.86,
+     "z": 1.1355,
+     "chi2_cell": 1.29,
+     "ll": 2.56,
+     "dice": 0.10126582278481013,
+     "logdice_window": 10.6962,
+     "logdice": 12.5406,
+     "delta_p_nc": 0.0427,
+     "delta_p_cn": 0.3541,
+     "log_ratio": 1.8349,
+     "lrc": 0.0
+    },
+    {
+     "word": "is",
+     "observed": 4,
+     "f2": 5,
+     "expected": 2.28,
+     "mi": 0.8085,
+     "mi3": 4.8085,
+     "lmi": 3.2339,
+     "npmi": 0.1514,
+     "t": 0.86,
+     "z": 1.1355,
+     "chi2_cell": 1.29,
+     "ll": 2.56,
+     "dice": 0.10126582278481013,
+     "logdice_window": 10.6962,
+     "logdice": 12.5406,
+     "delta_p_nc": 0.0427,
+     "delta_p_cn": 0.3541,
+     "log_ratio": 1.8349,
+     "lrc": 0.0
+    },
+    {
+     "word": "of",
+     "observed": 4,
+     "f2": 5,
+     "expected": 2.28,
+     "mi": 0.8085,
+     "mi3": 4.8085,
+     "lmi": 3.2339,
+     "npmi": 0.1514,
+     "t": 0.86,
+     "z": 1.1355,
+     "chi2_cell": 1.29,
+     "ll": 2.56,
+     "dice": 0.10126582278481013,
+     "logdice_window": 10.6962,
+     "logdice": 12.5406,
+     "delta_p_nc": 0.0427,
+     "delta_p_cn": 0.3541,
+     "log_ratio": 1.8349,
+     "lrc": 0.0
+    },
+    {
+     "word": "cup",
+     "observed": 4,
+     "f2": 6,
+     "expected": 2.74,
+     "mi": 0.5454,
+     "mi3": 4.5454,
+     "lmi": 2.1817,
+     "npmi": 0.1021,
+     "t": 0.63,
+     "z": 0.7606,
+     "chi2_cell": 0.58,
+     "ll": 1.11,
+     "dice": 0.1,
+     "logdice_window": 10.6781,
+     "logdice": 12.4764,
+     "delta_p_nc": 0.0313,
+     "delta_p_cn": 0.2179,
+     "log_ratio": 1.098,
+     "lrc": 0.0
+    },
+    {
+     "word": "A",
+     "observed": 2,
+     "f2": 3,
+     "expected": 1.37,
+     "mi": 0.5454,
+     "mi3": 2.5454,
+     "lmi": 1.0909,
+     "npmi": 0.086,
+     "t": 0.45,
+     "z": 0.5379,
+     "chi2_cell": 0.29,
+     "ll": 0.55,
+     "dice": 0.05194805194805195,
+     "logdice_window": 9.7332,
+     "logdice": 11.6781,
+     "delta_p_nc": 0.0157,
+     "delta_p_cn": 0.2138,
+     "log_ratio": 0.9869,
+     "lrc": 0.0
+    },
+    {
+     "word": "I",
+     "observed": 2,
+     "f2": 3,
+     "expected": 1.37,
+     "mi": 0.5454,
+     "mi3": 2.5454,
+     "lmi": 1.0909,
+     "npmi": 0.086,
+     "t": 0.45,
+     "z": 0.5379,
+     "chi2_cell": 0.29,
+     "ll": 0.55,
+     "dice": 0.05194805194805195,
+     "logdice_window": 9.7332,
+     "logdice": 11.6781,
+     "delta_p_nc": 0.0157,
+     "delta_p_cn": 0.2138,
+     "log_ratio": 0.9869,
+     "lrc": 0.0
+    },
+    {
+     "word": "and",
+     "observed": 2,
+     "f2": 3,
+     "expected": 1.37,
+     "mi": 0.5454,
+     "mi3": 2.5454,
+     "lmi": 1.0909,
+     "npmi": 0.086,
+     "t": 0.45,
+     "z": 0.5379,
+     "chi2_cell": 0.29,
+     "ll": 0.55,
+     "dice": 0.05194805194805195,
+     "logdice_window": 9.7332,
+     "logdice": 11.6781,
+     "delta_p_nc": 0.0157,
+     "delta_p_cn": 0.2138,
+     "log_ratio": 0.9869,
+     "lrc": 0.0
+    },
+    {
+     "word": "coffee",
+     "observed": 2,
+     "f2": 7,
+     "expected": 3.2,
+     "mi": -0.677,
+     "mi3": 1.323,
+     "lmi": -1.3539,
+     "npmi": -0.1068,
+     "t": -0.85,
+     "z": -0.6697,
+     "chi2_cell": 0.45,
+     "ll": 0.9,
+     "dice": 0.04938271604938271,
+     "logdice_window": 9.6601,
+     "logdice": 11.415,
+     "delta_p_nc": -0.0298,
+     "delta_p_cn": -0.1788,
+     "log_ratio": -0.8875,
+     "lrc": 0.0
+    }
+   ]
+  },
+  "collocation-tea-more": {
+   "source": "collocation-tea",
+   "columns": [
+    {
+     "key": "word",
+     "label": "Collocate",
+     "code": true
+    },
+    {
+     "key": "mi3",
+     "label": "MI³",
+     "format": ".4f"
+    },
+    {
+     "key": "lmi",
+     "label": "local MI",
+     "format": ".4f"
+    },
+    {
+     "key": "npmi",
+     "label": "NPMI",
+     "format": ".4f"
+    },
+    {
+     "key": "t",
+     "label": "t",
+     "format": ".2f"
+    },
+    {
+     "key": "z",
+     "label": "z",
+     "format": ".4f"
+    },
+    {
+     "key": "chi2_cell",
+     "label": "χ² cell",
+     "format": ".2f"
+    },
+    {
+     "key": "dice",
+     "label": "Dice (window)",
+     "format": ".4f"
+    },
+    {
+     "key": "lrc",
+     "label": "LRC",
+     "format": ".4f"
+    }
+   ]
+  },
+  "collocation-lines": {
+   "columns": [
+    {
+     "key": "word",
+     "label": "Collocate",
+     "code": true
+    },
+    {
+     "key": "observed",
+     "label": "O11"
+    },
+    {
+     "key": "lines",
+     "label": "Lines"
+    }
+   ],
+   "rows": [
+    {
+     "word": "green",
+     "observed": 6,
+     "lines": 7
+    },
+    {
+     "word": "a",
+     "observed": 4,
+     "lines": 4
+    },
+    {
+     "word": "A",
+     "observed": 2,
+     "lines": 2
+    }
+   ]
+  },
+  "dispersion": {
+   "columns": [
+    {
+     "key": "term",
+     "label": "Query",
+     "code": true
+    },
+    {
+     "key": "dp",
+     "label": "DP",
+     "format": ".5f"
+    },
+    {
+     "key": "dpnorm",
+     "label": "DP norm.",
+     "format": ".5f"
+    },
+    {
+     "key": "juilland_d",
+     "label": "Juilland D",
+     "format": ".5f"
+    },
+    {
+     "key": "carroll_d2",
+     "label": "Carroll D2",
+     "format": ".5f"
+    },
+    {
+     "key": "vc",
+     "label": "VC",
+     "format": ".5f"
+    },
+    {
+     "key": "range",
+     "label": "Range"
+    },
+    {
+     "key": "dp_min",
+     "label": "DP min",
+     "format": ".5f"
+    },
+    {
+     "key": "dp_expected",
+     "label": "DP expected",
+     "format": ".5f"
+    },
+    {
+     "key": "dp_max",
+     "label": "DP max",
+     "format": ".5f"
+    },
+    {
+     "key": "classification",
+     "label": "Label",
+     "code": true
+    }
+   ],
+   "rows": [
+    {
+     "term": "tea",
+     "partitions": [
+      3,
+      0,
+      3,
+      0,
+      3,
+      2,
+      2,
+      4
+     ],
+     "doc_sizes": [
+      24,
+      21,
+      23,
+      17,
+      26,
+      18,
+      14,
+      19
+     ],
+     "dp": 0.23456790123456794,
+     "dpnorm": 0.2567567567567568,
+     "vc": 0.6407480877975202,
+     "juilland_d": 0.7578199866639402,
+     "carroll_d2": 0.8474942312699091,
+     "range": 6,
+     "range_prop": 0.75,
+     "dp_min": 0.063907,
+     "dp_max": 0.91358,
+     "classification": "fairly_even",
+     "dp_expected": 0.25624
+    },
+    {
+     "term": "coffee",
+     "partitions": [
+      0,
+      3,
+      1,
+      3,
+      1,
+      1,
+      1,
+      0
+     ],
+     "doc_sizes": [
+      24,
+      21,
+      23,
+      17,
+      26,
+      18,
+      14,
+      19
+     ],
+     "dp": 0.3790123456790123,
+     "dpnorm": 0.4148648648648648,
+     "vc": 0.8995717967804147,
+     "juilland_d": 0.659993819895927,
+     "carroll_d2": 0.7903168648182228,
+     "range": 6,
+     "range_prop": 0.75,
+     "dp_min": 0.104938,
+     "dp_max": 0.91358,
+     "classification": "fairly_clustered",
+     "dp_expected": 0.334065
+    }
+   ]
+  },
+  "dispersion-tea-parts": {
+   "columns": [
+    {
+     "key": "document",
+     "label": "Document",
+     "code": true
+    },
+    {
+     "key": "register",
+     "label": "register"
+    },
+    {
+     "key": "hits",
+     "label": "Hits of tea"
+    },
+    {
+     "key": "tokens",
+     "label": "Tokens"
+    }
+   ],
+   "rows": [
+    {
+     "document": "d1",
+     "register": "blog",
+     "hits": 3,
+     "tokens": 24
+    },
+    {
+     "document": "d2",
+     "register": "news",
+     "hits": 0,
+     "tokens": 21
+    },
+    {
+     "document": "d3",
+     "register": "blog",
+     "hits": 3,
+     "tokens": 23
+    },
+    {
+     "document": "d4",
+     "register": "news",
+     "hits": 0,
+     "tokens": 17
+    },
+    {
+     "document": "d5",
+     "register": "blog",
+     "hits": 3,
+     "tokens": 26
+    },
+    {
+     "document": "d6",
+     "register": "news",
+     "hits": 2,
+     "tokens": 18
+    },
+    {
+     "document": "d7",
+     "register": "news",
+     "hits": 2,
+     "tokens": 14
+    },
+    {
+     "document": "d8",
+     "register": "blog",
+     "hits": 4,
+     "tokens": 19
+    }
+   ]
+  },
+  "trend-tea": {
+   "columns": [
+    {
+     "key": "period",
+     "label": "Year"
+    },
+    {
+     "key": "documents",
+     "label": "Documents"
+    },
+    {
+     "key": "hits",
+     "label": "Hits"
+    },
+    {
+     "key": "tokens",
+     "label": "Word tokens"
+    },
+    {
+     "key": "per_million",
+     "label": "Per million",
+     "format": ",.2f"
+    },
+    {
+     "key": "ci_low",
+     "label": "95 % CI low",
+     "format": ",.2f"
+    },
+    {
+     "key": "ci_high",
+     "label": "95 % CI high",
+     "format": ",.2f"
+    }
+   ],
+   "rows": [
+    {
+     "period": "2019",
+     "documents": 2,
+     "hits": 3,
+     "tokens": 39,
+     "per_million": 76923.07692307692,
+     "ci_low": 26507.39530377974,
+     "ci_high": 203210.71167954995
+    },
+    {
+     "period": "2020",
+     "documents": 2,
+     "hits": 3,
+     "tokens": 34,
+     "per_million": 88235.29411764706,
+     "ci_low": 30465.943674648555,
+     "ci_high": 229604.86562808868
+    },
+    {
+     "period": "2021",
+     "documents": 2,
+     "hits": 5,
+     "tokens": 36,
+     "per_million": 138888.8888888889,
+     "ci_low": 60818.150091328374,
+     "ci_high": 286595.303893562
+    },
+    {
+     "period": "2022",
+     "documents": 2,
+     "hits": 6,
+     "tokens": 27,
+     "per_million": 222222.22222222222,
+     "ci_low": 106072.39452360038,
+     "ci_high": 407569.2886663257
+    }
+   ]
+  },
+  "bigrams-tea": {
+   "columns": [
+    {
+     "key": "ngram",
+     "label": "Bigram",
+     "code": true
+    },
+    {
+     "key": "freq",
+     "label": "Frequency"
+    }
+   ],
+   "facts": {
+    "total_candidates": 93
+   },
+   "rows": [
+    {
+     "ngram": "green tea",
+     "freq": 6
+    },
+    {
+     "ngram": "cup of",
+     "freq": 5
+    },
+    {
+     "ngram": "of tea",
+     "freq": 3
+    },
+    {
+     "ngram": "A cup",
+     "freq": 3
+    },
+    {
+     "ngram": "I drink",
+     "freq": 2
+    },
+    {
+     "ngram": "tea is",
+     "freq": 2
+    },
+    {
+     "ngram": "a cup",
+     "freq": 2
+    },
+    {
+     "ngram": "for coffee",
+     "freq": 2
+    },
+    {
+     "ngram": "morning ritual",
+     "freq": 1
+    },
+    {
+     "ngram": "my morning",
+     "freq": 1
+    }
+   ]
+  },
+  "lexdiv-tea": {
+   "from_facts": true,
+   "columns": [
+    {
+     "key": "n_tokens",
+     "label": "Word tokens"
+    },
+    {
+     "key": "n_types",
+     "label": "Types"
+    },
+    {
+     "key": "ttr",
+     "label": "TTR",
+     "format": ".5f"
+    },
+    {
+     "key": "guiraud",
+     "label": "Guiraud R",
+     "format": ".5f"
+    },
+    {
+     "key": "sttr",
+     "label": "STTR",
+     "format": ".5f"
+    },
+    {
+     "key": "sttr_windows",
+     "label": "STTR windows"
+    },
+    {
+     "key": "mattr",
+     "label": "MATTR",
+     "format": ".5f"
+    }
+   ],
+   "facts": {
+    "n_tokens": 136,
+    "n_types": 75,
+    "ttr": 0.5514705882352942,
+    "guiraud": 6.431196942844081,
+    "sttr": 0.9,
+    "sttr_windows": 6,
+    "mattr": 0.8910256410256411
+   }
+  },
+  "wordsketch-tea": {
+   "columns": [
+    {
+     "key": "relation",
+     "label": "Relation",
+     "code": true
+    },
+    {
+     "key": "word",
+     "label": "Collocate",
+     "code": true
+    },
+    {
+     "key": "f",
+     "label": "Pairs"
+    },
+    {
+     "key": "f2",
+     "label": "f(collocate)"
+    },
+    {
+     "key": "logdice",
+     "label": "logDice",
+     "format": ".4f"
+    },
+    {
+     "key": "ll",
+     "label": "G²",
+     "format": ".3f"
+    },
+    {
+     "key": "t",
+     "label": "t",
+     "format": ".3f"
+    }
+   ],
+   "facts": {
+    "node_frequency": 13,
+    "corpus_tokens": 162
+   },
+   "rows": [
+    {
+     "relation": "amod",
+     "word": "green",
+     "f": 6,
+     "f2": 6,
+     "logdice": 13.33703498727757,
+     "ll": 33.38019714621127,
+     "chi2_cell": 63.25071225071224,
+     "t": 2.2529257510783554
+    },
+    {
+     "relation": "amod",
+     "word": "black",
+     "f": 1,
+     "f2": 1,
+     "logdice": 11.192645077942396,
+     "ll": 5.118083391207378,
+     "chi2_cell": 10.541785375118709,
+     "t": 0.9197530864197531
+    },
+    {
+     "relation": "amod",
+     "word": "Hot",
+     "f": 1,
+     "f2": 1,
+     "logdice": 11.192645077942396,
+     "ll": 5.118083391207378,
+     "chi2_cell": 10.541785375118709,
+     "t": 0.9197530864197531
+    },
+    {
+     "relation": "pobj_rev",
+     "word": "of",
+     "f": 4,
+     "f2": 5,
+     "logdice": 12.830074998557688,
+     "ll": 16.57619846102505,
+     "chi2_cell": 32.27815764482431,
+     "t": 1.7993827160493827
+    },
+    {
+     "relation": "appos_rev",
+     "word": "tea",
+     "f": 2,
+     "f2": 13,
+     "logdice": 11.299560281858907,
+     "ll": 0.8538455125554392,
+     "chi2_cell": 0.8775294031704289,
+     "t": 0.6765527844686102
+    },
+    {
+     "relation": "dobj_rev",
+     "word": "prefer",
+     "f": 1,
+     "f2": 1,
+     "logdice": 11.192645077942396,
+     "ll": 5.118083391207378,
+     "chi2_cell": 10.541785375118709,
+     "t": 0.9197530864197531
+    },
+    {
+     "relation": "dobj_rev",
+     "word": "drinks",
+     "f": 1,
+     "f2": 1,
+     "logdice": 11.192645077942396,
+     "ll": 5.118083391207378,
+     "chi2_cell": 10.541785375118709,
+     "t": 0.9197530864197531
+    },
+    {
+     "relation": "dobj_rev",
+     "word": "drink",
+     "f": 1,
+     "f2": 2,
+     "logdice": 11.09310940439148,
+     "ll": 2.500913181571317,
+     "chi2_cell": 4.3912630579297245,
+     "t": 0.8395061728395061
+    },
+    {
+     "relation": "compound_rev",
+     "word": "wins",
+     "f": 1,
+     "f2": 1,
+     "logdice": 11.192645077942396,
+     "ll": 5.118083391207378,
+     "chi2_cell": 10.541785375118709,
+     "t": 0.9197530864197531
+    },
+    {
+     "relation": "nsubj_rev",
+     "word": "gaining",
+     "f": 1,
+     "f2": 1,
+     "logdice": 11.192645077942396,
+     "ll": 5.118083391207378,
+     "chi2_cell": 10.541785375118709,
+     "t": 0.9197530864197531
+    },
+    {
+     "relation": "prep",
+     "word": "over",
+     "f": 1,
+     "f2": 1,
+     "logdice": 11.192645077942396,
+     "ll": 5.118083391207378,
+     "chi2_cell": 10.541785375118709,
+     "t": 0.9197530864197531
+    },
+    {
+     "relation": "prep",
+     "word": "with",
+     "f": 1,
+     "f2": 1,
+     "logdice": 11.192645077942396,
+     "ll": 5.118083391207378,
+     "chi2_cell": 10.541785375118709,
+     "t": 0.9197530864197531
+    },
+    {
+     "relation": "compound",
+     "word": "Green",
+     "f": 1,
+     "f2": 1,
+     "logdice": 11.192645077942396,
+     "ll": 5.118083391207378,
+     "chi2_cell": 10.541785375118709,
+     "t": 0.9197530864197531
+    },
+    {
+     "relation": "appos",
+     "word": "cup",
+     "f": 1,
+     "f2": 6,
+     "logdice": 10.752072486556415,
+     "ll": 0.4987112540946145,
+     "chi2_cell": 0.5584045584045586,
+     "t": 0.5185185185185186
+    }
+   ]
+  },
+  "keyness-sotu-freedom": {
+   "columns": [
+    {
+     "key": "word",
+     "label": "Word",
+     "code": true
+    },
+    {
+     "key": "target_freq",
+     "label": "a (Republican)"
+    },
+    {
+     "key": "reference_freq",
+     "label": "c (Democratic)"
+    },
+    {
+     "key": "target_per_million",
+     "label": "a per million",
+     "format": ",.2f"
+    },
+    {
+     "key": "reference_per_million",
+     "label": "c per million",
+     "format": ",.2f"
+    },
+    {
+     "key": "ll",
+     "label": "G²",
+     "format": ".2f"
+    },
+    {
+     "key": "log_ratio",
+     "label": "Log Ratio",
+     "format": ".3f"
+    },
+    {
+     "key": "log_ratio_ci_low",
+     "label": "CI low",
+     "format": ".3f"
+    },
+    {
+     "key": "log_ratio_ci_high",
+     "label": "CI high",
+     "format": ".3f"
+    },
+    {
+     "key": "lrc",
+     "label": "LRC",
+     "format": ".3f"
+    },
+    {
+     "key": "p_value",
+     "label": "p",
+     "format": ".2e"
+    },
+    {
+     "key": "q_value",
+     "label": "q",
+     "format": ".2e"
+    }
+   ],
+   "facts": {
+    "target_total": 174284,
+    "reference_total": 180221,
+    "target_tokens_raw": 199379,
+    "reference_tokens_raw": 203905,
+    "total_candidates": 4627,
+    "target_docs": 36,
+    "reference_docs": 29
+   },
+   "rows": [
+    {
+     "word": "freedom",
+     "target_freq": 330,
+     "reference_freq": 165,
+     "target_per_million": 1893.4612471598082,
+     "reference_per_million": 915.5425838276338,
+     "ll": 61.81751016984384,
+     "log_ratio": 1.0461460535640008,
+     "log_ratio_ci_low": 0.7770493997649097,
+     "log_ratio_ci_high": 1.315242707363092,
+     "lrc": 0.34457058886477065,
+     "p_value": 3.768086288801781e-15,
+     "q_value": 1.743493525828584e-12,
+     "bic": 49.03903244061664
+    }
+   ]
+  }
+ }
+}

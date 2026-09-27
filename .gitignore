@@ -1,0 +1,24 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Built extensions and packages
+*.so
+app/build/
+app/dist/
+
+# Runtime: local indexes, project files
+runtime/
+*.ccproj
+
+# Web interface
+node_modules/
+candyconc-web/dist/
+
+.DS_Store

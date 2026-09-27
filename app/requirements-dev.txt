@@ -1,0 +1,4 @@
+# CandyConc dev/test tooling (not needed at runtime)
+build>=1.2,<2                    # PEP 517 wheel/sdist builder
+pytest>=7.4,<9                   # Test runner
+ruff>=0.4.4,<1                   # Linter

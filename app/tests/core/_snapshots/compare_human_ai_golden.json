@@ -1,0 +1,82 @@
+[
+  {
+    "word": ".",
+    "freq_human": 2.0,
+    "freq_ai": 2.0,
+    "chi2_cell_human": 0.07,
+    "chi2_cell_ai": 0.02,
+    "log_ratio": 0.4
+  },
+  {
+    "word": "der",
+    "freq_human": 3.0,
+    "freq_ai": 4.0,
+    "chi2_cell_human": 0.0,
+    "chi2_cell_ai": 0.0,
+    "log_ratio": 0.04
+  },
+  {
+    "word": "heute",
+    "freq_human": 1.0,
+    "freq_ai": 2.0,
+    "chi2_cell_human": 0.05,
+    "chi2_cell_ai": 0.07,
+    "log_ratio": -0.33
+  },
+  {
+    "word": "hund",
+    "freq_human": 2.0,
+    "freq_ai": 4.0,
+    "chi2_cell_human": 0.29,
+    "chi2_cell_ai": 0.0,
+    "log_ratio": -0.44
+  },
+  {
+    "word": "läuft",
+    "freq_human": 1.0,
+    "freq_ai": 0.0,
+    "chi2_cell_human": 0.82,
+    "chi2_cell_ai": 0.0,
+    "log_ratio": 1.99
+  },
+  {
+    "word": "rennt",
+    "freq_human": 0.0,
+    "freq_ai": 3.0,
+    "chi2_cell_human": 0.0,
+    "chi2_cell_ai": 1.07,
+    "log_ratio": -2.4
+  },
+  {
+    "word": "ruhig",
+    "freq_human": 2.0,
+    "freq_ai": 0.0,
+    "chi2_cell_human": 1.63,
+    "chi2_cell_ai": 0.0,
+    "log_ratio": 2.73
+  },
+  {
+    "word": "schnell",
+    "freq_human": 1.0,
+    "freq_ai": 2.0,
+    "chi2_cell_human": 0.05,
+    "chi2_cell_ai": 0.07,
+    "log_ratio": -0.33
+  },
+  {
+    "word": "sitzt",
+    "freq_human": 2.0,
+    "freq_ai": 1.0,
+    "chi2_cell_human": 0.45,
+    "chi2_cell_ai": 0.27,
+    "log_ratio": 1.14
+  },
+  {
+    "word": "und",
+    "freq_human": 1.0,
+    "freq_ai": 2.0,
+    "chi2_cell_human": 0.05,
+    "chi2_cell_ai": 0.07,
+    "log_ratio": -0.33
+  }
+]

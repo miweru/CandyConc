@@ -1,0 +1,232 @@
+# Release artifacts: web interface -> sdist with the built interface and the
+# HTML documentation (documented Sphinx build, also as a ZIP file) -> wheels
+# built FROM the sdist (cibuildwheel, each wheel installed and checked) ->
+# application bundles from the wheels (each unpacked elsewhere and checked) ->
+# on a tag v*: a DRAFT release with all files, SHA256SUMS and the release notes
+# of docs/help/release-notes.md.
+#
+# The draft is published by hand after downloading the files again and
+# checking their hashes. workflow_dispatch builds everything without a release.
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  # Portable native extensions without libomp. Measured on the sample corpora:
+  # OpenMP changes no query or collocation time (release notes, packaging).
+  CANDYCONC_ENABLE_OPENMP: "off"
+
+jobs:
+  web:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: candyconc-web/package-lock.json
+      - run: npm ci
+        working-directory: candyconc-web
+      # vue-tsc type check, vite build, THIRD_PARTY_LICENSES.txt of the npm packages
+      - run: npm run build
+        working-directory: candyconc-web
+      - uses: actions/upload-artifact@v7
+        with:
+          name: web-dist
+          path: candyconc-web/dist
+
+  sdist:
+    needs: web
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
+        with:
+          name: web-dist
+          path: web-dist
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      # setup-uv publishes full version tags only (v10.2.0, no v10).
+      - uses: astral-sh/setup-uv@v10.2.0
+      # The footer of every documentation page names the commit it was built from.
+      - name: Commit for the documentation footer
+        run: echo "CANDYCONC_DOCS_COMMIT=${GITHUB_SHA::10}" >> "$GITHUB_ENV"
+      # The pinned Sphinx toolchain lets build_web.py put the HTML manual into
+      # the package, where the server serves it under /docs/ (help menu).
+      - name: Documentation toolchain
+        run: python -m venv .venv-docs && .venv-docs/bin/python -m pip install -r docs/requirements.txt
+      # --require-docs: the documented build (-W -n, any warning stops it) must
+      # succeed and name its commit. The same HTML goes into the package and,
+      # as candyconc-VERSION-docs-html.zip, to the release.
+      - name: Web interface and documentation into the package, documentation ZIP
+        run: python packaging/build_web.py --dist web-dist --require-docs --docs-python .venv-docs/bin/python --docs-zip docs-zip
+      # One source: the section of this version in docs/help/release-notes.md,
+      # with links to the documentation pages at this ref. On a tag the tag
+      # must be v followed by the version in app/pyproject.toml.
+      - name: Release notes
+        run: |
+          tag=()
+          if [ "$GITHUB_REF_TYPE" = tag ]
+          then
+            tag=(--tag "$GITHUB_REF_NAME")
+          fi
+          python packaging/release_notes.py "${tag[@]}" \
+            --repository-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME" \
+            --output release-notes/RELEASE_NOTES.md
+      - name: Build the sdist (fails without the web interface)
+        env:
+          CANDYCONC_REQUIRE_WEB_DIST: "1"
+        run: uv build --sdist --out-dir dist app
+      - name: No paths of the build machine in the sdist metadata
+        run: python packaging/check_sdist.py dist/*.tar.gz
+      - uses: actions/upload-artifact@v7
+        with:
+          name: sdist
+          path: dist/*.tar.gz
+      - uses: actions/upload-artifact@v7
+        with:
+          name: docs-html
+          path: docs-zip/*.zip
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-notes
+          path: release-notes/RELEASE_NOTES.md
+
+  wheels:
+    needs: sdist
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-24.04, archs: x86_64 }
+          # Linux arm64 runners exist for public repositories only
+          # (ubuntu-24.04-arm). QEMU works for both.
+          - { os: ubuntu-24.04, archs: aarch64 }
+          - { os: macos-15-intel, archs: x86_64 }
+          - { os: macos-14, archs: arm64 }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: sdist
+          path: sdist
+      - if: matrix.archs == 'aarch64'
+        uses: docker/setup-qemu-action@v4
+      - name: cibuildwheel from the sdist
+        env:
+          CIBW_BUILD: "cp311-* cp312-* cp313-* cp314-*"
+          CIBW_SKIP: "*-musllinux_*"
+          CIBW_ARCHS: ${{ matrix.archs }}
+          CIBW_ENVIRONMENT: "CANDYCONC_ENABLE_OPENMP=off CANDYCONC_REQUIRE_WEB_DIST=1"
+          CIBW_ENVIRONMENT_MACOS: "CANDYCONC_ENABLE_OPENMP=off CANDYCONC_REQUIRE_WEB_DIST=1 MACOSX_DEPLOYMENT_TARGET=11.0"
+          # Each wheel is installed with its dependencies and checked: native
+          # extensions, interface and notices in the package, candy import
+          # (blank:en), candy serving the interface, search and CSV export.
+          CIBW_TEST_COMMAND: "candy --version && python -m candyconc.tools.install_smoke --require-web"
+        run: pipx run cibuildwheel==4.2.1 --output-dir wheelhouse "$(ls sdist/*.tar.gz)"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: wheels-${{ matrix.os }}-${{ matrix.archs }}
+          path: wheelhouse/*.whl
+
+  bundles:
+    needs: wheels
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: macos-14, platform: macos-arm64 }
+          - { os: macos-15-intel, platform: macos-x86_64 }
+          - { os: ubuntu-24.04, platform: linux-x86_64 }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: wheels-*
+          merge-multiple: true
+          path: wheelhouse
+      # setup-uv publishes full version tags only (v10.2.0, no v10).
+      - uses: astral-sh/setup-uv@v10.2.0
+      - name: Build the bundle (CPython 3.12 from python-build-standalone)
+        env:
+          CANDYCONC_BUNDLE_PLATFORM: ${{ matrix.platform }}
+        run: sh packaging/bundle/build_bundle.sh --wheels wheelhouse --python 3.12 --out bundle
+      - name: Unpack elsewhere with fresh application data and use it
+        run: |
+          mkdir -p "$RUNNER_TEMP/place" "$RUNNER_TEMP/candyconc-data"
+          tar -xzf bundle/*.tar.gz -C "$RUNNER_TEMP/place"
+          X=$(ls -d "$RUNNER_TEMP"/place/CandyConc-*)
+          export CANDYCONC_HOME="$RUNNER_TEMP/candyconc-data" CANDYCONC_NO_BROWSER=1 CANDYCONC_BUILD_ALLOW_LOW_DISK=1
+          export CANDYCONC_CONFIG_FILE="$RUNNER_TEMP/candyconc-config.toml"
+          : > "$CANDYCONC_CONFIG_FILE"
+          export COPILOT_ENDPOINT=http://127.0.0.1:9/v1/responses
+          export CANDYCONC_GEMMA_EMB_ENDPOINT=http://127.0.0.1:9/v1/embeddings
+          "$X/candyconc" version
+          for f in README.md ATTRIBUTION.txt LICENSE-CC-BY-SA-4.0.txt sotu_en_1945_2006.jsonl dta_de_1800_1899_sample.jsonl; do
+            test -f "$X/examples/$f"
+          done
+          "$X/candyconc" import --input "$X/sample/synthetic_en.csv" --input-format csv \
+            --id-column doc_id --meta-columns genre --spacy-model blank:en \
+            --output "$CANDYCONC_HOME/corpora/sample_en"
+          "$X/candyconc" --port 8037 > server.log 2>&1 &
+          curl -sf --retry 60 --retry-delay 1 --retry-connrefused http://127.0.0.1:8037/api/v1/health
+          curl -sf http://127.0.0.1:8037/ | grep -q '<div id="app">'
+          curl -sf "http://127.0.0.1:8037/api/v1/query?term=river&corpus=sample_en" \
+            | python3 -c "import json,sys; assert len(json.load(sys.stdin)) == 4"
+          kill %1
+      - uses: actions/upload-artifact@v7
+        with:
+          name: bundle-${{ matrix.platform }}
+          path: bundle/*.tar.gz*
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [sdist, wheels, bundles]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+      # Only the release files. Without a name or pattern download-artifact
+      # takes every artifact of the run, web-dist (index.html, assets/) included.
+      - uses: actions/download-artifact@v8
+        with:
+          name: sdist
+          path: artifacts
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: wheels-*
+          merge-multiple: true
+          path: artifacts
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: bundle-*
+          merge-multiple: true
+          path: artifacts
+      - uses: actions/download-artifact@v8
+        with:
+          name: docs-html
+          path: artifacts
+      - uses: actions/download-artifact@v8
+        with:
+          name: release-notes
+          path: notes
+      - name: Checksums
+        run: |
+          cp notes/RELEASE_NOTES.md artifacts/RELEASE_NOTES.md
+          cd artifacts && rm -f ./*.sha256 && sha256sum -- * > SHA256SUMS
+      - name: Release draft
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" --draft --prerelease --verify-tag \
+            --title "CandyConc ${GITHUB_REF_NAME#v}" --notes-file notes/RELEASE_NOTES.md artifacts/*

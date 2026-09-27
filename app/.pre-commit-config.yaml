@@ -1,0 +1,13 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff
+        entry: ruff check --fix .
+        language: system
+        pass_filenames: false
+      - id: check-no-placeholders
+        name: check-no-placeholders
+        entry: python scripts/check_no_placeholders.py
+        language: system
+        pass_filenames: false

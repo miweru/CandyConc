@@ -1,0 +1,92 @@
+#!/bin/sh
+# CandyConc application bundle launcher (macOS and Linux).
+#
+# The bundle is this folder: a private Python (python/) with CandyConc and its
+# dependencies installed, this script, the sample corpora in examples/ (see
+# examples/README.md and README.txt), sample/ and license notices. It runs
+# without a system Python, compiler, Node or network. Move it anywhere, every
+# path is derived from the location of this script.
+#
+#   ./candyconc                  start CandyConc and open the web interface
+#   ./candyconc import ...       import a corpus (options: ./candyconc import --help)
+#   ./candyconc pipeline NAME    download a spaCy pipeline, e.g. en_core_web_sm
+#   ./candyconc paths            show where your data and settings live
+#   ./candyconc version          show the versions
+#   ./candyconc uninstall        remove this bundle folder (your data stays)
+#
+# Your data (corpora, projects, settings, downloaded pipelines) lives in
+# $CANDYCONC_HOME, by default ~/.candyconc, never inside this folder. An update
+# replaces this folder and keeps the data.
+set -eu
+
+HERE=$(cd "$(dirname "$0")" && pwd)
+PY="$HERE/python/bin/python3"
+DATA="${CANDYCONC_HOME:-$HOME/.candyconc}"
+PIPELINES="$DATA/pipelines"
+
+# spaCy pipelines downloaded with "./candyconc pipeline" live with the data,
+# so that they survive an update of the bundle.
+export PYTHONPATH="$PIPELINES${PYTHONPATH:+:$PYTHONPATH}"
+export PYTHONNOUSERSITE=1
+
+if [ ! -x "$PY" ]; then
+  echo "This CandyConc bundle is incomplete: $PY is missing." >&2
+  exit 1
+fi
+
+command="${1:-start}"
+case "$command" in
+  start)
+    [ $# -gt 0 ] && shift
+    mkdir -p "$DATA"
+    cd "$DATA"
+    if [ -n "${CANDYCONC_NO_BROWSER:-}" ]; then
+      exec "$PY" -m candyconc.entrypoints.cli "$@"
+    fi
+    exec "$PY" -m candyconc.entrypoints.cli --open "$@"
+    ;;
+  import)
+    shift
+    exec "$PY" -m candyconc.entrypoints.cli import "$@"
+    ;;
+  pipeline)
+    shift
+    if [ $# -lt 1 ]; then
+      echo "Usage: $0 pipeline NAME   (for example en_core_web_sm or de_core_news_md)" >&2
+      exit 2
+    fi
+    exec "$PY" -m candyconc.entrypoints.cli pipeline --target "$PIPELINES" "$@"
+    ;;
+  paths)
+    exec "$PY" -m candyconc.entrypoints.cli paths
+    ;;
+  version|--version)
+    "$PY" -m candyconc.entrypoints.cli --version
+    exec "$PY" -c "import importlib.metadata as m; print('spaCy', m.version('spacy'), '| bundle at $HERE')"
+    ;;
+  uninstall)
+    echo "This removes the CandyConc bundle folder:"
+    echo "  $HERE"
+    echo "Your data stays in $DATA. To remove it as well, delete that folder yourself."
+    if [ "${2:-}" != "--yes" ]; then
+      printf "Remove the bundle folder? [y/N] "
+      read -r answer
+      case "$answer" in
+        y|Y|yes|YES) ;;
+        *) echo "Nothing removed."; exit 0 ;;
+      esac
+    fi
+    cd /
+    rm -rf "$HERE"
+    echo "Removed $HERE."
+    ;;
+  help|-h|--help)
+    sed -n '2,/^set -eu$/p' "$0" | sed -n 's/^# \{0,1\}//p'
+    ;;
+  *)
+    # Anything else goes to the server command, e.g. ./candyconc --port 8020
+    mkdir -p "$DATA"
+    cd "$DATA"
+    exec "$PY" -m candyconc.entrypoints.cli "$@"
+    ;;
+esac

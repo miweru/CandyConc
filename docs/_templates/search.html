@@ -1,0 +1,5 @@
+{%- extends "!search.html" %}
+{#- The theme writes "Search - CandyConc". The same separator as every other page. -#}
+{%- block htmltitle -%}
+  <title>{{ _("Search") }} | {{ title or docstitle }}</title>
+{%- endblock htmltitle -%}

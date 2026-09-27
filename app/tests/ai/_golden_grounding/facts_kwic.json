@@ -1,0 +1,57 @@
+[
+  {
+    "exactness": "sample_only",
+    "fact_kind": "kwic_example",
+    "grounding_quotes": [
+      "kwic[1] \"Wir gehen nach Haus und schlafen.\"",
+      "row[1] {'kw': 'Haus', 'doc_id': 'doc_0001', 'left': 'Wir gehen nach', 'right': 'und schlafen.'}",
+      "analysis_input=Haus"
+    ],
+    "id": "E2_kwic_1",
+    "limitations": [],
+    "source_evidence_ids": [
+      "E2"
+    ],
+    "statement": "Sichtbares KWIC-Beispiel: \"Wir gehen nach Haus und schlafen.\".",
+    "supports_claims": [
+      "examples",
+      "interpretation_anchor"
+    ]
+  },
+  {
+    "exactness": "sample_only",
+    "fact_kind": "kwic_example",
+    "grounding_quotes": [
+      "kwic[2] \"Das alte Haus steht leer.\"",
+      "row[2] {'kw': 'Haus', 'doc_id': 'doc_0002', 'left': 'Das alte', 'right': 'steht leer.'}",
+      "analysis_input=Haus"
+    ],
+    "id": "E2_kwic_2",
+    "limitations": [],
+    "source_evidence_ids": [
+      "E2"
+    ],
+    "statement": "Sichtbares KWIC-Beispiel: \"Das alte Haus steht leer.\".",
+    "supports_claims": [
+      "examples",
+      "interpretation_anchor"
+    ]
+  },
+  {
+    "exactness": "exact",
+    "fact_kind": "count",
+    "grounding_quotes": [
+      "total=2",
+      "analysis_input=Haus"
+    ],
+    "id": "E2_total",
+    "limitations": [],
+    "source_evidence_ids": [
+      "E2"
+    ],
+    "statement": "Die sichtbare Trefferzahl ist total=2.",
+    "supports_claims": [
+      "counts"
+    ]
+  }
+]

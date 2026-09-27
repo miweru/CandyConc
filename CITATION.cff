@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use CandyConc in your research, please cite it as below."
+type: software
+title: CandyConc
+abstract: >-
+  CandyConc is a local corpus analysis application: a KWIC concordancer with
+  its own corpus index and CQP-style query language, corpus statistics with
+  method records, document context, metadata-based subcorpora, exports with
+  provenance, and an optional research copilot that calls the same analysis
+  operations.
+authors:
+  - family-names: Ruppert
+    given-names: Michael
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/miweru/CandyConc"
+url: "https://github.com/miweru/CandyConc"
+keywords:
+  - corpus linguistics
+  - concordancer
+  - KWIC
+  - CQP
+  - collocation
+  - keyness

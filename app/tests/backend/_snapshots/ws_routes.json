@@ -1,0 +1,4 @@
+[
+  "/api/v1/ws/analysis/{job_id}",
+  "/api/v1/ws/faiss/{job_id}"
+]

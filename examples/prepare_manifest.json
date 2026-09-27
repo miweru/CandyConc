@@ -1,0 +1,318 @@
+{
+  "prepared_at_utc": "2026-09-26T20:36:23Z",
+  "script": "prepare_sample_corpora.py",
+  "inputs": {
+    "state_union.zip": {
+      "url": "https://raw.githubusercontent.com/nltk/nltk_data/gh-pages/packages/corpora/state_union.zip",
+      "sha256": "366c1dc82b2abf896f42b2ec50ba802a0141a29f75d29ca48a7a243ce5bfbe8d"
+    },
+    "dtak_2020-10-23_normalized_1800-1899.zip": {
+      "url": "https://www.deutschestextarchiv.de/media/download/dtak/2020-10-23/normalized/1800-1899.zip",
+      "sha256": "84b334bdbff73099366fe09ce298cc5659fec1fcabf22b4aa45446db00192615"
+    },
+    "dta_metadaten_oai_dc_2026-02-12.zip": {
+      "url": "https://www.deutschestextarchiv.de/media/download/dta_metadaten_oai_dc_2026-02-12.zip",
+      "sha256": "97cee635634aa92064daa67ecb71c313cf2726044b0b1853d03de67a10893775"
+    }
+  },
+  "dta_selection_rule": {
+    "corpus": "DTA core corpus (publisher 'Deutsches Textarchiv (Kernkorpus)'), normalized plain text 2020-10-23",
+    "years": "1800-1899 (dc:date)",
+    "genres": [
+      "Belletristik",
+      "Gebrauchsliteratur",
+      "Wissenschaft"
+    ],
+    "whitespace_words": [
+      5000,
+      40000
+    ],
+    "per_cell": "one text per decade x genre, closest to 15000 words, ties by DTA dirname"
+  },
+  "dta_selection": [
+    {
+      "cell": [
+        "1800s",
+        "Belletristik"
+      ],
+      "chosen": "robert_sylphen_1806",
+      "words": 17634,
+      "candidates": 18
+    },
+    {
+      "cell": [
+        "1800s",
+        "Gebrauchsliteratur"
+      ],
+      "chosen": "raabe_postgeheimnisse_1803",
+      "words": 14704,
+      "candidates": 2
+    },
+    {
+      "cell": [
+        "1800s",
+        "Wissenschaft"
+      ],
+      "chosen": "rhode_schall_1800",
+      "words": 7904,
+      "candidates": 2
+    },
+    {
+      "cell": [
+        "1810s",
+        "Belletristik"
+      ],
+      "chosen": "grillparzer_sappho_1819",
+      "words": 17099,
+      "candidates": 8
+    },
+    {
+      "cell": [
+        "1810s",
+        "Gebrauchsliteratur"
+      ],
+      "chosen": "perthes_buchhandel_1816",
+      "words": 5443,
+      "candidates": 2
+    },
+    {
+      "cell": [
+        "1810s",
+        "Wissenschaft"
+      ],
+      "chosen": "zeller_turnkunst_1817",
+      "words": 6013,
+      "candidates": 4
+    },
+    {
+      "cell": [
+        "1820s",
+        "Belletristik"
+      ],
+      "chosen": "platen_oedipus_1829",
+      "words": 14988,
+      "candidates": 19
+    },
+    {
+      "cell": [
+        "1820s",
+        "Gebrauchsliteratur"
+      ],
+      "chosen": "ernst_nordamerika_1820",
+      "words": 30065,
+      "candidates": 3
+    },
+    {
+      "cell": [
+        "1820s",
+        "Wissenschaft"
+      ],
+      "chosen": "gessert_schulzucht_1826",
+      "words": 11843,
+      "candidates": 5
+    },
+    {
+      "cell": [
+        "1830s",
+        "Belletristik"
+      ],
+      "chosen": "nestroy_lumpacivagabundus_1835",
+      "words": 14258,
+      "candidates": 20
+    },
+    {
+      "cell": [
+        "1830s",
+        "Gebrauchsliteratur"
+      ],
+      "chosen": "daguerre_daguerrereotyp_1839",
+      "words": 14127,
+      "candidates": 3
+    },
+    {
+      "cell": [
+        "1830s",
+        "Wissenschaft"
+      ],
+      "chosen": "diesterweg_universitaeten_1836",
+      "words": 20930,
+      "candidates": 1
+    },
+    {
+      "cell": [
+        "1840s",
+        "Belletristik"
+      ],
+      "chosen": "herwegh_gedichte01_1841",
+      "words": 16096,
+      "candidates": 13
+    },
+    {
+      "cell": [
+        "1840s",
+        "Gebrauchsliteratur"
+      ],
+      "chosen": "devrient_nationaltheater_1849",
+      "words": 13766,
+      "candidates": 8
+    },
+    {
+      "cell": [
+        "1840s",
+        "Wissenschaft"
+      ],
+      "chosen": "helmholtz_erhaltung_1847",
+      "words": 15324,
+      "candidates": 4
+    },
+    {
+      "cell": [
+        "1850s",
+        "Belletristik"
+      ],
+      "chosen": "candidus_christus_1854",
+      "words": 13991,
+      "candidates": 9
+    },
+    {
+      "cell": [
+        "1850s",
+        "Gebrauchsliteratur"
+      ],
+      "chosen": "rossmaessler_suesswasseraquarium_1857",
+      "words": 20278,
+      "candidates": 2
+    },
+    {
+      "cell": [
+        "1850s",
+        "Wissenschaft"
+      ],
+      "chosen": "clausius_waermetheorie_1856",
+      "words": 20490,
+      "candidates": 3
+    },
+    {
+      "cell": [
+        "1860s",
+        "Belletristik"
+      ],
+      "chosen": "pocci_komoedienbuechlein03_1869",
+      "words": 35765,
+      "candidates": 1
+    },
+    {
+      "cell": [
+        "1860s",
+        "Gebrauchsliteratur"
+      ],
+      "chosen": "huber_revival_1862",
+      "words": 26275,
+      "candidates": 1
+    },
+    {
+      "cell": [
+        "1860s",
+        "Wissenschaft"
+      ],
+      "chosen": "schleiden_menschengeschlecht_1863",
+      "words": 16336,
+      "candidates": 14
+    },
+    {
+      "cell": [
+        "1870s",
+        "Belletristik"
+      ],
+      "chosen": "anzengruber_gwissenswurm_1874",
+      "words": 18009,
+      "candidates": 7
+    },
+    {
+      "cell": [
+        "1870s",
+        "Gebrauchsliteratur"
+      ],
+      "chosen": "pfleiderer_kosmopolitismus_1874",
+      "words": 10347,
+      "candidates": 3
+    },
+    {
+      "cell": [
+        "1870s",
+        "Wissenschaft"
+      ],
+      "chosen": "haeckel_plastidule_1876",
+      "words": 15402,
+      "candidates": 10
+    },
+    {
+      "cell": [
+        "1880s",
+        "Belletristik"
+      ],
+      "chosen": "holz_hamlet_1889",
+      "words": 25198,
+      "candidates": 7
+    },
+    {
+      "cell": [
+        "1880s",
+        "Gebrauchsliteratur"
+      ],
+      "chosen": "druskowitz_religionsersatz_1886",
+      "words": 23879,
+      "candidates": 2
+    },
+    {
+      "cell": [
+        "1880s",
+        "Wissenschaft"
+      ],
+      "chosen": "delbrueck_sprachforschung_1885",
+      "words": 12720,
+      "candidates": 16
+    },
+    {
+      "cell": [
+        "1890s",
+        "Belletristik"
+      ],
+      "chosen": "hauptmann_bahnwaerter_1892",
+      "words": 15549,
+      "candidates": 11
+    },
+    {
+      "cell": [
+        "1890s",
+        "Gebrauchsliteratur"
+      ],
+      "chosen": "rapsilber_reichstagsgebaeude_1895",
+      "words": 13333,
+      "candidates": 5
+    },
+    {
+      "cell": [
+        "1890s",
+        "Wissenschaft"
+      ],
+      "chosen": "frege_sinn_1892",
+      "words": 10254,
+      "candidates": 5
+    }
+  ],
+  "outputs": {
+    "sotu_en_1945_2006.jsonl": {
+      "documents": 65,
+      "whitespace_words": 349711,
+      "sha256": "c9b089797f17d3f433da5cd8e89806b3d0fb711e6c5e15145a08f2f12e538d91",
+      "bytes": 2102832
+    },
+    "dta_de_1800_1899_sample.jsonl": {
+      "documents": 30,
+      "whitespace_words": 498020,
+      "sha256": "4e8950bb782775d7f94b23dbba1e3524c0c86d4a1c7dd2fe208b8ae5be81ea0b",
+      "bytes": 3372725
+    }
+  }
+}

@@ -1,0 +1,4 @@
+1 Q0 doc1 1
+1 Q0 doc2 2
+2 Q0 doc3 1
+2 Q0 doc4 2

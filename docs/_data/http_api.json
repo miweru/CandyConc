@@ -1,0 +1,613 @@
+{
+  "_comment": "Groups and one-line purposes for docs/reference/http-api.md. docs/_tools/generate_http_api.py joins them with the OpenAPI description of the server (paths, parameters, request bodies) and the release route matrix (roles). Every operation of the server needs exactly one entry here, the check fails otherwise.",
+  "groups": [
+    {
+      "id": "session",
+      "title": "Sign-in and session",
+      "intro": "Tokens, the session of the caller, and tickets for WebSocket connections."
+    },
+    {
+      "id": "corpora",
+      "title": "Corpora and import",
+      "intro": "The corpus catalog, the capabilities of each corpus, and import jobs."
+    },
+    {
+      "id": "search",
+      "title": "Search and concordance",
+      "intro": "Concordance lines, streamed results, exact hit counts, and query checks."
+    },
+    {
+      "id": "documents",
+      "title": "Documents",
+      "intro": "The document list, the full text of one document, and a snippet around a position."
+    },
+    {
+      "id": "scope",
+      "title": "Metadata, document sets, and subcorpora",
+      "intro": "Metadata fields and values, document sets built from metadata or from a search, and saved subcorpora."
+    },
+    {
+      "id": "analysis",
+      "title": "Counts and statistics",
+      "intro": "Frequency lists, n-grams, collocations, dispersion, keyness, contrast, trends, word sketches, and lexical diversity. Every result carries a method block."
+    },
+    {
+      "id": "jobs",
+      "title": "Analysis jobs",
+      "intro": "Status, rows, and cancellation of the jobs that the `/job` routes start."
+    },
+    {
+      "id": "paired",
+      "title": "Paired corpora",
+      "intro": "Groups of variants, sentence alignment, and parallel concordance lines."
+    },
+    {
+      "id": "semantic",
+      "title": "Semantic functions",
+      "intro": "Similar words, passage search, semantic clusters, embedding packages, and the local semantic index."
+    },
+    {
+      "id": "export",
+      "title": "Export",
+      "intro": "Concordance files, evidence packages, and document conversion."
+    },
+    {
+      "id": "annotations",
+      "title": "Line annotation",
+      "intro": "Categories and notes on concordance lines, the coding scheme, and agreement between coders."
+    },
+    {
+      "id": "projects",
+      "title": "Projects, saved analyses, and preferences",
+      "intro": "Project records, saved analysis settings, cluster lists, and user preferences."
+    },
+    {
+      "id": "copilot",
+      "title": "Copilot",
+      "intro": "Questions to the copilot and the control of a running turn. These routes need a configured language model."
+    },
+    {
+      "id": "system",
+      "title": "Server and settings",
+      "intro": "Health, the capability contract, system information, runtime settings, and metrics."
+    },
+    {
+      "id": "tools",
+      "title": "Tool API",
+      "intro": "The analysis tools of the copilot, callable without a language model. This is a plain HTTP interface, not the Model Context Protocol."
+    }
+  ],
+  "operations": {
+    "POST /api/v1/login": {
+      "group": "session",
+      "summary": "Sign in with user name and password from the user file and receive a bearer token."
+    },
+    "POST /api/v1/logout": {
+      "group": "session",
+      "summary": "Revoke the bearer token of the caller."
+    },
+    "GET /api/v1/auth/session": {
+      "group": "session",
+      "summary": "Return the security mode, role, and user of the caller, and whether a local token is available."
+    },
+    "POST /api/v1/ws-ticket": {
+      "group": "session",
+      "summary": "Issue a short-lived one-time ticket for a WebSocket connection (`?ticket=` on the handshake)."
+    },
+    "GET /api/v1/corpora": {
+      "group": "corpora",
+      "summary": "List the corpora of the catalog with token and document counts and capability flags."
+    },
+    "GET /api/v1/corpora/import-methods": {
+      "group": "corpora",
+      "summary": "List the import methods and whether each one is available in this installation."
+    },
+    "POST /api/v1/corpora/import-preflight": {
+      "group": "corpora",
+      "summary": "Check an import input (path, format, columns, free disk space) without starting a job.",
+      "body": "`method`\\*, `input_path`\\*, `target_name`, and the options that `GET /api/v1/corpora/import-methods` lists for the method"
+    },
+    "POST /api/v1/corpora/imports": {
+      "group": "corpora",
+      "summary": "Start an import job from a file or folder that the server can read.",
+      "body": "`method`\\*, `input_path`\\*, `target_name`, `activate_on_success`, and the options that `GET /api/v1/corpora/import-methods` lists for the method"
+    },
+    "GET /api/v1/corpora/imports": {
+      "group": "corpora",
+      "summary": "List the import jobs of this server process."
+    },
+    "GET /api/v1/corpora/imports/{job_id}": {
+      "group": "corpora",
+      "summary": "Return the state and progress of one import job."
+    },
+    "POST /api/v1/corpora/imports/{job_id}/cancel": {
+      "group": "corpora",
+      "summary": "Cancel a queued or running import job."
+    },
+    "GET /api/v1/corpora/imports/{job_id}/reports": {
+      "group": "corpora",
+      "summary": "Return the build report, the rejected rows report, and the manifest of one import job."
+    },
+    "GET /api/v1/corpora/{corpus}/build-report": {
+      "group": "corpora",
+      "summary": "Return the build report of a corpus in the catalog."
+    },
+    "GET /api/v1/corpora/{corpus}/capabilities": {
+      "group": "corpora",
+      "summary": "Return what a corpus supports, from its manifest and its files."
+    },
+    "POST /api/v1/corpora/register": {
+      "group": "corpora",
+      "summary": "Add an existing index directory to the catalog without copying or changing it.",
+      "body": "`path`\\*, `activate`, `acknowledge_partial_input`"
+    },
+    "POST /api/v1/corpora/{corpus}/activate": {
+      "group": "corpora",
+      "summary": "Make a corpus the active corpus of the catalog.",
+      "body": "`acknowledge_partial_input`, the body is optional"
+    },
+    "DELETE /api/v1/corpora/{corpus}/registration": {
+      "group": "corpora",
+      "summary": "Remove a corpus from the catalog and keep its files."
+    },
+    "DELETE /api/v1/corpora/{corpus}": {
+      "group": "corpora",
+      "summary": "Remove a corpus from the catalog (admin role). The active corpus and the last corpus are refused with 409."
+    },
+    "GET /api/v1/query": {
+      "group": "search",
+      "summary": "Return one page of concordance lines for a plain search or a query with the `cql:` prefix."
+    },
+    "GET /api/v1/query/stream": {
+      "group": "search",
+      "summary": "Stream concordance lines as server-sent events (`count`, `batch`, `progress`, `done`) in corpus order."
+    },
+    "GET /api/v1/query/count": {
+      "group": "search",
+      "summary": "Return the exact hit count of a query. The first answer can be `running`, `wait_ms` waits for the result."
+    },
+    "POST /api/v1/query/analyse": {
+      "group": "search",
+      "summary": "Check a query and return errors, suggested corrections, and hints without running it."
+    },
+    "POST /api/v1/query/lexicon/suggest": {
+      "group": "search",
+      "summary": "Return values of an attribute (word, lemma, part of speech) that start with a prefix."
+    },
+    "GET /api/v1/docs/list": {
+      "group": "documents",
+      "summary": "Return one page of the documents of a corpus or document set with a preview, and the metadata fields of the corpus that name documents and tell them apart."
+    },
+    "GET /api/v1/docs/search": {
+      "group": "documents",
+      "summary": "Return documents ranked by a search term."
+    },
+    "GET /api/v1/document/{doc_id}": {
+      "group": "documents",
+      "summary": "Return the full text of one document by internal number or by the document ID of the import."
+    },
+    "GET /api/v1/doc/snippet": {
+      "group": "documents",
+      "summary": "Return a longer passage around a token position, within its document."
+    },
+    "GET /api/v1/analysis/meta_schema": {
+      "group": "scope",
+      "summary": "Return the metadata fields of a corpus with their types and the fingerprint of the metadata schema."
+    },
+    "POST /api/v1/analysis/meta_values": {
+      "group": "scope",
+      "summary": "Return values of the requested metadata fields."
+    },
+    "POST /api/v1/analysis/meta_counts": {
+      "group": "scope",
+      "summary": "Return document counts per value of the requested metadata fields."
+    },
+    "POST /api/v1/analysis/docset_from_meta": {
+      "group": "scope",
+      "summary": "Create a document set from metadata filters, including ranges."
+    },
+    "POST /api/v1/analysis/docset_from_search": {
+      "group": "scope",
+      "summary": "Create a document set from the documents that contain hits of a query."
+    },
+    "POST /api/v1/analysis/docset_intersection": {
+      "group": "scope",
+      "summary": "Restrict several document sets to the documents they share through their source text."
+    },
+    "GET /api/v1/subcorpora": {
+      "group": "scope",
+      "summary": "List the saved subcorpora."
+    },
+    "POST /api/v1/subcorpora": {
+      "group": "scope",
+      "summary": "Save a named subcorpus from a filter definition, or replace one."
+    },
+    "GET /api/v1/subcorpora/{name}": {
+      "group": "scope",
+      "summary": "Return one saved subcorpus."
+    },
+    "DELETE /api/v1/subcorpora/{name}": {
+      "group": "scope",
+      "summary": "Delete one saved subcorpus."
+    },
+    "POST /api/v1/subcorpora/{name}/resolve": {
+      "group": "scope",
+      "summary": "Turn a saved subcorpus into a fresh document set. `stale` is true when the metadata schema changed since it was saved.",
+      "body": "`corpus`, the body is optional"
+    },
+    "GET /api/v1/analysis/frequency_list": {
+      "group": "analysis",
+      "summary": "Return a frequency list of word forms, lemmas, or parts of speech."
+    },
+    "POST /api/v1/analysis/frequency_list/job": {
+      "group": "analysis",
+      "summary": "Start a frequency list as an analysis job."
+    },
+    "POST /api/v1/analysis/frequency_diff/job": {
+      "group": "analysis",
+      "summary": "Start a frequency comparison of two disjoint document sets as an analysis job."
+    },
+    "POST /api/v1/analysis/ngrams": {
+      "group": "analysis",
+      "summary": "Return n-gram frequencies for a corpus or document set."
+    },
+    "POST /api/v1/analysis/ngrams/job": {
+      "group": "analysis",
+      "summary": "Start an n-gram list as an analysis job."
+    },
+    "POST /api/v1/analysis/ngrams_diff/job": {
+      "group": "analysis",
+      "summary": "Start an n-gram comparison of two document sets as an analysis job."
+    },
+    "GET /api/v1/analysis/collocates": {
+      "group": "analysis",
+      "summary": "Return the collocates of a node with association measures and a method block."
+    },
+    "POST /api/v1/analysis/collocates/job": {
+      "group": "analysis",
+      "summary": "Start a collocation table as an analysis job."
+    },
+    "POST /api/v1/analysis/collocates_diff/job": {
+      "group": "analysis",
+      "summary": "Start a collocation comparison of two document sets as an analysis job."
+    },
+    "GET /api/v1/analysis/collocates/kwic": {
+      "group": "analysis",
+      "summary": "Return the concordance lines behind one collocation row, with the window and units of the table."
+    },
+    "GET /api/v1/analysis/collocation_network": {
+      "group": "analysis",
+      "summary": "Return a collocation network around a node (nodes and weighted edges)."
+    },
+    "GET /api/v1/analysis/dispersion": {
+      "group": "analysis",
+      "summary": "Return dispersion measures over the documents (DP, DPnorm, range, and others) with the DP reference band."
+    },
+    "GET /api/v1/analysis/dispersion_offsets": {
+      "group": "analysis",
+      "summary": "Return the token positions of the hits of a query for a dispersion plot."
+    },
+    "POST /api/v1/analysis/keyness": {
+      "group": "analysis",
+      "summary": "Compare a target and a reference document set and return keywords with test statistics and effect sizes."
+    },
+    "POST /api/v1/analysis/keyness/job": {
+      "group": "analysis",
+      "summary": "Start a keyness comparison as an analysis job."
+    },
+    "POST /api/v1/analysis/contrast": {
+      "group": "analysis",
+      "summary": "Contrast the collocations of a node in two document sets or saved subcorpora, as an analysis job."
+    },
+    "POST /api/v1/analysis/trend": {
+      "group": "analysis",
+      "summary": "Return the frequency of a query per period of a metadata field such as year, per million tokens with an interval."
+    },
+    "POST /api/v1/analysis/wordsketch": {
+      "group": "analysis",
+      "summary": "Return the collocates of a lemma grouped by dependency relation. Needs a corpus imported with dependency relations."
+    },
+    "POST /api/v1/analysis/wordsketch_diff": {
+      "group": "analysis",
+      "summary": "Compare the word sketches of two lemmas, or of one lemma in two document sets."
+    },
+    "GET /api/v1/analysis/lexical-diversity": {
+      "group": "analysis",
+      "summary": "Return TTR, STTR, Guiraud, and MATTR for a corpus or document set, or for two document sets."
+    },
+    "GET /api/v1/analysis/jobs/{job_id}": {
+      "group": "jobs",
+      "summary": "Return the state, progress, and summary of one analysis job."
+    },
+    "POST /api/v1/analysis/jobs/{job_id}/cancel": {
+      "group": "jobs",
+      "summary": "Cancel an analysis job."
+    },
+    "GET /api/v1/analysis/jobs/{job_id}/rows": {
+      "group": "jobs",
+      "summary": "Return one page of the result rows of a finished analysis job."
+    },
+    "POST /api/v1/analysis/parallel_groups": {
+      "group": "paired",
+      "summary": "List the groups of variants of a paired corpus."
+    },
+    "POST /api/v1/analysis/alignment/ref_doc": {
+      "group": "paired",
+      "summary": "Align the sentences of the variants of one source text, optionally around a token position."
+    },
+    "POST /api/v1/analysis/kwic_parallel": {
+      "group": "paired",
+      "summary": "Return the aligned passages of the other variants for one hit, with edit distance and similarity."
+    },
+    "GET /api/v1/semantic/similar_words": {
+      "group": "semantic",
+      "summary": "Return distributional neighbours of a word that occur in the corpus, with similarity and corpus frequency. A corpus without word vectors answers 422 `word_vectors.unavailable`, a corpus whose pipeline is not installed on the server 503 `word_vectors.service_error`."
+    },
+    "POST /api/v1/analysis/embedding_search": {
+      "group": "semantic",
+      "summary": "Return the passages most similar to a search text. Needs a passage index."
+    },
+    "POST /api/v1/semantic/cluster": {
+      "group": "semantic",
+      "summary": "Cluster the hits of a semantic search."
+    },
+    "POST /api/v1/semantic/cluster_words": {
+      "group": "semantic",
+      "summary": "Cluster a list of words by the word vectors of the corpus (`corpus`, default the active corpus). A corpus without word vectors answers 422 `word_vectors.unavailable`."
+    },
+    "POST /api/v1/semantic/recluster": {
+      "group": "semantic",
+      "summary": "Propose merges and splits of clusters. Sends cluster samples to the configured language model."
+    },
+    "PUT /api/v1/semantic/clusters/apply": {
+      "group": "semantic",
+      "summary": "Check a plan of merges, splits, and new labels and return it."
+    },
+    "POST /api/v1/semantic/outline": {
+      "group": "semantic",
+      "summary": "Return a Markdown outline of clusters with up to three samples each."
+    },
+    "GET /api/v1/embeddings/list": {
+      "group": "semantic",
+      "summary": "List the packages of the embedding package catalog and whether each one is installed. The catalog of this version is empty, and no analysis reads an installed package."
+    },
+    "GET /api/v1/settings/embeddings": {
+      "group": "semantic",
+      "summary": "Return the embedding backend, the values it accepts (`spacy`, `none`), the spaCy pipeline of the backend with what it embeds (`spacy_model_used_for`: `passage_queries`, the search text of a passage search, `copilot_word_clusters`, and `fallback` for corpora that record no pipeline), and for each corpus the source of the word vectors that similar words, `sim()`, passage index builds, and word clusters use (`word_vectors`) (admin role)."
+    },
+    "POST /api/v1/settings/embeddings": {
+      "group": "semantic",
+      "summary": "Set the embedding backend of this server process to `spacy` or `none` (admin role, not saved). Other values and a request without a backend receive 422."
+    },
+    "POST /api/v1/embeddings/download": {
+      "group": "semantic",
+      "summary": "Download a package of the embedding package catalog in the background (admin role). Unknown packages receive 400."
+    },
+    "POST /api/v1/embeddings/remove": {
+      "group": "semantic",
+      "summary": "Remove an installed embedding package (admin role)."
+    },
+    "GET /api/v1/embeddings/local-index/preflight": {
+      "group": "semantic",
+      "summary": "Check whether this machine can build a local semantic index (Apple silicon, memory, disk)."
+    },
+    "POST /api/v1/embeddings/local-index/build": {
+      "group": "semantic",
+      "summary": "Start or resume a local semantic index build in a separate process."
+    },
+    "GET /api/v1/embeddings/local-index/builds/{run_id}": {
+      "group": "semantic",
+      "summary": "Return the state of a local semantic index build."
+    },
+    "POST /api/v1/embeddings/local-index/builds/{run_id}/cancel": {
+      "group": "semantic",
+      "summary": "Cancel a local semantic index build and keep its checkpoints."
+    },
+    "POST /api/v1/export/concordance": {
+      "group": "export",
+      "summary": "Export all hits of a query (up to the export cap) as CSV, TSV, JSON, JSON Lines, or XLSX with provenance."
+    },
+    "POST /api/v1/export/evidence-package": {
+      "group": "export",
+      "summary": "Return an evidence package: query, scope, index fingerprint, row hash, method blocks, and rows."
+    },
+    "POST /api/v1/export/pdf": {
+      "group": "export",
+      "summary": "Convert Markdown to PDF with pandoc and LaTeX, when both are installed on the server."
+    },
+    "POST /api/v1/export/docx": {
+      "group": "export",
+      "summary": "Convert Markdown to DOCX with pandoc, when it is installed on the server."
+    },
+    "GET /api/v1/download/{file_id}": {
+      "group": "export",
+      "summary": "Download a file that an export route wrote."
+    },
+    "GET /api/v1/annotations": {
+      "group": "annotations",
+      "summary": "Return the line annotations of a corpus and the coding scheme of that corpus."
+    },
+    "PUT /api/v1/annotations/{row_id}": {
+      "group": "annotations",
+      "summary": "Set the category or note of one concordance line."
+    },
+    "DELETE /api/v1/annotations/{row_id}": {
+      "group": "annotations",
+      "summary": "Delete the annotation of the caller on one concordance line."
+    },
+    "GET /api/v1/annotations/scheme": {
+      "group": "annotations",
+      "summary": "Return the coding scheme of a corpus. Without corpus, the project scheme, which applies to every corpus without a scheme of its own."
+    },
+    "PUT /api/v1/annotations/scheme": {
+      "group": "annotations",
+      "summary": "Replace the coding scheme of a corpus (manager role). Removed categories are cleared in the annotations of that corpus."
+    },
+    "POST /api/v1/annotations/scheme/preview": {
+      "group": "annotations",
+      "summary": "Show which annotations a new coding scheme would change, without saving it."
+    },
+    "GET /api/v1/annotations/multi": {
+      "group": "annotations",
+      "summary": "Return the annotations of every coder for each line."
+    },
+    "GET /api/v1/annotations/agreement": {
+      "group": "annotations",
+      "summary": "Return percent agreement and Cohen's or Fleiss' kappa between coders."
+    },
+    "GET /api/v1/annotations/settings": {
+      "group": "annotations",
+      "summary": "Return whether several coders annotate independently."
+    },
+    "PUT /api/v1/annotations/settings": {
+      "group": "annotations",
+      "summary": "Switch independent annotation by several coders on or off (manager role)."
+    },
+    "POST /api/v1/annotations/import": {
+      "group": "annotations",
+      "summary": "Import line annotations in the export format, with a dry run option."
+    },
+    "POST /api/v1/projects/create": {
+      "group": "projects",
+      "summary": "Create a project record (admin role)."
+    },
+    "GET /api/v1/projects/{proj}/analysis-presets": {
+      "group": "projects",
+      "summary": "List the saved analyses of a project."
+    },
+    "POST /api/v1/projects/{proj}/analysis-presets": {
+      "group": "projects",
+      "summary": "Save an analysis with its settings."
+    },
+    "PATCH /api/v1/projects/{proj}/analysis-presets/{preset_id}": {
+      "group": "projects",
+      "summary": "Change a saved analysis."
+    },
+    "DELETE /api/v1/projects/{proj}/analysis-presets/{preset_id}": {
+      "group": "projects",
+      "summary": "Delete a saved analysis."
+    },
+    "POST /api/v1/projects/{proj}/analysis-presets/{preset_id}/touch": {
+      "group": "projects",
+      "summary": "Record that a saved analysis was opened."
+    },
+    "GET /api/v1/projects/{proj}/clusters": {
+      "group": "projects",
+      "summary": "Return the saved clusters of a project."
+    },
+    "POST /api/v1/projects/{proj}/clusters": {
+      "group": "projects",
+      "summary": "Save the clusters of a project."
+    },
+    "PUT /api/v1/projects/{proj}/clusters": {
+      "group": "projects",
+      "summary": "Save the clusters of a project (same as POST)."
+    },
+    "PATCH /api/v1/projects/{proj}/clusters/rename": {
+      "group": "projects",
+      "summary": "Rename one saved cluster."
+    },
+    "GET /api/v1/prefs": {
+      "group": "projects",
+      "summary": "Return the saved preferences of the caller."
+    },
+    "POST /api/v1/prefs/update": {
+      "group": "projects",
+      "summary": "Save preferences of the caller. Unknown keys are refused with 400."
+    },
+    "POST /api/v1/chat": {
+      "group": "copilot",
+      "summary": "Ask the copilot and receive the whole answer in one response."
+    },
+    "POST /api/v1/chat/stream": {
+      "group": "copilot",
+      "summary": "Ask the copilot and receive status, tool calls, and the answer as server-sent events."
+    },
+    "POST /api/v1/copilot/cancel": {
+      "group": "copilot",
+      "summary": "Stop a running copilot turn. No further model call or tool call starts."
+    },
+    "GET /api/v1/copilot/lauf": {
+      "group": "copilot",
+      "summary": "Return the progress and result of a copilot turn that continued after its connection closed."
+    },
+    "GET /api/v1/copilot/status": {
+      "group": "copilot",
+      "summary": "Return whether a language model is configured for the copilot and which model. No request goes to the model server."
+    },
+    "POST /api/v1/copilot/action/approve": {
+      "group": "copilot",
+      "summary": "Approve an action that the copilot proposed."
+    },
+    "POST /api/v1/copilot/action/reject": {
+      "group": "copilot",
+      "summary": "Reject an action that the copilot proposed."
+    },
+    "POST /api/v1/copilot/clarify/answer": {
+      "group": "copilot",
+      "summary": "Answer a clarification question of the copilot."
+    },
+    "POST /api/v1/copilot/context": {
+      "group": "copilot",
+      "summary": "Update the interface context (corpus, scope, selection) of a copilot session."
+    },
+    "POST /api/v1/copilot/continue": {
+      "group": "copilot",
+      "summary": "Continue a copilot turn after an approval, a rejection, or an answer."
+    },
+    "GET /api/v1/copilot/recipes": {
+      "group": "copilot",
+      "summary": "List the analysis recipes of the copilot with purpose, example question, and steps."
+    },
+    "GET /api/v1/health": {
+      "group": "system",
+      "summary": "Return `ok` and the name of the query engine."
+    },
+    "GET /api/v1/help": {
+      "group": "system",
+      "summary": "Return whether the bundled user documentation is served and its address, for the help menu."
+    },
+    "GET /api/v1/capabilities": {
+      "group": "system",
+      "summary": "Return the capability contract: which operations the interface and the copilot offer, with route, role, and corpus requirements."
+    },
+    "GET /api/v1/system/info": {
+      "group": "system",
+      "summary": "Return version, data locations, whether a model is configured, and size and state of the active corpus (admin role)."
+    },
+    "POST /api/v1/system/clear-cache": {
+      "group": "system",
+      "summary": "Clear the in-memory caches of the server (admin role)."
+    },
+    "POST /api/v1/system/rebuild-index": {
+      "group": "system",
+      "summary": "Rebuild the FAISS passage index (admin role). Without stored passage vectors the passages are embedded with the word vectors of the corpus pipeline, and a corpus without them answers 422 `word_vectors.unavailable` before a job starts. Progress arrives on a WebSocket.",
+      "body": "`corpus`, the body is optional"
+    },
+    "GET /api/v1/metrics": {
+      "group": "system",
+      "summary": "Return server metrics in the Prometheus text format (admin role)."
+    },
+    "GET /api/v1/settings/model-route": {
+      "group": "system",
+      "summary": "Return the model endpoint and model of the copilot and whether a key is set (admin role). The key itself is never returned."
+    },
+    "POST /api/v1/settings/model-route": {
+      "group": "system",
+      "summary": "Change endpoint, model, and key of the copilot without a restart (admin role). The change lasts until the server stops."
+    },
+    "GET /api/v1/operation-runs/{run_id}": {
+      "group": "system",
+      "summary": "Return the state of a long-running server operation (admin role)."
+    },
+    "GET /mcp/tools": {
+      "group": "tools",
+      "summary": "List the analysis tools with their parameter schemas."
+    },
+    "POST /mcp/call": {
+      "group": "tools",
+      "summary": "Run one analysis tool with arguments that are checked against its schema.",
+      "body": "`name`\\*, `arguments`"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# Small example data for the documentation, stored directly in Git.
+methods/data/*.jsonl -filter -diff -merge text
