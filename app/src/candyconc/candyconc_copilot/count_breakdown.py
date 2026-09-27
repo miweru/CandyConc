@@ -25,6 +25,14 @@ HOECHSTENS_WERTE = 50
 #: je Generator ein Wert, dazu die Direktueberarbeitung und das Original).
 VERFAHRENSFELD = "variant"
 
+#: Felder mit einem Herstellungsverfahren je Wert (``prompting_method`` ist
+#: ``variant`` ohne das Original). Nach ihnen steht am Ende der Zeilen eine
+#: Zeile für alle Generatoren zusammen.
+VERFAHRENSFELDER = (VERFAHRENSFELD, "prompting_method")
+
+#: Etikett dieser Zeile, ``procedures`` nennt ihre Verfahren.
+GENERATORZEILE = "Generatoren zusammen"
+
 
 def _verfahrenscodes(idx: Any) -> Optional[tuple[np.ndarray, List[str]]]:
     """Code des Verfahrens je Dokument (-1 ohne Wert) und die Namen, einmal je Index."""
@@ -184,7 +192,48 @@ def zeilen(
         for zeile, verfahren in zip(rows, mischverfahren(zeilen_ids, *verfahrenscodes)):
             if verfahren:
                 zeile["procedures"] = verfahren
-    return {"nach": str(nach), "rows": rows, **streuung(rows)}
+    # Die Streuung gilt den Werten des Feldes, die Summenzeile kommt danach.
+    ergebnis = {"nach": str(nach), "rows": rows, **streuung(rows)}
+    zusammen = generatorzeile(idx, rows, zeilen_ids, kontext) if str(nach) in VERFAHRENSFELDER else None
+    if zusammen:
+        rows.append(zusammen)
+    return ergebnis
+
+
+def generatorzeile(
+    idx: Any,
+    rows: List[Dict[str, Any]],
+    zeilen_ids: List[np.ndarray],
+    kontext: Optional[Dict[str, Any]],
+) -> Optional[Dict[str, Any]]:
+    """Combine multiple generator procedures when other procedures are also present.
+
+    Sum hits and token denominators before calculating the rate. The summary
+    is not a metadata value, so it has no share and does not affect dispersion.
+    """
+    teil = [(zeile, ids) for zeile, ids in zip(rows, zeilen_ids)
+            if "generator" in str(zeile.get("wert", ""))]
+    if len(teil) < 2 or len(teil) == len(rows):
+        return None
+    ids = np.sort(np.concatenate([np.asarray(i, dtype=np.int64) for _, i in teil]))
+    total = sum(int(zeile.get("total") or 0) for zeile, _ in teil)
+    token = sum(int(zeile.get("tokens") or 0) for zeile, _ in teil)
+    zusammen: Dict[str, Any] = {
+        "wert": GENERATORZEILE,
+        "total": total,
+        "docs": int(ids.size),
+        "tokens": token,
+        "tokens_raw": sum(int(zeile.get("tokens_raw") or 0) for zeile, _ in teil),
+        "per_million": rate_je_million(total, token),
+        "procedures": {str(zeile["wert"]): int(zeile.get("docs") or 0) for zeile, _ in teil},
+    }
+    if kontext is not None:
+        from . import hit_spread as _ts
+
+        if int(_ts.treffer_je_dokument(idx, ids, kontext["positionen"]).sum()) == total:
+            codes, _ = _ts.clustercodes(idx, ids, kontext["feld"])
+            zusammen.update(_ts.kennzahlen(idx, ids, kontext["positionen"], codes, kontext["feld"]))
+    return zusammen
 
 
 def streuung(rows: List[Dict[str, Any]]) -> Dict[str, Any]:

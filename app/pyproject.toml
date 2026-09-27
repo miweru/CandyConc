@@ -1,6 +1,6 @@
 [project]
 name = "candyconc"
-version = "0.1.0"
+version = "0.1.1"
 description = "Local corpus analysis: KWIC concordancer with its own index, corpus statistics and an optional research copilot"
 readme = "README.md"
 license = "MIT"

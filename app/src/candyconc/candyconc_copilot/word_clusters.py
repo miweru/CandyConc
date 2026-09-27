@@ -10,7 +10,7 @@ Moved out of tool_wrappers unchanged (LOC budget of that module).
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, List
+from typing import Any, Callable, Dict, List
 
 from candyconc.services.semantic_cluster import cluster_words
 
@@ -147,13 +147,18 @@ def local_word_clusters(
     min_size: int,
     top_n: int,
     reason: str,
-    pipeline: str,
+    pipeline: str | None,
     input_token_count: int | None = None,
+    cluster: Callable[..., List[Dict[str, Any]]] = cluster_words,
 ) -> Dict[str, Any]:
-    """The clusters of ``tokens`` with the vectors of ``pipeline``, in the tool's answer shape."""
+    """The clusters of ``tokens`` with the vectors of ``pipeline``, in the tool's answer shape.
+
+    ``pipeline`` None embeds with CANDYCONC_EMB_SPACY_MODEL. ``cluster`` is the
+    clustering function, passed in so that the caller's test seam holds.
+    """
     clusters = format_word_clusters(
         list(tokens),
-        cluster_words(list(tokens), min_size=int(min_size), pipeline=pipeline),
+        cluster(list(tokens), min_size=int(min_size), pipeline=pipeline),
         min_size=int(min_size),
         top_n=int(top_n),
     )

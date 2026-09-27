@@ -1,5 +1,7 @@
 # CandyConc
 
+**[Documentation and help](https://miweru.github.io/CandyConc/)**
+
 CandyConc is a corpus analysis system that runs on your own computer. Reading
 concordance lines, counting and testing, and asking a language model for help
 all work on one local index of your texts, through the same set of analysis
@@ -14,7 +16,7 @@ the annotation pipelines you need are installed. Optional model functions
 send selected text to the endpoint you configure, as described in
 [Data and privacy](docs/concepts/data-and-privacy.md).
 
-Version 0.1.0 is the first public pre-release.
+Version 0.1.1 is the current public pre-release.
 
 ![Concordance for freedom in the State of the Union sample corpus with the document panel of one hit open, showing the concordance line at token position 202, the metadata, and the highlighted full text.](docs/_static/screenshots/kwic-document-panel.png)
 
@@ -125,19 +127,20 @@ you from a search to a collocation and back to the lines.
 
 ## Documentation
 
-The documentation is in the folder [docs](docs/index.md), and the interface
-opens a local copy under Help:
+Read the **[online documentation and help](https://miweru.github.io/CandyConc/)**.
+The application includes the same manual under **Help > Documentation**.
+Documentation sources are in [docs](docs/index.md).
 
-- [Get started](docs/get-started/index.md): installation and a first result
-- [Guides](docs/guides/index.md): import, search, subcorpora, analyses,
+- [Get started](https://miweru.github.io/CandyConc/get-started/index.html): installation and a first result
+- [Guides](https://miweru.github.io/CandyConc/guides/index.html): import, search, subcorpora, analyses,
   export, copilot, and running a server
-- [Concepts](docs/concepts/index.md): how CandyConc works, the index, scope,
+- [Concepts](https://miweru.github.io/CandyConc/concepts/index.html): how CandyConc works, the index, scope,
   from numbers to lines, and the copilot
-- [How CandyConc counts](docs/methods/index.md): the statistical methods with
+- [How CandyConc counts](https://miweru.github.io/CandyConc/methods/index.html): the statistical methods with
   worked examples
-- [Reference](docs/reference/index.md): query language, command line, HTTP
+- [Reference](https://miweru.github.io/CandyConc/reference/index.html): query language, command line, HTTP
   API, configuration, and file formats
-- [Help](docs/help/index.md): FAQ, troubleshooting, and release notes
+- [Help](https://miweru.github.io/CandyConc/help/index.html): FAQ, troubleshooting, and release notes
 
 ## Contributing
 

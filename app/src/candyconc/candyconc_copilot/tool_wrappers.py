@@ -59,6 +59,7 @@ from candyconc.services.tools.keyness import (
     DEFAULT_MIN_FREQ as _DEFAULT_MIN_FREQ,
     normalize_disjoint_docsets,
 )
+from candyconc.services.semantic_cluster import cluster_words as _cluster_words
 from .word_clusters import (
     WORD_CLUSTER_STOPWORDS as _WORD_CLUSTER_STOPWORDS,  # noqa: F401
     format_word_clusters as _format_word_clusters,  # noqa: F401
@@ -302,10 +303,18 @@ def _local_semantic_cluster_words(
 
     # The word vectors of the active corpus, like /semantic/cluster_words. A
     # corpus without them raises WordVectorsUnavailable with the reason.
+    # Without any corpus the configured pipeline embeds, as before.
+    try:
+        index_path = _resolve_corpus_index(None).fast_index.index_path
+    except RuntimeError as exc:
+        if "no corpus" not in str(exc).lower():
+            raise
+        pipeline = None
+    else:
+        pipeline = vector_pipeline(index_path)
     return _local_word_clusters(
-        tokens, min_size=min_size, top_n=top_n, reason=reason,
-        pipeline=vector_pipeline(_resolve_corpus_index(None).fast_index.index_path),
-        input_token_count=input_token_count,
+        tokens, min_size=min_size, top_n=top_n, reason=reason, pipeline=pipeline,
+        input_token_count=input_token_count, cluster=_cluster_words,
     )
 
 

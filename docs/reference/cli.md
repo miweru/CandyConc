@@ -28,7 +28,7 @@ opens, the data directory, and whether a language model for the copilot is
 configured. The output is similar to the following:
 
 ```text
-CandyConc 0.1.0 (Python 3.12.8)
+CandyConc 0.1.1 (Python 3.12.8)
   Web interface: http://127.0.0.1:8010/
   Corpus: none yet. Import one in the web interface (Corpora) or with: candy import --help
   Data: /home/USER/.candyconc

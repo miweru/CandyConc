@@ -10,6 +10,9 @@ For a problem, include the version (`candy --version`), your operating
 system, the steps that lead to the problem, and the message you see. Do not
 attach corpora that you may not share.
 
+For security vulnerabilities, follow the [security policy](SECURITY.md).
+All contributions follow the [code of conduct](CODE_OF_CONDUCT.md).
+
 ## Propose a change
 
 1. Set up a development environment as described in

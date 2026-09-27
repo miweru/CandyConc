@@ -75,7 +75,16 @@ def test_reine_zeilen_bleiben_ohne_verfahrensangabe(aufgeschluesselt):
 
 
 def test_nach_variant_braucht_keine_angabe(aufgeschluesselt):
-    assert not any("procedures" in z for z in aufgeschluesselt("variant").values())
+    # A value row names one procedure. The summary lists the generators it combines.
+    zeilen = aufgeschluesselt("variant")
+    zusammen = zeilen.pop(cb.GENERATORZEILE)
+    assert not any("procedures" in z for z in zeilen.values())
+    assert zusammen["procedures"] == {
+        "claude_opus_4_7_generator": 3,
+        "gemma_4_26b_a4b_it_qat_generator_lmstudio": 3,
+        "gpt_5_5_generator_single_subagent": 3,
+        "mistral_small_4_119b_generator_lmstudio": 3,
+    }
 
 
 def test_wo_alle_zeilen_mischen_ist_nichts_eine_ausnahme():

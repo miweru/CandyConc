@@ -7,7 +7,7 @@ version you used. The citation information is kept in the file
 
 ## Citation
 
-Ruppert, Michael. *CandyConc* (version 0.1.0). Software.
+Ruppert, Michael. *CandyConc* (version 0.1.1). Software.
 <https://github.com/miweru/CandyConc>
 
 As BibTeX:
@@ -16,7 +16,7 @@ As BibTeX:
 @software{candyconc,
   author  = {Ruppert, Michael},
   title   = {CandyConc},
-  version = {0.1.0},
+  version = {0.1.1},
   url     = {https://github.com/miweru/CandyConc}
 }
 ```

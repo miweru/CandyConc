@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation and help
+    url: https://miweru.github.io/CandyConc/
+    about: Installation, guides, FAQ, and troubleshooting.
+  - name: Report a security vulnerability privately
+    url: https://github.com/miweru/CandyConc/security/advisories/new
+    about: Contact the maintainer about a security issue.

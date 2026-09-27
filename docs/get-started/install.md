@@ -43,7 +43,7 @@ compiler, and no Node.js, and it runs without a network connection.
    | --- | --- |
    | macOS on Apple silicon (M1 and later) | `CandyConc-VERSION-macos-arm64.tar.gz` |
 
-   `VERSION` is the version number of the release, for example `0.1.0`. The
+   `VERSION` is the version number of the release, for example `0.1.1`. The
    archives named **Source code** are created by GitHub from the repository.
    They are not an installable application.
 
@@ -63,7 +63,7 @@ compiler, and no Node.js, and it runs without a network connection.
    ```
 
    The result is a folder named like the archive, for example
-   `CandyConc-0.1.0-macos-arm64`. You can move this folder anywhere. Your
+   `CandyConc-0.1.1-macos-arm64`. You can move this folder anywhere. Your
    corpora and settings are not stored inside it.
 
 5. Remove the quarantine flag from the folder:
