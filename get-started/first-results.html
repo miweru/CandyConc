@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tutorial: from download to first result | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"loader": {"load": []}, "tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}, "svg": {"fontCache": "global"}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'get-started/first-results';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install the Python package" href="install-python-package.html" />
+    <link rel="prev" title="Install CandyConc" href="install.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Install and first steps</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install CandyConc</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Tutorial: from download to first result</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-python-package.html">Install the Python package</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/explore-a-word.html">Tutorial: from a search to evidence you can cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/compare-two-periods.html">Tutorial: compare two periods</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Get started</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Tutorial: from download to first result</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-from-download-to-first-result">
+<h1>Tutorial: from download to first result<a class="headerlink" href="#tutorial-from-download-to-first-result" title="Link to this heading">#</a></h1>
+<p>In this tutorial you import the English sample corpus, search for the word
+<em>freedom</em>, read a hit in its document, find the words that typically occur
+near <em>freedom</em>, open the lines behind one of them, and save the concordance
+as a file. At the end you know what each number on the screen counts.</p>
+<p>The sample corpus contains 65 addresses of US presidents to Congress from
+1945 to 2006, mostly State of the Union addresses, in the version of the
+C-SPAN State of the Union Address Corpus distributed by NLTK Data. As works
+of the US federal government, the texts are in the public domain. Every
+document carries the metadata fields <code class="docutils literal notranslate"><span class="pre">president</span></code>, <code class="docutils literal notranslate"><span class="pre">party</span></code>, <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">decade</span></code>,
+<code class="docutils literal notranslate"><span class="pre">date</span></code>, and <code class="docutils literal notranslate"><span class="pre">title</span></code>.</p>
+<section id="before-you-begin">
+<h2>Before you begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Install the application bundle as described in
+<a class="reference internal" href="install.html"><span class="std std-doc">Install CandyConc</span></a>, and open a terminal in the unpacked
+folder.</p></li>
+<li><p>If CandyConc is running, stop it with <kbd>Control</kbd>+<kbd>C</kbd> in
+its terminal before continuing. Step 3 starts it with the imported corpus.</p></li>
+<li><p>Step 1 downloads 33.5 MB from GitHub. All other steps work offline.</p></li>
+</ul>
+</section>
+<section id="step-1-download-the-english-annotation-pipeline">
+<h2>Step 1: Download the English annotation pipeline<a class="headerlink" href="#step-1-download-the-english-annotation-pipeline" title="Link to this heading">#</a></h2>
+<p>CandyConc annotates English text with the spaCy pipeline <code class="docutils literal notranslate"><span class="pre">en_core_web_md</span></code>.
+Download it once:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./candyconc<span class="w"> </span>pipeline<span class="w"> </span>en_core_web_md
+</pre></div>
+</div>
+<p>The last line of the output reads <code class="docutils literal notranslate"><span class="pre">Installed</span> <span class="pre">en_core_web_md</span> <span class="pre">into</span></code> followed
+by a folder.</p>
+</section>
+<section id="step-2-import-the-sample-corpus">
+<h2>Step 2: Import the sample corpus<a class="headerlink" href="#step-2-import-the-sample-corpus" title="Link to this heading">#</a></h2>
+<p>The sample file <code class="docutils literal notranslate"><span class="pre">sotu_en_1945_2006.jsonl</span></code> is in the folder <code class="docutils literal notranslate"><span class="pre">examples</span></code> of the
+bundle.</p>
+<p>Build the index of the sample corpus:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./candyconc<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>examples/sotu_en_1945_2006.jsonl<span class="w"> </span>--output<span class="w"> </span>~/.candyconc/corpora/sotu_en<span class="w"> </span>--language<span class="w"> </span>en<span class="w"> </span>--meta-columns<span class="w"> </span>president<span class="w"> </span>party<span class="w"> </span>year<span class="w"> </span>decade<span class="w"> </span>date<span class="w"> </span>title<span class="w"> </span>--source<span class="w"> </span>state_union
+</pre></div>
+</div>
+<p>The options name the input file, the folder of the new index, the language
+of the texts, the metadata fields to keep, and a label for the origin of the
+texts. The first two lines of the output confirm the pipeline and that the
+import adds dependency relations, which word sketches need:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Language en: spaCy pipeline en_core_web_md.
+Dependency parsing is on: en_core_web_md has a parser (--no-deps turns it off).
+</pre></div>
+</div>
+<p>CandyConc then prints the progress of the import. When the prompt returns,
+the last line names the folder of the new index, which ends in
+<code class="docutils literal notranslate"><span class="pre">corpora/sotu_en</span></code>.</p>
+</section>
+<section id="step-3-start-candyconc">
+<h2>Step 3: Start CandyConc<a class="headerlink" href="#step-3-start-candyconc" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./candyconc
+</pre></div>
+</div>
+<p>The browser opens CandyConc. The corpus selector in the top bar shows
+<strong>sotu_en · 403,284 tokens</strong>, and the status bar at the bottom of the window
+shows <strong>Server READY</strong>. If the interface is in German, switch it to English
+as described in
+<a class="reference internal" href="install.html#choose-the-interface-language"><span class="std std-ref">Choose the interface language</span></a>.</p>
+</section>
+<section id="step-4-search-for-a-word">
+<h2>Step 4: Search for a word<a class="headerlink" href="#step-4-search-for-a-word" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Click the search field, which shows <strong>Enter a word, phrase or query...</strong>.</p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">freedom</span></code>.</p></li>
+<li><p>Press <kbd>Enter</kbd>.</p></li>
+</ol>
+<p>Above the table, CandyConc shows <strong>495 hits · 300 loaded</strong>. The table is the
+concordance: one line for every hit, with the hit in the column <strong>NODE</strong> and
+its context to the left and right. The number at the start of each line is
+the position of the hit in the corpus. When you scroll down, CandyConc loads
+the next lines.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/kwic-freedom.png"><img alt="Concordance for freedom in sotu_en with 495 hits, 300 of them loaded, starting with lines from the 1945 Truman address." src="../_images/kwic-freedom.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The concordance for <em>freedom</em>. Each line shows one hit in the column <strong>NODE</strong>, with its corpus position at the start of the line.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-5-sort-the-concordance">
+<h2>Step 5: Sort the concordance<a class="headerlink" href="#step-5-sort-the-concordance" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Next to <strong>SORT RIGHT</strong>, click <strong>1R</strong>.</p></li>
+</ol>
+<p>The lines are now sorted by the first token to the right of <em>freedom</em>, and
+the label <strong>Sorted: 1R ascending</strong> appears. Lines with the same following
+word stand together, so you can scan what follows <em>freedom</em>. Click
+<strong>Default</strong> to return to the order of the corpus.</p>
+</section>
+<section id="step-6-read-a-hit-in-its-document">
+<h2>Step 6: Read a hit in its document<a class="headerlink" href="#step-6-read-a-hit-in-its-document" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>In the first line, click the highlighted word <strong>freedom</strong>.</p></li>
+</ol>
+<p>A panel opens on the right with the address in which this hit occurs:</p>
+<ul class="simple">
+<li><p>the title, <strong>PRESIDENT HARRY S. TRUMAN'S ADDRESS BEFORE A JOINT SESSION OF
+THE CONGRESS</strong>,</p></li>
+<li><p>the box <strong>Concordance line</strong> with the label <strong>Token position 202</strong> and a
+longer context of the hit,</p></li>
+<li><p>the metadata of the document, among them <code class="docutils literal notranslate"><span class="pre">year</span></code> 1945 and <code class="docutils literal notranslate"><span class="pre">date</span></code>
+1945-04-16,</p></li>
+<li><p>the full text of the address, in which every occurrence of <em>freedom</em> is
+highlighted. The label next to the text reads <strong>7 occurrences in the full
+text</strong>.</p></li>
+</ul>
+<p>Press <kbd>Escape</kbd> to close the panel.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/document-panel-truman.png"><img alt="Document panel of the first hit, the Truman address of 1945, with the concordance line at token position 202, the metadata, and 7 occurrences in the full text." src="../_images/document-panel-truman.png" style="width: 512px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The document panel of the first hit. <strong>Token position 202</strong> identifies this line, and the highlights in the full text mark every occurrence of <em>freedom</em>.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-7-find-the-collocates-of-freedom">
+<h2>Step 7: Find the collocates of freedom<a class="headerlink" href="#step-7-find-the-collocates-of-freedom" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Click the tab <strong>Collocations</strong>.</p></li>
+</ol>
+<p>CandyConc computes the collocates of the current search. The table lists the
+words that occur near <em>freedom</em>, ranked by the association measure logDice.
+The settings above the table are the defaults: a window of 5 tokens to the
+left and right, windows that stop at sentence boundaries, and a minimum
+frequency of 5. The first three rows are:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Collocate</p></th>
+<th class="head"><p>Co-occurrence frequency</p></th>
+<th class="head"><p>Scope frequency f(v)</p></th>
+<th class="head"><p>logDice</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>peace</p></td>
+<td><p>52</p></td>
+<td><p>619</p></td>
+<td><p>10.579</p></td>
+</tr>
+<tr class="row-odd"><td><p>cause</p></td>
+<td><p>24</p></td>
+<td><p>113</p></td>
+<td><p>10.337</p></td>
+</tr>
+<tr class="row-even"><td><p>defend</p></td>
+<td><p>18</p></td>
+<td><p>60</p></td>
+<td><p>10.054</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/collocations-freedom.png"><img alt="Collocations of freedom ranked by logDice with window 5, within sentence, and minimum frequency 5. The first rows are peace 52 (10.579), cause 24 (10.337), and defend 18 (10.054)." src="../_images/collocations-freedom.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The collocation table with its settings row. Each row gives the co-occurrence frequency, the collocate frequency f(v) in the search scope, and the logDice score.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-8-go-back-from-a-collocate-to-its-lines">
+<h2>Step 8: Go back from a collocate to its lines<a class="headerlink" href="#step-8-go-back-from-a-collocate-to-its-lines" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>In the collocation table, click <strong>peace</strong>.</p></li>
+</ol>
+<p>CandyConc switches to the tab <strong>KWIC</strong> and shows <strong>52 hits</strong>. The label
+<strong>Co-anchors</strong> next to it names the two words, <em>freedom</em> and <em>peace</em>, and
+<strong>O11: peace 52</strong> repeats the frequency from the collocation table. The search field now
+shows the same conditions as a reusable query:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>co(term="freedom", collocate="peace", window=5, within_sentence=true)
+</pre></div>
+</div>
+<p>Every line has <em>freedom</em> as the node and <em>peace</em> highlighted in its context.
+These are the passages that the number 52 in the collocation table counts.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/kwic-co-anchor-peace.png"><img alt="Concordance with 52 hits after clicking peace, with the co-anchors freedom and peace, the label O11: peace 52, and peace highlighted in each line." src="../_images/kwic-co-anchor-peace.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The lines behind the row <em>peace</em>. The search field holds the <code class="docutils literal notranslate"><span class="pre">co()</span></code> query, and <strong>O11: peace 52</strong> repeats the number from the collocation table.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-9-export-the-concordance">
+<h2>Step 9: Export the concordance<a class="headerlink" href="#step-9-export-the-concordance" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>In the search field, replace the query with <code class="docutils literal notranslate"><span class="pre">freedom</span></code>.</p></li>
+<li><p>Press <kbd>Enter</kbd>. The concordance shows <strong>495 hits</strong> again.</p></li>
+<li><p>In the top bar, click <strong>Export</strong> (the download icon).</p></li>
+<li><p>Choose <strong>Export as CSV</strong>.</p></li>
+<li><p>In the dialog <strong>Export</strong>, check that <strong>CSV</strong> under
+<strong>Concordance file (server)</strong> is selected and that <strong>Hits to export</strong> is
+set to <strong>Server concordance (fully counted)</strong>.</p></li>
+<li><p>Click <strong>Export</strong>.</p></li>
+</ol>
+<p>Your browser saves the file <code class="docutils literal notranslate"><span class="pre">concordance.csv</span></code>. Open it in a text editor. The
+first lines start with <code class="docutils literal notranslate"><span class="pre">#</span></code> and record how the file was made. Among them are
+these:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># Query: freedom
+# Corpus: sotu_en
+# TotalMatches: 495
+# ExportedRows: 495
+# Truncated: false
+# IndexFingerprint: sha256:...
+</pre></div>
+</div>
+<p>Below them, the file has one row for each of the 495 hits, with the columns
+<code class="docutils literal notranslate"><span class="pre">pos</span></code>, <code class="docutils literal notranslate"><span class="pre">doc_id</span></code>, <code class="docutils literal notranslate"><span class="pre">doc</span></code>, <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">node</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, and <code class="docutils literal notranslate"><span class="pre">meta</span></code>. The column
+<code class="docutils literal notranslate"><span class="pre">pos</span></code> holds the token position that the concordance shows at the start of
+each line, and <code class="docutils literal notranslate"><span class="pre">meta</span></code> holds the metadata of the document.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/export-dialog-hits.png"><img alt="Lower part of the Export dialog, with Include context and Include metadata selected and Server concordance (fully counted) chosen under Hits to export." src="../_images/export-dialog-hits.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The lower part of the <strong>Export</strong> dialog. <strong>Hits to export</strong> chooses between the lines loaded in the browser and the full server concordance.</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="what-the-numbers-count">
+<h2>What the numbers count<a class="headerlink" href="#what-the-numbers-count" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>495 hits</strong> are the tokens whose word form is <em>freedom</em> in any
+capitalization, in all 65 addresses with their 403,284 tokens. They occur
+in 62 of the 65 addresses. The concordance has one line for each hit, and
+the export wrote all 495.</p></li>
+<li><p><strong>Token position 202</strong> is the position of the hit in the corpus, counted in
+tokens from the start of the first document, punctuation included. The same
+number appears at the start of the line and in the column <code class="docutils literal notranslate"><span class="pre">pos</span></code> of the
+export, so it identifies a line in every view.</p></li>
+<li><p><strong>7 occurrences in the full text</strong> counts the places where <em>freedom</em>
+appears in the text of the Truman address.</p></li>
+<li><p><strong>52</strong> in the row <em>peace</em> counts the tokens of <em>peace</em> that lie within five
+tokens to the left or right of a hit of <em>freedom</em>, in the same sentence.
+Opening the row gave 52 lines. The two numbers can differ when the windows
+of two nearby hits overlap. <a class="reference internal" href="../concepts/from-numbers-to-lines.html"><span class="std std-doc">From numbers to lines</span></a>
+explains when and why.</p></li>
+<li><p><strong>10.579</strong> is the logDice of <em>peace</em>, derived from three raw counts:
+<span class="math notranslate nohighlight">\(14 + \log_2 \frac{2 \cdot 52}{495 + 619}\)</span>, where 495 is the frequency of
+<em>freedom</em> and 619 the frequency of <em>peace</em> in the corpus. A derived measure has no
+lines of its own. See
+<a class="reference internal" href="../methods/association-measures.html"><span class="std std-doc">Collocations and association measures</span></a>.</p></li>
+</ul>
+</section>
+<section id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Follow one word through lemma search, dispersion, and collocations to
+citable evidence: <a class="reference internal" href="../tutorials/explore-a-word.html"><span class="std std-doc">Tutorial: from a search to evidence you can cite</span></a>.</p></li>
+<li><p>Compare Republican and Democratic addresses:
+<a class="reference internal" href="../tutorials/compare-two-periods.html"><span class="std std-doc">Tutorial: compare two periods</span></a>.</p></li>
+<li><p>Import your own texts: <a class="reference internal" href="../guides/bring-in-texts/import-a-corpus.html"><span class="std std-doc">Import a corpus</span></a>.</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="install.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Install CandyConc</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="install-python-package.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Install the Python package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-download-the-english-annotation-pipeline">Step 1: Download the English annotation pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-import-the-sample-corpus">Step 2: Import the sample corpus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-start-candyconc">Step 3: Start CandyConc</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-search-for-a-word">Step 4: Search for a word</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-sort-the-concordance">Step 5: Sort the concordance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-read-a-hit-in-its-document">Step 6: Read a hit in its document</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-find-the-collocates-of-freedom">Step 7: Find the collocates of freedom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-go-back-from-a-collocate-to-its-lines">Step 8: Go back from a collocate to its lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-9-export-the-concordance">Step 9: Export the concordance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-numbers-count">What the numbers count</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next steps</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/get-started/first-results.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>From numbers to lines | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'concepts/from-numbers-to-lines';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Languages and annotation" href="languages-and-annotation.html" />
+    <link rel="prev" title="Scope, subcorpora, and document sets" href="scope.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="how-candyconc-works.html">How CandyConc works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpus-index.html">The corpus index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries-and-hits.html">Queries and hits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope, subcorpora, and document sets</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">From numbers to lines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages-and-annotation.html">Languages and annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copilot.html">How the copilot works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-and-privacy.html">Data and privacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="where-data-lives.html">Where your data lives</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Concepts</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">From numbers to lines</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="from-numbers-to-lines">
+<h1>From numbers to lines<a class="headerlink" href="#from-numbers-to-lines" title="Link to this heading">#</a></h1>
+<p>Every number that CandyConc computes rests on positions in the corpus index.
+This page explains which positions each kind of result counts, how you open
+the concordance lines or documents behind a number, and where a number does
+not correspond one to one to the lines you see. The formulas are in
+<a class="reference internal" href="../methods/index.html"><span class="std std-doc">How CandyConc counts</span></a>.</p>
+<section id="four-kinds-of-numbers">
+<h2>Four kinds of numbers<a class="headerlink" href="#four-kinds-of-numbers" title="Link to this heading">#</a></h2>
+<p>CandyConc results contain four kinds of numbers, and only the first kind has
+lines behind it:</p>
+<ul class="simple">
+<li><p><strong>Raw counts</strong> count positions, hits, or documents: a hit count, a
+frequency in a frequency list, the co-occurrence count of a collocate, the
+frequencies in the two columns of a keyness table, the hits per document in
+a dispersion result. You can open the positions behind a raw count.</p></li>
+<li><p><strong>Derived measures</strong> are computed from raw counts by a fixed formula: a
+rate per million, log-likelihood, logDice, Log Ratio, DP. They have no
+lines of their own. You check them by recomputing them from the raw counts
+in the same row and the sizes in the method card.</p></li>
+<li><p><strong>Estimates</strong> describe uncertainty under a statistical model: confidence
+intervals, p-values, q-values, the conservative Log Ratio (LRC), the
+expected DP under even spread. They depend on the model assumptions that
+the methods pages state.</p></li>
+<li><p><strong>Model-generated statements</strong> are sentences written by the language model
+of the optional copilot. They are not computed by CandyConc. Numbers that
+CandyConc inserts into a copilot answer from the tool results keep the kind
+they have in the tool result. See <a class="reference internal" href="copilot.html"><span class="std std-doc">How the copilot works</span></a>.</p></li>
+</ul>
+</section>
+<section id="the-method-card">
+<h2>The method card<a class="headerlink" href="#the-method-card" title="Link to this heading">#</a></h2>
+<p>Analysis responses contain a method card (the field <code class="docutils literal notranslate"><span class="pre">method</span></code> in the API).
+It records:</p>
+<ul class="simple">
+<li><p>the analysis family and, for each measure, its name, formula, smoothing,
+and literature reference,</p></li>
+<li><p>the default sort key,</p></li>
+<li><p>the index fingerprint, which identifies the index state the result was
+computed on (see <a class="reference internal" href="corpus-index.html"><span class="std std-doc">The corpus index</span></a>),</p></li>
+<li><p>the sizes of the scope that the computation used, such as <code class="docutils literal notranslate"><span class="pre">target_total</span></code>
+and <code class="docutils literal notranslate"><span class="pre">reference_total</span></code>,</p></li>
+<li><p>the window and whether windows stop at sentence boundaries,</p></li>
+<li><p>the case policy, and family-specific settings such as the minimum
+frequency that was actually applied and the definition of the contingency
+table.</p></li>
+</ul>
+<p>In the interface, the method panel of keyness, n-grams, word sketches,
+trends, and contrasts shows the measure with its formula and smoothing, the
+sort key, the sizes of target and reference, the window, the sentence limit,
+the minimum frequency, and the index fingerprint. The information button next
+to a measure selector shows the formula and reference of that measure.
+Several views write CSV files whose first lines are comments with the
+formula, the window, and the index fingerprint.</p>
+</section>
+<section id="from-a-hit-count-to-the-lines">
+<h2>From a hit count to the lines<a class="headerlink" href="#from-a-hit-count-to-the-lines" title="Link to this heading">#</a></h2>
+<p>A hit count counts hits of a query. The concordance of the same query shows
+one line per hit. The count and the number of lines agree as long as you load
+all pages and do not draw a sample. See <a class="reference internal" href="queries-and-hits.html"><span class="std std-doc">Queries and hits</span></a>.</p>
+</section>
+<section id="from-a-frequency-list-to-the-lines">
+<h2>From a frequency list to the lines<a class="headerlink" href="#from-a-frequency-list-to-the-lines" title="Link to this heading">#</a></h2>
+<p>A frequency list of word forms or lemmas counts tokens and ignores case. One
+row stands for all spellings that are equal in lowercase, and the row label
+is the spelling that is most frequent in the whole corpus. In the English
+sample corpus, the row <code class="docutils literal notranslate"><span class="pre">the</span></code> counts 20,907 tokens of <em>the</em>, <em>The</em>, and <em>THE</em>.</p>
+<p>To see the lines, click the row in the tab <strong>Frequency</strong>. CandyConc opens the
+concordance of exactly the tokens that the row counts, in the same scope: for
+a word form <code class="docutils literal notranslate"><span class="pre">cql:[word=&quot;the&quot;%c]</span></code>, for a lemma <code class="docutils literal notranslate"><span class="pre">cql:[lemma=&quot;the&quot;%c]</span></code>, and for
+a part of speech <code class="docutils literal notranslate"><span class="pre">cql:[pos=&quot;NOUN&quot;]</span></code>. The hit count equals the frequency. In
+the synthetic tea corpus, the row <code class="docutils literal notranslate"><span class="pre">tea</span></code> has the frequency 17, and its lines
+are 13 × <em>tea</em>, 3 × <em>Tea</em>, and 1 × <em>TEA</em>. The plain search <code class="docutils literal notranslate"><span class="pre">tea</span></code> finds the
+same 17 hits, because plain search also ignores case.</p>
+<p>The frequency list leaves out tokens without a letter or digit, such as
+punctuation and line breaks. Their hits can still be searched with the query
+language.</p>
+</section>
+<section id="from-a-collocation-row-to-the-lines">
+<h2>From a collocation row to the lines<a class="headerlink" href="#from-a-collocation-row-to-the-lines" title="Link to this heading">#</a></h2>
+<p>This is the most important case in which a number and the lines differ.</p>
+<p>In a collocation row, the <strong>co-occurrence count</strong> (O11, column <code class="docutils literal notranslate"><span class="pre">observed</span></code>)
+counts tokens of the collocate that lie inside the window of at least one hit
+of the node. The windows of all node hits are first merged into one set of
+positions, so a collocate token that lies in the windows of two nearby node
+hits counts once. The collocate is counted in its exact spelling.</p>
+<p>When you open the lines of a collocate, CandyConc shows <strong>one line for each
+node hit that has the collocate in its window</strong>, with the same window, the
+same sentence restriction, and the same exact spelling of the collocate as
+the row. The label <strong>Co-anchors</strong> above the lines repeats O11, for example
+<strong>O11: peace 52</strong>.</p>
+<p>The two numbers therefore differ in two situations:</p>
+<ul class="simple">
+<li><p>A collocate token lies in the windows of two node hits. It counts once in
+O11 and appears in two lines.</p></li>
+<li><p>A node hit has two tokens of the collocate in its window. They count twice
+in O11 and appear in one line.</p></li>
+</ul>
+<p>The synthetic tea corpus shows both. For the node <em>tea</em> with a window of 3
+tokens, the row <code class="docutils literal notranslate"><span class="pre">green</span></code> has O11 = 6, and its lines are 7. In the sentence
+<em>Green tea , green tea , always green tea</em>, the second <em>green</em> lies in the
+windows of the first and the second <em>tea</em>, and the third <em>green</em> in the
+windows of the second and the third <em>tea</em>. Each of them counts once in O11
+and appears in two lines. The window of the second <em>tea</em> contains both of
+them, so that one line holds two tokens of the collocate. The capitalized
+first <em>Green</em> is counted in a row of its own, not in the row <code class="docutils literal notranslate"><span class="pre">green</span></code>. The
+rows <code class="docutils literal notranslate"><span class="pre">a</span></code> (O11 = 4) and <code class="docutils literal notranslate"><span class="pre">A</span></code> (O11 = 2) open 4 and 2 lines.</p>
+<p>The lines answer the question &quot;where does this collocate occur near the
+node?&quot; and the co-occurrence count answers &quot;how many collocate tokens are in
+the node's context?&quot;. Both are exact. Read the row and the lines as two views
+of the same contexts, not as a count and its list. See
+<a class="reference internal" href="../methods/association-measures.html"><span class="std std-doc">Association measures</span></a> for the
+contingency table that O11 enters.</p>
+</section>
+<section id="from-a-dispersion-result-to-the-documents">
+<h2>From a dispersion result to the documents<a class="headerlink" href="#from-a-dispersion-result-to-the-documents" title="Link to this heading">#</a></h2>
+<p>A dispersion result lists, for every document in the scope, the number of
+hits of the query and the size of the document in tokens (fields
+<code class="docutils literal notranslate"><span class="pre">partitions</span></code> and <code class="docutils literal notranslate"><span class="pre">doc_sizes</span></code>). Documents without a hit are included. Each
+per-document number equals the number of concordance lines of the same plain
+search in that document. DP, Juilland's D, and the other measures are
+derived from these two lists and the corpus size. See
+<a class="reference internal" href="../methods/dispersion.html"><span class="std std-doc">Dispersion</span></a>.</p>
+</section>
+<section id="from-a-keyness-row-to-the-lines">
+<h2>From a keyness row to the lines<a class="headerlink" href="#from-a-keyness-row-to-the-lines" title="Link to this heading">#</a></h2>
+<p>A keyness row gives the frequency of a word in the target (column
+<code class="docutils literal notranslate"><span class="pre">target_freq</span></code>) and in the reference (<code class="docutils literal notranslate"><span class="pre">reference_freq</span></code>). Both count tokens
+and ignore case, like the frequency list. To see the lines, search the row
+label as plain search with the target document set active, and then with the
+reference document set active. The hit counts equal the two frequencies. The
+field <code class="docutils literal notranslate"><span class="pre">surface_variants</span></code> lists the spellings that each frequency contains.
+If the keyness table is restricted to one part of speech, add the condition
+to the search, for example <code class="docutils literal notranslate"><span class="pre">cql:[word=&quot;freedom&quot;%c</span> <span class="pre">&amp;</span> <span class="pre">pos=&quot;NOUN&quot;]</span></code>.</p>
+<p>The rates per million in a keyness row divide by the number of word tokens of
+each side, without punctuation. They are not rates of lines. See
+<a class="reference internal" href="../methods/keyness.html"><span class="std std-doc">Keyness</span></a>.</p>
+</section>
+<section id="from-an-n-gram-row-to-the-lines">
+<h2>From an n-gram row to the lines<a class="headerlink" href="#from-an-n-gram-row-to-the-lines" title="Link to this heading">#</a></h2>
+<p>An n-gram row counts every position where the sequence of word forms starts,
+in exact spelling, within one document. A sequence that contains punctuation
+is not listed. To see the lines, click the row in the n-gram table. CandyConc
+searches the sequence with the query language and without <code class="docutils literal notranslate"><span class="pre">%c</span></code>, for example
+<code class="docutils literal notranslate"><span class="pre">cql:within(&lt;doc&gt;,</span> <span class="pre">[word=&quot;A&quot;]</span> <span class="pre">[word=&quot;cup&quot;])</span></code>. The wrapper <code class="docutils literal notranslate"><span class="pre">within(&lt;doc&gt;,</span> <span class="pre">...)</span></code>
+is needed because n-grams are counted across sentence boundaries and query
+patterns stay within a sentence by default.</p>
+<p>The counts agree unless the n-gram overlaps with itself. A row for
+<em>very very</em> counts two n-grams in <em>very very very</em>, and the query finds one
+hit, because hits do not overlap. See
+<a class="reference internal" href="../methods/n-grams-and-trends.html"><span class="std std-doc">N-grams and trends</span></a>.</p>
+</section>
+<section id="from-a-trend-to-the-lines">
+<h2>From a trend to the lines<a class="headerlink" href="#from-a-trend-to-the-lines" title="Link to this heading">#</a></h2>
+<p>A trend counts the hits of a query in the documents of each period (year or
+month of a date field) and divides by the number of word tokens in these
+documents, without punctuation. Documents without a readable date form their
+own group, and periods without documents are left out. A row or a point of
+the trend opens the lines of its period: the scope is narrowed by a metadata
+filter on the values of the date field that form the period, and the same
+query runs there.
+The hit count equals the hits of the period. In the English sample corpus,
+the period 1945 of <code class="docutils literal notranslate"><span class="pre">freedom</span></code> over the field <code class="docutils literal notranslate"><span class="pre">year</span></code> has 7 hits, and its
+concordance has 7 lines. The group of undated documents has no filter value
+and no link. See <a class="reference internal" href="../methods/n-grams-and-trends.html"><span class="std std-doc">N-grams and trends</span></a>.</p>
+</section>
+<section id="from-a-word-sketch-to-the-lines">
+<h2>From a word sketch to the lines<a class="headerlink" href="#from-a-word-sketch-to-the-lines" title="Link to this heading">#</a></h2>
+<p>A word sketch row counts pairs of tokens connected by a dependency relation,
+with the node and the partner in their exact spelling. A click on the row
+opens the dependency search of the pair, <code class="docutils literal notranslate"><span class="pre">HEAD</span> <span class="pre">&gt;relation</span> <span class="pre">DEPENDENT</span></code> with
+<code class="docutils literal notranslate"><span class="pre">[word=...]</span></code> for exact spelling. In the English sample corpus, the word
+sketch of <em>freedom</em> lists <em>political</em> in the table <strong>has adjectival
+modifier</strong> <code class="docutils literal notranslate"><span class="pre">&gt;amod</span></code> with 5 pairs, and <code class="docutils literal notranslate"><span class="pre">[word=freedom]</span> <span class="pre">&gt;amod</span> <span class="pre">[word=political]</span></code>
+finds 5 hits. A relation shown with <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> means that the node is the
+dependent, so the row <em>defend</em> in <strong>direct object of</strong> <code class="docutils literal notranslate"><span class="pre">&lt;dobj</span></code> opens
+<code class="docutils literal notranslate"><span class="pre">[word=defend]</span> <span class="pre">&gt;dobj</span> <span class="pre">[word=freedom]</span></code> (12 hits).</p>
+<p>The search finds heads, one line per head, and the row counts pairs. A head
+with two dependents of the same word in the relation is two pairs and one
+line: the row <em>members</em> under <strong>prepositional modifier of</strong> <code class="docutils literal notranslate"><span class="pre">&lt;prep</span></code> in the
+word sketch of <em>of</em> has 53 pairs and 51 lines. The line above the concordance names both numbers when
+they differ. See <a class="reference internal" href="../methods/word-sketches.html"><span class="std std-doc">Word sketches</span></a>.</p>
+</section>
+<section id="from-a-contrast-row-to-the-lines">
+<h2>From a contrast row to the lines<a class="headerlink" href="#from-a-contrast-row-to-the-lines" title="Link to this heading">#</a></h2>
+<p>A contrast row gives, for each group, the co-occurrence count of a collocate
+with the word, as a rate per million tokens of the group, punctuation
+included. The number in the column of a group opens the lines of that group:
+the scope becomes the group, and the concordance shows one line for each hit
+of the word with the collocate in its window, as for a collocation row. The co-occurrence count of
+the group appears above the concordance, for example 15 for <em>greater</em> with
+<em>freedom</em> in the Republican addresses, next to 14 lines. See
+<a class="reference internal" href="#from-a-collocation-row-to-the-lines">From a collocation row to the lines</a>
+and <a class="reference internal" href="../methods/contrast.html"><span class="std std-doc">Contrast</span></a>.</p>
+</section>
+<section id="when-the-lines-are-a-selection">
+<h2>When the lines are a selection<a class="headerlink" href="#when-the-lines-are-a-selection" title="Link to this heading">#</a></h2>
+<p>The lines you see can be a selection of the hits that a number counts:</p>
+<ul class="simple">
+<li><p><strong>Pages.</strong> The concordance loads lines in pages. The hit count always
+covers all hits.</p></li>
+<li><p><strong>Samples.</strong> A random sample with a seed shows a subset of the hits. Its
+header states the population size.</p></li>
+<li><p><strong>Row limits.</strong> Analysis tables return a limited number of rows. Every
+response states the number of candidates and whether the table was cut
+(<code class="docutils literal notranslate"><span class="pre">total_candidates</span></code>, <code class="docutils literal notranslate"><span class="pre">truncated</span></code>). The statistics are computed over all
+candidates before the rows are cut.</p></li>
+</ul>
+</section>
+<section id="when-two-views-count-the-same-word-differently">
+<h2>When two views count the same word differently<a class="headerlink" href="#when-two-views-count-the-same-word-differently" title="Link to this heading">#</a></h2>
+<p>Views that look alike can count different sets of positions:</p>
+<ul class="simple">
+<li><p>Collocations, frequency lists, and keyness ignore the case of the node or
+word. Word sketches and n-grams use the exact spelling.</p></li>
+<li><p>Keyness, the frequency contrast, and the trend divide by word tokens. The
+n-gram list divides by all tokens of the scope, including punctuation, and
+the n-gram contrast by the number of n-gram positions. The same bigram can
+therefore have two different rates per million for the same document set.</p></li>
+</ul>
+<p><a class="reference internal" href="../methods/index.html"><span class="std std-doc">How CandyConc counts</span></a> lists the counting unit and the
+denominator of every analysis.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="scope.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Scope, subcorpora, and document sets</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="languages-and-annotation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Languages and annotation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#four-kinds-of-numbers">Four kinds of numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-method-card">The method card</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-hit-count-to-the-lines">From a hit count to the lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-frequency-list-to-the-lines">From a frequency list to the lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-collocation-row-to-the-lines">From a collocation row to the lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-dispersion-result-to-the-documents">From a dispersion result to the documents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-keyness-row-to-the-lines">From a keyness row to the lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-an-n-gram-row-to-the-lines">From an n-gram row to the lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-trend-to-the-lines">From a trend to the lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-word-sketch-to-the-lines">From a word sketch to the lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-contrast-row-to-the-lines">From a contrast row to the lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-the-lines-are-a-selection">When the lines are a selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-two-views-count-the-same-word-differently">When two views count the same word differently</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/concepts/from-numbers-to-lines.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

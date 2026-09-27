@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Use the HTTP API | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'guides/automate/use-the-http-api';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Concepts" href="../../concepts/index.html" />
+    <link rel="prev" title="Use the command line" href="use-the-cli.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Bring in texts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../bring-in-texts/import-a-corpus.html">Import a corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bring-in-texts/import-vrt-and-cwb.html">Import VRT or an existing CWB corpus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bring-in-texts/import-paired-versions.html">Import paired versions of source texts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bring-in-texts/choose-annotation.html">Choose language and annotation layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bring-in-texts/manage-corpora.html">Switch, register, and remove corpora</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Search</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../search/search-words-and-phrases.html">Search words and phrases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../search/write-structured-queries.html">Write structured queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../search/read-in-context.html">Read hits in context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../search/bookmark-and-annotate-lines.html">Bookmark and annotate concordance lines</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Narrow the scope</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../narrow-the-scope/filter-by-metadata.html">Filter by document metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../narrow-the-scope/create-subcorpora.html">Create and reuse subcorpora</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Count and measure</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../count-and-measure/frequency-lists.html">Make a frequency list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../count-and-measure/collocations.html">Find collocations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../count-and-measure/dispersion.html">Measure dispersion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../count-and-measure/n-grams.html">Count n-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../count-and-measure/trends.html">Follow a frequency over time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../count-and-measure/keyness.html">Compare two subcorpora with keyness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../count-and-measure/contrast.html">Contrast collocations and paired versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../count-and-measure/word-sketches.html">Make a word sketch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../count-and-measure/similar-words-and-semantic-search.html">Find similar words and passages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../count-and-measure/lexical-diversity.html">Measure lexical diversity</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Keep and share results</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../keep-and-share/export-concordances.html">Export a concordance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../keep-and-share/export-evidence-packages.html">Export an evidence package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../keep-and-share/save-analyses.html">Save analyses and workspaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../keep-and-share/reproduce-a-result.html">Reproduce a result</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../keep-and-share/back-up-your-data.html">Back up your data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Copilot</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../copilot/connect-a-model.html">Connect a language model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copilot/ask-and-check.html">Ask the copilot and check the answer</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Run for a group</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../run-for-a-group/multi-user-server.html">Run CandyConc for several users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../run-for-a-group/reverse-proxy.html">Serve CandyConc behind a reverse proxy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Automate</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="use-the-cli.html">Use the command line</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Use the HTTP API</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Guides</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Use the HTTP API</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="use-the-http-api">
+<h1>Use the HTTP API<a class="headerlink" href="#use-the-http-api" title="Link to this heading">#</a></h1>
+<p>The web interface talks to the CandyConc server over an HTTP API, and scripts
+can use the same API: search, count, run analyses, follow analysis jobs, and
+export. This guide shows these tasks with <code class="docutils literal notranslate"><span class="pre">curl</span></code>. The complete list of
+endpoints and parameters is in the <a class="reference internal" href="../../reference/http-api.html"><span class="std std-doc">HTTP API reference</span></a>.</p>
+<section id="before-you-begin">
+<h2>Before you begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A running CandyConc server. The examples assume
+<code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8010</span></code> and the English sample corpus <code class="docutils literal notranslate"><span class="pre">sotu_en</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">curl</span></code>, and optionally a JSON tool such as <code class="docutils literal notranslate"><span class="pre">jq</span></code> or Python to read the
+responses.</p></li>
+</ul>
+</section>
+<section id="get-a-token">
+<h2>Get a token<a class="headerlink" href="#get-a-token" title="Link to this heading">#</a></h2>
+<p>Many endpoints need a token in the header <code class="docutils literal notranslate"><span class="pre">Authorization:</span> <span class="pre">Bearer</span> <span class="pre">TOKEN</span></code>.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Single-user mode</label><div class="sd-tab-content docutils">
+<p>The default local server issues a token without a password:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:8010/api/v1/auth/dev-token
+</pre></div>
+</div>
+<p>The response is <code class="docutils literal notranslate"><span class="pre">{&quot;token&quot;:</span> <span class="pre">&quot;...&quot;}</span></code>.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Multi-user mode</label><div class="sd-tab-content docutils">
+<p>Sign in with an account of the user file. Replace <code class="docutils literal notranslate"><span class="pre">USER_NAME</span></code> and
+<code class="docutils literal notranslate"><span class="pre">PASSWORD</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://127.0.0.1:8010/api/v1/login<span class="w"> </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"username": "USER_NAME", "password": "PASSWORD"}'</span>
+</pre></div>
+</div>
+<p>The response is <code class="docutils literal notranslate"><span class="pre">{&quot;token&quot;:</span> <span class="pre">&quot;...&quot;}</span></code>. The token is valid for 12 hours or until
+the server restarts. <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/logout</span></code> with the token ends the session.
+In multi-user mode, every protected request needs the token, and the role of
+the account decides what is allowed, see
+<a class="reference internal" href="../run-for-a-group/multi-user-server.html"><span class="std std-doc">Run CandyConc for several users</span></a>.</p>
+</div>
+</div>
+<p>In the following examples, <code class="docutils literal notranslate"><span class="pre">TOKEN</span></code> stands for the value of <code class="docutils literal notranslate"><span class="pre">token</span></code>.</p>
+</section>
+<section id="list-the-corpora">
+<h2>List the corpora<a class="headerlink" href="#list-the-corpora" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:8010/api/v1/corpora
+</pre></div>
+</div>
+<p>The response lists every corpus of the catalog with its name, its numbers of
+tokens and documents, its import format, its language and pipeline, and its
+capabilities. The field <code class="docutils literal notranslate"><span class="pre">name</span></code> is the value that the parameter <code class="docutils literal notranslate"><span class="pre">corpus</span></code> of
+every other route expects. The field <code class="docutils literal notranslate"><span class="pre">id</span></code> is the build fingerprint of the
+index, and two builds of the same input with the same settings have the same
+<code class="docutils literal notranslate"><span class="pre">id</span></code>, so it does not tell two such corpora apart. A corpus that the server
+opens with <code class="docutils literal notranslate"><span class="pre">CANDYCONC_INDEX_PATH</span></code> has the name <code class="docutils literal notranslate"><span class="pre">default</span></code>, and <code class="docutils literal notranslate"><span class="pre">display_name</span></code>
+holds the name of its folder.</p>
+</section>
+<section id="count-and-search">
+<h2>Count and search<a class="headerlink" href="#count-and-search" title="Link to this heading">#</a></h2>
+<p>Count the hits of a query:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span>-G<span class="w"> </span>http://127.0.0.1:8010/api/v1/query/count<span class="w"> </span>--data-urlencode<span class="w"> </span><span class="nv">term</span><span class="o">=</span>freedom<span class="w"> </span>--data-urlencode<span class="w"> </span><span class="nv">corpus</span><span class="o">=</span>sotu_en<span class="w"> </span>--data-urlencode<span class="w"> </span><span class="nv">wait_ms</span><span class="o">=</span><span class="m">5000</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer TOKEN"</span>
+</pre></div>
+</div>
+<p>The response is <code class="docutils literal notranslate"><span class="pre">{&quot;status&quot;:&quot;ready&quot;,&quot;total&quot;:495,&quot;partial&quot;:false,...}</span></code>.
+Without <code class="docutils literal notranslate"><span class="pre">wait_ms</span></code>, a count that takes longer answers <code class="docutils literal notranslate"><span class="pre">{&quot;status&quot;:&quot;running&quot;}</span></code>
+first. Ask again until <code class="docutils literal notranslate"><span class="pre">status</span></code> is <code class="docutils literal notranslate"><span class="pre">ready</span></code>. <code class="docutils literal notranslate"><span class="pre">partial</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code> if the count
+stopped before the end.</p>
+<p>Fetch concordance lines:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span>-G<span class="w"> </span>http://127.0.0.1:8010/api/v1/query<span class="w"> </span>--data-urlencode<span class="w"> </span><span class="nv">term</span><span class="o">=</span>freedom<span class="w"> </span>--data-urlencode<span class="w"> </span><span class="nv">corpus</span><span class="o">=</span>sotu_en<span class="w"> </span>--data-urlencode<span class="w"> </span><span class="nv">limit</span><span class="o">=</span><span class="m">2</span>
+</pre></div>
+</div>
+<p>The response is a list with one object per hit, with the fields <code class="docutils literal notranslate"><span class="pre">left</span></code>,
+<code class="docutils literal notranslate"><span class="pre">kw</span></code> (the node), <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">pos</span></code> (the token position), <code class="docutils literal notranslate"><span class="pre">doc_id</span></code>, <code class="docutils literal notranslate"><span class="pre">doc</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">meta</span></code>. <code class="docutils literal notranslate"><span class="pre">term</span></code> accepts plain search and the query language, see
+<a class="reference internal" href="../../reference/query-language.html"><span class="std std-doc">Query language</span></a>. In parameters of
+analyses, write the prefix <code class="docutils literal notranslate"><span class="pre">cql:</span></code> for the query language.</p>
+<p>When the corpus index stores the original spacing, <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">kw</span></code>, and <code class="docutils literal notranslate"><span class="pre">right</span></code>
+show the text as written, and three more fields locate the tokens:
+<code class="docutils literal notranslate"><span class="pre">token_starts</span></code> holds, for <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">kw</span></code>, and <code class="docutils literal notranslate"><span class="pre">right</span></code>, the offset of every
+token in the field, counted in Unicode code points, and <code class="docutils literal notranslate"><span class="pre">ws_before_kw</span></code> and
+<code class="docutils literal notranslate"><span class="pre">ws_after_kw</span></code> say whether a space separates the node from its neighbors.
+Positions and <code class="docutils literal notranslate"><span class="pre">match_offsets</span></code> count tokens either way, see
+<a class="reference internal" href="../../concepts/corpus-index.html#original-spacing"><span class="std std-ref">Original spacing</span></a>.</p>
+</section>
+<section id="run-an-analysis-as-a-job">
+<h2>Run an analysis as a job<a class="headerlink" href="#run-an-analysis-as-a-job" title="Link to this heading">#</a></h2>
+<p>Longer analyses run as jobs. Start the collocation analysis of <em>freedom</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://127.0.0.1:8010/api/v1/analysis/collocates/job<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer TOKEN"</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"term": "freedom", "corpus": "sotu_en", "window": 5}'</span>
+</pre></div>
+</div>
+<p>The response contains the <code class="docutils literal notranslate"><span class="pre">job_id</span></code> and the addresses <code class="docutils literal notranslate"><span class="pre">status_url</span></code> and
+<code class="docutils literal notranslate"><span class="pre">rows_url</span></code>. Replace <code class="docutils literal notranslate"><span class="pre">JOB_ID</span></code> with the job ID and ask for the status:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:8010/api/v1/analysis/jobs/JOB_ID<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer TOKEN"</span>
+</pre></div>
+</div>
+<p>Poll at intervals until <code class="docutils literal notranslate"><span class="pre">status</span></code> is <code class="docutils literal notranslate"><span class="pre">done</span></code>, then fetch the rows. Local
+scripts share the server's <a class="reference internal" href="../../reference/http-api.html#rate-limit"><span class="std std-ref">rate limits</span></a>.
+On HTTP 429, pause until earlier requests leave the one-minute window before
+trying again.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">"http://127.0.0.1:8010/api/v1/analysis/jobs/JOB_ID/rows?offset=0&amp;limit=200"</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer TOKEN"</span>
+</pre></div>
+</div>
+<p>Each row holds the collocate and all association measures, for example
+<code class="docutils literal notranslate"><span class="pre">&quot;word&quot;:</span> <span class="pre">&quot;peace&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;observed&quot;:</span> <span class="pre">52</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;logdice&quot;:</span> <span class="pre">10.5789</span></code>. The rows
+response also contains the method card in the field <code class="docutils literal notranslate"><span class="pre">method</span></code>. The server
+keeps jobs in memory, so fetch the rows before you restart it.</p>
+</section>
+<section id="export-a-concordance">
+<h2>Export a concordance<a class="headerlink" href="#export-a-concordance" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://127.0.0.1:8010/api/v1/export/concordance<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer TOKEN"</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"query": "freedom", "corpus": "sotu_en", "format": "csv"}'</span><span class="w"> </span>-o<span class="w"> </span>freedom.csv
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">format</span></code> is <code class="docutils literal notranslate"><span class="pre">csv</span></code>, <code class="docutils literal notranslate"><span class="pre">tsv</span></code>, <code class="docutils literal notranslate"><span class="pre">json</span></code>, <code class="docutils literal notranslate"><span class="pre">jsonl</span></code>, or <code class="docutils literal notranslate"><span class="pre">xlsx</span></code>. The file is the one
+described in <a class="reference internal" href="../keep-and-share/export-concordances.html"><span class="std std-doc">Export a concordance</span></a>.
+An evidence package comes from <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/export/evidence-package</span></code> with
+the same <code class="docutils literal notranslate"><span class="pre">query</span></code> and <code class="docutils literal notranslate"><span class="pre">corpus</span></code>.</p>
+</section>
+<section id="read-the-api-description">
+<h2>Read the API description<a class="headerlink" href="#read-the-api-description" title="Link to this heading">#</a></h2>
+<p>In single-user mode, the server describes its API at
+<code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8010/docs</span></code> (interactive) and
+<code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8010/openapi.json</span></code>. In multi-user mode, both are switched
+off.</p>
+</section>
+<section id="result">
+<h2>Result<a class="headerlink" href="#result" title="Link to this heading">#</a></h2>
+<p>Your scripts can count, search, analyze, and export over HTTP with the same
+results as the interface. For the analysis operations that the copilot uses,
+the capability contract, and the error format, see the
+<a class="reference internal" href="../../reference/http-api.html"><span class="std std-doc">HTTP API reference</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="use-the-cli.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Use the command line</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../concepts/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Concepts</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-token">Get a token</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#list-the-corpora">List the corpora</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#count-and-search">Count and search</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-an-analysis-as-a-job">Run an analysis as a job</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export-a-concordance">Export a concordance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-api-description">Read the API description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#result">Result</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../_sources/guides/automate/use-the-http-api.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

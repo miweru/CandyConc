@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Architecture for contributors | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contribute/architecture-for-contributors';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Run the tests" href="tests.html" />
+    <link rel="prev" title="Set up a development environment" href="development-setup.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="development-setup.html">Set up a development environment</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Architecture for contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Run the tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-process.html">Release process</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Contribute</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Architecture for contributors</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="architecture-for-contributors">
+<h1>Architecture for contributors<a class="headerlink" href="#architecture-for-contributors" title="Link to this heading">#</a></h1>
+<p>This page maps the components of CandyConc to the source tree and describes
+the four places where CandyConc is usually extended: a new analysis
+operation, a new import format, a new copilot tool, and a new interface
+language. What the components do and how data flows between them is
+explained in <a class="reference internal" href="../concepts/how-candyconc-works.html"><span class="std std-doc">How CandyConc works</span></a>. Read
+that page first.</p>
+<section id="code-map">
+<h2>Code map<a class="headerlink" href="#code-map" title="Link to this heading">#</a></h2>
+<p>Paths are relative to the root of the repository. <code class="docutils literal notranslate"><span class="pre">app/src/candyconc</span></code> is
+abbreviated as <code class="docutils literal notranslate"><span class="pre">candyconc/</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Where</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Command line</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candyconc/entrypoints/cli.py</span></code></p></td>
+<td><p>one <code class="docutils literal notranslate"><span class="pre">argparse</span></code> parser per command. The <a class="reference internal" href="../reference/cli.html"><span class="std std-doc">Command line reference</span></a> is generated from them.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Configuration and data locations</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candyconc/config.py</span></code>, <code class="docutils literal notranslate"><span class="pre">candyconc/paths.py</span></code>, <code class="docutils literal notranslate"><span class="pre">candyconc/version.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AppConfig</span></code> holds every setting with its default. See <a class="reference internal" href="../reference/configuration.html"><span class="std std-doc">Configuration reference</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Import</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candyconc/ingest/</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ingest_adapters.py</span></code> reads CSV, JSON Lines, plain text, Hugging Face datasets, and paired files. <code class="docutils literal notranslate"><span class="pre">build_fast_index_from_parquet.py</span></code> tokenizes and annotates with spaCy and writes the index. <code class="docutils literal notranslate"><span class="pre">build_fast_index_from_vrt.py</span></code> reads VRT. <code class="docutils literal notranslate"><span class="pre">pipelines.py</span></code> handles spaCy pipelines.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Import jobs of the interface</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candyconc/services/backend/corpus_import_jobs.py</span></code></p></td>
+<td><p>preflight, options per format, jobs, reports</p></td>
+</tr>
+<tr class="row-even"><td><p>Index and counting</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candyconc/core/</span></code></p></td>
+<td><p>index format and manifest (<code class="docutils literal notranslate"><span class="pre">index_format.py</span></code>), lexicons, token store, metadata, compiled counting kernels (<code class="docutils literal notranslate"><span class="pre">_fast_count.pyx</span></code>, <code class="docutils literal notranslate"><span class="pre">_fast_index.pyx</span></code>), collocation engine, significance tests</p></td>
+</tr>
+<tr class="row-odd"><td><p>Query engine</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">app/src/cqlhpc/</span></code></p></td>
+<td><p>lexer, parser, planner, compiled postings intersection and pattern matching (<code class="docutils literal notranslate"><span class="pre">cython/</span></code>), and the contract of supported constructs (<code class="docutils literal notranslate"><span class="pre">capabilities.py</span></code>). It imports from <code class="docutils literal notranslate"><span class="pre">candyconc</span></code> only the compiled kernels and the index backend of <code class="docutils literal notranslate"><span class="pre">candyconc/core</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>HTTP server</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candyconc/services/backend/server.py</span></code>, <code class="docutils literal notranslate"><span class="pre">routes/</span></code></p></td>
+<td><p>FastAPI application, one module per route group, security (<code class="docutils literal notranslate"><span class="pre">auth.py</span></code>, <code class="docutils literal notranslate"><span class="pre">route_matrix.py</span></code>, <code class="docutils literal notranslate"><span class="pre">rate_limit.py</span></code>), jobs (<code class="docutils literal notranslate"><span class="pre">analysis_jobs.py</span></code>), streaming (<code class="docutils literal notranslate"><span class="pre">http_sse.py</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Analysis operations</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candyconc/services/backend/routes/analysis.py</span></code>, <code class="docutils literal notranslate"><span class="pre">analysis_runners.py</span></code>, <code class="docutils literal notranslate"><span class="pre">candyconc/services/tools/</span></code></p></td>
+<td><p>routes and runners of the statistics. <code class="docutils literal notranslate"><span class="pre">candyconc/analysis_defaults.py</span></code> holds <code class="docutils literal notranslate"><span class="pre">METHOD_META</span></code> and <code class="docutils literal notranslate"><span class="pre">build_method_block</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Product contract</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candyconc/capabilities/product.py</span></code></p></td>
+<td><p>every operation with its route, role, corpus requirements, maturity, interface surfaces, and copilot tools, served as <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/capabilities</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Copilot</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candyconc/candyconc_copilot/</span></code>, <code class="docutils literal notranslate"><span class="pre">candyconc/services/llm_client.py</span></code>, <code class="docutils literal notranslate"><span class="pre">candyconc/tooling/</span></code></p></td>
+<td><p>orchestrator, tool wrappers, evidence and grounding, model client, tool registry</p></td>
+</tr>
+<tr class="row-even"><td><p>Tool API</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candyconc/services/mcp_server.py</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/mcp/tools</span></code> and <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/mcp/call</span></code>, the copilot tools without a model</p></td>
+</tr>
+<tr class="row-odd"><td><p>Web interface</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candyconc-web/src/</span></code></p></td>
+<td><p>Vue 3 components by area (<code class="docutils literal notranslate"><span class="pre">components/search</span></code>, <code class="docutils literal notranslate"><span class="pre">components/analysis</span></code>, <code class="docutils literal notranslate"><span class="pre">components/copilot</span></code>, ...), Pinia stores, the API client (<code class="docutils literal notranslate"><span class="pre">api/</span></code>), message catalogs (<code class="docutils literal notranslate"><span class="pre">locales/</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p>Serving the interface</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candyconc/services/backend/frontend_static.py</span></code></p></td>
+<td><p>serves the built interface from <code class="docutils literal notranslate"><span class="pre">candyconc/web_dist</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="contracts-that-keep-the-parts-consistent">
+<h2>Contracts that keep the parts consistent<a class="headerlink" href="#contracts-that-keep-the-parts-consistent" title="Link to this heading">#</a></h2>
+<p>Several lists exist once in the code and are read by every part that needs
+them. When you add something, add it to the contract, not to a second list:</p>
+<ul class="simple">
+<li><p><strong>The product contract</strong> (<code class="docutils literal notranslate"><span class="pre">capabilities/product.py</span></code>) decides which
+operations the interface shows, which the copilot may call, and which role
+and corpus features each one needs. The interface and the copilot read it
+from <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/capabilities</span></code>.</p></li>
+<li><p><strong>The corpus capabilities</strong> come from the index manifest and the files of an
+index (<code class="docutils literal notranslate"><span class="pre">core/index_format.py</span></code>). A view that needs dependency relations reads
+them from there.</p></li>
+<li><p><strong>The method catalog</strong> <code class="docutils literal notranslate"><span class="pre">METHOD_META</span></code> (<code class="docutils literal notranslate"><span class="pre">analysis_defaults.py</span></code>) describes
+every statistic once: name, formula, smoothing, and default sort. Responses
+carry it in their <code class="docutils literal notranslate"><span class="pre">method</span></code> block, and <code class="docutils literal notranslate"><span class="pre">app/scripts/gen_measure_catalog.py</span></code>
+writes the copy that the interface uses (<code class="docutils literal notranslate"><span class="pre">candyconc-web/src/lib/measureCatalog.ts</span></code>).</p></li>
+<li><p><strong>The query language contract</strong> (<code class="docutils literal notranslate"><span class="pre">cqlhpc/capabilities.py</span></code>) lists every
+construct with its status. It feeds the diagnostics, the autocompletion,
+and the <a class="reference internal" href="../reference/query-language.html"><span class="std std-doc">Query language</span></a> reference.</p></li>
+<li><p><strong>The route matrix</strong> (<code class="docutils literal notranslate"><span class="pre">services/backend/route_matrix.py</span></code>) gives every route
+family its least role. In multi-user mode a route without a classification
+answers 403.</p></li>
+</ul>
+</section>
+<section id="add-an-analysis-operation">
+<h2>Add an analysis operation<a class="headerlink" href="#add-an-analysis-operation" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p><strong>Computation.</strong> Implement the analysis on the index, in
+<code class="docutils literal notranslate"><span class="pre">candyconc/services/tools/</span></code> or <code class="docutils literal notranslate"><span class="pre">candyconc/core/</span></code>, with tests in
+<code class="docutils literal notranslate"><span class="pre">app/tests/</span></code>. State the event space, the counting unit, and the
+denominator.</p></li>
+<li><p><strong>Route.</strong> Add a route in <code class="docutils literal notranslate"><span class="pre">candyconc/services/backend/routes/analysis.py</span></code>
+(or a new route module included by <code class="docutils literal notranslate"><span class="pre">server.py</span></code>). Long analyses run as a
+job: follow an existing <code class="docutils literal notranslate"><span class="pre">/job</span></code> route, which returns a <code class="docutils literal notranslate"><span class="pre">job_id</span></code> and writes
+its rows to the job store (<code class="docutils literal notranslate"><span class="pre">analysis_jobs.py</span></code>).</p></li>
+<li><p><strong>Method block.</strong> Add every statistic that the result contains to
+<code class="docutils literal notranslate"><span class="pre">METHOD_META</span></code> and return <code class="docutils literal notranslate"><span class="pre">build_method_block(family,</span> <span class="pre">...)</span></code> as the <code class="docutils literal notranslate"><span class="pre">method</span></code>
+field of the response, with the index fingerprint, the totals, and the
+scope parameters. Then regenerate the copy for the interface:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>app/scripts/gen_measure_catalog.py
+</pre></div>
+</div>
+</li>
+<li><p><strong>Route matrix.</strong> Make sure the path falls under a route family in
+<code class="docutils literal notranslate"><span class="pre">route_matrix.py</span></code>, or add one with the least role.</p></li>
+<li><p><strong>Product contract.</strong> Add an <code class="docutils literal notranslate"><span class="pre">operation(...)</span></code> to the capability of the
+area in <code class="docutils literal notranslate"><span class="pre">capabilities/product.py</span></code>, or a new <code class="docutils literal notranslate"><span class="pre">ui_capability(...)</span></code>, with the
+route, the effects, the input schema, the lifecycle for jobs, and the
+copilot tool if the copilot may call it. Name the corpus features it needs
+and its limits.</p></li>
+<li><p><strong>Interface.</strong> Add the view or panel in <code class="docutils literal notranslate"><span class="pre">candyconc-web/src/components/analysis/</span></code>,
+read the operation from the contract, and show the method block with the
+existing components.</p></li>
+<li><p><strong>Documentation.</strong> Describe the method on a page under
+<a class="reference internal" href="../methods/index.html"><span class="std std-doc">How CandyConc counts</span></a>, add a guide, and regenerate
+the HTTP API reference (<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">docs/_tools/generate_http_api.py</span></code>) after
+adding the purpose of the route to <code class="docutils literal notranslate"><span class="pre">docs/_data/http_api.json</span></code>.</p></li>
+</ol>
+</section>
+<section id="add-an-import-format">
+<h2>Add an import format<a class="headerlink" href="#add-an-import-format" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Reader.</strong> Add a reader to <code class="docutils literal notranslate"><span class="pre">candyconc/ingest/ingest_adapters.py</span></code> that
+yields one record per document, and a build function that passes the
+records to the shared index build, like <code class="docutils literal notranslate"><span class="pre">build_index_from_csv</span></code>. Record
+rejected rows with a reason in the reject sink.</p></li>
+<li><p><strong>Subcommand.</strong> Add a subcommand for the format to the parser in <code class="docutils literal notranslate"><span class="pre">main()</span></code>
+of <code class="docutils literal notranslate"><span class="pre">ingest_adapters.py</span></code>.</p></li>
+<li><p><strong>Method table.</strong> Register the format in <code class="docutils literal notranslate"><span class="pre">_IMPORT_BUILDERS</span></code> in
+<code class="docutils literal notranslate"><span class="pre">candyconc/utils/import_builders.py</span></code>.</p></li>
+<li><p><strong>Command line.</strong> Add it to the choices of <code class="docutils literal notranslate"><span class="pre">--input-format</span></code> and, if it has
+a file extension, to the extension detection in
+<code class="docutils literal notranslate"><span class="pre">candyconc/entrypoints/cli.py</span></code>, and pass its options on.</p></li>
+<li><p><strong>Import jobs.</strong> Add its options, columns, and preflight to
+<code class="docutils literal notranslate"><span class="pre">candyconc/services/backend/corpus_import_jobs.py</span></code>. The import form of the
+interface is built from these descriptions.</p></li>
+<li><p><strong>Tests and documentation.</strong> Test the reader with small files and
+describe the format in <a class="reference internal" href="../reference/input-formats.html"><span class="std std-doc">Input formats</span></a>.
+Regenerate the command line reference
+(<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">docs/_tools/generate_cli_reference.py</span></code>).</p></li>
+</ol>
+</section>
+<section id="add-a-copilot-tool">
+<h2>Add a copilot tool<a class="headerlink" href="#add-a-copilot-tool" title="Link to this heading">#</a></h2>
+<p>A copilot tool is a thin wrapper around an analysis operation. The model sees
+its name, description, and parameter schema, and its result becomes an
+evidence item with an identifier.</p>
+<ol class="arabic simple">
+<li><p><strong>Operation first.</strong> The tool calls an operation that exists as an HTTP
+route or a function of the analysis layer, so that the interface, the tool
+API, and the copilot compute the same numbers.</p></li>
+<li><p><strong>Wrapper.</strong> Write the wrapper in
+<code class="docutils literal notranslate"><span class="pre">candyconc/candyconc_copilot/tool_wrappers.py</span></code> and register it with the
+decorator <code class="docutils literal notranslate"><span class="pre">llm_tool</span></code> of <code class="docutils literal notranslate"><span class="pre">candyconc/tooling/registry.py</span></code>, with an OpenAI
+function schema whose parameters are an object. Return a dictionary with
+<code class="docutils literal notranslate"><span class="pre">status</span></code> and the computed fields.</p></li>
+<li><p><strong>Contract.</strong> Name the tool in the <code class="docutils literal notranslate"><span class="pre">copilot_tools</span></code> of the operation in
+<code class="docutils literal notranslate"><span class="pre">capabilities/product.py</span></code>. Only tools named there are offered to the
+model (<code class="docutils literal notranslate"><span class="pre">visible_product_copilot_tools</span></code>).</p></li>
+<li><p><strong>Tests.</strong> Test the real wrapper, not only the stand-in of
+<code class="docutils literal notranslate"><span class="pre">tests/conftest.py</span></code>, and test that <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/mcp/tools</span></code> lists it.</p></li>
+</ol>
+</section>
+<section id="add-an-interface-language">
+<h2>Add an interface language<a class="headerlink" href="#add-an-interface-language" title="Link to this heading">#</a></h2>
+<p>The interface has message catalogs per language and area in
+<code class="docutils literal notranslate"><span class="pre">candyconc-web/src/locales/</span></code>. English and German exist.</p>
+<ol class="arabic simple">
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">candyconc-web/src/locales/en/</span></code> to a directory named with the
+language code and translate the values. Keep the keys. Every catalog ends
+with <code class="docutils literal notranslate"><span class="pre">satisfies</span> <span class="pre">LocaleNamespace&lt;typeof</span> <span class="pre">de&gt;</span></code>, so a missing or extra key is a
+type error.</p></li>
+<li><p>Import the new catalogs in <code class="docutils literal notranslate"><span class="pre">candyconc-web/src/i18n/index.ts</span></code>, add the code
+to <code class="docutils literal notranslate"><span class="pre">SUPPORTED_LOCALES</span></code>, and add the language to <code class="docutils literal notranslate"><span class="pre">messages</span></code>.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">candyconc-web/src/i18n/locale.ts</span></code>, add the Intl tag for number and date
+formats to <code class="docutils literal notranslate"><span class="pre">INTL_TAGS</span></code>, the detection in <code class="docutils literal notranslate"><span class="pre">normalizeLocale</span></code> and
+<code class="docutils literal notranslate"><span class="pre">detectBrowserLocale</span></code>, and the value of <code class="docutils literal notranslate"><span class="pre">acceptLanguageHeader</span></code>.</p></li>
+<li><p>Add the language to the language selection in the general settings.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">npx</span> <span class="pre">vitest</span> <span class="pre">run</span></code> and <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">build</span></code>. The catalog test compares the
+keys of all catalogs.</p></li>
+</ol>
+<p>The server chooses the language of its own messages from the
+<code class="docutils literal notranslate"><span class="pre">Accept-Language</span></code> header of each request
+(<code class="docutils literal notranslate"><span class="pre">candyconc/services/backend/request_language.py</span></code>). It supports German and
+English, and falls back to German. Texts of the server that the interface
+shows need a translation there as well.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="development-setup.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Set up a development environment</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tests.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Run the tests</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-map">Code map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contracts-that-keep-the-parts-consistent">Contracts that keep the parts consistent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-an-analysis-operation">Add an analysis operation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-an-import-format">Add an import format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-copilot-tool">Add a copilot tool</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-an-interface-language">Add an interface language</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/contribute/architecture-for-contributors.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

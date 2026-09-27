@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Install CandyConc | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'get-started/install';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial: from download to first result" href="first-results.html" />
+    <link rel="prev" title="Get started" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Install and first steps</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Install CandyConc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-results.html">Tutorial: from download to first result</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install-python-package.html">Install the Python package</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/explore-a-word.html">Tutorial: from a search to evidence you can cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/compare-two-periods.html">Tutorial: compare two periods</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Get started</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Install CandyConc</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="install-candyconc">
+<h1>Install CandyConc<a class="headerlink" href="#install-candyconc" title="Link to this heading">#</a></h1>
+<p>CandyConc runs on your own computer as a local server with a web interface
+that opens in your browser. There are three ways to install it:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Way</p></th>
+<th class="head"><p>For</p></th>
+<th class="head"><p>What you need</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#install-the-application-bundle">Application bundle</a></p></td>
+<td><p>most users, no Python experience needed</p></td>
+<td><p>macOS on Apple silicon</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="install-python-package.html"><span class="std std-doc">Python package</span></a></p></td>
+<td><p>people who manage their own Python environments, and automation</p></td>
+<td><p>Python 3.11 to 3.14 on macOS on Apple silicon</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../contribute/development-setup.html"><span class="std std-doc">Development installation</span></a></p></td>
+<td><p>changing CandyConc itself</p></td>
+<td><p>a clone of the repository, Node.js, a C compiler</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These binary installation paths describe the local macOS arm64 candidate.
+Intel macOS and Linux are configured in the release workflow but have no
+built or verified artifacts for this candidate. Windows is not supported.
+The full matrix of systems, processors, and Python versions is in
+<a class="reference internal" href="../reference/supported-platforms.html"><span class="std std-doc">Supported platforms</span></a>.</p>
+<section id="install-the-application-bundle">
+<h2>Install the application bundle<a class="headerlink" href="#install-the-application-bundle" title="Link to this heading">#</a></h2>
+<p>The application bundle is a folder that contains its own Python, CandyConc,
+the web interface, all dependencies, and the two sample corpora of this
+documentation in the folder <code class="docutils literal notranslate"><span class="pre">examples</span></code>. It needs no system Python, no
+compiler, and no Node.js, and it runs without a network connection.</p>
+<section id="before-you-begin">
+<h3>Before you begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A computer with macOS 13 or later on Apple silicon.</p></li>
+<li><p>About 190 MB for the download and about 660 MB for the unpacked folder.
+These are the sizes of the macOS bundle for Apple silicon. Importing a
+corpus needs additional free disk space, see
+<a class="reference internal" href="../guides/bring-in-texts/import-a-corpus.html"><span class="std std-doc">Import a corpus</span></a>.</p></li>
+<li><p><strong>Terminal</strong> on macOS.</p></li>
+<li><p>A current web browser.</p></li>
+</ul>
+</section>
+<section id="download-and-unpack">
+<h3>Download and unpack<a class="headerlink" href="#download-and-unpack" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Open the
+<a class="reference external" href="https://github.com/miweru/CandyConc/releases">Releases page of the CandyConc repository</a>.</p></li>
+<li><p>Under <strong>Assets</strong> of the newest release, download the archive for your
+system and the file <code class="docutils literal notranslate"><span class="pre">SHA256SUMS</span></code>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>System</p></th>
+<th class="head"><p>Archive</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>macOS on Apple silicon (M1 and later)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CandyConc-VERSION-macos-arm64.tar.gz</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">VERSION</span></code> is the version number of the release, for example <code class="docutils literal notranslate"><span class="pre">0.1.0</span></code>. The
+archives named <strong>Source code</strong> are created by GitHub from the repository.
+They are not an installable application.</p>
+</li>
+<li><p>Optional: In a terminal, go to the folder with the two downloaded files
+and check the archive against its checksum:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>shasum<span class="w"> </span>-a<span class="w"> </span><span class="m">256</span><span class="w"> </span>--check<span class="w"> </span>--ignore-missing<span class="w"> </span>SHA256SUMS
+</pre></div>
+</div>
+<p>The output names the archive followed by <code class="docutils literal notranslate"><span class="pre">OK</span></code>.</p>
+</li>
+<li><p>Unpack the archive:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar<span class="w"> </span>-xzf<span class="w"> </span>CandyConc-*-macos-arm64.tar.gz
+</pre></div>
+</div>
+<p>The result is a folder named like the archive, for example
+<code class="docutils literal notranslate"><span class="pre">CandyConc-0.1.0-macos-arm64</span></code>. You can move this folder anywhere. Your
+corpora and settings are not stored inside it.</p>
+</li>
+<li><p>Remove the quarantine flag from the folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xattr<span class="w"> </span>-dr<span class="w"> </span>com.apple.quarantine<span class="w"> </span>CandyConc-*-macos-arm64
+</pre></div>
+</div>
+<p>The bundle is not signed or notarized by Apple. A browser marks every
+downloaded file with a quarantine flag, and macOS then refuses to run the
+Python inside the bundle. If you downloaded the archive with <code class="docutils literal notranslate"><span class="pre">curl</span></code> in a
+terminal, skip this step, because <code class="docutils literal notranslate"><span class="pre">curl</span></code> sets no quarantine flag.</p>
+</li>
+</ol>
+</section>
+<section id="start-candyconc">
+<h3>Start CandyConc<a class="headerlink" href="#start-candyconc" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Go to the unpacked folder and start CandyConc:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>CandyConc-*-macos-arm64
+./candyconc
+</pre></div>
+</div>
+<p>The output is similar to the following:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  Web interface: http://127.0.0.1:8010/
+  Corpus: none yet. Import one in the web interface (Corpora) or with: candy import --help
+  Data: /Users/you/.candyconc
+  Copilot: no language model configured (optional, see Settings &gt; Model connection)
+Press Ctrl+C to stop.
+</pre></div>
+</div>
+<p>Your browser opens the web interface at the address in the line
+<strong>Web interface</strong>. If port 8010 is taken, CandyConc uses the next free
+port and prints it. If no browser window opens, open the printed address
+yourself.</p>
+</li>
+<li><p>Leave the terminal open while you work. To stop CandyConc, press
+<kbd>Control</kbd>+<kbd>C</kbd> in the terminal.</p></li>
+</ol>
+<p>The first start shows the message <strong>No corpus yet</strong> and the button
+<strong>Import a corpus</strong>. CandyConc listens only on <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>, so no other
+computer can reach it. Continue with <a class="reference internal" href="first-results.html"><span class="std std-doc">First results</span></a> to
+import the English sample corpus and run a first analysis.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/first-start-empty.png"><img alt="CandyConc after the first start with an empty data folder, with the message No corpus yet and the button Import a corpus." src="../_images/first-start-empty.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The interface after the first start, before a corpus is imported.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="choose-the-interface-language">
+<h3>Choose the interface language<a class="headerlink" href="#choose-the-interface-language" title="Link to this heading">#</a></h3>
+<p>The interface is German when the language of your browser is German, and
+English otherwise. To change it, click <strong>Settings</strong> (the gear icon in the top
+bar), open <strong>General</strong>, and choose the language under <strong>Language</strong>. In the
+German interface these labels are <strong>Einstellungen</strong>, <strong>Allgemein</strong>, and
+<strong>Sprache</strong>. The choice applies at once and is kept for the next start.</p>
+</section>
+</section>
+<section id="commands-of-the-bundle">
+<h2>Commands of the bundle<a class="headerlink" href="#commands-of-the-bundle" title="Link to this heading">#</a></h2>
+<p>Run these commands in the unpacked folder:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>What it does</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span></code></p></td>
+<td><p>Starts CandyConc and opens the web interface. Options such as <code class="docutils literal notranslate"><span class="pre">--port</span> <span class="pre">8020</span></code> are passed to the server.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">import</span> <span class="pre">...</span></code></p></td>
+<td><p>Imports a corpus from a file. <code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">import</span> <span class="pre">--help</span></code> lists all options. See <a class="reference internal" href="../guides/bring-in-texts/import-a-corpus.html"><span class="std std-doc">Import a corpus</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">pipeline</span> <span class="pre">NAME</span></code></p></td>
+<td><p>Downloads a spaCy annotation pipeline, for example <code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code>. See <a class="reference internal" href="#what-candyconc-downloads">What CandyConc downloads</a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">paths</span></code></p></td>
+<td><p>Shows where CandyConc keeps your data and where it reads its configuration file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">version</span></code></p></td>
+<td><p>Shows the versions of CandyConc and spaCy and the location of the bundle.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">uninstall</span></code></p></td>
+<td><p>Removes the bundle folder after a confirmation. Your data stays.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="what-candyconc-downloads">
+<h2>What CandyConc downloads<a class="headerlink" href="#what-candyconc-downloads" title="Link to this heading">#</a></h2>
+<p>CandyConc starts and works without a network connection. It downloads
+something only when you ask for it:</p>
+<ul class="simple">
+<li><p><strong>Annotation pipelines.</strong> Lemmas, parts of speech, and dependency relations
+come from a spaCy pipeline. <code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">pipeline</span> <span class="pre">NAME</span></code> downloads one from
+the <a class="reference external" href="https://github.com/explosion/spacy-models/releases">spaCy model releases on GitHub</a>
+and stores it in your data folder, so it survives an update of the bundle.
+Sizes of the downloads: <code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code> 12.8 MB, <code class="docutils literal notranslate"><span class="pre">en_core_web_md</span></code>
+33.5 MB, <code class="docutils literal notranslate"><span class="pre">de_core_news_sm</span></code> 14.6 MB, <code class="docutils literal notranslate"><span class="pre">de_core_news_md</span></code> 44.4 MB. A corpus
+imported with <code class="docutils literal notranslate"><span class="pre">blank:en</span></code> (or another language code) is only tokenized and
+needs no download. See
+<a class="reference internal" href="../guides/bring-in-texts/choose-annotation.html"><span class="std std-doc">Choose language and annotation layers</span></a>.</p></li>
+<li><p><strong>The copilot</strong> connects only to the model endpoint that you configure. See
+<a class="reference internal" href="../guides/copilot/connect-a-model.html"><span class="std std-doc">Connect a language model</span></a>.</p></li>
+<li><p><strong>Semantic indexes</strong> on Apple silicon download a runtime and an embedding
+model when you start building one. See
+<a class="reference internal" href="../guides/count-and-measure/similar-words-and-semantic-search.html"><span class="std std-doc">Find similar words and passages</span></a>.</p></li>
+</ul>
+<p>What stays on your computer and what leaves it is described in
+<a class="reference internal" href="../concepts/data-and-privacy.html"><span class="std std-doc">Data and privacy</span></a>.</p>
+</section>
+<section id="where-your-data-lives">
+<h2>Where your data lives<a class="headerlink" href="#where-your-data-lives" title="Link to this heading">#</a></h2>
+<p>CandyConc keeps corpora, subcorpora, annotations, saved analyses, settings,
+downloaded pipelines, and logs in the folder <code class="docutils literal notranslate"><span class="pre">.candyconc</span></code> in your home
+folder. The environment variable <code class="docutils literal notranslate"><span class="pre">CANDYCONC_HOME</span></code> moves it elsewhere. The
+bundle folder itself holds no user data, so you can replace or delete it
+without losing your work. <code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">paths</span></code> prints every location. See
+<a class="reference internal" href="../concepts/where-data-lives.html"><span class="std std-doc">Where your data lives</span></a>.</p>
+</section>
+<section id="update-or-remove-the-bundle">
+<h2>Update or remove the bundle<a class="headerlink" href="#update-or-remove-the-bundle" title="Link to this heading">#</a></h2>
+<p>To update, download and unpack the new archive, start the new
+<code class="docutils literal notranslate"><span class="pre">./candyconc</span></code>, and delete the old folder. Your corpora and settings stay in
+your data folder. To remove CandyConc, run <code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">uninstall</span></code>. Details,
+including how to remove your data as well, are in
+<a class="reference internal" href="../help/upgrade.html"><span class="std std-doc">Upgrade CandyConc</span></a> and
+<a class="reference internal" href="../help/uninstall.html"><span class="std std-doc">Uninstall CandyConc</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Get started</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="first-results.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tutorial: from download to first result</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-the-application-bundle">Install the application bundle</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-and-unpack">Download and unpack</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-candyconc">Start CandyConc</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-the-interface-language">Choose the interface language</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commands-of-the-bundle">Commands of the bundle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-candyconc-downloads">What CandyConc downloads</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-your-data-lives">Where your data lives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-or-remove-the-bundle">Update or remove the bundle</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/get-started/install.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

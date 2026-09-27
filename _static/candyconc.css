@@ -1,0 +1,38 @@
+/* CandyConc documentation: small additions to pydata-sphinx-theme. */
+
+/* The recorded result of a query example sits directly under its code block. */
+p.cc-query-result {
+  margin-top: -0.6rem;
+  font-size: 0.92em;
+  color: var(--pst-color-text-muted);
+}
+
+/* Worked-example tables are numeric. Keep them compact and let them scroll
+   horizontally on narrow screens instead of widening the page. */
+table.cc-example-table {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9em;
+}
+
+.candyconc-version {
+  margin: 0;
+  font-size: 0.85em;
+}
+
+/* Diagrams: no code-block frame around the rendered SVG. */
+pre.mermaid {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+  white-space: pre;
+}
+
+/* Screenshots: a thin frame separates the light interface from the page.
+   The image links to the full-size file (Sphinx does this for figures with
+   a width). */
+figure img {
+  border: 1px solid var(--pst-color-border);
+  border-radius: 0.25rem;
+  height: auto;
+}

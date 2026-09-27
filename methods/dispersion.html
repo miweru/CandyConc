@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dispersion | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"loader": {"load": []}, "tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}, "svg": {"fontCache": "global"}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'methods/dispersion';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Keyness" href="keyness.html" />
+    <link rel="prev" title="Collocations and association measures" href="association-measures.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="frequency.html">Frequency and hits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="association-measures.html">Collocations and association measures</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Dispersion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keyness.html">Keyness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrast.html">Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="n-grams-and-trends.html">N-grams and trends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word-sketches.html">Word sketches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="semantic-similarity.html">Semantic similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lexical-diversity.html">Lexical diversity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inter-annotator-agreement.html">Inter-annotator agreement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worked-examples.html">Worked examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Methods</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Dispersion</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dispersion">
+<h1>Dispersion<a class="headerlink" href="#dispersion" title="Link to this heading">#</a></h1>
+<p>Dispersion describes how evenly the hits of a query are spread over the
+documents of a scope. Two words with the same frequency can occur in almost
+every document or in only one. CandyConc reports several dispersion measures
+and places DP between its smallest possible, its expected, and its largest
+possible value for the given document sizes.</p>
+<section id="what-is-counted">
+<h2>What is counted<a class="headerlink" href="#what-is-counted" title="Link to this heading">#</a></h2>
+<p><strong>Parts.</strong> The parts are the documents of the scope, all of them, including
+documents without a hit.</p>
+<p><strong>Counts.</strong> For each document <span class="math notranslate nohighlight">\(i\)</span> of <span class="math notranslate nohighlight">\(n\)</span> documents:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(o_i\)</span> is the number of hits of the query in the document, without regard
+to case, as in plain search,</p></li>
+<li><p><span class="math notranslate nohighlight">\(s_i\)</span> is the size of the document in tokens, punctuation included,</p></li>
+<li><p><span class="math notranslate nohighlight">\(F = \sum_i o_i\)</span> is the total number of hits, and <span class="math notranslate nohighlight">\(N = \sum_i s_i\)</span> the size
+of the scope.</p></li>
+</ul>
+<p>The response contains both lists completely (<code class="docutils literal notranslate"><span class="pre">partitions</span></code> for <span class="math notranslate nohighlight">\(o_i\)</span> and
+<code class="docutils literal notranslate"><span class="pre">doc_sizes</span></code> for <span class="math notranslate nohighlight">\(s_i\)</span>), in the order of the documents in the index.</p>
+</section>
+<section id="measures">
+<h2>Measures<a class="headerlink" href="#measures" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Measure</p></th>
+<th class="head"><p>Formula</p></th>
+<th class="head"><p>Source</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dp</span></code></p></td>
+<td><p>deviation of proportions</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{DP} = \frac{1}{2} \sum_i \lvert o_i / F - s_i / N \rvert\)</span></p></td>
+<td><p>Gries 2008</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dpnorm</span></code></p></td>
+<td><p>normalized DP</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{DP} / (1 - \min_i s_i / N)\)</span></p></td>
+<td><p>Lijffijt and Gries 2012</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vc</span></code></p></td>
+<td><p>coefficient of variation</p></td>
+<td><p>standard deviation (population) divided by the mean of <span class="math notranslate nohighlight">\(v_i = o_i / s_i\)</span></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">juilland_d</span></code></p></td>
+<td><p>Juilland's D</p></td>
+<td><p><span class="math notranslate nohighlight">\(1 - \mathrm{VC} / \sqrt{n - 1}\)</span>, limited to the range 0 to 1, and 0 if <span class="math notranslate nohighlight">\(F = 0\)</span></p></td>
+<td><p>Juilland and Chang-Rodríguez 1964, formula as given by Gries 2020</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">carroll_d2</span></code></p></td>
+<td><p>D2 of raw hit counts</p></td>
+<td><p><span class="math notranslate nohighlight">\(-\sum_i p_i \ln p_i / \ln n\)</span> with <span class="math notranslate nohighlight">\(p_i = o_i / F\)</span></p></td>
+<td><p>normalized Shannon entropy, using raw hit shares</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">range_prop</span></code></p></td>
+<td><p>range</p></td>
+<td><p>number and share of documents with <span class="math notranslate nohighlight">\(o_i &gt; 0\)</span></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>DP is 0 when the hits are spread exactly in proportion to the document
+sizes, and it approaches 1 when all hits are in one small document. Juilland's
+D and D2 run the other way: 1 is even, 0 is concentrated.</p>
+<p>Juilland's D compares the relative frequencies <span class="math notranslate nohighlight">\(v_i\)</span> in the documents.
+The <code class="docutils literal notranslate"><span class="pre">carroll_d2</span></code> field compares their raw hit counts. It is 1 when every
+document has the same number of hits. Equal rates in documents of different
+lengths therefore give a value below 1. This is the raw-count variant of D2.
+Gries (2020, pp. 102 to 103) describes D2 calculated from per-document relative
+frequencies, normalized across the documents before computing the entropy.</p>
+</section>
+<section id="reference-values-for-dp">
+<h2>Reference values for DP<a class="headerlink" href="#reference-values-for-dp" title="Link to this heading">#</a></h2>
+<p>A DP value is hard to read without knowing what is possible for the given
+document sizes and number of hits. CandyConc computes three reference values.
+They are procedures of CandyConc, not measures from the literature:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dp_min</span></code>: the DP of the most proportional distribution of the <span class="math notranslate nohighlight">\(F\)</span> hits
+over the documents in whole numbers,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dp_erwartet</span></code>: the expected DP if every hit fell into a document with a
+probability proportional to its size. The calculation sums the expected
+absolute deviations of the document-wise binomial counts. For a document
+with more than 30 expected hits, it uses the normal approximation to that
+deviation,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dp_max</span></code>: the DP if all hits were in the smallest document,
+<span class="math notranslate nohighlight">\(1 - \min_i s_i / N\)</span>.</p></li>
+</ul>
+<p>The field <code class="docutils literal notranslate"><span class="pre">classification</span></code> places DP between these values:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Label</p></th>
+<th class="head"><p>Condition</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">even</span></code></p></td>
+<td><p>DP at most 0.75 times the expected DP</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fairly_even</span></code></p></td>
+<td><p>DP up to the expected DP</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fairly_clustered</span></code></p></td>
+<td><p>DP above the expected DP, below the halfway point to <code class="docutils literal notranslate"><span class="pre">dp_max</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">clustered</span></code></p></td>
+<td><p>DP at or above the halfway point from the expected DP to <code class="docutils literal notranslate"><span class="pre">dp_max</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">zu_wenig_treffer</span></code> (too few hits)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">dp_max</span></code> minus <code class="docutils literal notranslate"><span class="pre">dp_min</span></code> below 0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">not_found</span></code></p></td>
+<td><p>no hit</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The factors 0.75, 0.5, and 0.05 are conventions of CandyConc.</p>
+</section>
+<section id="kind-of-numbers">
+<h2>Kind of numbers<a class="headerlink" href="#kind-of-numbers" title="Link to this heading">#</a></h2>
+<p><span class="math notranslate nohighlight">\(o_i\)</span> and <span class="math notranslate nohighlight">\(s_i\)</span> are raw counts. DP and the other measures are derived. The
+expected DP is an estimate under the null model of proportional spread, and
+the classification is a rule-based reading of these numbers.</p>
+</section>
+<section id="assumptions-and-interpretation">
+<h2>Assumptions and interpretation<a class="headerlink" href="#assumptions-and-interpretation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Documents are the parts. A corpus of a few long documents gives little
+information about dispersion, and so does a word with few hits. The
+reference values show how much room there is: when <code class="docutils literal notranslate"><span class="pre">dp_min</span></code> and <code class="docutils literal notranslate"><span class="pre">dp_max</span></code>
+are close, no measure can distinguish even from clustered.</p></li>
+<li><p>Compare DP with the expected value, not with 0. With few hits, even random
+spread produces a clearly positive DP.</p></li>
+<li><p>The null model spreads hits independently. Words that occur in bursts
+within a document are expected to exceed it.</p></li>
+</ul>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<p>Hits of <em>tea</em> in the eight documents of the synthetic tea corpus
+(17 hits, 162 tokens):</p>
+<div class="pst-scrollable-table-container"><table class="cc-example-table table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Document</p></th>
+<th class="head"><p>register</p></th>
+<th class="head"><p>Hits of tea</p></th>
+<th class="head"><p>Tokens</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">d1</span></code></p></td>
+<td><p>blog</p></td>
+<td><p>3</p></td>
+<td><p>24</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">d2</span></code></p></td>
+<td><p>news</p></td>
+<td><p>0</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">d3</span></code></p></td>
+<td><p>blog</p></td>
+<td><p>3</p></td>
+<td><p>23</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">d4</span></code></p></td>
+<td><p>news</p></td>
+<td><p>0</p></td>
+<td><p>17</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">d5</span></code></p></td>
+<td><p>blog</p></td>
+<td><p>3</p></td>
+<td><p>26</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">d6</span></code></p></td>
+<td><p>news</p></td>
+<td><p>2</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">d7</span></code></p></td>
+<td><p>news</p></td>
+<td><p>2</p></td>
+<td><p>14</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">d8</span></code></p></td>
+<td><p>blog</p></td>
+<td><p>4</p></td>
+<td><p>19</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The measures for <em>tea</em> and, for comparison, <em>coffee</em> (10 hits):</p>
+<div class="pst-scrollable-table-container"><table class="cc-example-table table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Query</p></th>
+<th class="head"><p>DP</p></th>
+<th class="head"><p>DP norm.</p></th>
+<th class="head"><p>Juilland D</p></th>
+<th class="head"><p>Carroll D2</p></th>
+<th class="head"><p>VC</p></th>
+<th class="head"><p>Range</p></th>
+<th class="head"><p>DP min</p></th>
+<th class="head"><p>DP expected</p></th>
+<th class="head"><p>DP max</p></th>
+<th class="head"><p>Label</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tea</span></code></p></td>
+<td><p>0.23457</p></td>
+<td><p>0.25676</p></td>
+<td><p>0.75782</p></td>
+<td><p>0.84749</p></td>
+<td><p>0.64075</p></td>
+<td><p>6</p></td>
+<td><p>0.06391</p></td>
+<td><p>0.25624</p></td>
+<td><p>0.91358</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">fairly_even</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">coffee</span></code></p></td>
+<td><p>0.37901</p></td>
+<td><p>0.41486</p></td>
+<td><p>0.65999</p></td>
+<td><p>0.79032</p></td>
+<td><p>0.89957</p></td>
+<td><p>6</p></td>
+<td><p>0.10494</p></td>
+<td><p>0.33407</p></td>
+<td><p>0.91358</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">fairly_clustered</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Recomputed by hand for <em>tea</em>:
+<span class="math notranslate nohighlight">\(\mathrm{DP} = \frac{1}{2} \sum_i \lvert o_i / 17 - s_i / 162 \rvert = 0.23457\)</span>,
+and <span class="math notranslate nohighlight">\(\mathrm{DP}_{\max} = 1 - 14 / 162 = 0.91358\)</span>. A simulation that places
+the 17 hits at random in proportion to the document sizes, 20,000 times,
+gives a mean DP of about 0.256, close to the analytic expected value of
+0.25624. The observed DP of <em>tea</em> lies below that value, so <em>tea</em> is spread
+at least as evenly as random placement would predict and is labeled
+<code class="docutils literal notranslate"><span class="pre">fairly_even</span></code>. <em>Coffee</em> lies above its expected value and is labeled
+<code class="docutils literal notranslate"><span class="pre">fairly_clustered</span></code>: it is concentrated in the news documents.</p>
+<p>Carroll's D2 on the raw shares is 0.84749 for <em>tea</em>. Computed on the
+size-normalized shares <span class="math notranslate nohighlight">\(v_i / \sum_j v_j\)</span> it would be 0.84895.</p>
+</section>
+<section id="related-pages">
+<h2>Related pages<a class="headerlink" href="#related-pages" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../guides/count-and-measure/dispersion.html"><span class="std std-doc">Measure dispersion</span></a></p></li>
+<li><p><a class="reference internal" href="../concepts/from-numbers-to-lines.html#from-a-dispersion-result-to-the-documents"><span class="std std-ref">From numbers to lines</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="association-measures.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Collocations and association measures</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="keyness.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Keyness</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-counted">What is counted</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures">Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-values-for-dp">Reference values for DP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kind-of-numbers">Kind of numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-and-interpretation">Assumptions and interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#related-pages">Related pages</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/methods/dispersion.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Languages and annotation | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'concepts/languages-and-annotation';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How the copilot works" href="copilot.html" />
+    <link rel="prev" title="From numbers to lines" href="from-numbers-to-lines.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="how-candyconc-works.html">How CandyConc works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpus-index.html">The corpus index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries-and-hits.html">Queries and hits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope, subcorpora, and document sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="from-numbers-to-lines.html">From numbers to lines</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Languages and annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copilot.html">How the copilot works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-and-privacy.html">Data and privacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="where-data-lives.html">Where your data lives</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Concepts</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Languages and annotation</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="languages-and-annotation">
+<h1>Languages and annotation<a class="headerlink" href="#languages-and-annotation" title="Link to this heading">#</a></h1>
+<p>&quot;Does CandyConc support my language?&quot; has several answers, one for each layer
+that touches language: the text of the corpus, the annotation pipeline, the
+query semantics, the interface, and the copilot. This page answers the
+question layer by layer and explains the difference between splitting a text
+into tokens and annotating the tokens.</p>
+<section id="tokenization-and-annotation">
+<h2>Tokenization and annotation<a class="headerlink" href="#tokenization-and-annotation" title="Link to this heading">#</a></h2>
+<p><strong>Tokenization</strong> splits a text into tokens and sentences. It decides, for
+example, that <em>doesn't</em> becomes <em>does</em> and <em>n't</em>, and that a full stop is a
+token of its own. Every corpus in CandyConc is tokenized.</p>
+<p><strong>Linguistic annotation</strong> adds information to each token: a lemma, a part of
+speech, morphological features, and optionally a named entity type and a
+dependency relation to another token. Annotation needs a trained model for
+the language.</p>
+<p>CandyConc does both at import time with a spaCy pipeline that you choose:</p>
+<ul class="simple">
+<li><p>A <strong>trained pipeline</strong>, for example <code class="docutils literal notranslate"><span class="pre">en_core_web_md</span></code> for English or
+<code class="docutils literal notranslate"><span class="pre">de_core_news_md</span></code> for German, tokenizes and annotates. Lemma and
+part-of-speech queries, frequency lists by lemma or part of speech, and,
+with dependency relations, word sketches become meaningful.</p></li>
+<li><p>A <strong>blank pipeline</strong>, written <code class="docutils literal notranslate"><span class="pre">blank:</span></code> followed by a language code, for
+example <code class="docutils literal notranslate"><span class="pre">blank:en</span></code>, only tokenizes, with the rules of that language. It
+needs no trained model and no download. CandyConc then sets every lemma to
+the lowercased word form and every part of speech to <code class="docutils literal notranslate"><span class="pre">X</span></code>.</p></li>
+</ul>
+<p>A corpus imported with a blank pipeline still has <code class="docutils literal notranslate"><span class="pre">lemma</span></code> and <code class="docutils literal notranslate"><span class="pre">pos</span></code>
+attributes, and the interface offers them. They carry no linguistic
+information: a lemma query behaves like a case-insensitive word query, and a
+part-of-speech query accepts only <code class="docutils literal notranslate"><span class="pre">X</span></code>. Choose a blank pipeline when no trained
+pipeline exists for your language or when you only need word forms.</p>
+<p>The import does not use a GPU, and it does not download a pipeline on its
+own. <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">pipeline</span> <span class="pre">NAME</span></code> downloads a trained pipeline once. An import with a
+pipeline that is not installed stops before it starts and names this
+command.</p>
+</section>
+<section id="layer-1-the-language-of-the-corpus">
+<h2>Layer 1: the language of the corpus<a class="headerlink" href="#layer-1-the-language-of-the-corpus" title="Link to this heading">#</a></h2>
+<p>The index stores tokens, their attributes, and boundaries in the same way
+for every language. Its manifest records the language of the corpus, the
+pipeline, and the version of the pipeline (<code class="docutils literal notranslate"><span class="pre">language</span></code>,
+<code class="docutils literal notranslate"><span class="pre">annotation_pipeline</span></code>, <code class="docutils literal notranslate"><span class="pre">annotation_pipeline_version</span></code>), and the corpus
+selector and the corpus manager show the language. Indexes from versions
+before these fields show the language as unknown.</p>
+<p>Before tokenization, the import normalizes the text:</p>
+<ul class="simple">
+<li><p>Unicode normalization NFKC, so that compatibility characters are unified
+(for example the ligature <code class="docutils literal notranslate"><span class="pre">ﬁ</span></code> becomes <code class="docutils literal notranslate"><span class="pre">fi</span></code>) and combining characters are
+composed.</p></li>
+<li><p>Control characters and invisible format characters (Unicode categories Cc
+and Cf) are removed. Line breaks are kept.</p></li>
+<li><p>Runs of spaces and tabs become a single space.</p></li>
+</ul>
+<p>Removing format characters also removes the zero-width joiner and the
+zero-width non-joiner. Scripts that rely on these characters, such as Persian
+or several Indic scripts, have not been tested with CandyConc.</p>
+<p>These languages have been tested with the import, search, and analysis
+workflows of this documentation:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Pipeline</p></th>
+<th class="head"><p>Tested with</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>English</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">en_core_web_md</span></code> 3.8.0, with dependency relations</p></td>
+<td><p>the State of the Union sample corpus, imported with <code class="docutils literal notranslate"><span class="pre">--language</span> <span class="pre">en</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>English</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code> 3.8.0, with dependency relations</p></td>
+<td><p>the State of the Union sample corpus and the synthetic tea corpus</p></td>
+</tr>
+<tr class="row-even"><td><p>English</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">blank:en</span></code></p></td>
+<td><p>the synthetic tea corpus of the worked examples</p></td>
+</tr>
+<tr class="row-odd"><td><p>German</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">de_core_news_md</span></code> 3.8.0, with dependency relations</p></td>
+<td><p>a sample of 30 texts from the Deutsches Textarchiv, imported with <code class="docutils literal notranslate"><span class="pre">--language</span> <span class="pre">de</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Other languages with a spaCy pipeline are expected to work the same way,
+because nothing in the index depends on the language, but they have not been
+tested. <a class="reference internal" href="../reference/languages.html"><span class="std std-doc">Languages and annotation pipelines</span></a> lists
+the attributes and tag sets that each tested pipeline writes.</p>
+</section>
+<section id="layer-2-the-annotation-pipeline">
+<h2>Layer 2: the annotation pipeline<a class="headerlink" href="#layer-2-the-annotation-pipeline" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">--language</span></code> names the language of the corpus with its ISO 639 code and
+chooses the standard pipeline of that language, the medium size of spaCy:
+<code class="docutils literal notranslate"><span class="pre">--language</span> <span class="pre">en</span></code> chooses <code class="docutils literal notranslate"><span class="pre">en_core_web_md</span></code>, <code class="docutils literal notranslate"><span class="pre">--language</span> <span class="pre">de</span></code> chooses
+<code class="docutils literal notranslate"><span class="pre">de_core_news_md</span></code>. For a language without a trained spaCy pipeline it
+chooses <code class="docutils literal notranslate"><span class="pre">blank:</span></code> with the code, which only tokenizes. <code class="docutils literal notranslate"><span class="pre">--spacy-model</span></code> names
+a pipeline directly. Without either option, <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span></code> uses
+<code class="docutils literal notranslate"><span class="pre">de_core_news_md</span></code>. See
+<a class="reference internal" href="../guides/bring-in-texts/choose-annotation.html"><span class="std std-doc">Choose language and annotation layers</span></a>.</p>
+<p>From a spaCy pipeline, CandyConc stores:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">word</span></code>, the token text,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lemma</span></code>, the lemma assigned by the pipeline,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pos</span></code>, the universal part-of-speech tag (<code class="docutils literal notranslate"><span class="pre">NOUN</span></code>, <code class="docutils literal notranslate"><span class="pre">VERB</span></code>, <code class="docutils literal notranslate"><span class="pre">ADJ</span></code>, <code class="docutils literal notranslate"><span class="pre">ADP</span></code>, and
+so on). The same tag set is used for every language.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">morph</span></code>, the part of speech followed by the morphological features, for
+example <code class="docutils literal notranslate"><span class="pre">DET|Definite=Ind|PronType=Art</span></code>,</p></li>
+<li><p>sentence boundaries,</p></li>
+<li><p>with <code class="docutils literal notranslate"><span class="pre">--enable-ner</span></code>, the named entity type (<code class="docutils literal notranslate"><span class="pre">ent</span></code>),</p></li>
+<li><p>when the pipeline has a dependency parser, the dependency relation (<code class="docutils literal notranslate"><span class="pre">rel</span></code>)
+and the position of the head. <code class="docutils literal notranslate"><span class="pre">--no-deps</span></code> leaves them out.</p></li>
+</ul>
+<p>The language-specific fine-grained tag of a pipeline, such as the STTS tag of
+the German models or the Penn Treebank tag of the English models, is not
+stored. A query with an STTS tag such as <code class="docutils literal notranslate"><span class="pre">[pos=&quot;NN&quot;]</span></code> on such a corpus is
+rejected, and the message lists the tags that occur. Named entities are off
+by default. Without dependency relations, a rule-based component splits
+sentences at sentence-final punctuation. With dependency relations, the
+parser decides the sentence boundaries.</p>
+<p>A VRT import can adopt the tokenization, the sentence boundaries, and the
+annotation columns of the source file instead of running spaCy. The tags then
+stay in the tag set of the source, for example STTS for a German corpus from
+the IMS Open Corpus Workbench. This mode is available through the import
+scripts and the HTTP API. The <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span></code> command offers only the modes
+that annotate again with spaCy. See
+<a class="reference internal" href="../guides/bring-in-texts/import-vrt-and-cwb.html"><span class="std std-doc">Import VRT or an existing CWB corpus</span></a>.</p>
+</section>
+<section id="layer-3-query-semantics">
+<h2>Layer 3: query semantics<a class="headerlink" href="#layer-3-query-semantics" title="Link to this heading">#</a></h2>
+<p>The query language and the plain search treat all languages alike:</p>
+<ul class="simple">
+<li><p><strong>Case.</strong> Case-insensitive comparison uses Unicode lowercase mapping. It
+has no language-specific rules. The German <em>ß</em> and <em>ss</em> stay different, and
+the capital <em>ẞ</em> matches <em>ß</em>.</p></li>
+<li><p><strong>Diacritics.</strong> CandyConc does not fold diacritics. The flag <code class="docutils literal notranslate"><span class="pre">%d</span></code> of CQP is
+rejected. To match variants with and without a diacritic, write a character
+class that contains both, as in <code class="docutils literal notranslate"><span class="pre">[word~&quot;.*fl[uü]cht.*&quot;%c]</span></code>.</p></li>
+<li><p><strong>Normalization.</strong> Queries are normalized with NFKC like the corpus text,
+so a decomposed character in the query matches the composed character in
+the index.</p></li>
+<li><p><strong>Part of speech.</strong> Values of <code class="docutils literal notranslate"><span class="pre">pos</span></code> are checked against the tags that occur
+in the corpus.</p></li>
+</ul>
+<p>On the German sample corpus, <code class="docutils literal notranslate"><span class="pre">cql:[word~&quot;.*fl[uü]cht.*&quot;%c]</span></code> finds 63 hits
+and <code class="docutils literal notranslate"><span class="pre">cql:[word~&quot;.*flucht.*&quot;%c]</span></code> finds 30. The sample also shows that
+historical spelling needs attention: its normalized texts write both <em>daß</em>
+(2,043 hits for <code class="docutils literal notranslate"><span class="pre">cql:[word=&quot;daß&quot;]</span></code>) and <em>dass</em> (716 hits for
+<code class="docutils literal notranslate"><span class="pre">cql:[word=&quot;dass&quot;]</span></code>), and a search for one spelling misses the other.</p>
+</section>
+<section id="layer-4-the-interface">
+<h2>Layer 4: the interface<a class="headerlink" href="#layer-4-the-interface" title="Link to this heading">#</a></h2>
+<p>The interface is available in English and German. The language setting
+changes it at once, see
+<a class="reference internal" href="../get-started/install.html#choose-the-interface-language"><span class="std std-ref">Choose the interface language</span></a>.
+Texts that the server writes follow the language of the interface: query
+diagnostics, error messages, method explanations, the names of the sheets of
+an XLSX export, and the glosses of word sketch relations. Over the HTTP API,
+the header <code class="docutils literal notranslate"><span class="pre">Accept-Language</span></code> chooses the language of these texts, and
+without it they are German. The command line (<code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span></code> with its
+progress lines, <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">pipeline</span></code>, <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">migrate-project</span></code>) writes English.
+Corpus text, metadata values, and your own labels are shown as they are.</p>
+</section>
+<section id="layer-5-the-copilot">
+<h2>Layer 5: the copilot<a class="headerlink" href="#layer-5-the-copilot" title="Link to this heading">#</a></h2>
+<p>The copilot analyzes the active corpus through the same operations as the
+interface. It answers German and English questions in the detected language
+of the question. For a single word or query whose language is unclear,
+the interface locale chooses the answer language, followed by the request's
+<code class="docutils literal notranslate"><span class="pre">Accept-Language</span></code> header and German as the fallback.</p>
+<p>The routing rules recognize German and English question cues. Short lookup
+questions in either language can be answered directly from the tool results.
+Questions that need classification use the model. Headings, evidence labels,
+added notes, and grouped numbers follow the answer language. The instructions
+sent to the model remain German, while corpus text and search terms keep
+their original wording.</p>
+<p>See <a class="reference internal" href="copilot.html"><span class="std std-doc">How the copilot works</span></a> for the routing and answer procedure.</p>
+</section>
+<section id="other-language-dependent-defaults">
+<h2>Other language-dependent defaults<a class="headerlink" href="#other-language-dependent-defaults" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Word similarity.</strong> The <code class="docutils literal notranslate"><span class="pre">sim(...)</span></code> operator of the query language and the
+word thesaurus take word vectors from the corpus itself: from its word
+similarity index, or from the static vectors of the pipeline that annotated
+it. The stop word list that filters the neighbors comes from the same
+pipeline. A corpus never borrows the vectors of another language, and a
+corpus annotated with an <code class="docutils literal notranslate"><span class="pre">_sm</span></code> pipeline or <code class="docutils literal notranslate"><span class="pre">blank:</span></code> has no word vectors.
+See <a class="reference internal" href="../reference/languages.html#word-vectors"><span class="std std-ref">Word vectors</span></a>.</p></li>
+<li><p><strong>Word sketch labels.</strong> The relations of a word sketch are the dependency
+labels of the pipeline. The interface names them by a gloss that follows the
+label scheme of the pipeline, ClearNLP for the English and TIGER for the
+German spaCy pipelines, in the language of the interface, for example
+<strong>has adjectival modifier</strong> for <code class="docutils literal notranslate"><span class="pre">amod</span></code>. A label outside these schemes is
+shown as its code.</p></li>
+<li><p><strong>Masking of personal data.</strong> Before a copilot question goes to the model,
+CandyConc replaces e-mail addresses, IBANs, and telephone numbers in the
+question with placeholders. The patterns do not depend on the language. A
+separate masking of concordance text by named entity type, off by default
+(<code class="docutils literal notranslate"><span class="pre">CANDYCONC_ENABLE_PII_MASK</span></code>), recognizes the entity labels of the English
+pipelines, such as <code class="docutils literal notranslate"><span class="pre">PERSON</span></code>. German pipelines label persons <code class="docutils literal notranslate"><span class="pre">PER</span></code>, which
+this masking does not recognize.</p></li>
+</ul>
+</section>
+<section id="related-pages">
+<h2>Related pages<a class="headerlink" href="#related-pages" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../guides/bring-in-texts/choose-annotation.html"><span class="std std-doc">Choose language and annotation layers</span></a></p></li>
+<li><p><a class="reference internal" href="../reference/languages.html"><span class="std std-doc">Languages and annotation pipelines</span></a></p></li>
+<li><p><a class="reference internal" href="../reference/query-language.html"><span class="std std-doc">Query language</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="from-numbers-to-lines.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">From numbers to lines</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="copilot.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">How the copilot works</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization-and-annotation">Tokenization and annotation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-1-the-language-of-the-corpus">Layer 1: the language of the corpus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-2-the-annotation-pipeline">Layer 2: the annotation pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-3-query-semantics">Layer 3: query semantics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-4-the-interface">Layer 4: the interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#layer-5-the-copilot">Layer 5: the copilot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-language-dependent-defaults">Other language-dependent defaults</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#related-pages">Related pages</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/concepts/languages-and-annotation.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>HTTP API reference | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/http-api';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configuration reference" href="configuration.html" />
+    <link rel="prev" title="Command line reference" href="cli.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="query-language.html">Query language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line reference</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">HTTP API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input-formats.html">Input formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index-format.html">Index format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export-formats.html">Export formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-files.html">Project files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-platforms.html">Supported platforms and requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages.html">Languages and annotation pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">HTTP API reference</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="http-api-reference">
+<h1>HTTP API reference<a class="headerlink" href="#http-api-reference" title="Link to this heading">#</a></h1>
+<p>The web interface of CandyConc talks to the server only through this HTTP
+API, so every function of the interface is also available to scripts. This
+page describes what applies to all routes (address, authentication, errors,
+limits, jobs, streaming) and lists every route by task. The request and
+response schemas of each route are in the OpenAPI description that the server
+delivers itself.</p>
+<p>For worked examples with <code class="docutils literal notranslate"><span class="pre">curl</span></code> and Python, see
+<a class="reference internal" href="../guides/automate/use-the-http-api.html"><span class="std std-doc">Use the HTTP API</span></a>.</p>
+<section id="address-and-schema">
+<h2>Address and schema<a class="headerlink" href="#address-and-schema" title="Link to this heading">#</a></h2>
+<p>The server listens on <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8010</span></code>, or on the next free port when
+8010 is taken, and prints the address at start. <code class="docutils literal notranslate"><span class="pre">--host</span></code> and <code class="docutils literal notranslate"><span class="pre">--port</span></code> choose
+another address (see <a class="reference internal" href="cli.html"><span class="std std-doc">Command line reference</span></a>). The examples on this
+page use port 8010. All routes except the tool API start with <code class="docutils literal notranslate"><span class="pre">/api/v1</span></code>.
+<code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api</span></code> redirects to <code class="docutils literal notranslate"><span class="pre">/api/v1</span></code>.</p>
+<p>In single-user mode the server also delivers its own description:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Address</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8010/openapi.json</span></code></p></td>
+<td><p>OpenAPI description of all HTTP routes of the running version</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8010/docs</span></code></p></td>
+<td><p>interactive page that renders the OpenAPI description and sends requests</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In multi-user mode (<code class="docutils literal notranslate"><span class="pre">CANDYCONC_SECURITY_MODE=release</span></code>) both addresses answer
+404, so a public server does not advertise its routes. Use the description of
+the same version on a local installation instead.</p>
+<p>The OpenAPI description leaves out three routes: <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/auth/dev-token</span></code>
+(see <a class="reference internal" href="#single-user-mode">Single-user mode</a>) and the two WebSocket routes (see
+<a class="reference internal" href="#jobs-and-streaming">Jobs and streaming</a>).</p>
+</section>
+<section id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Link to this heading">#</a></h2>
+<p>What a request needs depends on the security mode of the server. The modes
+are described in <a class="reference internal" href="deployment.html"><span class="std std-doc">Deployment</span></a>.</p>
+<section id="single-user-mode">
+<h3>Single-user mode<a class="headerlink" href="#single-user-mode" title="Link to this heading">#</a></h3>
+<p>In the default single-user mode there is no sign-in. Most routes answer
+without a token. The routes marked in the column <strong>Token in single-user mode</strong>
+of the tables below refuse a request without a token with
+<code class="docutils literal notranslate"><span class="pre">401</span> <span class="pre">User</span> <span class="pre">token</span> <span class="pre">required.</span></code>. They include the concordance export, the evidence
+package, the analysis jobs, and the settings.</p>
+<p>Get a token from the local server and send it as a bearer token:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">TOKEN</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:8010/api/v1/auth/dev-token<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s1">'import json,sys; print(json.load(sys.stdin)["token"])'</span><span class="k">)</span>
+curl<span class="w"> </span>-s<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$TOKEN</span><span class="s2">"</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{"query": "freedom", "format": "csv"}'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://127.0.0.1:8010/api/v1/export/concordance
+</pre></div>
+</div>
+<p>The web interface does the same when it starts. <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/auth/dev-token</span></code>
+answers only in single-user mode with access control off. In every other
+configuration it answers 404. A token is valid for 12 hours
+(<code class="docutils literal notranslate"><span class="pre">CANDYCONC_TOKEN_TTL_SECONDS</span></code>) and ends when the server stops.</p>
+</section>
+<section id="multi-user-mode">
+<h3>Multi-user mode<a class="headerlink" href="#multi-user-mode" title="Link to this heading">#</a></h3>
+<p>In multi-user mode every route except <code class="docutils literal notranslate"><span class="pre">/api/v1/health</span></code>, <code class="docutils literal notranslate"><span class="pre">/api/v1/login</span></code>,
+<code class="docutils literal notranslate"><span class="pre">/api/v1/logout</span></code>, and <code class="docutils literal notranslate"><span class="pre">/api/v1/auth/session</span></code> needs a token. Sign in with a
+user of the user file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{"username": "USERNAME", "password": "PASSWORD"}'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://HOST/api/v1/login
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">USERNAME</span></code>, <code class="docutils literal notranslate"><span class="pre">PASSWORD</span></code>, and <code class="docutils literal notranslate"><span class="pre">HOST</span></code> with a user of the user file and the
+address of the server. The answer contains the token. Send it in the
+<code class="docutils literal notranslate"><span class="pre">Authorization:</span> <span class="pre">Bearer</span></code> header. Multi-user mode accepts the token only in this
+header. Single-user mode also accepts it as a <code class="docutils literal notranslate"><span class="pre">token</span></code> query parameter or as a
+<code class="docutils literal notranslate"><span class="pre">token</span></code> field of a JSON body.</p>
+<p>The column <strong>Role</strong> in the tables below names the least role that the route
+family needs in multi-user mode: <code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">manager</span></code>, or <code class="docutils literal notranslate"><span class="pre">admin</span></code> (<code class="docutils literal notranslate"><span class="pre">none</span></code> means
+no sign-in). Some routes check a higher role themselves, and their purpose
+says so. The roles are described in <a class="reference internal" href="deployment.html#roles"><span class="std std-ref">Deployment</span></a>.</p>
+</section>
+</section>
+<section id="errors">
+<h2>Errors<a class="headerlink" href="#errors" title="Link to this heading">#</a></h2>
+<p>Errors are JSON objects in the problem details format of RFC 9457 with the
+media type <code class="docutils literal notranslate"><span class="pre">application/problem+json</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"about:blank"</span><span class="p">,</span><span class="w"> </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unauthorized"</span><span class="p">,</span><span class="w"> </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">401</span><span class="p">,</span><span class="w"> </span><span class="nt">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User token required."</span><span class="p">,</span><span class="w"> </span><span class="nt">"instance"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/api/v1/export/concordance"</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">detail</span></code> is a text or, for some errors, an object with a <code class="docutils literal notranslate"><span class="pre">code</span></code> and a
+<code class="docutils literal notranslate"><span class="pre">message</span></code>. Many errors also carry a stable <code class="docutils literal notranslate"><span class="pre">code</span></code> and its <code class="docutils literal notranslate"><span class="pre">params</span></code> at the top
+level, for example <code class="docutils literal notranslate"><span class="pre">&quot;code&quot;:</span> <span class="pre">&quot;docset.corpus_mismatch&quot;</span></code>. <code class="docutils literal notranslate"><span class="pre">code</span></code> and <code class="docutils literal notranslate"><span class="pre">params</span></code>
+are the same in every language. Texts that the server has in English and
+German follow the header <code class="docutils literal notranslate"><span class="pre">Accept-Language</span></code> (<code class="docutils literal notranslate"><span class="pre">en</span></code> or <code class="docutils literal notranslate"><span class="pre">de</span></code>), and without the
+header they are German. The status codes that CandyConc uses on purpose:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Status</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>400</p></td>
+<td><p>The request is invalid, for example a query with a syntax error or an unknown part-of-speech value. <code class="docutils literal notranslate"><span class="pre">detail</span></code> explains the problem and, for queries, lists the valid values or the position of the error.</p></td>
+</tr>
+<tr class="row-odd"><td><p>401</p></td>
+<td><p>A token is missing or unknown.</p></td>
+</tr>
+<tr class="row-even"><td><p>403</p></td>
+<td><p>The role of the token is too low, or the route is not classified for multi-user mode.</p></td>
+</tr>
+<tr class="row-odd"><td><p>404</p></td>
+<td><p>The route, corpus, document, document set, or job does not exist. Document sets and jobs live in the memory of the server process and are gone after a restart.</p></td>
+</tr>
+<tr class="row-even"><td><p>409</p></td>
+<td><p>The request conflicts with the state, for example an import into an existing directory or removing the active corpus.</p></td>
+</tr>
+<tr class="row-odd"><td><p>413</p></td>
+<td><p>The request body is larger than 8 MiB (<code class="docutils literal notranslate"><span class="pre">CANDYCONC_MAX_REQUEST_BYTES</span></code>), or a copilot question is too long.</p></td>
+</tr>
+<tr class="row-even"><td><p>415</p></td>
+<td><p>A request body is not JSON.</p></td>
+</tr>
+<tr class="row-odd"><td><p>422</p></td>
+<td><p>A request field is missing or out of range, or a well-formed request does not fit the corpus, for example a document set of another corpus (<code class="docutils literal notranslate"><span class="pre">docset.corpus_mismatch</span></code>, <code class="docutils literal notranslate"><span class="pre">docset.other_corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">subcorpus.corpus_mismatch</span></code>) or <code class="docutils literal notranslate"><span class="pre">sim(...)</span></code> and similar words on a corpus without word vectors (<code class="docutils literal notranslate"><span class="pre">word_vectors.unavailable</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p>424</p></td>
+<td><p>The copilot has no language model (<code class="docutils literal notranslate"><span class="pre">detail.code</span></code> is <code class="docutils literal notranslate"><span class="pre">copilot_not_configured</span></code>), or the configured model is not loaded.</p></td>
+</tr>
+<tr class="row-odd"><td><p>429</p></td>
+<td><p>The rate limit is reached.</p></td>
+</tr>
+<tr class="row-even"><td><p>503</p></td>
+<td><p>A needed resource is not available, for example no corpus is loaded, the model endpoint cannot be reached, or the pipeline whose word vectors a corpus uses is not installed on the server (<code class="docutils literal notranslate"><span class="pre">word_vectors.service_error</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p>504</p></td>
+<td><p>The model endpoint did not answer in time.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A missing semantic index, a corpus without dependency relations, or a query
+construct that the engine does not support produce an error. They never
+produce an empty result that looks like a finding.</p>
+</section>
+<section id="rate-limit">
+<h2>Rate limit<a class="headerlink" href="#rate-limit" title="Link to this heading">#</a></h2>
+<p>The server counts requests per minute:</p>
+<ul class="simple">
+<li><p>300 requests per minute per client address for requests without a token,</p></li>
+<li><p>600 requests per minute per user for requests with a token.</p></li>
+</ul>
+<p>The web interface sends its token with every request, so the second limit
+applies to it. Local scripts are counted too. Requests without a token from
+the same client address share one limit, and requests authenticated as the
+same user share one limit across scripts and browser tabs. Request 301
+without a token (or 601 with a token) within one minute receives
+<code class="docutils literal notranslate"><span class="pre">429</span> <span class="pre">Rate</span> <span class="pre">limit</span> <span class="pre">exceeded</span></code> as problem details, without a <code class="docutils literal notranslate"><span class="pre">Retry-After</span></code> header. Wait until the oldest requests of the last minute leave
+the window. An administrator can change both limits with
+<code class="docutils literal notranslate"><span class="pre">CANDYCONC_RATE_LIMIT_ANON</span></code> and <code class="docutils literal notranslate"><span class="pre">CANDYCONC_RATE_LIMIT_DEFAULT</span></code> (see
+<a class="reference internal" href="configuration.html"><span class="std std-doc">Configuration reference</span></a>).</p>
+</section>
+<section id="the-capability-contract">
+<h2>The capability contract<a class="headerlink" href="#the-capability-contract" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/capabilities</span></code> returns which operations this installation offers,
+with the route, the least role, the corpus requirements, the maturity, and
+where the operation appears (interface, API, copilot). The interface and the
+copilot read the same contract. A script that reads it can decide before a
+call whether an operation is available, instead of keeping its own list.
+<code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/corpora/{corpus}/capabilities</span></code> adds what one corpus supports, for
+example lemmas, parts of speech, dependency relations, or a passage index. See
+<a class="reference internal" href="../concepts/corpus-index.html"><span class="std std-doc">The corpus index</span></a>.</p>
+</section>
+<section id="jobs-and-streaming">
+<h2>Jobs and streaming<a class="headerlink" href="#jobs-and-streaming" title="Link to this heading">#</a></h2>
+<section id="analysis-jobs">
+<h3>Analysis jobs<a class="headerlink" href="#analysis-jobs" title="Link to this heading">#</a></h3>
+<p>Routes that end in <code class="docutils literal notranslate"><span class="pre">/job</span></code> start an analysis in the background and return a
+<code class="docutils literal notranslate"><span class="pre">job_id</span></code> at once. Follow the job until it reaches a final state:</p>
+<ol class="arabic simple">
+<li><p>Poll <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/analysis/jobs/{job_id}</span></code>. The job is <code class="docutils literal notranslate"><span class="pre">queued</span></code>, then
+<code class="docutils literal notranslate"><span class="pre">running</span></code>, and ends as <code class="docutils literal notranslate"><span class="pre">done</span></code>, <code class="docutils literal notranslate"><span class="pre">error</span></code>, or <code class="docutils literal notranslate"><span class="pre">cancelled</span></code>.</p></li>
+<li><p>Read the rows of a finished job with
+<code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/analysis/jobs/{job_id}/rows</span></code> and the parameters <code class="docutils literal notranslate"><span class="pre">offset</span></code> and
+<code class="docutils literal notranslate"><span class="pre">limit</span></code>.</p></li>
+<li><p>Optional: cancel the job with <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/jobs/{job_id}/cancel</span></code>.</p></li>
+</ol>
+<p>Instead of polling, open the WebSocket
+<code class="docutils literal notranslate"><span class="pre">ws://127.0.0.1:8010/api/v1/ws/analysis/{job_id}</span></code>, which sends the job state
+as it changes. It needs a token like the job routes. In multi-user mode, a
+browser gets a one-time ticket from <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/ws-ticket</span></code> and adds it to
+the address as <code class="docutils literal notranslate"><span class="pre">?ticket=</span></code>.</p>
+<p>Import jobs work the same way under <code class="docutils literal notranslate"><span class="pre">/api/v1/corpora/imports</span></code>. The rebuild of
+the passage index reports on the WebSocket <code class="docutils literal notranslate"><span class="pre">/api/v1/ws/faiss/{job_id}</span></code>
+(admin role).</p>
+</section>
+<section id="server-sent-events">
+<h3>Server-sent events<a class="headerlink" href="#server-sent-events" title="Link to this heading">#</a></h3>
+<p>Three routes stream their result as server-sent events:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Route</p></th>
+<th class="head"><p>Events</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/query/stream</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">count</span></code>, <code class="docutils literal notranslate"><span class="pre">batch</span></code> (concordance lines), <code class="docutils literal notranslate"><span class="pre">progress</span></code>, <code class="docutils literal notranslate"><span class="pre">done</span></code>. Lines arrive in corpus order. This route does not sort. A query that fails after the stream has started ends with <code class="docutils literal notranslate"><span class="pre">error</span></code> and the fields <code class="docutils literal notranslate"><span class="pre">message</span></code> and, where <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/query</span></code> answers with a <code class="docutils literal notranslate"><span class="pre">code</span></code>, the same <code class="docutils literal notranslate"><span class="pre">code</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/chat/stream</span></code></p></td>
+<td><p>copilot events, see the following list</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/copilot/continue</span></code></p></td>
+<td><p>copilot events of a turn that continues after an approval or an answer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The copilot events of one turn:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">copilot.session</span></code>: start and end of the turn with <code class="docutils literal notranslate"><span class="pre">sessionId</span></code> and <code class="docutils literal notranslate"><span class="pre">status</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copilot.status</span></code>: the current stage of the turn.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copilot.plan</span></code>, <code class="docutils literal notranslate"><span class="pre">copilot.clarify</span></code>, <code class="docutils literal notranslate"><span class="pre">copilot.action_request</span></code>,
+<code class="docutils literal notranslate"><span class="pre">copilot.action_blocked</span></code>: a plan, a clarification question, or an action
+that waits for approval.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copilot.tool_result</span></code>: one tool call with its computed result.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copilot.recovery</span></code>: CandyConc continues the turn after an irregular step
+of the model, for example a submission that the model explained itself.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copilot.grounding</span></code>: the result of the grounding check and the evidence
+items of the answer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copilot.done</span></code>: the final answer with <code class="docutils literal notranslate"><span class="pre">status</span></code> and <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copilot.error</span></code>: the turn ended with an error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copilot.cancelled</span></code>: the turn was stopped.</p></li>
+</ul>
+<p>What the copilot does in each stage is explained in
+<a class="reference internal" href="../concepts/copilot.html"><span class="std std-doc">How the copilot works</span></a>.</p>
+</section>
+</section>
+<section id="routes-by-task">
+<h2>Routes by task<a class="headerlink" href="#routes-by-task" title="Link to this heading">#</a></h2>
+<!-- Generated by docs/_tools/generate_http_api.py from the OpenAPI description of the server and docs/_data/http_api.json. Do not edit. -->
+<p>The OpenAPI description of this version has 131 operations. For each route, the list names its purpose, its parameters (a parameter or body field marked with * is required), the least role in multi-user mode, and whether it needs a token in single-user mode.</p>
+<section id="sign-in-and-session">
+<h3>Sign-in and session<a class="headerlink" href="#sign-in-and-session" title="Link to this heading">#</a></h3>
+<p>Tokens, the session of the caller, and tickets for WebSocket connections.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/login</span></code></dt><dd><p>Sign in with user name and password from the user file and receive a bearer token.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">username</span></code>*, <code class="docutils literal notranslate"><span class="pre">password</span></code>*. Open without sign-in.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/logout</span></code></dt><dd><p>Revoke the bearer token of the caller.</p>
+<p>Open without sign-in.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/auth/session</span></code></dt><dd><p>Return the security mode, role, and user of the caller, and whether a local token is available.</p>
+<p>Open without sign-in.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/ws-ticket</span></code></dt><dd><p>Issue a short-lived one-time ticket for a WebSocket connection (<code class="docutils literal notranslate"><span class="pre">?ticket=</span></code> on the handshake).</p>
+<p>Role: user.</p>
+</dd>
+</dl>
+</section>
+<section id="corpora-and-import">
+<h3>Corpora and import<a class="headerlink" href="#corpora-and-import" title="Link to this heading">#</a></h3>
+<p>The corpus catalog, the capabilities of each corpus, and import jobs.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/corpora</span></code></dt><dd><p>List the corpora of the catalog with token and document counts and capability flags.</p>
+<p>Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/corpora/import-methods</span></code></dt><dd><p>List the import methods and whether each one is available in this installation.</p>
+<p>Role: admin.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/corpora/import-preflight</span></code></dt><dd><p>Check an import input (path, format, columns, free disk space) without starting a job.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">method</span></code>*, <code class="docutils literal notranslate"><span class="pre">input_path</span></code>*, <code class="docutils literal notranslate"><span class="pre">target_name</span></code>, and the options that <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/corpora/import-methods</span></code> lists for the method. Role: admin.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/corpora/imports</span></code></dt><dd><p>List the import jobs of this server process.</p>
+<p>Role: admin.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/corpora/imports</span></code></dt><dd><p>Start an import job from a file or folder that the server can read.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">method</span></code>*, <code class="docutils literal notranslate"><span class="pre">input_path</span></code>*, <code class="docutils literal notranslate"><span class="pre">target_name</span></code>, <code class="docutils literal notranslate"><span class="pre">activate_on_success</span></code>, and the options that <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/corpora/import-methods</span></code> lists for the method. Role: admin.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/corpora/imports/{job_id}</span></code></dt><dd><p>Return the state and progress of one import job.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">job_id</span></code>*. Role: admin.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/corpora/imports/{job_id}/cancel</span></code></dt><dd><p>Cancel a queued or running import job.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">job_id</span></code>*. Role: admin.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/corpora/imports/{job_id}/reports</span></code></dt><dd><p>Return the build report, the rejected rows report, and the manifest of one import job.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">job_id</span></code>*. Role: admin.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/corpora/{corpus}/build-report</span></code></dt><dd><p>Return the build report of a corpus in the catalog.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>*. Role: admin.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/corpora/{corpus}/capabilities</span></code></dt><dd><p>Return what a corpus supports, from its manifest and its files.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>*. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/corpora/register</span></code></dt><dd><p>Add an existing index directory to the catalog without copying or changing it.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">path</span></code>*, <code class="docutils literal notranslate"><span class="pre">activate</span></code>, <code class="docutils literal notranslate"><span class="pre">acknowledge_partial_input</span></code>. Role: admin.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/corpora/{corpus}/activate</span></code></dt><dd><p>Make a corpus the active corpus of the catalog.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>*. Body: <code class="docutils literal notranslate"><span class="pre">acknowledge_partial_input</span></code>, the body is optional. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/api/v1/corpora/{corpus}/registration</span></code></dt><dd><p>Remove a corpus from the catalog and keep its files.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>*. Role: admin.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/api/v1/corpora/{corpus}</span></code></dt><dd><p>Remove a corpus from the catalog (admin role). The active corpus and the last corpus are refused with 409.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>*. Role: admin.</p>
+</dd>
+</dl>
+</section>
+<section id="search-and-concordance">
+<h3>Search and concordance<a class="headerlink" href="#search-and-concordance" title="Link to this heading">#</a></h3>
+<p>Concordance lines, streamed results, exact hit counts, and query checks.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/query</span></code></dt><dd><p>Return one page of concordance lines for a plain search or a query with the <code class="docutils literal notranslate"><span class="pre">cql:</span></code> prefix.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">term</span></code>*, <code class="docutils literal notranslate"><span class="pre">ctx</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">date</span></code>, <code class="docutils literal notranslate"><span class="pre">genre</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>, <code class="docutils literal notranslate"><span class="pre">offset</span></code>, <code class="docutils literal notranslate"><span class="pre">sort_by</span></code>, <code class="docutils literal notranslate"><span class="pre">sort_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">sample</span></code>, <code class="docutils literal notranslate"><span class="pre">seed</span></code>, <code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">case_insensitive</span></code>, <code class="docutils literal notranslate"><span class="pre">caseInsensitive</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/query/stream</span></code></dt><dd><p>Stream concordance lines as server-sent events (<code class="docutils literal notranslate"><span class="pre">count</span></code>, <code class="docutils literal notranslate"><span class="pre">batch</span></code>, <code class="docutils literal notranslate"><span class="pre">progress</span></code>, <code class="docutils literal notranslate"><span class="pre">done</span></code>) in corpus order.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">term</span></code>*, <code class="docutils literal notranslate"><span class="pre">ctx</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">date</span></code>, <code class="docutils literal notranslate"><span class="pre">genre</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">batch_size</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>, <code class="docutils literal notranslate"><span class="pre">offset</span></code>, <code class="docutils literal notranslate"><span class="pre">sort_by</span></code>, <code class="docutils literal notranslate"><span class="pre">sort_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">sample</span></code>, <code class="docutils literal notranslate"><span class="pre">seed</span></code>, <code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">case_insensitive</span></code>, <code class="docutils literal notranslate"><span class="pre">caseInsensitive</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/query/analyse</span></code></dt><dd><p>Check a query and return errors, suggested corrections, and hints without running it.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">query</span></code>*, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/query/lexicon/suggest</span></code></dt><dd><p>Return values of an attribute (word, lemma, part of speech) that start with a prefix.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">attr</span></code>*, <code class="docutils literal notranslate"><span class="pre">prefix</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/query/count</span></code></dt><dd><p>Return the exact hit count of a query. The first answer can be <code class="docutils literal notranslate"><span class="pre">running</span></code>, <code class="docutils literal notranslate"><span class="pre">wait_ms</span></code> waits for the result.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">term</span></code>*, <code class="docutils literal notranslate"><span class="pre">ctx</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">date</span></code>, <code class="docutils literal notranslate"><span class="pre">genre</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">start</span></code>, <code class="docutils literal notranslate"><span class="pre">wait_ms</span></code>, <code class="docutils literal notranslate"><span class="pre">user</span></code>, <code class="docutils literal notranslate"><span class="pre">case_insensitive</span></code>, <code class="docutils literal notranslate"><span class="pre">caseInsensitive</span></code>. Role: user.</p>
+</dd>
+</dl>
+</section>
+<section id="documents">
+<h3>Documents<a class="headerlink" href="#documents" title="Link to this heading">#</a></h3>
+<p>The document list, the full text of one document, and a snippet around a position.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/docs/search</span></code></dt><dd><p>Return documents ranked by a search term.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">term</span></code>*, <code class="docutils literal notranslate"><span class="pre">top_n</span></code>, <code class="docutils literal notranslate"><span class="pre">snippet</span></code>, <code class="docutils literal notranslate"><span class="pre">metric</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/doc/snippet</span></code></dt><dd><p>Return a longer passage around a token position, within its document.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">pos</span></code>*, <code class="docutils literal notranslate"><span class="pre">ctx</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/document/{doc_id}</span></code></dt><dd><p>Return the full text of one document by internal number or by the document ID of the import.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">doc_id</span></code>*, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">by</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/docs/list</span></code></dt><dd><p>Return one page of the documents of a corpus or document set with a preview, and the metadata fields of the corpus that name documents and tell them apart.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">offset</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">scope_docset_id</span></code>. Role: user.</p>
+</dd>
+</dl>
+</section>
+<section id="metadata-document-sets-and-subcorpora">
+<h3>Metadata, document sets, and subcorpora<a class="headerlink" href="#metadata-document-sets-and-subcorpora" title="Link to this heading">#</a></h3>
+<p>Metadata fields and values, document sets built from metadata or from a search, and saved subcorpora.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/subcorpora</span></code></dt><dd><p>List the saved subcorpora.</p>
+<p>Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/subcorpora</span></code></dt><dd><p>Save a named subcorpus from a filter definition, or replace one.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">filter_spec</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/subcorpora/{name}</span></code></dt><dd><p>Return one saved subcorpus.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">name</span></code>*. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/api/v1/subcorpora/{name}</span></code></dt><dd><p>Delete one saved subcorpus.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">name</span></code>*. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/subcorpora/{name}/resolve</span></code></dt><dd><p>Turn a saved subcorpus into a fresh document set. <code class="docutils literal notranslate"><span class="pre">stale</span></code> is true when the metadata schema changed since it was saved.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">name</span></code>*. Body: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, the body is optional. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/analysis/meta_schema</span></code></dt><dd><p>Return the metadata fields of a corpus with their types and the fingerprint of the metadata schema.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/meta_values</span></code></dt><dd><p>Return values of the requested metadata fields.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">fields</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/meta_counts</span></code></dt><dd><p>Return document counts per value of the requested metadata fields.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">fields</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/docset_from_meta</span></code></dt><dd><p>Create a document set from metadata filters, including ranges.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">filters</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/docset_intersection</span></code></dt><dd><p>Restrict several document sets to the documents they share through their source text.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">groups</span></code>, <code class="docutils literal notranslate"><span class="pre">include_human</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/docset_from_search</span></code></dt><dd><p>Create a document set from the documents that contain hits of a query.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">query</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>. Role: user.</p>
+</dd>
+</dl>
+</section>
+<section id="counts-and-statistics">
+<h3>Counts and statistics<a class="headerlink" href="#counts-and-statistics" title="Link to this heading">#</a></h3>
+<p>Frequency lists, n-grams, collocations, dispersion, keyness, contrast, trends, word sketches, and lexical diversity. Every result carries a method block.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/frequency_list/job</span></code></dt><dd><p>Start a frequency list as an analysis job.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">stopwords</span></code>, <code class="docutils literal notranslate"><span class="pre">pos_prefix</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/frequency_diff/job</span></code></dt><dd><p>Start a frequency comparison of two disjoint document sets as an analysis job.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">target_docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">reference_docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">min_freq</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/analysis/frequency_list</span></code></dt><dd><p>Return a frequency list of word forms, lemmas, or parts of speech.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">stopwords</span></code>, <code class="docutils literal notranslate"><span class="pre">use_gpu</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">group_by</span></code>, <code class="docutils literal notranslate"><span class="pre">pos</span></code>, <code class="docutils literal notranslate"><span class="pre">cql</span></code>, <code class="docutils literal notranslate"><span class="pre">offset</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/trend</span></code></dt><dd><p>Return the frequency of a query per period of a metadata field such as year, per million tokens with an interval.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">query</span></code>, <code class="docutils literal notranslate"><span class="pre">cql</span></code>, <code class="docutils literal notranslate"><span class="pre">date_field</span></code>, <code class="docutils literal notranslate"><span class="pre">granularity</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">period_values</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/ngrams</span></code></dt><dd><p>Return n-gram frequencies for a corpus or document set.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">min_n</span></code>, <code class="docutils literal notranslate"><span class="pre">max_n</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/ngrams/job</span></code></dt><dd><p>Start an n-gram list as an analysis job.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">min_n</span></code>, <code class="docutils literal notranslate"><span class="pre">max_n</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/ngrams_diff/job</span></code></dt><dd><p>Start an n-gram comparison of two document sets as an analysis job.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">target_docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">reference_docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">min_n</span></code>, <code class="docutils literal notranslate"><span class="pre">max_n</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/analysis/collocates</span></code></dt><dd><p>Return the collocates of a node with association measures and a method block.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">term</span></code>*, <code class="docutils literal notranslate"><span class="pre">window</span></code>, <code class="docutils literal notranslate"><span class="pre">within_sentence</span></code>, <code class="docutils literal notranslate"><span class="pre">sort_by</span></code>, <code class="docutils literal notranslate"><span class="pre">min_freq</span></code>, <code class="docutils literal notranslate"><span class="pre">attribute</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">offset</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/analysis/collocation_network</span></code></dt><dd><p>Return a collocation network around a node (nodes and weighted edges).</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">term</span></code>*, <code class="docutils literal notranslate"><span class="pre">window</span></code>, <code class="docutils literal notranslate"><span class="pre">measure</span></code>, <code class="docutils literal notranslate"><span class="pre">max_nodes</span></code>, <code class="docutils literal notranslate"><span class="pre">expand_depth</span></code>, <code class="docutils literal notranslate"><span class="pre">min_count</span></code>, <code class="docutils literal notranslate"><span class="pre">within_sentence</span></code>, <code class="docutils literal notranslate"><span class="pre">attribute</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/analysis/collocates/kwic</span></code></dt><dd><p>Return the concordance lines behind one collocation row, with the window and units of the table.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">term</span></code>*, <code class="docutils literal notranslate"><span class="pre">collocate</span></code>*, <code class="docutils literal notranslate"><span class="pre">window</span></code>, <code class="docutils literal notranslate"><span class="pre">ctx</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>, <code class="docutils literal notranslate"><span class="pre">offset</span></code>, <code class="docutils literal notranslate"><span class="pre">within_sentence</span></code>, <code class="docutils literal notranslate"><span class="pre">attribute</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/collocates/job</span></code></dt><dd><p>Start a collocation table as an analysis job.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">term</span></code>, <code class="docutils literal notranslate"><span class="pre">window</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/collocates_diff/job</span></code></dt><dd><p>Start a collocation comparison of two document sets as an analysis job.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">term</span></code>, <code class="docutils literal notranslate"><span class="pre">target_docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">reference_docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">window</span></code>, <code class="docutils literal notranslate"><span class="pre">within_sentence</span></code>, <code class="docutils literal notranslate"><span class="pre">sort_by</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/contrast</span></code></dt><dd><p>Contrast the collocations of a node in two document sets or saved subcorpora, as an analysis job.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">term</span></code>, <code class="docutils literal notranslate"><span class="pre">target_subcorpus</span></code>, <code class="docutils literal notranslate"><span class="pre">reference_subcorpus</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/analysis/dispersion_offsets</span></code></dt><dd><p>Return the token positions of the hits of a query for a dispersion plot.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">term</span></code>*, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">offset</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/analysis/dispersion</span></code></dt><dd><p>Return dispersion measures over the documents (DP, DPnorm, range, and others) with the DP reference band.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">term</span></code>*, <code class="docutils literal notranslate"><span class="pre">partitions</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/keyness/job</span></code></dt><dd><p>Start a keyness comparison as an analysis job.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">target_docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">reference_docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">pos</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/keyness</span></code></dt><dd><p>Compare a target and a reference document set and return keywords with test statistics and effect sizes.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">target_docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">reference_docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">pos</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/wordsketch</span></code></dt><dd><p>Return the collocates of a lemma grouped by dependency relation. Needs a corpus imported with dependency relations.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">term</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/wordsketch_diff</span></code></dt><dd><p>Compare the word sketches of two lemmas, or of one lemma in two document sets.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">term_a</span></code>, <code class="docutils literal notranslate"><span class="pre">term_b</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/analysis/lexical-diversity</span></code></dt><dd><p>Return TTR, STTR, Guiraud, and MATTR for a corpus or document set, or for two document sets.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">target_docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">reference_docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">sttr_window</span></code>, <code class="docutils literal notranslate"><span class="pre">mattr</span></code>, <code class="docutils literal notranslate"><span class="pre">mattr_window</span></code>, <code class="docutils literal notranslate"><span class="pre">analyst_tokens_only</span></code>. Role: user.</p>
+</dd>
+</dl>
+</section>
+<section id="id1">
+<h3>Analysis jobs<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Status, rows, and cancellation of the jobs that the <code class="docutils literal notranslate"><span class="pre">/job</span></code> routes start.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/analysis/jobs/{job_id}</span></code></dt><dd><p>Return the state, progress, and summary of one analysis job.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">job_id</span></code>*. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/jobs/{job_id}/cancel</span></code></dt><dd><p>Cancel an analysis job.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">job_id</span></code>*. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/analysis/jobs/{job_id}/rows</span></code></dt><dd><p>Return one page of the result rows of a finished analysis job.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">job_id</span></code>*, <code class="docutils literal notranslate"><span class="pre">offset</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+</dl>
+</section>
+<section id="paired-corpora">
+<h3>Paired corpora<a class="headerlink" href="#paired-corpora" title="Link to this heading">#</a></h3>
+<p>Groups of variants, sentence alignment, and parallel concordance lines.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/parallel_groups</span></code></dt><dd><p>List the groups of variants of a paired corpus.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">limit</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/alignment/ref_doc</span></code></dt><dd><p>Align the sentences of the variants of one source text, optionally around a token position.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">ref_doc</span></code>, <code class="docutils literal notranslate"><span class="pre">focus_pos</span></code>, <code class="docutils literal notranslate"><span class="pre">window_sentences</span></code>, <code class="docutils literal notranslate"><span class="pre">variant_margin</span></code>, <code class="docutils literal notranslate"><span class="pre">max_variants</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/kwic_parallel</span></code></dt><dd><p>Return the aligned passages of the other variants for one hit, with edit distance and similarity.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">pos</span></code>, <code class="docutils literal notranslate"><span class="pre">keyword</span></code>, <code class="docutils literal notranslate"><span class="pre">ctx</span></code>, <code class="docutils literal notranslate"><span class="pre">max_variants</span></code>. Role: user.</p>
+</dd>
+</dl>
+</section>
+<section id="semantic-functions">
+<h3>Semantic functions<a class="headerlink" href="#semantic-functions" title="Link to this heading">#</a></h3>
+<p>Similar words, passage search, semantic clusters, embedding packages, and the local semantic index.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/semantic/similar_words</span></code></dt><dd><p>Return distributional neighbours of a word that occur in the corpus, with similarity and corpus frequency. A corpus without word vectors answers 422 <code class="docutils literal notranslate"><span class="pre">word_vectors.unavailable</span></code>, a corpus whose pipeline is not installed on the server 503 <code class="docutils literal notranslate"><span class="pre">word_vectors.service_error</span></code>.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">term</span></code>*, <code class="docutils literal notranslate"><span class="pre">k</span></code>, <code class="docutils literal notranslate"><span class="pre">min_score</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/semantic/cluster</span></code></dt><dd><p>Cluster the hits of a semantic search.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">ids</span></code>, <code class="docutils literal notranslate"><span class="pre">min_size</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/semantic/cluster_words</span></code></dt><dd><p>Cluster a list of words by the word vectors of the corpus (<code class="docutils literal notranslate"><span class="pre">corpus</span></code>, default the active corpus). A corpus without word vectors answers 422 <code class="docutils literal notranslate"><span class="pre">word_vectors.unavailable</span></code>.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">tokens</span></code>, <code class="docutils literal notranslate"><span class="pre">examples</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/semantic/recluster</span></code></dt><dd><p>Propose merges and splits of clusters. Sends cluster samples to the configured language model.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">clusters</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/api/v1/semantic/clusters/apply</span></code></dt><dd><p>Check a plan of merges, splits, and new labels and return it.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">merges</span></code>, <code class="docutils literal notranslate"><span class="pre">splits</span></code>, <code class="docutils literal notranslate"><span class="pre">renames</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/semantic/outline</span></code></dt><dd><p>Return a Markdown outline of clusters with up to three samples each.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">clusters</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/embeddings/local-index/preflight</span></code></dt><dd><p>Check whether this machine can build a local semantic index (Apple silicon, memory, disk).</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/embeddings/local-index/build</span></code></dt><dd><p>Start or resume a local semantic index build in a separate process.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">levels</span></code>. Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/embeddings/local-index/builds/{run_id}</span></code></dt><dd><p>Return the state of a local semantic index build.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">run_id</span></code>*. Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/embeddings/local-index/builds/{run_id}/cancel</span></code></dt><dd><p>Cancel a local semantic index build and keep its checkpoints.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">run_id</span></code>*. Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/embeddings/list</span></code></dt><dd><p>List the packages of the embedding package catalog and whether each one is installed. The catalog of this version is empty, and no analysis reads an installed package.</p>
+<p>Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/settings/embeddings</span></code></dt><dd><p>Return the embedding backend, the values it accepts (<code class="docutils literal notranslate"><span class="pre">spacy</span></code>, <code class="docutils literal notranslate"><span class="pre">none</span></code>), the spaCy pipeline of the backend with what it embeds (<code class="docutils literal notranslate"><span class="pre">spacy_model_used_for</span></code>: <code class="docutils literal notranslate"><span class="pre">passage_queries</span></code>, the search text of a passage search, <code class="docutils literal notranslate"><span class="pre">copilot_word_clusters</span></code>, and <code class="docutils literal notranslate"><span class="pre">fallback</span></code> for corpora that record no pipeline), and for each corpus the source of the word vectors that similar words, <code class="docutils literal notranslate"><span class="pre">sim()</span></code>, passage index builds, and word clusters use (<code class="docutils literal notranslate"><span class="pre">word_vectors</span></code>) (admin role).</p>
+<p>Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/settings/embeddings</span></code></dt><dd><p>Set the embedding backend of this server process to <code class="docutils literal notranslate"><span class="pre">spacy</span></code> or <code class="docutils literal notranslate"><span class="pre">none</span></code> (admin role, not saved). Other values and a request without a backend receive 422.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">backend</span></code>. Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/embeddings/download</span></code></dt><dd><p>Download a package of the embedding package catalog in the background (admin role). Unknown packages receive 400.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">url</span></code>. Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/embeddings/remove</span></code></dt><dd><p>Remove an installed embedding package (admin role).</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">name</span></code>. Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/analysis/embedding_search</span></code></dt><dd><p>Return the passages most similar to a search text. Needs a passage index.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">term</span></code>, <code class="docutils literal notranslate"><span class="pre">top_n</span></code>, <code class="docutils literal notranslate"><span class="pre">ctx</span></code>. Role: user.</p>
+</dd>
+</dl>
+</section>
+<section id="export">
+<h3>Export<a class="headerlink" href="#export" title="Link to this heading">#</a></h3>
+<p>Concordance files, evidence packages, and document conversion.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/download/{file_id}</span></code></dt><dd><p>Download a file that an export route wrote.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">file_id</span></code>*. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/export/pdf</span></code></dt><dd><p>Convert Markdown to PDF with pandoc and LaTeX, when both are installed on the server.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">markdown</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/export/docx</span></code></dt><dd><p>Convert Markdown to DOCX with pandoc, when it is installed on the server.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">markdown</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/export/concordance</span></code></dt><dd><p>Export all hits of a query (up to the export cap) as CSV, TSV, JSON, JSON Lines, or XLSX with provenance.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">query</span></code>, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">sort</span></code>, <code class="docutils literal notranslate"><span class="pre">sort_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">case_insensitive</span></code>, <code class="docutils literal notranslate"><span class="pre">ctx</span></code>, <code class="docutils literal notranslate"><span class="pre">format</span></code>, <code class="docutils literal notranslate"><span class="pre">excel_de</span></code>, <code class="docutils literal notranslate"><span class="pre">dialect</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/export/evidence-package</span></code></dt><dd><p>Return an evidence package: query, scope, index fingerprint, row hash, method blocks, and rows.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">query</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>. Role: user. Needs a token in single-user mode.</p>
+</dd>
+</dl>
+</section>
+<section id="line-annotation">
+<h3>Line annotation<a class="headerlink" href="#line-annotation" title="Link to this heading">#</a></h3>
+<p>Categories and notes on concordance lines, the coding scheme, and agreement between coders.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/annotations</span></code></dt><dd><p>Return the line annotations of a corpus and the coding scheme of that corpus.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>, <code class="docutils literal notranslate"><span class="pre">annotator</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/annotations/scheme/preview</span></code></dt><dd><p>Show which annotations a new coding scheme would change, without saving it.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Body: <code class="docutils literal notranslate"><span class="pre">categories</span></code>*, <code class="docutils literal notranslate"><span class="pre">expected_revision</span></code>*. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/annotations/scheme</span></code></dt><dd><p>Return the coding scheme of a corpus. Without corpus, the project scheme, which applies to every corpus without a scheme of its own.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/api/v1/annotations/scheme</span></code></dt><dd><p>Replace the coding scheme of a corpus (manager role). Removed categories are cleared in the annotations of that corpus.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Body: <code class="docutils literal notranslate"><span class="pre">categories</span></code>*, <code class="docutils literal notranslate"><span class="pre">expected_revision</span></code>*, <code class="docutils literal notranslate"><span class="pre">confirmation_token</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/annotations/multi</span></code></dt><dd><p>Return the annotations of every coder for each line.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/annotations/agreement</span></code></dt><dd><p>Return percent agreement and Cohen's or Fleiss' kappa between coders.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">docset_id</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/annotations/settings</span></code></dt><dd><p>Return whether several coders annotate independently.</p>
+<p>Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/api/v1/annotations/settings</span></code></dt><dd><p>Switch independent annotation by several coders on or off (manager role).</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">enabled</span></code>*. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/annotations/import</span></code></dt><dd><p>Import line annotations in the export format, with a dry run option.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Body: <code class="docutils literal notranslate"><span class="pre">records</span></code>, <code class="docutils literal notranslate"><span class="pre">dry_run</span></code>, <code class="docutils literal notranslate"><span class="pre">validate_categories</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/api/v1/annotations/{row_id}</span></code></dt><dd><p>Set the category or note of one concordance line.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">row_id</span></code>*, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Body: <code class="docutils literal notranslate"><span class="pre">category_id</span></code>, <code class="docutils literal notranslate"><span class="pre">note</span></code>, <code class="docutils literal notranslate"><span class="pre">annotator</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/api/v1/annotations/{row_id}</span></code></dt><dd><p>Delete the annotation of the caller on one concordance line.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">row_id</span></code>*, <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">annotator</span></code>. Role: user.</p>
+</dd>
+</dl>
+</section>
+<section id="projects-saved-analyses-and-preferences">
+<h3>Projects, saved analyses, and preferences<a class="headerlink" href="#projects-saved-analyses-and-preferences" title="Link to this heading">#</a></h3>
+<p>Project records, saved analysis settings, cluster lists, and user preferences.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/projects/create</span></code></dt><dd><p>Create a project record (admin role).</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">owner</span></code>, <code class="docutils literal notranslate"><span class="pre">quota</span></code>. Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/projects/{proj}/clusters</span></code></dt><dd><p>Return the saved clusters of a project.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">proj</span></code>*. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/projects/{proj}/clusters</span></code></dt><dd><p>Save the clusters of a project.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">proj</span></code>*. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/api/v1/projects/{proj}/clusters</span></code></dt><dd><p>Save the clusters of a project (same as POST).</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">proj</span></code>*. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">PATCH</span> <span class="pre">/api/v1/projects/{proj}/clusters/rename</span></code></dt><dd><p>Rename one saved cluster.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">proj</span></code>*. Body: <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">label</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/projects/{proj}/analysis-presets</span></code></dt><dd><p>List the saved analyses of a project.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">proj</span></code>*. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/projects/{proj}/analysis-presets</span></code></dt><dd><p>Save an analysis with its settings.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">proj</span></code>*. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">PATCH</span> <span class="pre">/api/v1/projects/{proj}/analysis-presets/{preset_id}</span></code></dt><dd><p>Change a saved analysis.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">proj</span></code>*, <code class="docutils literal notranslate"><span class="pre">preset_id</span></code>*. Body: <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">status</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">DELETE</span> <span class="pre">/api/v1/projects/{proj}/analysis-presets/{preset_id}</span></code></dt><dd><p>Delete a saved analysis.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">proj</span></code>*, <code class="docutils literal notranslate"><span class="pre">preset_id</span></code>*. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/projects/{proj}/analysis-presets/{preset_id}/touch</span></code></dt><dd><p>Record that a saved analysis was opened.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">proj</span></code>*, <code class="docutils literal notranslate"><span class="pre">preset_id</span></code>*. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/prefs/update</span></code></dt><dd><p>Save preferences of the caller. Unknown keys are refused with 400.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">theme</span></code>, <code class="docutils literal notranslate"><span class="pre">project</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/prefs</span></code></dt><dd><p>Return the saved preferences of the caller.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">project</span></code>. Role: user.</p>
+</dd>
+</dl>
+</section>
+<section id="copilot">
+<h3>Copilot<a class="headerlink" href="#copilot" title="Link to this heading">#</a></h3>
+<p>Questions to the copilot and the control of a running turn. These routes need a configured language model.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/chat</span></code></dt><dd><p>Ask the copilot and receive the whole answer in one response.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">messages</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/chat/stream</span></code></dt><dd><p>Ask the copilot and receive status, tool calls, and the answer as server-sent events.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">messages</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/copilot/cancel</span></code></dt><dd><p>Stop a running copilot turn. No further model call or tool call starts.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">turnId</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/copilot/status</span></code></dt><dd><p>Return whether a language model is configured for the copilot and which model. No request goes to the model server.</p>
+<p>Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/copilot/lauf</span></code></dt><dd><p>Return the progress and result of a copilot turn that continued after its connection closed.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">sessionId</span></code>, <code class="docutils literal notranslate"><span class="pre">turnId</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/copilot/action/approve</span></code></dt><dd><p>Approve an action that the copilot proposed.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">actionId</span></code>, <code class="docutils literal notranslate"><span class="pre">sessionId</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/copilot/action/reject</span></code></dt><dd><p>Reject an action that the copilot proposed.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">actionId</span></code>, <code class="docutils literal notranslate"><span class="pre">sessionId</span></code>, <code class="docutils literal notranslate"><span class="pre">reason</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/copilot/clarify/answer</span></code></dt><dd><p>Answer a clarification question of the copilot.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">clarificationId</span></code>, <code class="docutils literal notranslate"><span class="pre">sessionId</span></code>, <code class="docutils literal notranslate"><span class="pre">answer</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/copilot/context</span></code></dt><dd><p>Update the interface context (corpus, scope, selection) of a copilot session.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">sessionId</span></code>, <code class="docutils literal notranslate"><span class="pre">autonomy_level</span></code>, <code class="docutils literal notranslate"><span class="pre">current_query</span></code>, <code class="docutils literal notranslate"><span class="pre">total_results</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/copilot/continue</span></code></dt><dd><p>Continue a copilot turn after an approval, a rejection, or an answer.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">sessionId</span></code>. Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/copilot/recipes</span></code></dt><dd><p>List the analysis recipes of the copilot with purpose, example question, and steps.</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Role: user.</p>
+</dd>
+</dl>
+</section>
+<section id="server-and-settings">
+<h3>Server and settings<a class="headerlink" href="#server-and-settings" title="Link to this heading">#</a></h3>
+<p>Health, the capability contract, system information, runtime settings, and metrics.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/capabilities</span></code></dt><dd><p>Return the capability contract: which operations the interface and the copilot offer, with route, role, and corpus requirements.</p>
+<p>Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/health</span></code></dt><dd><p>Return <code class="docutils literal notranslate"><span class="pre">ok</span></code> and the name of the query engine.</p>
+<p>Open without sign-in.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/help</span></code></dt><dd><p>Return whether the bundled user documentation is served and its address, for the help menu.</p>
+<p>Open without sign-in.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/system/info</span></code></dt><dd><p>Return version, data locations, whether a model is configured, and size and state of the active corpus (admin role).</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>. Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/settings/model-route</span></code></dt><dd><p>Return the model endpoint and model of the copilot and whether a key is set (admin role). The key itself is never returned.</p>
+<p>Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/settings/model-route</span></code></dt><dd><p>Change endpoint, model, and key of the copilot without a restart (admin role). The change lasts until the server stops.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">endpoint</span></code>, <code class="docutils literal notranslate"><span class="pre">modell</span></code>, <code class="docutils literal notranslate"><span class="pre">schluessel</span></code>. Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/system/clear-cache</span></code></dt><dd><p>Clear the in-memory caches of the server (admin role).</p>
+<p>Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/system/rebuild-index</span></code></dt><dd><p>Rebuild the FAISS passage index (admin role). Without stored passage vectors the passages are embedded with the word vectors of the corpus pipeline, and a corpus without them answers 422 <code class="docutils literal notranslate"><span class="pre">word_vectors.unavailable</span></code> before a job starts. Progress arrives on a WebSocket.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">corpus</span></code>, the body is optional. Role: admin. Needs a token in single-user mode.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/metrics</span></code></dt><dd><p>Return server metrics in the Prometheus text format (admin role).</p>
+<p>Role: admin.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/operation-runs/{run_id}</span></code></dt><dd><p>Return the state of a long-running server operation (admin role).</p>
+<p>Parameters: <code class="docutils literal notranslate"><span class="pre">run_id</span></code>*. Role: admin.</p>
+</dd>
+</dl>
+</section>
+<section id="tool-api">
+<h3>Tool API<a class="headerlink" href="#tool-api" title="Link to this heading">#</a></h3>
+<p>The analysis tools of the copilot, callable without a language model. This is a plain HTTP interface, not the Model Context Protocol.</p>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/mcp/tools</span></code></dt><dd><p>List the analysis tools with their parameter schemas.</p>
+<p>Role: user.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/mcp/call</span></code></dt><dd><p>Run one analysis tool with arguments that are checked against its schema.</p>
+<p>Body: <code class="docutils literal notranslate"><span class="pre">name</span></code>*, <code class="docutils literal notranslate"><span class="pre">arguments</span></code>. Role: user.</p>
+</dd>
+</dl>
+<p>The tables are generated from the OpenAPI description of the server. How to
+regenerate them after a change is described in
+<a class="reference internal" href="../contribute/documentation.html"><span class="std std-doc">Documentation maintenance</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cli.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Command line reference</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="configuration.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Configuration reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#address-and-schema">Address and schema</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication">Authentication</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-user-mode">Single-user mode</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-user-mode">Multi-user mode</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors">Errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rate-limit">Rate limit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-capability-contract">The capability contract</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jobs-and-streaming">Jobs and streaming</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-jobs">Analysis jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#server-sent-events">Server-sent events</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#routes-by-task">Routes by task</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sign-in-and-session">Sign-in and session</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corpora-and-import">Corpora and import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#search-and-concordance">Search and concordance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documents">Documents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-document-sets-and-subcorpora">Metadata, document sets, and subcorpora</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#counts-and-statistics">Counts and statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Analysis jobs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paired-corpora">Paired corpora</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#semantic-functions">Semantic functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export">Export</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line-annotation">Line annotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#projects-saved-analyses-and-preferences">Projects, saved analyses, and preferences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copilot">Copilot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#server-and-settings">Server and settings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tool-api">Tool API</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/reference/http-api.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

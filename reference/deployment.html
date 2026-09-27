@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Deployment | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/deployment';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Glossary" href="glossary.html" />
+    <link rel="prev" title="Languages and annotation pipelines" href="languages.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="query-language.html">Query language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http-api.html">HTTP API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input-formats.html">Input formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index-format.html">Index format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export-formats.html">Export formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-files.html">Project files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-platforms.html">Supported platforms and requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages.html">Languages and annotation pipelines</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Deployment</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="deployment">
+<h1>Deployment<a class="headerlink" href="#deployment" title="Link to this heading">#</a></h1>
+<p>CandyConc runs in one of two security modes. The default, single-user mode,
+serves one person on one computer. Multi-user mode serves several people from
+a server, with sign-in and roles. This page describes both modes, the roles,
+the user file, and the templates for Docker and systemd, each with the state
+of its testing for this release. The steps for setting up a server are in
+<a class="reference internal" href="../guides/run-for-a-group/multi-user-server.html"><span class="std std-doc">Run CandyConc for several users</span></a>
+and <a class="reference internal" href="../guides/run-for-a-group/reverse-proxy.html"><span class="std std-doc">Serve CandyConc behind a reverse proxy</span></a>.</p>
+<section id="security-modes">
+<h2>Security modes<a class="headerlink" href="#security-modes" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Single-user mode</p></th>
+<th class="head"><p>Multi-user mode</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Settings</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_SECURITY_MODE=local_dev_unsafe</span></code> (default)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_SECURITY_MODE=release</span></code> and <code class="docutils literal notranslate"><span class="pre">CANDYCONC_ENABLE_RBAC=1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Address</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> only. <code class="docutils literal notranslate"><span class="pre">--host</span> <span class="pre">0.0.0.0</span></code> stops with an error unless <code class="docutils literal notranslate"><span class="pre">CANDYCONC_ALLOW_UNSAFE_NETWORK_DEV=1</span></code> is set.</p></td>
+<td><p>any address, usually <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> behind a reverse proxy</p></td>
+</tr>
+<tr class="row-even"><td><p>Sign-in</p></td>
+<td><p>none</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/login</span></code> with a user of the user file</p></td>
+</tr>
+<tr class="row-odd"><td><p>Token</p></td>
+<td><p>from <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/auth/dev-token</span></code>, which the web interface fetches itself</p></td>
+<td><p>from the sign-in, only in the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header</p></td>
+</tr>
+<tr class="row-even"><td><p>Roles</p></td>
+<td><p>not checked</p></td>
+<td><p>checked for every route, see <a class="reference internal" href="#roles">Roles</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Host</span></code> header</p></td>
+<td><p>not checked</p></td>
+<td><p>only the names in <code class="docutils literal notranslate"><span class="pre">CANDYCONC_TRUSTED_HOSTS</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>OpenAPI pages (<code class="docutils literal notranslate"><span class="pre">/docs</span></code>, <code class="docutils literal notranslate"><span class="pre">/openapi.json</span></code>)</p></td>
+<td><p>available</p></td>
+<td><p>404</p></td>
+</tr>
+<tr class="row-odd"><td><p>Routes without a classification</p></td>
+<td><p>available</p></td>
+<td><p>403</p></td>
+</tr>
+<tr class="row-even"><td><p>Record of model calls (<code class="docutils literal notranslate"><span class="pre">traces.jsonl</span></code>)</p></td>
+<td><p>on, without message text</p></td>
+<td><p>off</p></td>
+</tr>
+<tr class="row-odd"><td><p>Start</p></td>
+<td><p>always</p></td>
+<td><p>refused without at least one user in the user file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The internal name of single-user mode, <code class="docutils literal notranslate"><span class="pre">local_dev_unsafe</span></code>, states what the
+mode does not do: it has no sign-in, so any program that reaches the address
+has full access. On a computer that only you use, bound to <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>, that
+is the intended setup. Do not make single-user mode reachable from a network.</p>
+<p>Tested for this release on macOS with a local server: the refusal of
+<code class="docutils literal notranslate"><span class="pre">--host</span> <span class="pre">0.0.0.0</span></code> in single-user mode, and in multi-user mode the sign-in, the
+refusal of requests without a token (401) and of tokens in the query string,
+the refusal of an unknown <code class="docutils literal notranslate"><span class="pre">Host</span></code> header (400), the 404 of the OpenAPI pages
+and of <code class="docutils literal notranslate"><span class="pre">/api/v1/auth/dev-token</span></code>, and the refusal to start without users.</p>
+</section>
+<section id="roles">
+<h2>Roles<a class="headerlink" href="#roles" title="Link to this heading">#</a></h2>
+<p>In multi-user mode every user has one role. A role includes the rights of the
+roles before it:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Role</p></th>
+<th class="head"><p>Can</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">user</span></code></p></td>
+<td><p>search, read documents, run analyses and analysis jobs, export, use the copilot, save subcorpora and analyses, annotate lines</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">annotator</span></code></p></td>
+<td><p>the same as <code class="docutils literal notranslate"><span class="pre">user</span></code> in this version</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">manager</span></code></p></td>
+<td><p>also change the coding scheme and switch independent annotation by several coders on or off, import line annotations on behalf of other coders</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">admin</span></code></p></td>
+<td><p>also import and remove corpora, read build reports, change the model connection and other runtime settings, see system information, metrics, and the local semantic index</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The column <strong>Role</strong> of the <a class="reference internal" href="http-api.html#routes-by-task"><span class="std std-ref">HTTP API reference</span></a>
+names the least role of every route.</p>
+</section>
+<section id="the-user-file">
+<h2>The user file<a class="headerlink" href="#the-user-file" title="Link to this heading">#</a></h2>
+<p>The user file is a JSON list with one object per user:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"scrypt$..."</span><span class="p">,</span><span class="w"> </span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">password</span></code> is a scrypt hash, never the password itself. Create the file with
+the first user:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>candyconc.tools.user_bootstrap<span class="w"> </span>--username<span class="w"> </span>admin<span class="w"> </span>--role<span class="w"> </span>admin<span class="w"> </span>--output<span class="w"> </span>/etc/candyconc/users.json
+</pre></div>
+</div>
+<p>The tool asks for the password twice, or reads it from the environment
+variable <code class="docutils literal notranslate"><span class="pre">CANDYCONC_BOOTSTRAP_PASSWORD</span></code> (another name with <code class="docutils literal notranslate"><span class="pre">--password-env</span></code>).
+It writes the file readable only by its owner and refuses to overwrite an
+existing file unless you add <code class="docutils literal notranslate"><span class="pre">--force</span></code>. <code class="docutils literal notranslate"><span class="pre">--print-env</span></code> prints the three
+settings for multi-user mode. Without <code class="docutils literal notranslate"><span class="pre">--output</span></code>, the file goes to
+<code class="docutils literal notranslate"><span class="pre">users.json</span></code> in the data directory, which is also where CandyConc looks for
+it when <code class="docutils literal notranslate"><span class="pre">CANDYCONC_USER_FILE</span></code> is not set.</p>
+<p>The tool writes one user. To add a user, run it again with <code class="docutils literal notranslate"><span class="pre">--output</span></code> pointing
+to a temporary file and copy the new object into the list of the user file.
+The server reads the user file when it starts.</p>
+</section>
+<section id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Link to this heading">#</a></h2>
+<p>The template <code class="docutils literal notranslate"><span class="pre">app/deploy/Dockerfile</span></code> in the repository builds an image in two
+stages: a wheel with the web interface from the source tree, then a slim image
+with that wheel, a system user <code class="docutils literal notranslate"><span class="pre">candyconc</span></code>, the data directory <code class="docutils literal notranslate"><span class="pre">/data</span></code> as a
+volume, and multi-user mode with role-based access control. The image starts
+<code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">--host</span> <span class="pre">0.0.0.0</span> <span class="pre">--port</span> <span class="pre">8010</span></code> and has a health check on
+<code class="docutils literal notranslate"><span class="pre">/api/v1/health</span></code>. The comments at the top of the file show how to create the
+first user in the volume and how to start the container.</p>
+<p>Test status: the image has not been built or run for this release.</p>
+</section>
+<section id="systemd">
+<h2>systemd<a class="headerlink" href="#systemd" title="Link to this heading">#</a></h2>
+<p>The template <code class="docutils literal notranslate"><span class="pre">app/deploy/candyconc.service</span></code> runs CandyConc from a virtual
+environment in <code class="docutils literal notranslate"><span class="pre">/opt/candyconc/.venv</span></code> as the system user <code class="docutils literal notranslate"><span class="pre">candyconc</span></code>, with the
+data directory <code class="docutils literal notranslate"><span class="pre">/var/lib/candyconc</span></code>, the user file
+<code class="docutils literal notranslate"><span class="pre">/etc/candyconc/users.json</span></code>, multi-user mode, and the address
+<code class="docutils literal notranslate"><span class="pre">127.0.0.1:8010</span></code> for a reverse proxy in front. The comments at the top of the
+file list the steps before the first start.</p>
+<p>Test status: the unit has not been run for this release.</p>
+</section>
+<section id="one-process-one-address">
+<h2>One process, one address<a class="headerlink" href="#one-process-one-address" title="Link to this heading">#</a></h2>
+<p>The server delivers the web interface and the API from the same process and
+the same address: the interface at <code class="docutils literal notranslate"><span class="pre">/</span></code>, the API at <code class="docutils literal notranslate"><span class="pre">/api/v1</span></code>, the tool API at
+<code class="docutils literal notranslate"><span class="pre">/mcp</span></code>. A reverse proxy therefore needs one upstream, and the interface needs
+no separate web server. When the server runs behind a proxy with its own host
+name, add that name to <code class="docutils literal notranslate"><span class="pre">CANDYCONC_TRUSTED_HOSTS</span></code>.</p>
+</section>
+<section id="data-on-a-server">
+<h2>Data on a server<a class="headerlink" href="#data-on-a-server" title="Link to this heading">#</a></h2>
+<p>All users of a server share its corpora, its project file, and its saved
+analyses. Preferences are kept per user. Line annotations are kept per coder
+when independent annotation by several coders is switched on. Where each part
+is stored is described in <a class="reference internal" href="../concepts/where-data-lives.html"><span class="std std-doc">Where your data lives</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="languages.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Languages and annotation pipelines</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="glossary.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Glossary</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#security-modes">Security modes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roles">Roles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-user-file">The user file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systemd">systemd</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-process-one-address">One process, one address</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-on-a-server">Data on a server</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/reference/deployment.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

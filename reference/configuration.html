@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Configuration reference | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/configuration';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Input formats" href="input-formats.html" />
+    <link rel="prev" title="HTTP API reference" href="http-api.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="query-language.html">Query language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http-api.html">HTTP API reference</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Configuration reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input-formats.html">Input formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index-format.html">Index format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export-formats.html">Export formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-files.html">Project files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-platforms.html">Supported platforms and requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages.html">Languages and annotation pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Configuration reference</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="configuration-reference">
+<h1>Configuration reference<a class="headerlink" href="#configuration-reference" title="Link to this heading">#</a></h1>
+<p>CandyConc works without any configuration. This page lists the settings that
+you can change: first the decisions a researcher makes (which language model,
+which corpus at start), then the settings for running CandyConc for others
+(locations, security, logs, limits). Every setting has the same name in the
+environment and in the configuration file.</p>
+<p>The settings listed on this page are the supported configuration. Names that
+the code reads but that are not listed here are internal and can change
+without notice.</p>
+<section id="where-settings-come-from">
+<h2>Where settings come from<a class="headerlink" href="#where-settings-come-from" title="Link to this heading">#</a></h2>
+<p>CandyConc reads each setting from the first of these sources that has it:</p>
+<ol class="arabic simple">
+<li><p><strong>A change at runtime.</strong> <strong>Settings &gt; Model connection</strong> in the web
+interface changes the endpoint, model, and key of the copilot at once. The
+change lasts until the server stops and is not written to a file.</p></li>
+<li><p><strong>The environment</strong> of the server process, for example
+<code class="docutils literal notranslate"><span class="pre">COPILOT_MODEL=my-model</span> <span class="pre">candy</span></code>.</p></li>
+<li><p><strong>The configuration file</strong> <code class="docutils literal notranslate"><span class="pre">config.toml</span></code>. <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">paths</span></code> prints its
+location. The default location is
+<code class="docutils literal notranslate"><span class="pre">~/Library/Application</span> <span class="pre">Support/candyconc/config.toml</span></code> on macOS and
+<code class="docutils literal notranslate"><span class="pre">$XDG_CONFIG_HOME/candyconc/config.toml</span></code> (usually
+<code class="docutils literal notranslate"><span class="pre">~/.config/candyconc/config.toml</span></code>) on Linux. <code class="docutils literal notranslate"><span class="pre">CANDYCONC_CONFIG_FILE</span></code>
+points to another file.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">[tool.candyconc]</span></code> in <code class="docutils literal notranslate"><span class="pre">app/pyproject.toml</span></code></strong>, only when CandyConc runs
+from a source checkout (with <code class="docutils literal notranslate"><span class="pre">PYTHONPATH=src</span></code> or an editable install) and
+the file has this table. An installed wheel has no such file.</p></li>
+<li><p><strong>The default</strong> in the code, listed in the tables on this page.</p></li>
+</ol>
+<p>Command line options of <code class="docutils literal notranslate"><span class="pre">candy</span></code> (<code class="docutils literal notranslate"><span class="pre">--enable-rbac</span></code>, <code class="docutils literal notranslate"><span class="pre">--log-level</span></code>,
+<code class="docutils literal notranslate"><span class="pre">--log-file</span></code>) set the corresponding setting for one start.</p>
+<p>All settings except the runtime change in the first source take effect when
+the server starts. Restart the server after you change the environment or the
+configuration file.</p>
+</section>
+<section id="the-configuration-file">
+<h2>The configuration file<a class="headerlink" href="#the-configuration-file" title="Link to this heading">#</a></h2>
+<p>The configuration file is TOML. Each line sets one setting with the same name
+as the environment variable. Values are text, numbers, or <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code>.
+Tables and lists are not allowed. Example:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">COPILOT_ENDPOINT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"http://127.0.0.1:1234/v1/responses"</span>
+<span class="n">COPILOT_MODEL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"qwen3-30b-a3b"</span>
+<span class="n">CANDYCONC_LOG_LEVEL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"WARNING"</span>
+</pre></div>
+</div>
+<p>A file that is not valid TOML, or that contains a table or a list, stops the
+server at start with a message that names the file and the problem. A setting
+in the environment always wins over the same setting in the file.</p>
+<!-- Generated by docs/_tools/generate_configuration.py from docs/_data/configuration.json and candyconc/config.py. Do not edit. -->
+</section>
+<section id="user-decisions">
+<h2>User decisions<a class="headerlink" href="#user-decisions" title="Link to this heading">#</a></h2>
+<section id="language-model-for-the-copilot">
+<h3>Language model for the copilot<a class="headerlink" href="#language-model-for-the-copilot" title="Link to this heading">#</a></h3>
+<p>The copilot is optional. Without <code class="docutils literal notranslate"><span class="pre">COPILOT_ENDPOINT</span></code> every other function works and the chat answers that no language model is configured. <strong>Settings &gt; Model connection</strong> in the web interface changes endpoint, model, and key at once, until the server stops.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">COPILOT_ENDPOINT</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Address of an OpenAI-compatible endpoint, ending in <code class="docutils literal notranslate"><span class="pre">/v1/responses</span></code> or <code class="docutils literal notranslate"><span class="pre">/v1/chat/completions</span></code>, for example <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:1234/v1/responses</span></code> for a local server. Empty: no copilot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">COPILOT_MODEL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">qwen3-30b-a3b</span></code></p></td>
+<td><p>Model name that the endpoint expects. CandyConc checks the <code class="docutils literal notranslate"><span class="pre">model</span></code> field of every answer and stops with an error when the endpoint answers with a different model.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">COPILOT_API_KEY</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lm-studio</span></code></p></td>
+<td><p>Key sent as <code class="docutils literal notranslate"><span class="pre">Authorization:</span> <span class="pre">Bearer</span></code> to the endpoint. Local servers usually accept any value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">COPILOT_REASONING_EFFORT</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Reasoning effort (<code class="docutils literal notranslate"><span class="pre">low</span></code>, <code class="docutils literal notranslate"><span class="pre">medium</span></code>, <code class="docutils literal notranslate"><span class="pre">high</span></code>) for providers that support it. Unset: not sent.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">COPILOT_THINKING_MODE</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>For models of the Qwen3 family: <code class="docutils literal notranslate"><span class="pre">off</span></code> adds <code class="docutils literal notranslate"><span class="pre">/no_think</span></code>, <code class="docutils literal notranslate"><span class="pre">on</span></code> adds <code class="docutils literal notranslate"><span class="pre">/think</span></code> to the question. Unset: unchanged.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="passage-search-with-a-remote-embedding-model">
+<h3>Passage search with a remote embedding model<a class="headerlink" href="#passage-search-with-a-remote-embedding-model" title="Link to this heading">#</a></h3>
+<p>These settings matter only for a corpus whose passage index was built with a remote embedding model. Similar words use the word vectors of the annotation pipeline of each corpus, see <a class="reference internal" href="languages.html#word-vectors"><span class="std std-ref">Languages and annotation pipelines</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_GEMMA_EMB_ENDPOINT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:1234/v1/embeddings</span></code></p></td>
+<td><p>OpenAI-compatible embeddings endpoint for passage search in such a corpus. The search text is sent to this endpoint.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_GEMMA_EMB_MODEL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">google/embedding-gemma-300m</span></code></p></td>
+<td><p>Model name for <code class="docutils literal notranslate"><span class="pre">CANDYCONC_GEMMA_EMB_ENDPOINT</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="corpus-at-start">
+<h3>Corpus at start<a class="headerlink" href="#corpus-at-start" title="Link to this heading">#</a></h3>
+<p>Without these settings the server opens the active corpus of the corpus catalog, or the most recent corpus in the data directory.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_INDEX_PATH</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Directory of a corpus index that the server opens at every start. The server refuses to start when the directory is not a complete index. The HTTP API addresses this corpus with the name <code class="docutils literal notranslate"><span class="pre">default</span></code>, and the corpus catalog gives the folder name in <code class="docutils literal notranslate"><span class="pre">display_name</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="administration">
+<h2>Administration<a class="headerlink" href="#administration" title="Link to this heading">#</a></h2>
+<section id="locations">
+<h3>Locations<a class="headerlink" href="#locations" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">paths</span></code> prints the locations that are in effect. See <a class="reference internal" href="../concepts/where-data-lives.html"><span class="std std-doc">Where your data lives</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_HOME</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">~/.candyconc</span></code></p></td>
+<td><p>Data directory: corpora, corpus catalog, project file, preferences, logs, downloaded pipelines, temporary files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_CONFIG_FILE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">config.toml</span></code> in the platform configuration directory</p></td>
+<td><p>Location of the configuration file. The default is <code class="docutils literal notranslate"><span class="pre">~/Library/Application</span> <span class="pre">Support/candyconc/config.toml</span></code> on macOS and <code class="docutils literal notranslate"><span class="pre">$XDG_CONFIG_HOME/candyconc/config.toml</span></code> (usually <code class="docutils literal notranslate"><span class="pre">~/.config/candyconc/config.toml</span></code>) on Linux.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_PROJECT_FILE</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Project file with subcorpora, line annotations, and the coding scheme. Empty: <code class="docutils literal notranslate"><span class="pre">proj.ccproj</span></code> in the working directory if one exists there (older versions kept it there), otherwise <code class="docutils literal notranslate"><span class="pre">proj.ccproj</span></code> in the data directory. A relative path is resolved against the working directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_PROJECTS_DIR</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Directory with saved analyses, cluster lists, and project members. Empty: <code class="docutils literal notranslate"><span class="pre">config/projects</span></code> in the working directory if it exists there, otherwise <code class="docutils literal notranslate"><span class="pre">projects</span></code> in the data directory.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_PREFS_PATH</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">prefs.json</span></code> in the data directory</p></td>
+<td><p>File with the saved preferences of the web interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">index_dir</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Same as <code class="docutils literal notranslate"><span class="pre">CANDYCONC_INDEX_PATH</span></code>, as a setting of the configuration file (environment name <code class="docutils literal notranslate"><span class="pre">INDEX_DIR</span></code>). <code class="docutils literal notranslate"><span class="pre">CANDYCONC_INDEX_PATH</span></code> wins when both are set.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_FRONTEND_DIST</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Directory of a built web interface to serve instead of the one in the package. The directory must contain <code class="docutils literal notranslate"><span class="pre">index.html</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="security-and-access">
+<h3>Security and access<a class="headerlink" href="#security-and-access" title="Link to this heading">#</a></h3>
+<p>The two security modes are described in <a class="reference internal" href="deployment.html"><span class="std std-doc">Deployment</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_SECURITY_MODE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">local_dev_unsafe</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">local_dev_unsafe</span></code>: single-user mode, bound to the local computer, no sign-in. <code class="docutils literal notranslate"><span class="pre">release</span></code>: multi-user mode with sign-in, roles, host check, and without the OpenAPI pages.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_ENABLE_RBAC</span></code></p></td>
+<td><p>off</p></td>
+<td><p>Role-based access control. Multi-user mode needs it. <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">--enable-rbac</span></code> sets it for one start.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_USER_FILE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">config/users.json</span></code></p></td>
+<td><p>User file with password hashes and roles, written by <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">candyconc.tools.user_bootstrap</span></code>. Multi-user mode does not start without at least one user. An absolute path is used directly. A relative path is first resolved from the installation. If that file is absent, CandyConc reads <code class="docutils literal notranslate"><span class="pre">users.json</span></code> from its data directory.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_TRUSTED_HOSTS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">localhost,127.0.0.1,::1,testserver</span></code></p></td>
+<td><p>Comma-separated host names that multi-user mode accepts in the <code class="docutils literal notranslate"><span class="pre">Host</span></code> header. Add the host name of your server or reverse proxy. <code class="docutils literal notranslate"><span class="pre">*</span></code> switches the check off.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_TOKEN_TTL_SECONDS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">43200</span></code> (12 hours)</p></td>
+<td><p>Lifetime of a sign-in token in seconds. <code class="docutils literal notranslate"><span class="pre">0</span></code>: tokens do not expire.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_ALLOW_UNSAFE_NETWORK_DEV</span></code></p></td>
+<td><p>not set</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code> lets single-user mode bind to a network address. Without it, <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">--host</span> <span class="pre">0.0.0.0</span></code> stops in single-user mode. Anyone who reaches the address then has full access.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_ENABLE_COPILOT_PII_MASK</span></code></p></td>
+<td><p>on</p></td>
+<td><p>Replaces e-mail addresses, IBANs, and telephone numbers in the question and the interface context with placeholders before they reach the language model. It does not mask the tool results, which contain corpus text.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_ENABLE_PII_MASK</span></code></p></td>
+<td><p>off</p></td>
+<td><p>Replaces concordance tokens with <code class="docutils literal notranslate"><span class="pre">&lt;PII&gt;</span></code> when their indexed entity label is recognized. Requires named entity annotations. Recognizes English labels such as <code class="docutils literal notranslate"><span class="pre">PERSON</span></code>, but not the German person label <code class="docutils literal notranslate"><span class="pre">PER</span></code>. This corpus-text masking is independent of <code class="docutils literal notranslate"><span class="pre">CANDYCONC_ENABLE_COPILOT_PII_MASK</span></code>. See <a class="reference internal" href="../concepts/languages-and-annotation.html"><span class="std std-doc">Languages and annotation</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="logs">
+<h3>Logs<a class="headerlink" href="#logs" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_LOG_LEVEL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">INFO</span></code></p></td>
+<td><p>Log level of the server: <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>, <code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>, or <code class="docutils literal notranslate"><span class="pre">ERROR</span></code>. <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">--log-level</span></code> sets it for one start.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_LOG_FILE</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>File that receives the server log in addition to the terminal. <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">--log-file</span></code> sets it for one start.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_AUDIT_LOG_PATH</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">logs/audit.jsonl</span></code> in the data directory</p></td>
+<td><p>Log of sign-ins, failed sign-ins, sign-outs, and WebSocket tickets, one JSON object per line, rotated at 5 MiB. <code class="docutils literal notranslate"><span class="pre">off</span></code> switches it off.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_ENABLE_LLM_TRACE</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Record of every call to the language model in <code class="docutils literal notranslate"><span class="pre">traces.jsonl</span></code> in the data directory: user, model, tool names, and for each message its role and size, without the text. Unset: on in single-user mode, off in multi-user mode.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="request-limits">
+<h3>Request limits<a class="headerlink" href="#request-limits" title="Link to this heading">#</a></h3>
+<p>Limits protect a shared server. A request above a limit receives an error, the server never shortens a result without saying so.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_RATE_LIMIT_ANON</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">300</span></code></p></td>
+<td><p>Requests per minute and client address without a token. <code class="docutils literal notranslate"><span class="pre">0</span></code>: no limit.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_RATE_LIMIT_DEFAULT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">600</span></code></p></td>
+<td><p>Requests per minute and user with a token. <code class="docutils literal notranslate"><span class="pre">0</span></code>: no limit.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_MAX_REQUEST_BYTES</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">8388608</span></code> (8 MiB)</p></td>
+<td><p>Largest request body. Larger requests receive 413. <code class="docutils literal notranslate"><span class="pre">0</span></code>: no limit.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_QUERY_MAX_CONTEXT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">600</span></code></p></td>
+<td><p>Largest context width, in tokens on each side of a hit.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_ANALYSIS_PAGE_LIMIT_MAX</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5000</span></code></p></td>
+<td><p>Largest page of result rows that one request may ask for.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_ANALYSIS_JOB_TOP_N_MAX</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">50000</span></code></p></td>
+<td><p>Largest number of rows that an analysis job keeps.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_ANALYSIS_NGRAM_MAX_N</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+<td><p>Longest n-gram.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_ANALYSIS_COLLOCATE_MAX_WINDOW</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">50</span></code></p></td>
+<td><p>Largest collocation window, in tokens on each side.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_ANALYSIS_RESULT_MAX_BYTES</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">134217728</span></code></p></td>
+<td><p>Largest result of one analysis job, in bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_ALIGNMENT_MAX_EDIT_CELLS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">12000000</span></code></p></td>
+<td><p>Largest sentence alignment of paired texts, in comparisons. A larger alignment is refused, not shortened.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_MAX_REGEX_TYPES</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">200000</span></code></p></td>
+<td><p>Largest number of distinct values matched by a regular expression when concordance lines are requested. Larger matches are rejected. Set this environment variable before starting the server.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_MAX_REGEX_FREQ</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5000000</span></code></p></td>
+<td><p>Largest summed corpus frequency, in tokens, of the values matched by a regular expression when concordance lines are requested. Larger matches are rejected. Set this environment variable before starting the server.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="copilot-operation">
+<h3>Copilot operation<a class="headerlink" href="#copilot-operation" title="Link to this heading">#</a></h3>
+<p>The time limits are safeguards against a connection that hangs. A question can legitimately take long on slow hardware.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">COPILOT_TIMEOUT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">8000000</span></code></p></td>
+<td><p>Time limit in seconds for one call to the language model. <code class="docutils literal notranslate"><span class="pre">0</span></code>: no limit.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_COPILOT_MAX_TIME_SEC</span></code></p></td>
+<td><p>no budget</p></td>
+<td><p>Time budget in seconds for one copilot turn. Empty or <code class="docutils literal notranslate"><span class="pre">0</span></code>: no budget.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_LM_STUDIO_REQUIRE_LOADED_MODEL</span></code></p></td>
+<td><p>on</p></td>
+<td><p>For endpoints on the local computer: check the model list of the endpoint before each question and answer 424 when the model is not loaded. The check never loads a model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_MAX_COPILOT_STEPS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">240</span></code></p></td>
+<td><p>Largest number of tool steps that one question may use. A client that requests more is limited to this value.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_COPILOT_MAX_QUESTION_CHARS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">8000</span></code></p></td>
+<td><p>Longest question in characters. Longer questions receive 413.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_COPILOT_MAX_MESSAGES</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">50</span></code></p></td>
+<td><p>Largest number of messages in one chat request.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_COPILOT_MAX_HISTORY_CHARS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">64000</span></code></p></td>
+<td><p>Largest total length of the messages in one chat request, in characters.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_MCP_URL</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Address of a remote CandyConc tool service. When set, the copilot sends every tool call with its arguments to <code class="docutils literal notranslate"><span class="pre">&lt;address&gt;/mcp/call</span></code> instead of running it in the server, and uses the results that come back. Leave it empty to run the tools in the server itself.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_MODEL_CONTEXT_TOKENS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">173312</span></code></p></td>
+<td><p>Context window of the model in tokens. CandyConc shortens the working record of a question in the model's copy before it outgrows this window. Set it to the context size of your model if that is smaller.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">COPILOT_RECIPE_CLASSIFIER_TIMEOUT_S</span></code></p></td>
+<td><p>not set</p></td>
+<td><p>Time limit in seconds of the model call that chooses the analysis recipe. Unset, the limit is 300 seconds. When it runs out, the question continues with the recipe from the keyword rules or without a recipe.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="import">
+<h3>Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h3>
+<p>Before an import CandyConc estimates the disk space the index needs and refuses the import when the volume of the output directory has too little free space.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_BUILD_DISK_FACTOR</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2.5</span></code></p></td>
+<td><p>Estimated index size as a multiple of the input size.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_BUILD_DISK_RESERVE_GB</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+<td><p>Free space in GB that must remain after the estimated index size.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_BUILD_ALLOW_LOW_DISK</span></code></p></td>
+<td><p>not set</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code> turns the refusal into a warning.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="other">
+<h3>Other<a class="headerlink" href="#other" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_VERSION</span></code></p></td>
+<td><p>the package version</p></td>
+<td><p>Label of a deployment that <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/system/info</span></code> reports instead of the package version.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_NO_BROWSER</span></code></p></td>
+<td><p>not set</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code> makes <code class="docutils literal notranslate"><span class="pre">./candyconc</span></code> of the application bundle start without opening the browser.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="settings-of-the-web-interface">
+<h2>Settings of the web interface<a class="headerlink" href="#settings-of-the-web-interface" title="Link to this heading">#</a></h2>
+<p>The <strong>Settings</strong> dialog of the web interface keeps display preferences such
+as results per page and the interface language. The server saves them in the
+preferences file listed under <a class="reference internal" href="#locations">Locations</a>, and the browser keeps
+a copy. They are not part of this configuration. The
+interface is described in <a class="reference internal" href="interface.html"><span class="std std-doc">Interface reference</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="http-api.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">HTTP API reference</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="input-formats.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Input formats</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-settings-come-from">Where settings come from</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-configuration-file">The configuration file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-decisions">User decisions</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#language-model-for-the-copilot">Language model for the copilot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passage-search-with-a-remote-embedding-model">Passage search with a remote embedding model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corpus-at-start">Corpus at start</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#administration">Administration</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#locations">Locations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#security-and-access">Security and access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logs">Logs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#request-limits">Request limits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#copilot-operation">Copilot operation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import">Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other">Other</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#settings-of-the-web-interface">Settings of the web interface</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/reference/configuration.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

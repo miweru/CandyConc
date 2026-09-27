@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Release process | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contribute/release-process';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Documentation maintenance" href="documentation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="development-setup.html">Set up a development environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture-for-contributors.html">Architecture for contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Run the tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation maintenance</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Release process</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Contribute</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Release process</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="release-process">
+<h1>Release process<a class="headerlink" href="#release-process" title="Link to this heading">#</a></h1>
+<p>A release of CandyConc consists of application bundles, Python wheels, a
+source distribution, the documentation as HTML pages in a ZIP file, and a
+file of checksums, attached to a GitHub release. They are built and checked
+by the workflow <code class="docutils literal notranslate"><span class="pre">.github/workflows/release.yml</span></code>.
+This page describes what the workflow does and the steps around it.</p>
+<section id="version">
+<h2>Version<a class="headerlink" href="#version" title="Link to this heading">#</a></h2>
+<p>The version is <code class="docutils literal notranslate"><span class="pre">version</span></code> in the <code class="docutils literal notranslate"><span class="pre">[project]</span></code> table of <code class="docutils literal notranslate"><span class="pre">app/pyproject.toml</span></code>.
+The package metadata, <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">--version</span></code>, the API, and the footer of this
+documentation read it from there. Change it there and nowhere else.</p>
+</section>
+<section id="what-the-release-workflow-builds">
+<h2>What the release workflow builds<a class="headerlink" href="#what-the-release-workflow-builds" title="Link to this heading">#</a></h2>
+<p>The workflow runs when a tag that starts with <code class="docutils literal notranslate"><span class="pre">v</span></code> is pushed, for example
+<code class="docutils literal notranslate"><span class="pre">v0.1.0</span></code>, and on manual start (without creating a release).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Job</p></th>
+<th class="head"><p>What it does</p></th>
+<th class="head"><p>Check</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">web</span></code></p></td>
+<td><p>builds the web interface with <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">ci</span></code> and <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">build</span></code> (type check, Vite build, <code class="docutils literal notranslate"><span class="pre">THIRD_PARTY_LICENSES.txt</span></code> of the npm packages)</p></td>
+<td><p>the build succeeds</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sdist</span></code></p></td>
+<td><p>copies the interface into the package, builds the documentation with the documented command into the package and as <code class="docutils literal notranslate"><span class="pre">candyconc-VERSION-docs-html.zip</span></code>, writes the release notes, and builds the source distribution. <code class="docutils literal notranslate"><span class="pre">CANDYCONC_REQUIRE_WEB_DIST=1</span></code> stops the build without the interface.</p></td>
+<td><p>the documentation build ends without a warning and names its commit (<code class="docutils literal notranslate"><span class="pre">packaging/build_web.py</span> <span class="pre">--require-docs</span></code>), the section of the version in the release notes exists and every link in it points to a page of the documentation (<code class="docutils literal notranslate"><span class="pre">packaging/release_notes.py</span></code>), and the metadata of the source distribution contains no absolute path (<code class="docutils literal notranslate"><span class="pre">packaging/check_sdist.py</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">wheels</span></code></p></td>
+<td><p>builds the wheels from the source distribution with cibuildwheel for CPython 3.11 to 3.14 on Linux x86_64, Linux aarch64 (emulated), macOS Intel, and macOS Apple silicon, without OpenMP and with macOS 11 as the deployment target</p></td>
+<td><p>each wheel is installed with its dependencies and checked with <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">--version</span></code> and <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">candyconc.tools.install_smoke</span> <span class="pre">--require-web</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bundles</span></code></p></td>
+<td><p>builds an application bundle with CPython 3.12 from python-build-standalone and the wheels, for macOS Apple silicon, macOS Intel, and Linux x86_64 (<code class="docutils literal notranslate"><span class="pre">packaging/bundle/build_bundle.sh</span></code>)</p></td>
+<td><p>the archive is unpacked in another place with a fresh application data directory, a sample is imported, the server starts, the interface and a search answer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">release</span></code></p></td>
+<td><p>only for a tag: computes <code class="docutils literal notranslate"><span class="pre">SHA256SUMS</span></code> over all files and creates a draft prerelease with them. The text of the release is the section of the version in <a class="reference internal" href="../help/release-notes.html"><span class="std std-doc">Release notes</span></a>, written by the <code class="docutils literal notranslate"><span class="pre">sdist</span></code> job.</p></td>
+<td><p>the tag is <code class="docutils literal notranslate"><span class="pre">v</span></code> followed by the version in <code class="docutils literal notranslate"><span class="pre">app/pyproject.toml</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The workflow creates a draft marked as a prerelease. A person reviews and
+publishes it.</p>
+<p>State of this workflow for 0.1.0: the builds were run locally for macOS
+arm64. The workflow itself has not yet run on GitHub.</p>
+</section>
+<section id="steps-for-a-release">
+<h2>Steps for a release<a class="headerlink" href="#steps-for-a-release" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Update the version in <code class="docutils literal notranslate"><span class="pre">app/pyproject.toml</span></code> and write the section
+<code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">CandyConc</span> <span class="pre">VERSION</span></code> of the <a class="reference internal" href="../help/release-notes.html"><span class="std std-doc">Release notes</span></a>,
+and merge the change. This section is the text of the release page. Its
+relative links to other pages of the documentation become links to the
+same pages in the repository at the tag, where GitHub renders them.</p></li>
+<li><p>Make sure the test workflow (<code class="docutils literal notranslate"><span class="pre">.github/workflows/test.yml</span></code>) passed on the
+commit.</p></li>
+<li><p>Create and push the tag, for example <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">v0.1.0</span></code> and
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">v0.1.0</span></code>.</p></li>
+<li><p>Wait for the release workflow. Read the log of every job, including the
+checks of the wheels and bundles.</p></li>
+<li><p>Download all files of the draft release, check them against
+<code class="docutils literal notranslate"><span class="pre">SHA256SUMS</span></code>, and install at least one bundle and one wheel from the
+downloaded files in a clean environment.</p></li>
+<li><p>Publish the draft on the release page of the repository.</p></li>
+<li><p>Download the published files again and compare their checksums.</p></li>
+</ol>
+<p>Tags and release files are not overwritten. A corrected build gets a new
+version.</p>
+</section>
+<section id="build-the-artifacts-locally">
+<h2>Build the artifacts locally<a class="headerlink" href="#build-the-artifacts-locally" title="Link to this heading">#</a></h2>
+<p>To build and check locally what the workflow builds for your platform, with
+the documentation environment <code class="docutils literal notranslate"><span class="pre">.venv-docs</span></code> of
+<a class="reference internal" href="documentation.html"><span class="std std-doc">Documentation maintenance</span></a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">CANDYCONC_DOCS_COMMIT</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>rev-parse<span class="w"> </span>--short<span class="o">=</span><span class="m">10</span><span class="w"> </span>HEAD<span class="k">)</span>
+python<span class="w"> </span>packaging/build_web.py<span class="w"> </span>--require-docs<span class="w"> </span>--docs-python<span class="w"> </span>.venv-docs/bin/python<span class="w"> </span>--docs-zip<span class="w"> </span>dist
+python<span class="w"> </span>packaging/release_notes.py<span class="w"> </span>--output<span class="w"> </span>dist/RELEASE_NOTES.md
+<span class="nv">CANDYCONC_REQUIRE_WEB_DIST</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">CANDYCONC_ENABLE_OPENMP</span><span class="o">=</span>off<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>build<span class="w"> </span>app
+python<span class="w"> </span>packaging/check_sdist.py<span class="w"> </span>app/dist/candyconc-*.tar.gz
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>/tmp/candyconc-check
+/tmp/candyconc-check/bin/python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>app/dist/candyconc-*.whl
+/tmp/candyconc-check/bin/python<span class="w"> </span>-m<span class="w"> </span>candyconc.tools.install_smoke<span class="w"> </span>--require-web
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_DOCS_COMMIT</span></code> is the commit that the footer of every documentation
+page names. In a tree without <code class="docutils literal notranslate"><span class="pre">.git</span></code>, for example an exported copy of the
+repository, set it to the commit of the source by hand. Without it
+<code class="docutils literal notranslate"><span class="pre">--require-docs</span></code> stops the build. The documentation ZIP and the release notes
+land in <code class="docutils literal notranslate"><span class="pre">dist/</span></code>.</p>
+<p>For a local macOS wheel build, set both the compiler target and the wheel
+platform. For Apple silicon, prefix the build command with
+<code class="docutils literal notranslate"><span class="pre">MACOSX_DEPLOYMENT_TARGET=11.0</span> <span class="pre">_PYTHON_HOST_PLATFORM=macosx-11.0-arm64</span></code>.
+This keeps an interpreter built for a newer macOS from assigning its own
+platform requirement to CandyConc’s extensions. The complete runtime has
+the separate requirements listed under
+<a class="reference internal" href="../reference/supported-platforms.html"><span class="std std-doc">Supported platforms</span></a>.</p>
+<p>To build an application bundle from wheels:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sh<span class="w"> </span>packaging/bundle/build_bundle.sh<span class="w"> </span>--wheels<span class="w"> </span>app/dist<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.12<span class="w"> </span>--out<span class="w"> </span>bundle
+</pre></div>
+</div>
+<p>The script needs <code class="docutils literal notranslate"><span class="pre">uv</span></code>, downloads CPython from python-build-standalone, and
+writes the archive and its checksum to <code class="docutils literal notranslate"><span class="pre">bundle/</span></code>. On macOS, it resolves
+binary dependency wheels for macOS 13, independent of the build host’s
+newer operating system. <code class="docutils literal notranslate"><span class="pre">CANDYCONC_BUNDLE_PLATFORM</span></code>
+sets the platform name in the file name.</p>
+</section>
+<section id="signing-on-macos">
+<h2>Signing on macOS<a class="headerlink" href="#signing-on-macos" title="Link to this heading">#</a></h2>
+<p>The bundles are not signed with an Apple Developer ID and not notarized.
+Users who download them with a browser remove the quarantine attribute once,
+as described in <a class="reference internal" href="../help/troubleshooting.html#macos-refuses-to-run-the-bundle-after-a-browser-download"><span class="std std-ref">Troubleshooting</span></a>.
+Signing needs a Developer ID certificate in the secrets of the repository and
+a signing and notarization step in the <code class="docutils literal notranslate"><span class="pre">bundles</span></code> job.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="documentation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Documentation maintenance</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version">Version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-release-workflow-builds">What the release workflow builds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-for-a-release">Steps for a release</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-artifacts-locally">Build the artifacts locally</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#signing-on-macos">Signing on macOS</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/contribute/release-process.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

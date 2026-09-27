@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Supported platforms and requirements | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/supported-platforms';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Languages and annotation pipelines" href="languages.html" />
+    <link rel="prev" title="Interface reference" href="interface.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="query-language.html">Query language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http-api.html">HTTP API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input-formats.html">Input formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index-format.html">Index format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export-formats.html">Export formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-files.html">Project files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Interface reference</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Supported platforms and requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages.html">Languages and annotation pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Supported platforms and requirements</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="supported-platforms-and-requirements">
+<h1>Supported platforms and requirements<a class="headerlink" href="#supported-platforms-and-requirements" title="Link to this heading">#</a></h1>
+<p>This page lists the operating systems, processors, and Python versions of
+CandyConc 0.1.0, what each download contains, and what CandyConc needs at
+runtime. The steps of the installation are in
+<a class="reference internal" href="../get-started/install.html"><span class="std std-doc">Install CandyConc</span></a> and
+<a class="reference internal" href="../get-started/install-python-package.html"><span class="std std-doc">Install the Python package</span></a>.</p>
+<section id="support-matrix">
+<h2>Support matrix<a class="headerlink" href="#support-matrix" title="Link to this heading">#</a></h2>
+<p>The local release candidate targets macOS on Apple silicon. Its binary
+artifacts are one application bundle and four wheels:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operating system</p></th>
+<th class="head"><p>Processor</p></th>
+<th class="head"><p>Application bundle</p></th>
+<th class="head"><p>Python wheels</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>macOS 13 or later</p></td>
+<td><p>Apple silicon (arm64)</p></td>
+<td><p>private CPython 3.12</p></td>
+<td><p>CPython 3.11, 3.12, 3.13, 3.14</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The release workflow also configures the following targets. They have no
+built or verified artifacts in this local candidate because the workflow
+has not run on GitHub:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operating system</p></th>
+<th class="head"><p>Processor</p></th>
+<th class="head"><p>Configured application bundle</p></th>
+<th class="head"><p>Configured Python wheels</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>macOS 13 or later</p></td>
+<td><p>Intel (x86_64)</p></td>
+<td><p>private CPython 3.12</p></td>
+<td><p>CPython 3.11, 3.12, 3.13, 3.14</p></td>
+</tr>
+<tr class="row-odd"><td><p>Linux with glibc 2.28 or later</p></td>
+<td><p>x86_64</p></td>
+<td><p>private CPython 3.12</p></td>
+<td><p>CPython 3.11, 3.12, 3.13, 3.14</p></td>
+</tr>
+<tr class="row-even"><td><p>Linux with glibc 2.28 or later</p></td>
+<td><p>aarch64 (arm64)</p></td>
+<td><p>none configured</p></td>
+<td><p>CPython 3.11, 3.12, 3.13, 3.14</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These targets need a workflow build and installation checks before their
+artifacts can join the release. The candidate also includes a source
+distribution for building from source.</p>
+<p>Windows is not supported. CandyConc uses functions of POSIX systems that
+Windows does not provide. Linux distributions with musl instead of glibc,
+such as Alpine Linux, are not supported.</p>
+</section>
+<section id="downloads">
+<h2>Downloads<a class="headerlink" href="#downloads" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>File</p></th>
+<th class="head"><p>Content</p></th>
+<th class="head"><p>For</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CandyConc-VERSION-macos-arm64.tar.gz</span></code></p></td>
+<td><p>application bundle: a private Python 3.12, CandyConc with all dependencies, the web interface, the launcher <code class="docutils literal notranslate"><span class="pre">./candyconc</span></code>, the sample corpora in <code class="docutils literal notranslate"><span class="pre">examples/</span></code>, a synthetic sample file, and the license notices</p></td>
+<td><p>people who do not want to set up Python, see <a class="reference internal" href="../get-started/install.html"><span class="std std-doc">Install CandyConc</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">candyconc-VERSION-cp3XY-cp3XY-macosx_11_0_arm64.whl</span></code></p></td>
+<td><p>Python wheel with the compiled extensions and the web interface</p></td>
+<td><p>installation with pip into your own Python environment, see <a class="reference internal" href="../get-started/install-python-package.html"><span class="std std-doc">Install the Python package</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">candyconc-VERSION.tar.gz</span></code></p></td>
+<td><p>source distribution with the built web interface and the sample corpora in <code class="docutils literal notranslate"><span class="pre">examples/</span></code></p></td>
+<td><p>building the wheel yourself, which needs a C compiler</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">candyconc-VERSION-docs-html.zip</span></code></p></td>
+<td><p>the same HTML documentation as the application, including local diagrams, formulas, and search</p></td>
+<td><p>offline reference</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">RELEASE_NOTES.md</span></code></p></td>
+<td><p>changes and the artifact list for this version</p></td>
+<td><p>release information</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SHA256SUMS</span></code></p></td>
+<td><p>SHA-256 checksums of all files</p></td>
+<td><p>checking a download</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Each wheel carries the tag of its platform, for example
+<code class="docutils literal notranslate"><span class="pre">candyconc-0.1.0-cp312-cp312-macosx_11_0_arm64.whl</span></code>. The local macOS wheels
+use macOS 11 as the deployment target for CandyConc’s own extensions. The
+complete installation requires macOS 13 because of its dependencies. The
+bundle includes a compatible Python interpreter and dependency set. The
+configured Linux workflow uses <code class="docutils literal notranslate"><span class="pre">manylinux_2_28</span></code>. No wheel is a <code class="docutils literal notranslate"><span class="pre">none-any</span></code> wheel, because each contains
+compiled extensions. The application bundle and the wheels need no
+compiler, no Node.js, and no clone of the repository.</p>
+</section>
+<section id="read-the-documentation-offline">
+<h2>Read the documentation offline<a class="headerlink" href="#read-the-documentation-offline" title="Link to this heading">#</a></h2>
+<p>Unzip <code class="docutils literal notranslate"><span class="pre">candyconc-0.1.0-docs-html.zip</span></code> and open <code class="docutils literal notranslate"><span class="pre">index.html</span></code> in the extracted
+folder. Pages, diagrams, and formulas work locally. Search lists matching
+page titles. For search results with text previews, use <strong>Help &gt; Documentation</strong>
+in CandyConc or serve the extracted folder with Python 3:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8090</span><span class="w"> </span>--bind<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--directory<span class="w"> </span>candyconc-0.1.0-docs-html
+</pre></div>
+</div>
+<p>Run this command from the folder containing the extracted directory, then
+open <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8090</span></code>. This serves the manual on your computer and
+needs no internet connection. Press <kbd>Ctrl</kbd>+<kbd>C</kbd> to stop it.</p>
+</section>
+<section id="python-dependencies">
+<h2>Python dependencies<a class="headerlink" href="#python-dependencies" title="Link to this heading">#</a></h2>
+<p>Release installation requires Python 3.11 or later, as specified by the
+existing package metadata. The older README also mentioned Python 3.10,
+which was used for development from a checkout. That environment did not
+establish an installable Python 3.10 release. The release wheels cover
+Python 3.11 to 3.14.</p>
+<p>The wheel installs its dependencies from the Python Package Index, among them
+FastAPI, uvicorn, NumPy, SciPy, pandas, Polars, PyArrow, and spaCy. Optional
+extras add functions:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Extra</p></th>
+<th class="head"><p>Installs</p></th>
+<th class="head"><p>Adds</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">semantic</span></code></p></td>
+<td><p>faiss-cpu</p></td>
+<td><p>building a word vector index for similar words, and the passage index for semantic search</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hf</span></code></p></td>
+<td><p>datasets</p></td>
+<td><p>the import of Hugging Face datasets (<code class="docutils literal notranslate"><span class="pre">--input-format</span> <span class="pre">hf</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">metrics</span></code></p></td>
+<td><p>prometheus-client</p></td>
+<td><p>Prometheus counters of the analysis tools</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cluster</span></code></p></td>
+<td><p>hdbscan</p></td>
+<td><p>density-based clustering in semantic clustering</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">all</span></code></p></td>
+<td><p>all of the above</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Install an extra with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;candyconc[semantic]&quot;</span></code>. The application
+bundle contains no extra.</p>
+</section>
+<section id="downloads-at-first-use">
+<h2>Downloads at first use<a class="headerlink" href="#downloads-at-first-use" title="Link to this heading">#</a></h2>
+<p>CandyConc downloads nothing without an explicit command. These downloads
+happen only when you start them:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Download</p></th>
+<th class="head"><p>When</p></th>
+<th class="head"><p>From</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>a spaCy annotation pipeline, for example <code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">pipeline</span> <span class="pre">NAME</span></code> or <code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">pipeline</span> <span class="pre">NAME</span></code></p></td>
+<td><p>GitHub (<code class="docutils literal notranslate"><span class="pre">explosion/spacy-models</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>a Hugging Face dataset</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span> <span class="pre">--input-format</span> <span class="pre">hf</span></code></p></td>
+<td><p>the Hugging Face Hub</p></td>
+</tr>
+<tr class="row-even"><td><p>a runtime and a model for the local semantic index</p></td>
+<td><p>building a local semantic index on Apple silicon</p></td>
+<td><p>the Python Package Index and the Hugging Face Hub</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The core functions (import with <code class="docutils literal notranslate"><span class="pre">blank:&lt;language&gt;</span></code>, search, concordance,
+statistics, export) need no network after installation. See
+<a class="reference internal" href="../concepts/data-and-privacy.html"><span class="std std-doc">Data and privacy</span></a>.</p>
+</section>
+<section id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Processor and memory.</strong> CandyConc runs on the CPU. The import uses
+several processes for annotation and chooses their number and batch size
+from the CPU cores and the free memory.</p></li>
+<li><p><strong>GPU.</strong> Core search, statistics, and corpus annotation run on the CPU.
+Optional local semantic indexing and query embeddings use MLX and the
+Apple GPU when available. The copilot uses the language model of the
+endpoint you configure, and that model runs where the endpoint runs.</p></li>
+<li><p><strong>Disk.</strong> An index is larger than its input text. Before an import,
+CandyConc estimates the needed space as 2.5 times the input size and keeps
+5 GB free on the volume of the output directory. See
+<a class="reference internal" href="configuration.html#import"><span class="std std-ref">Configuration reference</span></a>. As a measured example,
+the State of the Union sample corpus (65 documents, 403,284 tokens, input
+2.1 MB, imported with <code class="docutils literal notranslate"><span class="pre">--language</span> <span class="pre">en</span></code>, that is with <code class="docutils literal notranslate"><span class="pre">en_core_web_md</span></code>
+including dependency relations) gives an index of 19 MB.</p></li>
+<li><p><strong>Corpus size.</strong> An index can hold at most 2,147,483,647 tokens, see
+<a class="reference internal" href="index-format.html#limits"><span class="std std-ref">Index format</span></a>.</p></li>
+</ul>
+</section>
+<section id="web-browser">
+<h2>Web browser<a class="headerlink" href="#web-browser" title="Link to this heading">#</a></h2>
+<p>The web interface is tested with Chromium. Other current browsers have not
+been tested. The browser needs JavaScript and must reach the address of the
+server, by default <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8010</span></code>.</p>
+</section>
+<section id="development">
+<h2>Development<a class="headerlink" href="#development" title="Link to this heading">#</a></h2>
+<p>Building CandyConc from the source tree needs Python 3.11 or later, a C
+compiler, and Node.js 20.19 or later (or 22.12 or later) for the web
+interface. See <a class="reference internal" href="../contribute/development-setup.html"><span class="std std-doc">Set up a development environment</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="interface.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Interface reference</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="languages.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Languages and annotation pipelines</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#support-matrix">Support matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloads">Downloads</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-documentation-offline">Read the documentation offline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-dependencies">Python dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloads-at-first-use">Downloads at first use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hardware">Hardware</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#web-browser">Web browser</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#development">Development</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/reference/supported-platforms.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

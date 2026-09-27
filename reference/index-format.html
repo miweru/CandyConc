@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Index format | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/index-format';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Export formats" href="export-formats.html" />
+    <link rel="prev" title="Input formats" href="input-formats.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="query-language.html">Query language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http-api.html">HTTP API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input-formats.html">Input formats</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Index format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export-formats.html">Export formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-files.html">Project files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-platforms.html">Supported platforms and requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages.html">Languages and annotation pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Index format</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="index-format">
+<h1>Index format<a class="headerlink" href="#index-format" title="Link to this heading">#</a></h1>
+<p>An import writes one directory, the corpus index. This page lists its files,
+the fields of its manifest, and the limits of the format. What the index is
+and why it is built this way is explained in
+<a class="reference internal" href="../concepts/corpus-index.html"><span class="std std-doc">The corpus index</span></a>.</p>
+<p>The format has the internal name Fast Index. A corpus index is written once
+by the import and is not changed afterwards, except for the optional semantic
+files that can be added later.</p>
+<section id="files">
+<h2>Files<a class="headerlink" href="#files" title="Link to this heading">#</a></h2>
+<p>A file exists only when the corpus has the attribute or the feature. The
+attribute names are <code class="docutils literal notranslate"><span class="pre">word</span></code>, <code class="docutils literal notranslate"><span class="pre">lemma</span></code>, <code class="docutils literal notranslate"><span class="pre">pos</span></code>, <code class="docutils literal notranslate"><span class="pre">morph</span></code>, <code class="docutils literal notranslate"><span class="pre">ent</span></code>, <code class="docutils literal notranslate"><span class="pre">rel</span></code>, and <code class="docutils literal notranslate"><span class="pre">head</span></code>
+(see <a class="reference internal" href="languages.html"><span class="std std-doc">Languages and annotation pipelines</span></a>).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Files</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">index_manifest.json</span></code></p></td>
+<td><p>the manifest, see <a class="reference internal" href="#the-manifest">The manifest</a>. Written last, so an index without it is incomplete or older than version 1 of the format.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ATTR_lexicon.bin</span></code>, <code class="docutils literal notranslate"><span class="pre">ATTR_lexicon.hash.bin</span></code>, <code class="docutils literal notranslate"><span class="pre">ATTR_lexicon.bucket.bin</span></code></p></td>
+<td><p>the lexicon of an attribute: every distinct value with its ID</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ATTR_lexicon.prefix*.bin</span></code>, <code class="docutils literal notranslate"><span class="pre">ATTR_lexicon.ngram3.*</span></code></p></td>
+<td><p>prefix and trigram indexes of a lexicon, for wildcard and regular expression searches</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ATTR_ids.svb.data.bin</span></code>, <code class="docutils literal notranslate"><span class="pre">ATTR_ids.svb.ptr.bin</span></code>, <code class="docutils literal notranslate"><span class="pre">ATTR_ids.bin</span></code></p></td>
+<td><p>the value ID of every token position, compressed for <code class="docutils literal notranslate"><span class="pre">word</span></code> and <code class="docutils literal notranslate"><span class="pre">lemma</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ATTR_postings.r32.data.bin</span></code>, <code class="docutils literal notranslate"><span class="pre">ATTR_postings.r32.ptr.bin</span></code></p></td>
+<td><p>for every value, the positions of its tokens</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ATTR_docset.bin</span></code>, <code class="docutils literal notranslate"><span class="pre">ATTR_docset.ptr.bin</span></code></p></td>
+<td><p>for every value, the documents that contain it</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ATTR_block_top.*</span></code>, <code class="docutils literal notranslate"><span class="pre">ATTR_dense_bitset.*</span></code></p></td>
+<td><p>acceleration structures for frequent values</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pos_sentence.bin</span></code>, <code class="docutils literal notranslate"><span class="pre">pos_sentence.ptr.bin</span></code></p></td>
+<td><p>the parts of speech of each sentence</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">head_ids.bin</span></code></p></td>
+<td><p>the position of the syntactic head of every token (with dependency relations)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sentence_bounds.bin</span></code>, <code class="docutils literal notranslate"><span class="pre">document_bounds.bin</span></code></p></td>
+<td><p>the first token position of every sentence and document</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">doc_metadata.mmap</span></code>, <code class="docutils literal notranslate"><span class="pre">doc_metadata.idx.bin</span></code>, <code class="docutils literal notranslate"><span class="pre">doc_metadata.crc.bin</span></code></p></td>
+<td><p>the metadata of every document with an index and a checksum</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">meta_index/</span></code></p></td>
+<td><p>the filter index of the metadata fields</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">meta.bin</span></code></p></td>
+<td><p>the number of tokens</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">index_build_meta.json</span></code></p></td>
+<td><p>the settings of the import: annotation pipeline, dependency relations and named entities on or off, whether the original spacing was stored (<code class="docutils literal notranslate"><span class="pre">capture_whitespace</span></code>, <code class="docutils literal notranslate"><span class="pre">whitespace</span></code>), document, sentence, and token counts, text normalization, and the summary of rejected rows</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">build.log</span></code>, <code class="docutils literal notranslate"><span class="pre">build_report.json</span></code>, <code class="docutils literal notranslate"><span class="pre">build_report.md</span></code></p></td>
+<td><p>the log and report of the import</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">reject_report.json</span></code></p></td>
+<td><p>counts and examples of rejected rows, see <a class="reference internal" href="input-formats.html#rejected-rows"><span class="std std-ref">Input formats</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vrt_token_annotations.jsonl</span></code>, <code class="docutils literal notranslate"><span class="pre">vrt_import_report.json</span></code></p></td>
+<td><p>VRT imports only: the token columns of the file and the report of the conversion</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">whitespace_after.bin</span></code></p></td>
+<td><p>whether a space followed each token in the normalized text: an 8-byte count, then one byte (0 or 1) per token. Written by every import except VRT with the annotation mode <code class="docutils literal notranslate"><span class="pre">adopt</span></code> and imports with <code class="docutils literal notranslate"><span class="pre">--no-capture-whitespace</span></code>, see <a class="reference internal" href="../concepts/corpus-index.html#original-spacing"><span class="std std-ref">Original spacing</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">passage_vecs.npy</span></code>, <code class="docutils literal notranslate"><span class="pre">faiss_passage.index</span></code></p></td>
+<td><p>optional: vectors and index for passage search</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sentence_vecs.npy</span></code></p></td>
+<td><p>optional: sentence vectors for the alignment of paired texts</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">faiss_word.index</span></code>, <code class="docutils literal notranslate"><span class="pre">word_ids.npy</span></code></p></td>
+<td><p>optional: word vector index for similar words</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="the-manifest">
+<h2>The manifest<a class="headerlink" href="#the-manifest" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">index_manifest.json</span></code> describes how the index was built and what it can do.
+Example from the State of the Union sample corpus, imported with
+<code class="docutils literal notranslate"><span class="pre">--language</span> <span class="pre">en</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">"manifest_version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nt">"import_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsonl"</span><span class="p">,</span><span class="w"> </span><span class="nt">"paired"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"pair_axes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nt">"annotation_source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spacy"</span><span class="p">,</span><span class="w"> </span><span class="nt">"capabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"word_lex"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"lemma_lex"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"pos_lex"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"morph_lex"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"ent_lex"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"rel_lex"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"embeddings"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"sentence_bounds"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"document_bounds"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"word_prefix_all"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"word_ngram"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"sentence_embeddings"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nt">"whitespace_after"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span><span class="w"> </span><span class="nt">"dtypes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"token_positions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uint32"</span><span class="p">,</span><span class="w"> </span><span class="nt">"term_ids"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uint32"</span><span class="p">,</span><span class="w"> </span><span class="nt">"head_ids"</span><span class="p">:</span><span class="w"> </span><span class="s2">"int32"</span><span class="p">},</span><span class="w"> </span><span class="nt">"build_fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cf421952230ae6df240e238bead0f75ee5f58b81bac08e44424dc2cdf1824b0b"</span><span class="p">,</span><span class="w"> </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-09-27T07:03:07.933059+00:00"</span><span class="p">,</span><span class="w"> </span><span class="nt">"complete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w"> </span><span class="nt">"annotation_pipeline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en_core_web_md"</span><span class="p">,</span><span class="w"> </span><span class="nt">"annotation_pipeline_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.8.0"</span><span class="p">,</span><span class="w"> </span><span class="nt">"pipeline_vectors"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="nt">"builder_revision"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nt">"whitespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">manifest_version</span></code></p></td>
+<td><p>version of the manifest format, currently <code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">import_mode</span></code></p></td>
+<td><p>how the index was built, for example <code class="docutils literal notranslate"><span class="pre">csv</span></code>, <code class="docutils literal notranslate"><span class="pre">jsonl</span></code>, <code class="docutils literal notranslate"><span class="pre">vrt</span></code>, <code class="docutils literal notranslate"><span class="pre">prealigned</span></code>, or <code class="docutils literal notranslate"><span class="pre">generic</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">paired</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> for a paired corpus</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pair_axes</span></code></p></td>
+<td><p>the names of the pairings (<code class="docutils literal notranslate"><span class="pre">--pair-axis</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">annotation_source</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">spacy</span></code> when a spaCy pipeline annotated the tokens</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">capabilities</span></code></p></td>
+<td><p>one flag for each optional part of the index, see the next table</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dtypes</span></code></p></td>
+<td><p>integer types of the stored positions and IDs</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">build_fingerprint</span></code></p></td>
+<td><p>SHA-256 of the document count, the token count, the annotation pipeline, the settings for dependency relations and named entities, and the text normalization. Two imports of the same input with the same settings produce the same value. It is not a checksum of the text.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">created_at</span></code></p></td>
+<td><p>time of the import (UTC)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">complete</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> when the import finished</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">language</span></code></p></td>
+<td><p>ISO 639 code of the corpus language, taken from the pipeline, for example <code class="docutils literal notranslate"><span class="pre">en</span></code>. Empty: unknown.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">annotation_pipeline</span></code>, <code class="docutils literal notranslate"><span class="pre">annotation_pipeline_version</span></code></p></td>
+<td><p>the pipeline that annotated the corpus, for example <code class="docutils literal notranslate"><span class="pre">en_core_web_md</span></code>, and its version</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pipeline_vectors</span></code></p></td>
+<td><p>width of the static word vectors of the pipeline, <code class="docutils literal notranslate"><span class="pre">0</span></code> for none, <code class="docutils literal notranslate"><span class="pre">-1</span></code> when not recorded</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">builder_revision</span></code></p></td>
+<td><p>revision of the import code. Indexes with revision <code class="docutils literal notranslate"><span class="pre">0</span></code> were built before the correction of the morphological features, see <a class="reference internal" href="../help/troubleshooting.html#an-index-lacks-morphological-features"><span class="std std-ref">Troubleshooting</span></a>. From revision <code class="docutils literal notranslate"><span class="pre">2</span></code>, paired imports mark the two sides of a pair as <code class="docutils literal notranslate"><span class="pre">anchor</span></code> and <code class="docutils literal notranslate"><span class="pre">version</span></code> in the field <code class="docutils literal notranslate"><span class="pre">text_type</span></code>, see <a class="reference internal" href="input-formats.html#paired-texts"><span class="std std-ref">Paired texts</span></a>. From revision <code class="docutils literal notranslate"><span class="pre">3</span></code>, every import stores the original spacing unless it is switched off</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">whitespace</span></code></p></td>
+<td><p>where the spacing between tokens comes from: <code class="docutils literal notranslate"><span class="pre">text</span></code> (the imported text), <code class="docutils literal notranslate"><span class="pre">vrt_join</span></code> (the text a VRT import rebuilt from its word forms), <code class="docutils literal notranslate"><span class="pre">pretokenized</span></code> (VRT with the annotation mode <code class="docutils literal notranslate"><span class="pre">adopt</span></code>, no spacing stored), <code class="docutils literal notranslate"><span class="pre">disabled</span></code> (<code class="docutils literal notranslate"><span class="pre">--no-capture-whitespace</span></code>). Empty in indexes before revision <code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These fields are optional. An index that lacks them was built by an earlier
+version, and CandyConc reads its language as unknown.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Capability flag</p></th>
+<th class="head"><p>True when the index has</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">word_lex</span></code>, <code class="docutils literal notranslate"><span class="pre">lemma_lex</span></code>, <code class="docutils literal notranslate"><span class="pre">pos_lex</span></code>, <code class="docutils literal notranslate"><span class="pre">morph_lex</span></code>, <code class="docutils literal notranslate"><span class="pre">ent_lex</span></code>, <code class="docutils literal notranslate"><span class="pre">rel_lex</span></code></p></td>
+<td><p>the lexicon of this attribute</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sentence_bounds</span></code>, <code class="docutils literal notranslate"><span class="pre">document_bounds</span></code></p></td>
+<td><p>sentence and document boundaries</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">word_prefix_all</span></code>, <code class="docutils literal notranslate"><span class="pre">word_ngram</span></code></p></td>
+<td><p>the prefix and trigram indexes of the word lexicon</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">embeddings</span></code></p></td>
+<td><p>passage vectors (<code class="docutils literal notranslate"><span class="pre">passage_vecs.npy</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sentence_embeddings</span></code></p></td>
+<td><p>sentence vectors (<code class="docutils literal notranslate"><span class="pre">sentence_vecs.npy</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">whitespace_after</span></code></p></td>
+<td><p>the original spacing (<code class="docutils literal notranslate"><span class="pre">whitespace_after.bin</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The flags <code class="docutils literal notranslate"><span class="pre">embeddings</span></code> and <code class="docutils literal notranslate"><span class="pre">sentence_embeddings</span></code> are read from the files at
+runtime, because their files can be added or removed after the import. All
+other flags keep the value of the import. <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/corpora/{corpus}/capabilities</span></code>
+returns the flags in effect together with the features the interface derives
+from them.</p>
+</section>
+<section id="versions">
+<h2>Versions<a class="headerlink" href="#versions" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>An index without <code class="docutils literal notranslate"><span class="pre">index_manifest.json</span></code> still opens. CandyConc derives the
+capability flags from the files that exist and treats it as version 0.</p></li>
+<li><p>An index with a newer <code class="docutils literal notranslate"><span class="pre">manifest_version</span></code> than the installed CandyConc
+supports is refused with a message to update CandyConc.</p></li>
+<li><p>CandyConc 0.1.0 writes version 1.</p></li>
+</ul>
+</section>
+<section id="limits">
+<h2>Limits<a class="headerlink" href="#limits" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A corpus can have at most 2,147,483,647 tokens (2^31 - 1), because the query
+engine reads token positions as signed 32-bit integers.</p></li>
+<li><p>A lexicon can have at most 4,294,967,295 distinct values (2^32 - 1).</p></li>
+</ul>
+<p>An import that would exceed a limit stops with an error, and a corpus that
+exceeds a limit is refused when it is opened.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="input-formats.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Input formats</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="export-formats.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Export formats</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files">Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-manifest">The manifest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#versions">Versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limits">Limits</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/reference/index-format.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

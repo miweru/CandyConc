@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Troubleshooting | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'help/troubleshooting';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Upgrade CandyConc" href="upgrade.html" />
+    <link rel="prev" title="Frequently asked questions" href="faq.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade CandyConc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uninstall.html">Uninstall CandyConc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release-notes.html">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cite.html">Cite CandyConc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenses</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Help</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Troubleshooting</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h1>
+<p>Each entry describes a problem that was observed with this version: what you
+see, why it happens, and what fixes it. For questions that are not about an
+error, see the <a class="reference internal" href="faq.html"><span class="std std-doc">FAQ</span></a>.</p>
+<section id="installation-and-start">
+<h2>Installation and start<a class="headerlink" href="#installation-and-start" title="Link to this heading">#</a></h2>
+<section id="macos-refuses-to-run-the-bundle-after-a-browser-download">
+<h3>macOS refuses to run the bundle after a browser download<a class="headerlink" href="#macos-refuses-to-run-the-bundle-after-a-browser-download" title="Link to this heading">#</a></h3>
+<p><strong>Symptom.</strong> The application bundle was downloaded with a web browser, and
+macOS refuses to run <code class="docutils literal notranslate"><span class="pre">./candyconc</span></code> or the Python inside the bundle.</p>
+<p><strong>Cause.</strong> A browser marks downloaded files with the quarantine attribute.
+The bundle is not signed or notarized by Apple, so macOS refuses to run its
+programs while the attribute is set.</p>
+<p><strong>Fix.</strong> Remove the attribute from the unpacked folder once:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xattr<span class="w"> </span>-dr<span class="w"> </span>com.apple.quarantine<span class="w"> </span>BUNDLE_FOLDER
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">BUNDLE_FOLDER</span></code> with the name of the unpacked folder, for example
+<code class="docutils literal notranslate"><span class="pre">CandyConc-0.1.0-macos-arm64</span></code>. Alternatively, download the archive in the
+Terminal with <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">-LO</span> <span class="pre">ADDRESS</span></code>, which sets no quarantine attribute. Replace
+<code class="docutils literal notranslate"><span class="pre">ADDRESS</span></code> with the address of the archive on the release page.</p>
+</section>
+<section id="the-port-is-already-in-use">
+<h3>The port is already in use<a class="headerlink" href="#the-port-is-already-in-use" title="Link to this heading">#</a></h3>
+<p><strong>Symptom.</strong> CandyConc stops at start with
+<code class="docutils literal notranslate"><span class="pre">Port</span> <span class="pre">8010</span> <span class="pre">on</span> <span class="pre">127.0.0.1</span> <span class="pre">is</span> <span class="pre">already</span> <span class="pre">in</span> <span class="pre">use.</span> <span class="pre">Choose</span> <span class="pre">another</span> <span class="pre">one</span> <span class="pre">with</span> <span class="pre">--port.</span></code></p>
+<p><strong>Cause.</strong> You started CandyConc with <code class="docutils literal notranslate"><span class="pre">--port</span></code>, and another program, often a
+CandyConc that is still running, uses that port. Without <code class="docutils literal notranslate"><span class="pre">--port</span></code>, CandyConc
+takes the next free port from 8010 to 8029 and prints the address it uses.</p>
+<p><strong>Fix.</strong> Stop the other CandyConc (Control+C in its terminal), or start with
+another port, for example <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">--port</span> <span class="pre">8020</span></code>. Open the address that the
+start message prints.</p>
+</section>
+<section id="the-page-at-127-0-0-1-8010-does-not-open">
+<h3>The page at 127.0.0.1:8010 does not open<a class="headerlink" href="#the-page-at-127-0-0-1-8010-does-not-open" title="Link to this heading">#</a></h3>
+<p><strong>Symptom.</strong> The browser cannot connect to <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8010</span></code>.</p>
+<p><strong>Cause.</strong> CandyConc is not running, or it runs on another port because 8010
+was taken.</p>
+<p><strong>Fix.</strong> Look at the terminal in which you started CandyConc. The line
+<code class="docutils literal notranslate"><span class="pre">Web</span> <span class="pre">interface:</span> <span class="pre">http://127.0.0.1:PORT/</span></code> names the address. If the terminal
+shows an error instead, find it on this page.</p>
+</section>
+<section id="the-server-does-not-start-with-a-pinned-corpus">
+<h3>The server does not start with a pinned corpus<a class="headerlink" href="#the-server-does-not-start-with-a-pinned-corpus" title="Link to this heading">#</a></h3>
+<p><strong>Symptom.</strong> CandyConc stops at start with
+<code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">valid</span> <span class="pre">index</span> <span class="pre">path</span> <span class="pre">found:</span></code> followed by a directory.</p>
+<p><strong>Cause.</strong> <code class="docutils literal notranslate"><span class="pre">CANDYCONC_INDEX_PATH</span></code> (or <code class="docutils literal notranslate"><span class="pre">index_dir</span></code> in the configuration file)
+points to a directory that is not a complete corpus index.</p>
+<p><strong>Fix.</strong> Correct the path, or remove the setting. Without it, CandyConc opens
+the active corpus of the catalog, or starts with an empty catalog.</p>
+</section>
+</section>
+<section id="import">
+<h2>Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h2>
+<section id="the-annotation-pipeline-is-not-installed">
+<h3>The annotation pipeline is not installed<a class="headerlink" href="#the-annotation-pipeline-is-not-installed" title="Link to this heading">#</a></h3>
+<p><strong>Symptom.</strong> <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span></code> stops with
+<code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">spaCy</span> <span class="pre">pipeline</span> <span class="pre">'en_core_web_sm'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">installed.</span> <span class="pre">Install</span> <span class="pre">it</span> <span class="pre">with:</span> <span class="pre">candy</span> <span class="pre">pipeline</span> <span class="pre">en_core_web_sm</span> <span class="pre">...</span></code></p>
+<p><strong>Cause.</strong> The import annotates with the spaCy pipeline of <code class="docutils literal notranslate"><span class="pre">--spacy-model</span></code>,
+and CandyConc never downloads a pipeline on its own.</p>
+<p><strong>Fix.</strong> Install the pipeline, then import again:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>candy<span class="w"> </span>pipeline<span class="w"> </span>en_core_web_sm
+</pre></div>
+</div>
+<p>With the application bundle, run <code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">pipeline</span> <span class="pre">en_core_web_sm</span></code>. To
+import without linguistic annotation and without a download, use
+<code class="docutils literal notranslate"><span class="pre">--spacy-model</span> <span class="pre">blank:en</span></code> (or the code of your language).</p>
+</section>
+<section id="the-import-is-refused-for-lack-of-disk-space">
+<h3>The import is refused for lack of disk space<a class="headerlink" href="#the-import-is-refused-for-lack-of-disk-space" title="Link to this heading">#</a></h3>
+<p><strong>Symptom.</strong> The import stops before it starts. On the command line the
+message begins with <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">disk</span> <span class="pre">space</span> <span class="pre">check</span> <span class="pre">blocks</span> <span class="pre">the</span> <span class="pre">import:</span></code>, names the
+free space, the estimated need, and the reserve, and ends with
+<code class="docutils literal notranslate"><span class="pre">Override:</span> <span class="pre">CANDYCONC_BUILD_ALLOW_LOW_DISK=1</span></code>.</p>
+<p><strong>Cause.</strong> Before an import, CandyConc estimates the size of the index as 2.5
+times the input size and requires that 5 GB stay free on the volume of the
+output directory. On a nearly full disk, even a small import is refused.</p>
+<p><strong>Fix.</strong> Free disk space, or import into a directory on another volume. If
+you know that the index fits, set <code class="docutils literal notranslate"><span class="pre">CANDYCONC_BUILD_ALLOW_LOW_DISK=1</span></code> for the
+import, which turns the refusal into a warning, or lower the reserve with
+<code class="docutils literal notranslate"><span class="pre">CANDYCONC_BUILD_DISK_RESERVE_GB</span></code>. See
+<a class="reference internal" href="../reference/configuration.html#import"><span class="std std-ref">Configuration reference</span></a>.</p>
+</section>
+<section id="some-rows-are-missing-after-the-import">
+<h3>Some rows are missing after the import<a class="headerlink" href="#some-rows-are-missing-after-the-import" title="Link to this heading">#</a></h3>
+<p><strong>Symptom.</strong> The corpus has fewer documents than the input has rows.</p>
+<p><strong>Cause.</strong> Rows without text, invalid JSON lines, and incomplete groups of a
+paired corpus are rejected. The import continues without them.</p>
+<p><strong>Fix.</strong> Open <code class="docutils literal notranslate"><span class="pre">reject_report.json</span></code> in the index directory. It lists the
+number of rejected rows for each reason and up to 50 examples. The reasons are
+explained in <a class="reference internal" href="../reference/input-formats.html#rejected-rows"><span class="std std-ref">Input formats</span></a>.</p>
+</section>
+<section id="an-index-lacks-morphological-features">
+<h3>An index lacks morphological features<a class="headerlink" href="#an-index-lacks-morphological-features" title="Link to this heading">#</a></h3>
+<p><strong>Symptom.</strong> In a corpus imported with an earlier version, queries on
+morphological features, for example <code class="docutils literal notranslate"><span class="pre">cql:[morph=&quot;.*Number=Sing.*&quot;]</span></code>, find
+fewer tokens than the text contains, and many tokens have no value in
+<code class="docutils literal notranslate"><span class="pre">morph</span></code> at all.</p>
+<p><strong>Cause.</strong> Imports before the correction (builder revision 0 in the index
+manifest) stored an empty value for every token whose feature set had a
+spaCy hash of 2^63 or more, about half of all feature sets.</p>
+<p><strong>Fix.</strong> Check the index:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>candyconc.tools.check_index<span class="w"> </span>INDEX_DIRECTORY
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">INDEX_DIRECTORY</span></code> with the directory of the corpus, for example
+<code class="docutils literal notranslate"><span class="pre">~/.candyconc/corpora/my_corpus</span></code>. In the application bundle, run
+<code class="docutils literal notranslate"><span class="pre">python/bin/python3</span> <span class="pre">-m</span> <span class="pre">candyconc.tools.check_index</span> <span class="pre">INDEX_DIRECTORY</span></code> in the
+bundle folder. Exit status 1 means the index is affected: import the corpus
+again with the current version. Exit status 0 means no defect was found, 2
+that the directory is not a readable index. The check only reads the index.</p>
+</section>
+</section>
+<section id="search">
+<h2>Search<a class="headerlink" href="#search" title="Link to this heading">#</a></h2>
+<section id="a-query-is-rejected">
+<h3>A query is rejected<a class="headerlink" href="#a-query-is-rejected" title="Link to this heading">#</a></h3>
+<p><strong>Symptom.</strong> A search with <code class="docutils literal notranslate"><span class="pre">cql:</span></code> shows an error instead of results.</p>
+<p><strong>Cause.</strong> The query has a syntax error, or it uses a value that does not
+occur in the corpus. Two observed examples on the State of the Union sample
+corpus: <code class="docutils literal notranslate"><span class="pre">cql:[lemma=&quot;free&quot;</span></code> lacks the closing bracket, and
+<code class="docutils literal notranslate"><span class="pre">cql:[pos=&quot;NN&quot;]</span></code> uses a Penn Treebank tag, while the corpus stores universal
+part-of-speech tags.</p>
+<p><strong>Fix.</strong> Read the message. For a syntax error it names what was expected and
+the position, here
+<code class="docutils literal notranslate"><span class="pre">CQL</span> <span class="pre">parse</span> <span class="pre">error:</span> <span class="pre">expected</span> <span class="pre">RBRACK,</span> <span class="pre">got</span> <span class="pre">EOF</span> <span class="pre">at</span> <span class="pre">13:13</span></code>. For an unknown value it
+lists the values that occur in the corpus, here
+<code class="docutils literal notranslate"><span class="pre">Unknown</span> <span class="pre">pos</span> <span class="pre">tag</span> <span class="pre">in</span> <span class="pre">CQL:</span> <span class="pre">'NN'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">a</span> <span class="pre">valid</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">attribute</span> <span class="pre">'pos'</span> <span class="pre">in</span> <span class="pre">this</span> <span class="pre">corpus.</span> <span class="pre">Valid</span> <span class="pre">values:</span> <span class="pre">ADJ,</span> <span class="pre">ADP,</span> <span class="pre">ADV,</span> <span class="pre">...</span></code>. <code class="docutils literal notranslate"><span class="pre">cql:[pos=&quot;NOUN&quot;]</span></code> is the query that was meant. A phrase without
+<code class="docutils literal notranslate"><span class="pre">cql:</span></code>, such as <code class="docutils literal notranslate"><span class="pre">heavy</span> <span class="pre">rain</span></code>, is also rejected, and the message shows the
+query language form with one pair of brackets per word. See
+<a class="reference internal" href="../reference/query-language.html"><span class="std std-doc">Query language</span></a>.</p>
+</section>
+</section>
+<section id="copilot">
+<h2>Copilot<a class="headerlink" href="#copilot" title="Link to this heading">#</a></h2>
+<section id="the-copilot-answers-that-no-language-model-is-configured">
+<h3>The copilot answers that no language model is configured<a class="headerlink" href="#the-copilot-answers-that-no-language-model-is-configured" title="Link to this heading">#</a></h3>
+<p><strong>Symptom.</strong> A question to the copilot returns
+<code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">language</span> <span class="pre">model</span> <span class="pre">is</span> <span class="pre">configured</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">copilot.</span></code>, over the API with status
+424 and the code <code class="docutils literal notranslate"><span class="pre">copilot_not_configured</span></code>.</p>
+<p><strong>Cause.</strong> No model endpoint is set. CandyConc works without one, only the
+copilot needs it.</p>
+<p><strong>Fix.</strong> Set an endpoint in <strong>Settings &gt; Model connection</strong>, or set
+<code class="docutils literal notranslate"><span class="pre">COPILOT_ENDPOINT</span></code> and <code class="docutils literal notranslate"><span class="pre">COPILOT_MODEL</span></code> in the environment or the
+configuration file and restart. See
+<a class="reference internal" href="../guides/copilot/connect-a-model.html"><span class="std std-doc">Connect a language model</span></a>.</p>
+</section>
+</section>
+<section id="http-api">
+<h2>HTTP API<a class="headerlink" href="#http-api" title="Link to this heading">#</a></h2>
+<section id="an-export-over-the-api-returns-401">
+<h3>An export over the API returns 401<a class="headerlink" href="#an-export-over-the-api-returns-401" title="Link to this heading">#</a></h3>
+<p><strong>Symptom.</strong> <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/export/concordance</span></code> returns
+<code class="docutils literal notranslate"><span class="pre">401</span></code> with <code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">token</span> <span class="pre">required.</span></code>, although the server runs in single-user
+mode.</p>
+<p><strong>Cause.</strong> Exports, the evidence package, and analysis jobs need a token also
+in single-user mode.</p>
+<p><strong>Fix.</strong> Get a token from <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/auth/dev-token</span></code> and send it as
+<code class="docutils literal notranslate"><span class="pre">Authorization:</span> <span class="pre">Bearer</span> <span class="pre">TOKEN</span></code>. See
+<a class="reference internal" href="../reference/http-api.html#single-user-mode"><span class="std std-ref">HTTP API reference</span></a>.</p>
+</section>
+<section id="requests-return-429">
+<h3>Requests return 429<a class="headerlink" href="#requests-return-429" title="Link to this heading">#</a></h3>
+<p><strong>Symptom.</strong> Requests return <code class="docutils literal notranslate"><span class="pre">429</span></code> with <code class="docutils literal notranslate"><span class="pre">Rate</span> <span class="pre">limit</span> <span class="pre">exceeded</span></code>.</p>
+<p><strong>Cause.</strong> More than 300 requests in one minute from one address without a
+token, or more than 600 in one minute with a token.</p>
+<p><strong>Fix.</strong> Wait a minute, send fewer requests, or send a token to get the
+higher limit. An administrator can raise the limits. See
+<a class="reference internal" href="../reference/http-api.html#rate-limit"><span class="std std-ref">HTTP API reference</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="faq.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Frequently asked questions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="upgrade.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Upgrade CandyConc</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-and-start">Installation and start</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macos-refuses-to-run-the-bundle-after-a-browser-download">macOS refuses to run the bundle after a browser download</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-port-is-already-in-use">The port is already in use</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-page-at-127-0-0-1-8010-does-not-open">The page at 127.0.0.1:8010 does not open</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-server-does-not-start-with-a-pinned-corpus">The server does not start with a pinned corpus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import">Import</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-annotation-pipeline-is-not-installed">The annotation pipeline is not installed</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-import-is-refused-for-lack-of-disk-space">The import is refused for lack of disk space</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-rows-are-missing-after-the-import">Some rows are missing after the import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-index-lacks-morphological-features">An index lacks morphological features</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search">Search</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-query-is-rejected">A query is rejected</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copilot">Copilot</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-copilot-answers-that-no-language-model-is-configured">The copilot answers that no language model is configured</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#http-api">HTTP API</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#an-export-over-the-api-returns-401">An export over the API returns 401</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#requests-return-429">Requests return 429</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/help/troubleshooting.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

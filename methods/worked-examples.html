@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Worked examples | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'methods/worked-examples';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="prev" title="Inter-annotator agreement" href="inter-annotator-agreement.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="frequency.html">Frequency and hits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="association-measures.html">Collocations and association measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dispersion.html">Dispersion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keyness.html">Keyness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrast.html">Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="n-grams-and-trends.html">N-grams and trends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="word-sketches.html">Word sketches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="semantic-similarity.html">Semantic similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lexical-diversity.html">Lexical diversity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inter-annotator-agreement.html">Inter-annotator agreement</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Worked examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Methods</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Worked examples</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="worked-examples">
+<h1>Worked examples<a class="headerlink" href="#worked-examples" title="Link to this heading">#</a></h1>
+<p>The examples on the methods pages use a corpus that is small enough to
+recompute every number by hand. This page describes the corpus, how to
+reproduce the examples in your own installation, and how the documentation
+checks them.</p>
+<section id="the-synthetic-tea-corpus">
+<h2>The synthetic tea corpus<a class="headerlink" href="#the-synthetic-tea-corpus" title="Link to this heading">#</a></h2>
+<p>The tea corpus is <strong>synthetic</strong>. Its eight short documents make the counting
+rules visible and let you verify the calculations by hand. Each document
+has a date and a register (<code class="docutils literal notranslate"><span class="pre">blog</span></code> or <code class="docutils literal notranslate"><span class="pre">news</span></code>):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Document</p></th>
+<th class="head"><p>date</p></th>
+<th class="head"><p>register</p></th>
+<th class="head"><p>Text</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>d1</p></td>
+<td><p>2019-03-02</p></td>
+<td><p>blog</p></td>
+<td><p>Tea is my morning ritual. I drink green tea from a big cup. A cup of tea makes the day calm.</p></td>
+</tr>
+<tr class="row-odd"><td><p>d2</p></td>
+<td><p>2019-11-20</p></td>
+<td><p>news</p></td>
+<td><p>Coffee prices rose again this year. Traders expect coffee demand to grow. The market for coffee is volatile.</p></td>
+</tr>
+<tr class="row-even"><td><p>d3</p></td>
+<td><p>2020-05-14</p></td>
+<td><p>blog</p></td>
+<td><p>I prefer green tea over coffee. A cup of green tea with honey is lovely. My sister drinks black tea.</p></td>
+</tr>
+<tr class="row-odd"><td><p>d4</p></td>
+<td><p>2020-08-03</p></td>
+<td><p>news</p></td>
+<td><p>Coffee exports fell sharply. The coffee harvest was poor, and prices for coffee climbed.</p></td>
+</tr>
+<tr class="row-even"><td><p>d5</p></td>
+<td><p>2021-02-27</p></td>
+<td><p>blog</p></td>
+<td><p>Some days I drink a cup of coffee, but tea wins. Hot tea, a cup of tea, and a quiet book.</p></td>
+</tr>
+<tr class="row-odd"><td><p>d6</p></td>
+<td><p>2021-09-09</p></td>
+<td><p>news</p></td>
+<td><p>Tea imports grew, while coffee imports fell. Analysts say green tea is gaining market share.</p></td>
+</tr>
+<tr class="row-even"><td><p>d7</p></td>
+<td><p>2022-04-18</p></td>
+<td><p>news</p></td>
+<td><p>TEA and COFFEE futures were quiet. Tea traders waited for the harvest.</p></td>
+</tr>
+<tr class="row-odd"><td><p>d8</p></td>
+<td><p>2022-10-01</p></td>
+<td><p>blog</p></td>
+<td><p>Green tea, green tea, always green tea. A cup of tea is a small ritual.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The corpus has 162 tokens, of which 136 are word tokens, in 19 sentences. The
+blog documents have 92 tokens (77 word tokens), the news documents 70 tokens
+(59 word tokens).</p>
+<p>Download the file: <a class="reference download internal" download="" href="../_downloads/35fd362d40e18d6593fa6d0592507e69/tea_demo.jsonl"><code class="xref download docutils literal notranslate"><span class="pre">tea_demo.jsonl</span></code></a>.</p>
+</section>
+<section id="reproduce-the-examples">
+<h2>Reproduce the examples<a class="headerlink" href="#reproduce-the-examples" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Import the file with a blank English pipeline. It tokenizes without a
+trained model, so no model is needed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>candy<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>tea_demo.jsonl<span class="w"> </span>--output<span class="w"> </span>~/.candyconc/corpora/tea_demo<span class="w"> </span>--text-column<span class="w"> </span>text<span class="w"> </span>--id-column<span class="w"> </span>id<span class="w"> </span>--meta-columns<span class="w"> </span>date<span class="w"> </span>register<span class="w"> </span>--spacy-model<span class="w"> </span>blank:en
+</pre></div>
+</div>
+<p>The index has 162 tokens in 8 documents.</p>
+</li>
+<li><p>Open the corpus <code class="docutils literal notranslate"><span class="pre">tea_demo</span></code> in CandyConc and run the analyses with the
+settings given on each page.</p></li>
+</ol>
+<p>The word sketch example needs dependency relations. Import the same file a
+second time with <code class="docutils literal notranslate"><span class="pre">--spacy-model</span> <span class="pre">en_core_web_sm</span> <span class="pre">--enable-deps</span></code> and a different
+output directory. This requires the spaCy pipeline <code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code> in the
+Python environment of CandyConc.</p>
+</section>
+<section id="where-each-example-is">
+<h2>Where each example is<a class="headerlink" href="#where-each-example-is" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Example</p></th>
+<th class="head"><p>Page</p></th>
+<th class="head"><p>Settings</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Frequency and case</p></td>
+<td><p><a class="reference internal" href="frequency.html#example"><span class="std std-ref">Frequency and hits</span></a></p></td>
+<td><p>frequency list of word forms, searches for <em>tea</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Collocations</p></td>
+<td><p><a class="reference internal" href="association-measures.html#example"><span class="std std-ref">Association measures</span></a></p></td>
+<td><p>node <em>tea</em>, window 3, windows end at sentence boundaries</p></td>
+</tr>
+<tr class="row-even"><td><p>Lines behind a collocate</p></td>
+<td><p><a class="reference internal" href="../concepts/from-numbers-to-lines.html#from-a-collocation-row-to-the-lines"><span class="std std-ref">From numbers to lines</span></a></p></td>
+<td><p>node <em>tea</em>, window 3, collocates <code class="docutils literal notranslate"><span class="pre">green</span></code>, <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Dispersion</p></td>
+<td><p><a class="reference internal" href="dispersion.html#example"><span class="std std-ref">Dispersion</span></a></p></td>
+<td><p><em>tea</em> and <em>coffee</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Keyness</p></td>
+<td><p><a class="reference internal" href="keyness.html#example-the-synthetic-tea-corpus"><span class="std std-ref">Keyness</span></a></p></td>
+<td><p>target: register <code class="docutils literal notranslate"><span class="pre">blog</span></code>, reference: register <code class="docutils literal notranslate"><span class="pre">news</span></code>, minimum frequency 5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bigrams</p></td>
+<td><p><a class="reference internal" href="n-grams-and-trends.html#n-gram-example"><span class="std std-ref">N-grams and trends</span></a></p></td>
+<td><p>n = 2</p></td>
+</tr>
+<tr class="row-even"><td><p>Trend</p></td>
+<td><p><a class="reference internal" href="n-grams-and-trends.html#trend-example"><span class="std std-ref">N-grams and trends</span></a></p></td>
+<td><p><em>tea</em> over the field <code class="docutils literal notranslate"><span class="pre">date</span></code>, by year</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lexical diversity</p></td>
+<td><p><a class="reference internal" href="lexical-diversity.html#example"><span class="std std-ref">Lexical diversity</span></a></p></td>
+<td><p>windows of 20 tokens</p></td>
+</tr>
+<tr class="row-even"><td><p>Word sketch</p></td>
+<td><p><a class="reference internal" href="word-sketches.html#example"><span class="std std-ref">Word sketches</span></a></p></td>
+<td><p><em>tea</em>, minimum 1 pair, import with dependency relations</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The keyness page also shows one row from the English State of the Union
+sample corpus. Its correction for multiple testing uses all 4,627 candidates.</p>
+</section>
+<section id="how-the-examples-are-checked">
+<h2>How the examples are checked<a class="headerlink" href="#how-the-examples-are-checked" title="Link to this heading">#</a></h2>
+<p>The tables on the methods pages are recorded responses of CandyConc, stored in
+<code class="docutils literal notranslate"><span class="pre">docs/_data/worked_examples.json</span></code>. The script
+<code class="docutils literal notranslate"><span class="pre">docs/_tools/check_worked_examples.py</span></code> checks them in two ways:</p>
+<ul class="simple">
+<li><p>The independent check recomputes the result fields and checks row
+completeness using the Python standard library and the definitions on
+these pages. It imports nothing from CandyConc. It uses <code class="docutils literal notranslate"><span class="pre">tea_demo.jsonl</span></code>,
+preserved dependency annotations for the word sketch, and the complete
+SOTU candidate counts for the keyness example and its Benjamini-Hochberg
+correction. Every difference is reported.</p></li>
+<li><p>With <code class="docutils literal notranslate"><span class="pre">--server</span></code>, it requests the analyses from a running CandyConc server
+and compares the responses with the independent results. Use
+<code class="docutils literal notranslate"><span class="pre">--deps-corpus</span></code> and <code class="docutils literal notranslate"><span class="pre">--sotu-corpus</span></code> to include those two examples.</p></li>
+</ul>
+<p>Download the additional inputs:
+<a class="reference download internal" download="" href="../_downloads/1b87284736ba62ba2e6123a8190f9097/tea_dependencies.json"><code class="xref download docutils literal notranslate"><span class="pre">tea</span> <span class="pre">dependency</span> <span class="pre">annotations</span></code></a> and
+<a class="reference download internal" download="" href="../_downloads/ebe45fd3acb9e8ba263c272f6a512df2/sotu_counts.json"><code class="xref download docutils literal notranslate"><span class="pre">SOTU</span> <span class="pre">candidate</span> <span class="pre">counts</span></code></a>.
+Each file includes source and index hashes. The tea annotations were
+preserved from the example import with <code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code> 3.8.0 and builder
+revision 1. The source commit is recorded in the annotation file. The SOTU
+counts were independently extracted from the public example index with
+<code class="docutils literal notranslate"><span class="pre">en_core_web_md</span></code> 3.8.0 and builder revision 3. These versions identify the
+check inputs, not the earlier table recording.</p>
+<p>The recorded tables and the current server responses pass these checks.
+Regression tests also verify that changed values, empty tables, and duplicate
+rows cause the check to fail.
+<a class="reference internal" href="../contribute/documentation.html"><span class="std std-doc">Documentation maintenance</span></a> describes how to
+run the script.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="inter-annotator-agreement.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Inter-annotator agreement</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="bibliography.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bibliography</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-synthetic-tea-corpus">The synthetic tea corpus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reproduce-the-examples">Reproduce the examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-each-example-is">Where each example is</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-examples-are-checked">How the examples are checked</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/methods/worked-examples.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

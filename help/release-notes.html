@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Release notes | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'help/release-notes';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Cite CandyConc" href="cite.html" />
+    <link rel="prev" title="Uninstall CandyConc" href="uninstall.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade CandyConc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uninstall.html">Uninstall CandyConc</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Release notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cite.html">Cite CandyConc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Licenses</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Help</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Release notes</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="release-notes">
+<h1>Release notes<a class="headerlink" href="#release-notes" title="Link to this heading">#</a></h1>
+<!-- Draft for 0.1.0, written from the commits on the product branch since the
+first snapshot of the repository (254ed01c17). Before the release: add the
+date, check every line against the merged branches and the built files, and
+update the test status of the platforms. -->
+<section id="candyconc-0-1-0">
+<h2>CandyConc 0.1.0<a class="headerlink" href="#candyconc-0-1-0" title="Link to this heading">#</a></h2>
+<p>CandyConc 0.1.0 is the first release. It is an installable application for
+corpus analysis on your own computer: import your texts, search them with
+plain searches or a CQP-style query language, read hits in their documents,
+restrict the analysis to documents with given metadata, compute frequency
+lists, collocations, dispersion, keyness, trends, n-grams, and word sketches,
+and export concordances and evidence packages. A copilot that calls the same
+analyses is optional and works with a language model endpoint that you
+provide.</p>
+<section id="downloads">
+<h3>Downloads<a class="headerlink" href="#downloads" title="Link to this heading">#</a></h3>
+<p>The local candidate targets macOS 13 or later on Apple silicon. Intel macOS and Linux
+are configured in the release workflow but have no built or verified
+artifacts for this candidate. See the full
+<a class="reference internal" href="../reference/supported-platforms.html#support-matrix"><span class="std std-ref">platform status</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>File</p></th>
+<th class="head"><p>For</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CandyConc-0.1.0-macos-arm64.tar.gz</span></code></p></td>
+<td><p>application bundle for macOS on Apple silicon</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">candyconc-0.1.0-cp3XY-cp3XY-macosx_11_0_arm64.whl</span></code></p></td>
+<td><p>four Python wheels for CPython 3.11, 3.12, 3.13, and 3.14 on macOS arm64</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">candyconc-0.1.0.tar.gz</span></code></p></td>
+<td><p>source distribution with the built web interface</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">candyconc-0.1.0-docs-html.zip</span></code></p></td>
+<td><p>the offline HTML manual with diagrams, formulas, and search. See <a class="reference internal" href="../reference/supported-platforms.html#read-the-documentation-offline"><span class="std std-ref">Read the documentation offline</span></a>. The application contains the same pages under <strong>Help &gt; Documentation</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SHA256SUMS</span></code></p></td>
+<td><p>checksums of all files</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The application bundle contains its own Python and needs no other software.
+See <a class="reference internal" href="../get-started/install.html"><span class="std std-doc">Install CandyConc</span></a>,
+<a class="reference internal" href="../get-started/install-python-package.html"><span class="std std-doc">Install the Python package</span></a>, and
+<a class="reference internal" href="../reference/supported-platforms.html"><span class="std std-doc">Supported platforms and requirements</span></a>.</p>
+</section>
+<section id="changes-since-the-first-snapshot-of-the-repository">
+<h3>Changes since the first snapshot of the repository<a class="headerlink" href="#changes-since-the-first-snapshot-of-the-repository" title="Link to this heading">#</a></h3>
+<p><strong>Installation and start</strong></p>
+<ul class="simple">
+<li><p>The wheel is a complete application: it contains the web interface, the
+import tools, and the compiled extensions, and it runs outside a clone of
+the repository. The source distribution builds a wheel without Node.js.</p></li>
+<li><p>An application bundle with its own Python for macOS on Apple silicon,
+started with <code class="docutils literal notranslate"><span class="pre">./candyconc</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">candy</span></code> starts without a corpus and without a language model. With an
+empty catalog the web interface offers the import. At start, CandyConc
+opens the active corpus or the most recent one and prints the address, the
+corpus, the data directory, and the state of the copilot. Without <code class="docutils literal notranslate"><span class="pre">--port</span></code>
+it takes the next free port after 8010.</p></li>
+<li><p>New commands: <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">pipeline</span> <span class="pre">NAME</span></code> installs a spaCy pipeline on request,
+<code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">paths</span></code> shows where data and configuration live, <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">--version</span></code>
+shows the version. <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span></code> checks before the import that the
+pipeline is installed and names the command to install it.</p></li>
+<li><p>The copilot is optional. Without a model endpoint the copilot panel says
+so and opens <strong>Settings &gt; Model connection</strong> with one click, and a question
+over the API returns status 424.</p></li>
+<li><p>All user data lives in the data directory <code class="docutils literal notranslate"><span class="pre">~/.candyconc</span></code>
+(<code class="docutils literal notranslate"><span class="pre">CANDYCONC_HOME</span></code>), including the project file, which earlier versions
+kept in the working directory. An existing <code class="docutils literal notranslate"><span class="pre">proj.ccproj</span></code> in the working
+directory keeps being used.</p></li>
+<li><p>New configuration file <code class="docutils literal notranslate"><span class="pre">config.toml</span></code> in the platform configuration
+directory, with the same names as the environment variables. See
+<a class="reference internal" href="../reference/configuration.html"><span class="std std-doc">Configuration reference</span></a>.</p></li>
+<li><p>Fewer dependencies: the core no longer installs PyTorch, Transformers,
+sentence-transformers, or Annoy. Optional extras <code class="docutils literal notranslate"><span class="pre">semantic</span></code>, <code class="docutils literal notranslate"><span class="pre">hf</span></code>,
+<code class="docutils literal notranslate"><span class="pre">metrics</span></code>, and <code class="docutils literal notranslate"><span class="pre">cluster</span></code> add the functions that need more.</p></li>
+<li><p>The release wheels are built without OpenMP and need no system OpenMP
+library.</p></li>
+<li><p>The Docker and systemd templates start the packaged application in
+multi-user mode.</p></li>
+</ul>
+<p><strong>Import and languages</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span> <span class="pre">--language</span> <span class="pre">CODE</span></code> chooses the standard spaCy pipeline of the
+language (for example <code class="docutils literal notranslate"><span class="pre">en_core_web_md</span></code> for <code class="docutils literal notranslate"><span class="pre">en</span></code>), or <code class="docutils literal notranslate"><span class="pre">blank:CODE</span></code> where
+spaCy has no trained pipeline. The index records the language, the
+pipeline, its version, and the width of its word vectors, and the corpus
+manager and the corpus selector show the language.</p></li>
+<li><p>Dependency relations are added by default when the pipeline has a parser.
+<code class="docutils literal notranslate"><span class="pre">--no-deps</span></code> leaves them out.</p></li>
+<li><p>An ordinary Parquet file imports like a CSV file.</p></li>
+<li><p>Similar words and <code class="docutils literal notranslate"><span class="pre">sim()</span></code> use the word vectors of the pipeline that
+annotated the corpus, never those of another language.</p></li>
+<li><p>Morphological features are stored for every token. Earlier imports lost the
+features of about half of all feature sets. <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">candyconc.tools.check_index</span></code>
+finds affected indexes, see
+<a class="reference internal" href="troubleshooting.html#an-index-lacks-morphological-features"><span class="std std-ref">Troubleshooting</span></a>.</p></li>
+<li><p>The preflight of the import form detects the field separator of a CSV file
+as the import does.</p></li>
+<li><p>The folder <code class="docutils literal notranslate"><span class="pre">examples</span></code> contains two sample corpora, 65 State of the Union
+addresses and 30 German texts of the Deutsches Textarchiv, ready to import.
+It is part of the application bundle and of the source distribution.</p></li>
+</ul>
+<p><strong>Search, statistics, and evidence</strong></p>
+<ul class="simple">
+<li><p>A query language sequence whose first element is a part of speech places
+the hit on the matching token.</p></li>
+<li><p>Multi-word hits appear completely in the hit column of the concordance,
+also the phrases of plain search. Concordance exports add the columns
+<code class="docutils literal notranslate"><span class="pre">match</span></code>, <code class="docutils literal notranslate"><span class="pre">match_start</span></code>, and <code class="docutils literal notranslate"><span class="pre">match_end</span></code> with the whole hit.</p></li>
+<li><p>Plain search reads the words <em>where</em> and <em>within</em> as words.</p></li>
+<li><p>A word sketch with <code class="docutils literal notranslate"><span class="pre">min_freq</span></code> 0 or 1 lists the partners with a single pair.</p></li>
+<li><p>VRT imports mark their documents as unpaired (<code class="docutils literal notranslate"><span class="pre">text_type</span></code> <code class="docutils literal notranslate"><span class="pre">standalone</span></code>),
+like the other unpaired imports. A document keeps the ID from the file
+(<code class="docutils literal notranslate"><span class="pre">id</span></code> or <code class="docutils literal notranslate"><span class="pre">xml:id</span></code>) as its name, with <code class="docutils literal notranslate"><span class="pre">variant</span></code> <code class="docutils literal notranslate"><span class="pre">document</span></code> and <code class="docutils literal notranslate"><span class="pre">model</span></code>
+<code class="docutils literal notranslate"><span class="pre">none</span></code>, and without the pair fields of the research layout.</p></li>
+<li><p>An exact hit count is no longer shown as a lower bound.</p></li>
+<li><p>The concordance lines behind a collocation row use the window and the
+units of the collocation table, also for lemma collocations.</p></li>
+<li><p>Frequency lists and n-grams lead to the concordance of a row.</p></li>
+<li><p>The row label of a case-folded frequency line is the most frequent
+spelling.</p></li>
+<li><p>The contrast of collocations folds the case of the node, and method blocks
+name what the rows contain.</p></li>
+<li><p>The frequency contrast divides by the word tokens of each side, like
+keyness, and both give the same rates per million for the same document
+sets. Its method block gives the number of all tokens next to it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/api/v1/document/{doc_id}</span></code> also accepts the document ID of the import.</p></li>
+<li><p>Errors of a query are reported in the first answer of <code class="docutils literal notranslate"><span class="pre">/api/v1/query/count</span></code>.</p></li>
+<li><p>Evidence chips of the copilot open the evidence they cite.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!=</span></code> accepts the flag <code class="docutils literal notranslate"><span class="pre">%c</span></code> and then excludes every spelling of the value.</p></li>
+<li><p>Saving a subcorpus from the hits of a search in a filtered scope keeps the
+metadata filter, and the Reader lists the documents of the active scope.</p></li>
+<li><p>The document panel and the Reader show the metadata fields of the corpus.
+Fields with one value in the whole corpus are collected separately.</p></li>
+<li><p>The explanation of logDice follows Rychlý (2008) and states no threshold
+for notable collocations.</p></li>
+</ul>
+<p><strong>Interface</strong></p>
+<ul class="simple">
+<li><p>The web interface is available in English. The interface language can be
+switched in <strong>Settings</strong>, and dates and numbers follow the chosen language.</p></li>
+<li><p>Messages of the server, method explanations, the glosses of word sketch
+relations, and the sheet names of XLSX exports follow the interface
+language, and over the API the header <code class="docutils literal notranslate"><span class="pre">Accept-Language</span></code>.</p></li>
+<li><p>Every preference in <strong>Settings</strong> has an effect. The preferences for a
+default context width, line numbers, and automatic saving of bookmarks, and
+the font Inter, are removed.</p></li>
+<li><p>The command line writes English, also the progress lines of <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span></code>.</p></li>
+</ul>
+<p><strong>HTTP API</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/corpora</span></code> gives the language and the pipeline of each corpus,
+and <code class="docutils literal notranslate"><span class="pre">display_name</span></code>, the folder name, also for a corpus opened with
+<code class="docutils literal notranslate"><span class="pre">CANDYCONC_INDEX_PATH</span></code>, whose <code class="docutils literal notranslate"><span class="pre">name</span></code> is <code class="docutils literal notranslate"><span class="pre">default</span></code>.</p></li>
+<li><p>Error codes have one status each. A document set of another corpus
+(<code class="docutils literal notranslate"><span class="pre">docset.corpus_mismatch</span></code> and related codes) returns 422.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/settings/embeddings</span></code> accepts only <code class="docutils literal notranslate"><span class="pre">spacy</span></code> and <code class="docutils literal notranslate"><span class="pre">none</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/settings/embeddings</span></code> reports the backend in effect, what its
+spaCy pipeline embeds, and the source of the word vectors of each corpus.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/system/rebuild-index</span></code> and <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/api/v1/semantic/cluster_words</span></code>
+embed with the word vectors of the corpus pipeline, like similar words and
+<code class="docutils literal notranslate"><span class="pre">sim()</span></code>, and no longer with <code class="docutils literal notranslate"><span class="pre">de_core_news_md</span></code> for every corpus.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sim(...)</span></code> and <code class="docutils literal notranslate"><span class="pre">/api/v1/semantic/similar_words</span></code> on a corpus without word
+vectors return 422 <code class="docutils literal notranslate"><span class="pre">word_vectors.unavailable</span></code> on <code class="docutils literal notranslate"><span class="pre">/api/v1/query</span></code>,
+<code class="docutils literal notranslate"><span class="pre">/api/v1/query/count</span></code>, and the thesaurus route. The <code class="docutils literal notranslate"><span class="pre">error</span></code> event of
+<code class="docutils literal notranslate"><span class="pre">/api/v1/query/stream</span></code> carries the same <code class="docutils literal notranslate"><span class="pre">code</span></code>. When the pipeline of the
+corpus is not installed on the server, the same requests return 503
+<code class="docutils literal notranslate"><span class="pre">word_vectors.service_error</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/api/v1/system/info</span></code> names the corpus catalog <code class="docutils literal notranslate"><span class="pre">corpus_catalog</span></code> under
+<code class="docutils literal notranslate"><span class="pre">paths</span></code> (formerly <code class="docutils literal notranslate"><span class="pre">corpus_catalogue</span></code>).</p></li>
+<li><p>The OpenAPI description, its examples, and its tags are English.</p></li>
+</ul>
+<p><strong>Documentation</strong></p>
+<ul class="simple">
+<li><p>New documentation with installation, tutorials, guides, concepts, a
+methods reference with worked examples, and a technical reference.</p></li>
+</ul>
+</section>
+<section id="known-limitations">
+<h3>Known limitations<a class="headerlink" href="#known-limitations" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The application bundle for macOS is not signed or notarized. A browser
+download needs one command before the first start, see
+<a class="reference internal" href="troubleshooting.html#macos-refuses-to-run-the-bundle-after-a-browser-download"><span class="std std-ref">Troubleshooting</span></a>.</p></li>
+<li><p>Intel macOS and Linux still need their configured workflow builds and
+installation checks. The workflow has not run on GitHub.</p></li>
+<li><p>The Docker image and the systemd unit have not been built or run for this
+release.</p></li>
+<li><p>The instructions that the copilot sends to the model are German.</p></li>
+<li><p>Windows is not supported.</p></li>
+</ul>
+</section>
+<section id="checksums">
+<h3>Checksums<a class="headerlink" href="#checksums" title="Link to this heading">#</a></h3>
+<p>Check a download against <code class="docutils literal notranslate"><span class="pre">SHA256SUMS</span></code> on the release page, for example with
+<code class="docutils literal notranslate"><span class="pre">shasum</span> <span class="pre">-a</span> <span class="pre">256</span> <span class="pre">-c</span> <span class="pre">SHA256SUMS</span> <span class="pre">--ignore-missing</span></code> on macOS or
+<code class="docutils literal notranslate"><span class="pre">sha256sum</span> <span class="pre">-c</span> <span class="pre">SHA256SUMS</span> <span class="pre">--ignore-missing</span></code> on Linux.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="uninstall.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Uninstall CandyConc</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="cite.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Cite CandyConc</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#candyconc-0-1-0">CandyConc 0.1.0</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#downloads">Downloads</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes-since-the-first-snapshot-of-the-repository">Changes since the first snapshot of the repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#known-limitations">Known limitations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checksums">Checksums</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/help/release-notes.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

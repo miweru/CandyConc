@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Word sketches | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"loader": {"load": []}, "tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}, "svg": {"fontCache": "global"}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'methods/word-sketches';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Semantic similarity" href="semantic-similarity.html" />
+    <link rel="prev" title="N-grams and trends" href="n-grams-and-trends.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="frequency.html">Frequency and hits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="association-measures.html">Collocations and association measures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dispersion.html">Dispersion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keyness.html">Keyness</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contrast.html">Contrast</a></li>
+<li class="toctree-l1"><a class="reference internal" href="n-grams-and-trends.html">N-grams and trends</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Word sketches</a></li>
+<li class="toctree-l1"><a class="reference internal" href="semantic-similarity.html">Semantic similarity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lexical-diversity.html">Lexical diversity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inter-annotator-agreement.html">Inter-annotator agreement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="worked-examples.html">Worked examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Methods</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Word sketches</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="word-sketches">
+<h1>Word sketches<a class="headerlink" href="#word-sketches" title="Link to this heading">#</a></h1>
+<p>A word sketch lists the collocates of a word by grammatical relation: the
+adjectives that modify a noun, the verbs that take it as object, and so on.
+The name and the idea come from the Sketch Engine (Kilgarriff et al. 2004).
+CandyConc derives the relations directly from the dependency relations in the
+index. It does not use a sketch grammar of queries over part-of-speech
+patterns, as the Sketch Engine does.</p>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>The corpus must have dependency relations. The import adds them by default
+when the pipeline has a dependency parser, as the trained spaCy pipelines
+have, and leaves them out with <code class="docutils literal notranslate"><span class="pre">--no-deps</span></code>. Without them, the word sketch
+view is unavailable. A VRT import that adopts the annotation of the source
+has no dependency relations.</p>
+</section>
+<section id="what-is-counted">
+<h2>What is counted<a class="headerlink" href="#what-is-counted" title="Link to this heading">#</a></h2>
+<p><strong>Node.</strong> The exact spelling you enter. If that spelling does not occur, its
+lowercase form. The node is not a case-folded class: <em>Tea</em> and <em>tea</em> have
+different sketches.</p>
+<p><strong>Relations.</strong> A row belongs to a relation label of the annotation pipeline.
+Two directions are distinguished:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rel</span></code>: the node is the head, and the collocate is a dependent with the
+relation <code class="docutils literal notranslate"><span class="pre">rel</span></code>, for example <code class="docutils literal notranslate"><span class="pre">amod</span></code> for an adjective modifying the node.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rel_rev</span></code>: the node is the dependent, and the collocate is its head, for
+example <code class="docutils literal notranslate"><span class="pre">dobj_rev</span></code> for a verb whose direct object is the node.</p></li>
+</ul>
+<p>The relations <code class="docutils literal notranslate"><span class="pre">ROOT</span></code>, <code class="docutils literal notranslate"><span class="pre">punct</span></code>, <code class="docutils literal notranslate"><span class="pre">case</span></code>, and <code class="docutils literal notranslate"><span class="pre">pnc</span></code> are not shown. The
+interface names each relation by a gloss in the interface language, chosen
+by the label scheme of the corpus: the ClearNLP scheme of the English spaCy
+pipelines and the TIGER scheme of the German ones. <code class="docutils literal notranslate"><span class="pre">amod</span></code> is shown as
+<strong>has adjectival modifier</strong>, <code class="docutils literal notranslate"><span class="pre">dobj_rev</span></code> as <strong>direct object of</strong>, and the
+TIGER label <code class="docutils literal notranslate"><span class="pre">sb_rev</span></code> as <strong>subject of</strong>. Next to the gloss, each table shows
+the relation as the dependency search writes it: <code class="docutils literal notranslate"><span class="pre">&gt;amod</span></code> for <code class="docutils literal notranslate"><span class="pre">amod</span></code> and
+<code class="docutils literal notranslate"><span class="pre">&lt;dobj</span></code> for <code class="docutils literal notranslate"><span class="pre">dobj_rev</span></code>. A label that the scheme does not list is shown as
+its code. The API returns the code as the key of each
+relation and the gloss in its field <code class="docutils literal notranslate"><span class="pre">label</span></code>, in the language of the
+<code class="docutils literal notranslate"><span class="pre">Accept-Language</span></code> header.</p>
+<p><strong>Counts.</strong> For one relation and one collocate:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(O\)</span> is the number of pairs of node and collocate in that relation,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_1\)</span> is the corpus frequency of the node form,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_2\)</span> is the corpus frequency of the collocate form,</p></li>
+<li><p><span class="math notranslate nohighlight">\(N\)</span> is the size of the corpus in tokens.</p></li>
+</ul>
+<p>Only collocates that are word tokens are listed. Forms starting with <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">#</span></code> are excluded. A relation keeps the node itself as a collocate, ignoring
+case, only when it has no other eligible partner. A row needs at least 3
+pairs by default.</p>
+</section>
+<section id="measures">
+<h2>Measures<a class="headerlink" href="#measures" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Column</p></th>
+<th class="head"><p>Formula</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">f</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(O\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">f2</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(f_2\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">chi2_cell</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\((O - E)^2 / E\)</span> with <span class="math notranslate nohighlight">\(E = f_1 f_2 / N\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">t</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\((O - E) / \sqrt{O}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ll</span></code></p></td>
+<td><p>G² over the table <span class="math notranslate nohighlight">\([[O, f_1 - O], [f_2 - O, N - f_1 - f_2 + O]]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dice</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(2 O / (f_1 + f_2)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">logdice</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(14 + \log_2 \bigl(2 O / (f_1 + f_2)\bigr)\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>logDice follows the definition of Rychlý (2008) with the corpus frequencies of
+the two words, and it is the default sort order.</p>
+</section>
+<section id="assumptions-and-interpretation">
+<h2>Assumptions and interpretation<a class="headerlink" href="#assumptions-and-interpretation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The table places a count of pairs next to marginal counts of tokens. It is
+an approximation, not a contingency table of one event space. G² and the
+t-score of a word sketch are therefore not comparable with those of the
+window-based <a class="reference internal" href="association-measures.html"><span class="std std-doc">collocation analysis</span></a>. logDice is
+the measure to compare across relations and nodes.</p></li>
+<li><p>The relations are the output of a statistical parser. Their accuracy
+depends on the pipeline and the text type. Check surprising rows in the
+concordance.</p></li>
+<li><p>A collocate can appear in a relation with the node itself, for example in
+coordinations such as <em>green tea, green tea</em>.</p></li>
+</ul>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<p>The word sketch of <em>tea</em> in the synthetic tea corpus, imported with
+<code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code> and <code class="docutils literal notranslate"><span class="pre">--enable-deps</span></code>, with the minimum set to 1 pair. The
+node form <em>tea</em> occurs 13 times (<span class="math notranslate nohighlight">\(f_1 = 13\)</span>), the corpus has <span class="math notranslate nohighlight">\(N = 162\)</span>
+tokens. To include the pairs below the interface minimum of 3, request this
+example through the <a class="reference internal" href="../guides/automate/use-the-http-api.html"><span class="std std-doc">HTTP API</span></a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-s<span class="w"> </span>-H<span class="w"> </span><span class="s1">'Content-Type: application/json'</span><span class="w"> </span>-H<span class="w"> </span><span class="s1">'Accept-Language: en'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">'{"corpus":"tea","term":"tea","min_freq":1}'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>http://127.0.0.1:8010/api/v1/analysis/wordsketch
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">tea</span></code> in the <code class="docutils literal notranslate"><span class="pre">corpus</span></code> field with the name registered for your imported
+tea corpus, and use the port printed when CandyConc starts. The response
+contains the rows under <code class="docutils literal notranslate"><span class="pre">sketches</span></code> and the counting settings under <code class="docutils literal notranslate"><span class="pre">method</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="cc-example-table table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Relation</p></th>
+<th class="head"><p>Collocate</p></th>
+<th class="head"><p>Pairs</p></th>
+<th class="head"><p>f(collocate)</p></th>
+<th class="head"><p>logDice</p></th>
+<th class="head"><p>G²</p></th>
+<th class="head"><p>t</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">amod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">green</span></code></p></td>
+<td><p>6</p></td>
+<td><p>6</p></td>
+<td><p>13.3370</p></td>
+<td><p>33.380</p></td>
+<td><p>2.253</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">amod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">black</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>11.1926</p></td>
+<td><p>5.118</p></td>
+<td><p>0.920</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">amod</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Hot</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>11.1926</p></td>
+<td><p>5.118</p></td>
+<td><p>0.920</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pobj_rev</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">of</span></code></p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p>12.8301</p></td>
+<td><p>16.576</p></td>
+<td><p>1.799</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">appos_rev</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tea</span></code></p></td>
+<td><p>2</p></td>
+<td><p>13</p></td>
+<td><p>11.2996</p></td>
+<td><p>0.854</p></td>
+<td><p>0.677</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dobj_rev</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">prefer</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>11.1926</p></td>
+<td><p>5.118</p></td>
+<td><p>0.920</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dobj_rev</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">drinks</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>11.1926</p></td>
+<td><p>5.118</p></td>
+<td><p>0.920</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dobj_rev</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">drink</span></code></p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>11.0931</p></td>
+<td><p>2.501</p></td>
+<td><p>0.840</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">compound_rev</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">wins</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>11.1926</p></td>
+<td><p>5.118</p></td>
+<td><p>0.920</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nsubj_rev</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">gaining</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>11.1926</p></td>
+<td><p>5.118</p></td>
+<td><p>0.920</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">prep</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">over</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>11.1926</p></td>
+<td><p>5.118</p></td>
+<td><p>0.920</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">prep</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">with</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>11.1926</p></td>
+<td><p>5.118</p></td>
+<td><p>0.920</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">compound</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Green</span></code></p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>11.1926</p></td>
+<td><p>5.118</p></td>
+<td><p>0.920</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">appos</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cup</span></code></p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+<td><p>10.7521</p></td>
+<td><p>0.499</p></td>
+<td><p>0.519</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Recomputed by hand for <code class="docutils literal notranslate"><span class="pre">amod</span></code> <em>green</em>: <span class="math notranslate nohighlight">\(O = 6\)</span>, <span class="math notranslate nohighlight">\(f_2 = 6\)</span>, so
+<span class="math notranslate nohighlight">\(\text{logDice} = 14 + \log_2 \bigl(12 / (13 + 6)\bigr) = 13.3370\)</span> and G²
+over <span class="math notranslate nohighlight">\([[6, 7], [0, 149]]\)</span> is 33.380. The relation <code class="docutils literal notranslate"><span class="pre">appos_rev</span></code> with <em>tea</em>
+itself comes from the repetition <em>Green tea, green tea, always green tea</em>.</p>
+<p>A row opens the same pairs as a dependency search in the concordance. In the
+English sample corpus, the word sketch of <em>freedom</em> lists <em>political</em> under
+<code class="docutils literal notranslate"><span class="pre">amod</span></code> with 5 pairs, and <code class="docutils literal notranslate"><span class="pre">[word=freedom]</span> <span class="pre">&gt;amod</span> <span class="pre">[word=political]</span></code> finds 5
+hits. The search finds heads, so a head with two dependents of the partner in
+the relation is two pairs and one line. See
+<a class="reference internal" href="../reference/query-language.html#dependency-relations"><span class="std std-ref">Query language</span></a> and
+<a class="reference internal" href="../concepts/from-numbers-to-lines.html#from-a-word-sketch-to-the-lines"><span class="std std-ref">From numbers to lines</span></a>.</p>
+</section>
+<section id="related-pages">
+<h2>Related pages<a class="headerlink" href="#related-pages" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../guides/count-and-measure/word-sketches.html"><span class="std std-doc">Make a word sketch</span></a></p></li>
+<li><p><a class="reference internal" href="association-measures.html"><span class="std std-doc">Association measures</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="n-grams-and-trends.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">N-grams and trends</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="semantic-similarity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Semantic similarity</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-counted">What is counted</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measures">Measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions-and-interpretation">Assumptions and interpretation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#related-pages">Related pages</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/methods/word-sketches.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

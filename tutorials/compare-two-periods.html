@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tutorial: compare two periods | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"loader": {"load": []}, "tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}, "svg": {"fontCache": "global"}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="../_static/mathjax/tex-svg.js?v=50970ec6"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/compare-two-periods';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Guides" href="../guides/index.html" />
+    <link rel="prev" title="Tutorial: from a search to evidence you can cite" href="explore-a-word.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Install and first steps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../get-started/install.html">Install CandyConc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get-started/first-results.html">Tutorial: from download to first result</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get-started/install-python-package.html">Install the Python package</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="explore-a-word.html">Tutorial: from a search to evidence you can cite</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Tutorial: compare two periods</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../get-started/index.html" class="nav-link">Get started</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Tutorial: compare two periods</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tutorial-compare-two-periods">
+<h1>Tutorial: compare two periods<a class="headerlink" href="#tutorial-compare-two-periods" title="Link to this heading">#</a></h1>
+<p>This tutorial compares the vocabulary of the early addresses in the English
+sample corpus, from 1945 to 1959, with that of the later ones, from 1961 to
+2006. You restrict the corpus to the early decades with a metadata filter,
+compute keyness against the rest of the corpus, read the columns of the
+result, and go back from a keyword to the concordance lines on both sides of
+the comparison.</p>
+<section id="before-you-begin">
+<h2>Before you begin<a class="headerlink" href="#before-you-begin" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Complete <a class="reference internal" href="../get-started/first-results.html"><span class="std std-doc">First results</span></a>, so that the
+sample corpus <code class="docutils literal notranslate"><span class="pre">sotu_en</span></code> is imported with its metadata field <code class="docutils literal notranslate"><span class="pre">decade</span></code> and
+CandyConc is running.</p></li>
+<li><p>Select <strong>sotu_en</strong> in the corpus selector in the top bar.</p></li>
+</ul>
+</section>
+<section id="step-1-restrict-the-corpus-to-the-early-decades">
+<h2>Step 1: Restrict the corpus to the early decades<a class="headerlink" href="#step-1-restrict-the-corpus-to-the-early-decades" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Click <strong>Filter / Subcorpus</strong> next to the search field.</p>
+<p>The panel <strong>Subcorpus filters</strong> opens. Under <strong>Metadata filters</strong> it
+shows one list for each metadata field with the values of the corpus.</p>
+</li>
+<li><p>In the list <strong>decade</strong>, select <strong>1940s</strong>, then hold <kbd>Command</kbd>
+(macOS) or <kbd>Control</kbd> (Linux) and select <strong>1950s</strong>.</p></li>
+<li><p>Click <strong>Apply metadata</strong>.</p></li>
+</ol>
+<p>The panel shows <strong>Subcorpus 14 docs · 108,308 tokens</strong>, and next to the
+search field the scope label reads <strong>SCOPE decade: 1940s, 1950s</strong>. Every
+search and analysis now runs on these 14 addresses until you reset the
+filter.</p>
+<ol class="arabic simple" start="4">
+<li><p>Press <kbd>Escape</kbd> to close the panel.</p></li>
+</ol>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/filter-decades.png"><img alt="Subcorpus filters with 1940s and 1950s selected in the field decade. The panel reports 14 docs and 108,308 tokens." src="../_images/filter-decades.png" style="width: 512px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The filter panel after <strong>Apply metadata</strong>. The size of the new scope stands at the top of the panel.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-2-compute-keyness-against-the-rest-of-the-corpus">
+<h2>Step 2: Compute keyness against the rest of the corpus<a class="headerlink" href="#step-2-compute-keyness-against-the-rest-of-the-corpus" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Click <strong>More</strong> in the tab bar.</p></li>
+<li><p>Choose <strong>Keyness</strong>.</p>
+<p>The view shows <strong>Scope: Subcorpus · sotu_en</strong>, so the active filter is the
+target. Under <strong>REFERENCE</strong>, <strong>Rest of the whole corpus</strong> is selected,
+which here is the 51 addresses from the 1960s to the 2000s.</p>
+</li>
+<li><p>Click the button <strong>Keyness</strong> to compute the table.</p></li>
+</ol>
+<p>CandyConc lists the words whose frequency differs most between the two
+sides, sorted by signed log-likelihood. The first rows are:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>WORD</p></th>
+<th class="head"><p>SIGNED LL</p></th>
+<th class="head"><p>LOG RATIO [CI]</p></th>
+<th class="head"><p>DIRECTION</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>of</p></td>
+<td><p>427.90</p></td>
+<td><p>0.55 (0.5 to 0.6)</p></td>
+<td><p>Target</p></td>
+</tr>
+<tr class="row-odd"><td><p>the</p></td>
+<td><p>288.81</p></td>
+<td><p>0.36 (0.3 to 0.4)</p></td>
+<td><p>Target</p></td>
+</tr>
+<tr class="row-even"><td><p>dollars</p></td>
+<td><p>278.00</p></td>
+<td><p>2.73 (2.4 to 3.1)</p></td>
+<td><p>Target</p></td>
+</tr>
+<tr class="row-odd"><td><p>1947</p></td>
+<td><p>255.11</p></td>
+<td><p>9.04 (5.0 to 13.0)</p></td>
+<td><p>Target</p></td>
+</tr>
+<tr class="row-even"><td><p>fiscal</p></td>
+<td><p>240.89</p></td>
+<td><p>3.01 (2.6 to 3.4)</p></td>
+<td><p>Target</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A note above the table reads <strong>160 of 500 candidates are marked as low
+reliability (expected cell frequency &lt; 5).</strong> For these words, an expected
+frequency in the contingency table is below 5, and the test statistic
+approximates the true distribution less well.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/keyness-decades.png"><img alt="Keyness table for the scope decade 1940s, 1950s against the rest of sotu_en, sorted by signed LL. The first rows are of, the, dollars, 1947, fiscal, expenditures, production, and during, below the note that 160 of 500 candidates are marked as low reliability." src="../_images/keyness-decades.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The first rows of the keyness table. <em>dollars</em> and <em>fiscal</em>, words of the budget messages, rank third and fifth.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="step-3-read-the-columns">
+<h2>Step 3: Read the columns<a class="headerlink" href="#step-3-read-the-columns" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>SIGNED LL</strong> is the log-likelihood statistic G² with the sign of the
+difference. A positive value means the word is relatively more frequent in
+the target. The table is sorted by this column. G² grows with the size of
+the difference and with the frequency of the word, which is why frequent
+function words such as <em>of</em> and <em>the</em> reach the top with small
+differences.</p></li>
+<li><p><strong>LOG RATIO [CI]</strong> is the binary logarithm of the ratio of the two
+relative frequencies, with its 95% confidence interval in parentheses. It measures the
+size of the difference: 2.73 for <em>dollars</em> means that the word is about
+<span class="math notranslate nohighlight">\(2^{2.73}\)</span>, or 6.6 times, as frequent per million words in the early addresses
+as in the later ones. For <em>1947</em>, which never occurs in the later
+addresses, the interval is wide.</p></li>
+<li><p><strong>P</strong> and <strong>Q (FDR)</strong> are the p-value and the p-value corrected for testing
+many words at once.</p></li>
+<li><p><strong>DIRECTION</strong> names the side on which the word is more frequent, with the
+difference in occurrences per million word tokens, for example
+<strong>TargetΔ 2,077.4/million</strong> for <em>dollars</em>.</p></li>
+</ul>
+<p>Several top words point to the budget messages of the Truman and Eisenhower
+years: <em>dollars</em>, <em>fiscal</em>, <em>expenditures</em>. The years <em>1945</em> to <em>1947</em> are
+keywords because the early addresses name them. Keyness measures a
+difference in frequency. Why a word differs is a question for the lines. See
+<a class="reference internal" href="../methods/keyness.html"><span class="std std-doc">Keyness</span></a> for the formulas and the definition of the
+word tokens that the rates divide by.</p>
+</section>
+<section id="step-4-go-back-to-the-lines-on-the-target-side">
+<h2>Step 4: Go back to the lines on the target side<a class="headerlink" href="#step-4-go-back-to-the-lines-on-the-target-side" title="Link to this heading">#</a></h2>
+<p>The target frequency of a keyword is the number of hits of the word in the
+target. The filter from step 1 is still active.</p>
+<ol class="arabic simple">
+<li><p>Click the tab <strong>KWIC</strong>.</p></li>
+<li><p>In the search field, enter <code class="docutils literal notranslate"><span class="pre">dollars</span></code>.</p></li>
+<li><p>Press <kbd>Enter</kbd>.</p></li>
+</ol>
+<p>The concordance shows <strong>236 hits</strong> in the 14 early addresses. Scroll through
+the lines: many of them state amounts of a budget, such as estimated receipts
+and expenditures in billions of dollars.</p>
+</section>
+<section id="step-5-go-back-to-the-lines-on-the-reference-side">
+<h2>Step 5: Go back to the lines on the reference side<a class="headerlink" href="#step-5-go-back-to-the-lines-on-the-reference-side" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Click <strong>Filter / Subcorpus</strong>.</p></li>
+<li><p>Click <strong>Reset</strong> at the top of the panel.</p></li>
+<li><p>In the list <strong>decade</strong>, select <strong>1960s</strong> and, holding <kbd>Command</kbd> or
+<kbd>Control</kbd>, also <strong>1970s</strong>, <strong>1980s</strong>, <strong>1990s</strong>, and <strong>2000s</strong>.</p></li>
+<li><p>Click <strong>Apply metadata</strong>. The panel shows
+<strong>Subcorpus 51 docs · 294,976 tokens</strong>.</p></li>
+<li><p>Press <kbd>Escape</kbd> to close the panel.</p></li>
+<li><p>Click in the search field.</p></li>
+<li><p>Press <kbd>Enter</kbd> to run <code class="docutils literal notranslate"><span class="pre">dollars</span></code> again.</p></li>
+</ol>
+<p>The concordance shows <strong>95 hits</strong>. The two counts, 236 and 95, are the
+frequencies that the keyness row for <em>dollars</em> compares. The target has
+108,308 tokens and the reference 294,976, which is why keyness compares
+rates and not the raw counts. The rates divide by the word tokens of each
+side, 96,498 and 258,007: 236 / 96,498 · 10⁶ = 2,445.6 and
+95 / 258,007 · 10⁶ = 368.2 per million. Their difference, 2,077.4, is the
+value in the column <strong>DIRECTION</strong>.</p>
+</section>
+<section id="step-6-return-to-the-whole-corpus">
+<h2>Step 6: Return to the whole corpus<a class="headerlink" href="#step-6-return-to-the-whole-corpus" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Click <strong>Filter / Subcorpus</strong>.</p></li>
+<li><p>Click <strong>Reset</strong>.</p></li>
+<li><p>Press <kbd>Escape</kbd> to close the panel.</p></li>
+</ol>
+<p>The scope label shows the whole corpus again, and <code class="docutils literal notranslate"><span class="pre">dollars</span></code> has
+<strong>331 hits</strong>, the sum of both sides.</p>
+</section>
+<section id="what-you-have-compared">
+<h2>What you have compared<a class="headerlink" href="#what-you-have-compared" title="Link to this heading">#</a></h2>
+<p>The keyness table compares two disjoint parts of one corpus, defined by the
+metadata field <code class="docutils literal notranslate"><span class="pre">decade</span></code>: 14 addresses with 108,308 tokens against 51
+addresses with 294,976 tokens. Each keyword row rests on two raw counts that
+you can open as concordance lines, as you did for <em>dollars</em>. The statistics
+in the row are derived from these counts and the word tokens of the two sides.</p>
+</section>
+<section id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The same steps compare groups instead of periods. Select a value of the
+field <code class="docutils literal notranslate"><span class="pre">party</span></code> in step 1, for example <strong>Republican</strong>, to compare Republican
+addresses with the rest.</p></li>
+<li><p>Compare the collocations of a word between two subcorpora:
+<a class="reference internal" href="../guides/count-and-measure/contrast.html"><span class="std std-doc">Contrast collocations and paired versions</span></a>.</p></li>
+<li><p>Save a scope under a name to reuse it:
+<a class="reference internal" href="../guides/narrow-the-scope/create-subcorpora.html"><span class="std std-doc">Create and reuse subcorpora</span></a>.</p></li>
+<li><p>How scope enters every number: <a class="reference internal" href="../concepts/scope.html"><span class="std std-doc">Scope, subcorpora, and document sets</span></a>.</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="explore-a-word.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tutorial: from a search to evidence you can cite</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../guides/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Guides</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-begin">Before you begin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-restrict-the-corpus-to-the-early-decades">Step 1: Restrict the corpus to the early decades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-compute-keyness-against-the-rest-of-the-corpus">Step 2: Compute keyness against the rest of the corpus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-read-the-columns">Step 3: Read the columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-go-back-to-the-lines-on-the-target-side">Step 4: Go back to the lines on the target side</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-go-back-to-the-lines-on-the-reference-side">Step 5: Go back to the lines on the reference side</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-return-to-the-whole-corpus">Step 6: Return to the whole corpus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-have-compared">What you have compared</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next steps</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/tutorials/compare-two-periods.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

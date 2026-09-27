@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Query language | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/query-language';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Command line reference" href="cli.html" />
+    <link rel="prev" title="Reference" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Query language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http-api.html">HTTP API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input-formats.html">Input formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index-format.html">Index format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export-formats.html">Export formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-files.html">Project files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-platforms.html">Supported platforms and requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages.html">Languages and annotation pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Query language</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="query-language">
+<h1>Query language<a class="headerlink" href="#query-language" title="Link to this heading">#</a></h1>
+<p>CandyConc accepts two kinds of queries in the search bar and in the <code class="docutils literal notranslate"><span class="pre">term</span></code>
+parameter of the HTTP API:</p>
+<ul class="simple">
+<li><p><strong>Plain search</strong>, for words, wildcards, phrases, and simple combinations.
+It ignores case.</p></li>
+<li><p><strong>The CandyConc query language</strong>, a CQP-style language with token
+conditions in square brackets, sequences, repetition, sentence and document
+scope, and metadata conditions. It respects case unless you add <code class="docutils literal notranslate"><span class="pre">%c</span></code>.</p></li>
+</ul>
+<p>This page describes both as they are implemented. Every example on this page was run
+on one of the sample corpora, and the result under it is the recorded hit
+count and document count. How the examples are checked is described in
+<a class="reference internal" href="../contribute/documentation.html"><span class="std std-doc">Documentation maintenance</span></a>. For the concepts
+behind hits and counts, see <a class="reference internal" href="../concepts/queries-and-hits.html"><span class="std std-doc">Queries and hits</span></a>.</p>
+<p>The examples use three corpora:</p>
+<ul class="simple">
+<li><p>the <strong>State of the Union sample corpus</strong>: 65 addresses from 1945 to 2006,
+403,284 tokens, imported with <code class="docutils literal notranslate"><span class="pre">--language</span> <span class="pre">en</span></code> as in
+<a class="reference internal" href="../get-started/first-results.html"><span class="std std-doc">First results</span></a>, which annotates with
+<code class="docutils literal notranslate"><span class="pre">en_core_web_md</span></code> including dependency relations, metadata fields
+<code class="docutils literal notranslate"><span class="pre">president</span></code>, <code class="docutils literal notranslate"><span class="pre">party</span></code>, <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">decade</span></code>, <code class="docutils literal notranslate"><span class="pre">date</span></code>, and <code class="docutils literal notranslate"><span class="pre">title</span></code>,</p></li>
+<li><p>the <strong>German DTA sample corpus</strong>: 30 texts from the Deutsches Textarchiv,
+1800 to 1899, 624,227 tokens, annotated with <code class="docutils literal notranslate"><span class="pre">de_core_news_md</span></code> including
+dependency relations, metadata fields <code class="docutils literal notranslate"><span class="pre">author</span></code>, <code class="docutils literal notranslate"><span class="pre">title</span></code>, <code class="docutils literal notranslate"><span class="pre">year</span></code>, <code class="docutils literal notranslate"><span class="pre">decade</span></code>,
+<code class="docutils literal notranslate"><span class="pre">genre</span></code>, <code class="docutils literal notranslate"><span class="pre">subgenre</span></code>, and <code class="docutils literal notranslate"><span class="pre">url</span></code>,</p></li>
+<li><p>the <strong>synthetic tea corpus</strong>: 8 short documents written for the worked
+examples, 162 tokens, see <a class="reference internal" href="../methods/worked-examples.html"><span class="std std-doc">Worked examples</span></a>.</p></li>
+</ul>
+<p>Part-of-speech values in the examples are Universal Dependencies tags, which
+is what a spaCy import stores. See
+<a class="reference internal" href="../concepts/languages-and-annotation.html"><span class="std std-doc">Languages and annotation</span></a>.</p>
+<section id="how-candyconc-tells-the-two-apart">
+<h2>How CandyConc tells the two apart<a class="headerlink" href="#how-candyconc-tells-the-two-apart" title="Link to this heading">#</a></h2>
+<p>An input is read as the query language when</p>
+<ul class="simple">
+<li><p>it starts with <code class="docutils literal notranslate"><span class="pre">cql:</span></code>, or</p></li>
+<li><p>it starts with a token condition in square brackets that contains a quoted
+value or is the empty condition <code class="docutils literal notranslate"><span class="pre">[]</span></code>, or</p></li>
+<li><p>it starts with <code class="docutils literal notranslate"><span class="pre">within(</span></code> or <code class="docutils literal notranslate"><span class="pre">where(</span></code>, or with the keyword <code class="docutils literal notranslate"><span class="pre">within</span></code> or
+<code class="docutils literal notranslate"><span class="pre">where</span></code> followed by <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">(</span></code>, <code class="docutils literal notranslate"><span class="pre">[</span></code>, or a quote, for example <code class="docutils literal notranslate"><span class="pre">within</span> <span class="pre">&lt;s&gt;</span></code>.</p></li>
+</ul>
+<p>Everything else is plain search. The words <em>where</em> and <em>within</em> alone, or
+followed by other words, are plain search for these words. <code class="docutils literal notranslate"><span class="pre">[lemma=&quot;freedom&quot;]</span></code> is therefore read as the
+query language, and <code class="docutils literal notranslate"><span class="pre">[lemma=freedom]</span></code> without quotes is plain search:</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>[lemma="freedom"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>499 hits in 62 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>[lemma=freedom]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>499 hits in 62 documents (State of the Union sample corpus).</p>
+<p>In parameters of analyses, for example the node of a collocation analysis,
+write the prefix <code class="docutils literal notranslate"><span class="pre">cql:</span></code> explicitly.</p>
+</section>
+<section id="plain-search">
+<h2>Plain search<a class="headerlink" href="#plain-search" title="Link to this heading">#</a></h2>
+<section id="words-and-case">
+<h3>Words and case<a class="headerlink" href="#words-and-case" title="Link to this heading">#</a></h3>
+<p>A single word finds all tokens whose word form is equal to it in lowercase.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>freedom
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>495 hits in 62 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>Freedom
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>495 hits in 62 documents (State of the Union sample corpus).</p>
+<p>Plain search ignores case by default. The HTTP API accepts
+<code class="docutils literal notranslate"><span class="pre">case_insensitive=false</span></code> for a case-sensitive plain search.</p>
+</section>
+<section id="wildcards">
+<h3>Wildcards<a class="headerlink" href="#wildcards" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">*</span></code> stands for any sequence of characters, including none, and <code class="docutils literal notranslate"><span class="pre">?</span></code> for
+exactly one character. The pattern must match the whole word form.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>free*
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>1,005 hits in 64 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>defen?e
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>346 hits in 56 documents (State of the Union sample corpus).</p>
+</section>
+<section id="regular-expressions">
+<h3>Regular expressions<a class="headerlink" href="#regular-expressions" title="Link to this heading">#</a></h3>
+<p>A pattern between slashes is a regular expression over word forms. It must
+match the whole word form and ignores case.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>/liber.*/
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>129 hits in 51 documents (State of the Union sample corpus).</p>
+<p>Plain search splits its input at parentheses, so a regular expression with a
+group such as <code class="docutils literal notranslate"><span class="pre">/liber(ty|ties)/</span></code> is not accepted. Write it with the <code class="docutils literal notranslate"><span class="pre">~</span></code>
+operator of the query language instead, as shown in
+<a class="reference internal" href="#operators">Operators</a>.</p>
+</section>
+<section id="phrases">
+<h3>Phrases<a class="headerlink" href="#phrases" title="Link to this heading">#</a></h3>
+<p>Words in double quotes form a phrase: consecutive tokens with these word
+forms, compared without regard to case, within one document.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>"the American people"
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>209 hits in 56 documents (State of the Union sample corpus).</p>
+<p>Several words without quotes are not a phrase. The query is rejected, and the
+message shows the query-language form of the sequence.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>the people
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>rejected with a diagnostic (State of the Union sample corpus).</p>
+</section>
+<section id="and-or-not">
+<h3>AND, OR, NOT<a class="headerlink" href="#and-or-not" title="Link to this heading">#</a></h3>
+<p>The operators combine sets of token positions. They are written in capital
+letters.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OR</span></code> finds tokens that match either side.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AND</span></code> finds tokens that match both sides at the same position. It combines
+conditions on one token, for example a word form and a part of speech.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NOT</span></code> finds every token that does not match, punctuation included.</p></li>
+</ul>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>freedom OR liberty
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>575 hits in 64 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>freedom AND [pos=NOUN]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>486 hits in 62 documents (State of the Union sample corpus).</p>
+<p><code class="docutils literal notranslate"><span class="pre">NOT</span></code> binds more strongly than <code class="docutils literal notranslate"><span class="pre">AND</span></code>, and <code class="docutils literal notranslate"><span class="pre">AND</span></code> more strongly than <code class="docutils literal notranslate"><span class="pre">OR</span></code>. Use
+parentheses to group.</p>
+</section>
+<section id="near">
+<h3>NEAR<a class="headerlink" href="#near" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">NEAR/n</span> <span class="pre">B</span></code> finds the tokens of <code class="docutils literal notranslate"><span class="pre">A</span></code> that have a token of <code class="docutils literal notranslate"><span class="pre">B</span></code> within <code class="docutils literal notranslate"><span class="pre">n</span></code>
+tokens to the left or right in the same document, and the tokens of <code class="docutils literal notranslate"><span class="pre">B</span></code> that
+have a token of <code class="docutils literal notranslate"><span class="pre">A</span></code> within that distance. Both words count as hits.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>freedom NEAR/5 peace
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>106 hits in 31 documents (State of the Union sample corpus).</p>
+</section>
+<section id="attribute-conditions">
+<h3>Attribute conditions<a class="headerlink" href="#attribute-conditions" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">[attribute=value]</span></code> without quotes matches the exact value of an attribute.
+The attributes are those of the corpus: <code class="docutils literal notranslate"><span class="pre">word</span></code>, <code class="docutils literal notranslate"><span class="pre">lemma</span></code>, <code class="docutils literal notranslate"><span class="pre">pos</span></code>, <code class="docutils literal notranslate"><span class="pre">morph</span></code>, and,
+when the corpus has them, <code class="docutils literal notranslate"><span class="pre">ent</span></code> and <code class="docutils literal notranslate"><span class="pre">rel</span></code>. See
+<a class="reference internal" href="../concepts/corpus-index.html"><span class="std std-doc">The corpus index</span></a>.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>[lemma=freedom]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>499 hits in 62 documents (State of the Union sample corpus).</p>
+</section>
+<section id="dependency-relations">
+<h3>Dependency relations<a class="headerlink" href="#dependency-relations" title="Link to this heading">#</a></h3>
+<p>On a corpus with dependency relations, <code class="docutils literal notranslate"><span class="pre">HEAD</span> <span class="pre">&gt;relation</span> <span class="pre">DEPENDENT</span></code> finds heads
+that have a dependent with the given relation, and
+<code class="docutils literal notranslate"><span class="pre">DEPENDENT</span> <span class="pre">&lt;relation</span> <span class="pre">HEAD</span></code> states the same from the other side. Both sides
+can be words, which are compared without regard to case, or attribute
+conditions. The hit is the head.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>defend &gt;dobj freedom
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>12 hits in 10 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>freedom &gt;amod political
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>5 hits in 5 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>[pos=VERB] &gt;nsubj [lemma=freedom]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>17 hits in 15 documents (State of the Union sample corpus).</p>
+<p>The relation names are the labels of the annotation pipeline, for example
+<code class="docutils literal notranslate"><span class="pre">nsubj</span></code>, <code class="docutils literal notranslate"><span class="pre">dobj</span></code>, and <code class="docutils literal notranslate"><span class="pre">amod</span></code> for the English pipelines.</p>
+</section>
+</section>
+<section id="the-query-language">
+<h2>The query language<a class="headerlink" href="#the-query-language" title="Link to this heading">#</a></h2>
+<section id="grammar">
+<h3>Grammar<a class="headerlink" href="#grammar" title="Link to this heading">#</a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>query       := alternative ( "|" alternative )*
+alternative := term+
+term        := factor quantifier?
+quantifier  := "?" | "*" | "+" | "{" m "}" | "{" m "," n "}" | "{" m ",}" | "{," n "}"
+factor      := "[" condition ( "&amp;" condition )* "]"
+             | "[]"
+             | "(" query ")"
+             | "within(" "&lt;s&gt;" "," query ")"
+             | "within(" "&lt;doc&gt;" "," query ")"
+             | "where(" meta_or "," query ")"
+condition   := attribute ( "=" | "!=" | "~" ) value flag?
+             | attribute "in" "{" value ( "," value )* "}" flag?
+flag        := "%c"
+meta_or     := meta_and ( "|" meta_and )*
+meta_and    := meta_atom ( "&amp;" meta_atom )*
+meta_atom   := "(" meta_or ")" | field ( "=" | "!=" ) meta_value
+meta_value  := value | "{" value ( "," value )* "}"
+value       := a string in double quotes | a number
+</pre></div>
+</div>
+<p>Inside a string, <code class="docutils literal notranslate"><span class="pre">\&quot;</span></code> is a double quote and <code class="docutils literal notranslate"><span class="pre">\\</span></code> a backslash. Every other
+backslash sequence is passed to the regular expression unchanged, so <code class="docutils literal notranslate"><span class="pre">\.</span></code>
+matches a literal full stop.</p>
+</section>
+<section id="token-conditions">
+<h3>Token conditions<a class="headerlink" href="#token-conditions" title="Link to this heading">#</a></h3>
+<p>A token condition in square brackets describes one token. <code class="docutils literal notranslate"><span class="pre">[]</span></code> matches any
+token.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[word="freedom"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>481 hits in 62 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[word="Freedom"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>14 hits in 9 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="freedom"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>499 hits in 62 documents (State of the Union sample corpus).</p>
+<p>Several conditions on the same token are joined with <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>:</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="freedom" &amp; morph~".*Number=Plur.*"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>12 hits in 9 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="freedom" &amp; rel="nsubj"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>39 hits in 24 documents (State of the Union sample corpus).</p>
+<p>The attributes are the token attributes of the corpus:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Available</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">word</span></code>, <code class="docutils literal notranslate"><span class="pre">lemma</span></code>, <code class="docutils literal notranslate"><span class="pre">pos</span></code>, <code class="docutils literal notranslate"><span class="pre">morph</span></code></p></td>
+<td><p>in every corpus</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rel</span></code></p></td>
+<td><p>in corpora imported with dependency relations</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ent</span></code></p></td>
+<td><p>in corpora imported with named entities</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>An attribute that the corpus does not have is rejected:</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[ent="PERSON"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>rejected with a diagnostic (State of the Union sample corpus).</p>
+<p>A value of <code class="docutils literal notranslate"><span class="pre">pos</span></code> that does not occur in the corpus is rejected, and the
+message lists the tags that occur. This catches, for example, an STTS tag on
+a corpus with Universal Dependencies tags:</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[pos="NN"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>rejected with a diagnostic (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[pos="ADJA"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>rejected with a diagnostic (German DTA sample corpus).</p>
+</section>
+<section id="operators">
+<span id="id1"></span><h3>Operators<a class="headerlink" href="#operators" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operator</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">=</span></code></p></td>
+<td><p>The value equals the string. If the string contains an unescaped regular expression character (<code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">*</span> <span class="pre">+</span> <span class="pre">?</span> <span class="pre">|</span> <span class="pre">(</span> <span class="pre">)</span> <span class="pre">[</span> <span class="pre">]</span> <span class="pre">{</span> <span class="pre">}</span> <span class="pre">^</span> <span class="pre">$</span></code>), it is a regular expression, as in CQP.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td><p>The value does not equal the string. The string is compared as it is. A string with an unescaped regular expression character is rejected, because a negated regular expression is not executed.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+<td><p>The value matches the regular expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">{…}</span></code></p></td>
+<td><p>The value equals one of the strings in the set.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Regular expressions use Python syntax and must match the whole value.
+Escape a character with a backslash to match it literally.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[word="free.*"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>965 hits in 64 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[word~"liber(ty|ties)"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>85 hits in 43 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma in {"freedom","liberty"}]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>584 hits in 64 documents (State of the Union sample corpus).</p>
+<p><code class="docutils literal notranslate"><span class="pre">!=</span></code> is often used next to other conditions. Here it excludes punctuation
+after <em>freedom</em>:</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="freedom"] [pos!="PUNCT"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>312 hits in 59 documents (State of the Union sample corpus).</p>
+<p>A regular expression that matches more than 200,000 distinct values or more
+than 5,000,000 tokens is rejected when concordance lines are requested. The
+limits are set with <code class="docutils literal notranslate"><span class="pre">CANDYCONC_MAX_REGEX_TYPES</span></code> and <code class="docutils literal notranslate"><span class="pre">CANDYCONC_MAX_REGEX_FREQ</span></code>.</p>
+</section>
+<section id="the-flag-c">
+<h3>The flag %c<a class="headerlink" href="#the-flag-c" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">%c</span></code> after a value compares without regard to case. It works with <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>,
+<code class="docutils literal notranslate"><span class="pre">in</span></code>, and <code class="docutils literal notranslate"><span class="pre">~</span></code>. Case-insensitive comparison uses Unicode lowercase mapping, so
+the German <em>ß</em> and <em>ss</em> stay different.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[word="freedom"%c]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>495 hits in 62 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="FREEDOM"%c]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>507 hits in 62 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma in {"Freedom","LIBERTY"}%c]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>595 hits in 64 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[word~"liber(ty|ties)"%c]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>88 hits in 43 documents (State of the Union sample corpus).</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">%c</span></code> excludes every spelling of the value. The result is the same
+as one <code class="docutils literal notranslate"><span class="pre">!=</span></code> condition per spelling, joined with <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>:</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="defend"] [word!="freedom"%c]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>64 hits in 33 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="defend"] [word!="freedom" &amp; word!="Freedom"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>64 hits in 33 documents (State of the Union sample corpus).</p>
+<p>The flag <code class="docutils literal notranslate"><span class="pre">%d</span></code> of CQP, which ignores diacritics, is rejected. To match variants
+with and without a diacritic, write a character class that contains both:</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[word="freedom"%d]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>rejected with a diagnostic (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[word~".*fl[uü]cht.*"%c]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>63 hits in 19 documents (German DTA sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[word~".*flucht.*"%c]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>30 hits in 14 documents (German DTA sample corpus).</p>
+</section>
+<section id="sequences">
+<h3>Sequences<a class="headerlink" href="#sequences" title="Link to this heading">#</a></h3>
+<p>Token conditions written one after the other match consecutive tokens.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[pos="ADJ"] [lemma="freedom"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>67 hits in 35 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="freedom"] [word="of"] [pos="NOUN"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>17 hits in 12 documents (State of the Union sample corpus).</p>
+<p>A hit that covers several tokens is shown whole in the column <strong>NODE</strong> of
+the concordance, for example <em>political freedom</em>. One token of the hit is its
+node: the first token of the pattern that has a fixed word or lemma value,
+here <em>freedom</em>. The position at the start of the line and the column <code class="docutils literal notranslate"><span class="pre">pos</span></code>
+of an export refer to the node. See
+<a class="reference internal" href="../concepts/queries-and-hits.html#the-concordance-line"><span class="std std-ref">Queries and hits</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[]</span></code> is one arbitrary token:</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="defend"] [] [lemma="freedom"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>8 hits in 7 documents (State of the Union sample corpus).</p>
+</section>
+<section id="repetition">
+<h3>Repetition<a class="headerlink" href="#repetition" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Quantifier</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
+<td><p>zero or one time</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>zero or more times</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>one or more times</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{m}</span></code></p></td>
+<td><p>exactly <code class="docutils literal notranslate"><span class="pre">m</span></code> times</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{m,n}</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">m</span></code> to <code class="docutils literal notranslate"><span class="pre">n</span></code> times</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">{m,}</span></code></p></td>
+<td><p>at least <code class="docutils literal notranslate"><span class="pre">m</span></code> times</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">{,n}</span></code></p></td>
+<td><p>zero to <code class="docutils literal notranslate"><span class="pre">n</span></code> times</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="defend"] []{0,3} [lemma="freedom"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>17 hits in 14 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="freedom"] [word="and"]? [lemma="justice"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>5 hits in 4 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[pos="ADJ"]+ [lemma="freedom"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>67 hits in 35 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="free"] [pos="NOUN"]{1,2}
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>290 hits in 53 documents (State of the Union sample corpus).</p>
+<p>A single repetition count is limited to 256. Nested repetitions are rejected
+when they would expand to more than 2,000 token instances, a limit set with
+<code class="docutils literal notranslate"><span class="pre">CQLHPC_MAX_QUANT_EXPANSION</span></code>.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[]{300}
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>rejected with a diagnostic (State of the Union sample corpus).</p>
+</section>
+<section id="alternatives-and-grouping">
+<h3>Alternatives and grouping<a class="headerlink" href="#alternatives-and-grouping" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">|</span></code> separates alternatives, and parentheses group:</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:([lemma="freedom"] | [lemma="liberty"]) [word="of"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>40 hits in 23 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="freedom"] ([word="and"] | [word="or"]) [pos="NOUN"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>52 hits in 33 documents (State of the Union sample corpus).</p>
+</section>
+<section id="which-hits-are-counted">
+<h3>Which hits are counted<a class="headerlink" href="#which-hits-are-counted" title="Link to this heading">#</a></h3>
+<p>Hits do not overlap. The engine takes the longest match that starts at the
+leftmost possible position and continues after its end. A pattern with a
+wider gap can therefore find fewer hits than a pattern with a narrower gap:</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[word="green"%c] []{0,1} [word="tea"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>7 hits in 4 documents (synthetic tea corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[word="green"%c] []{0,4} [word="tea"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>6 hits in 4 documents (synthetic tea corpus).</p>
+<p><a class="reference internal" href="../concepts/queries-and-hits.html"><span class="std std-doc">Queries and hits</span></a> explains this example.</p>
+</section>
+<section id="sentence-and-document-scope">
+<h3>Sentence and document scope<a class="headerlink" href="#sentence-and-document-scope" title="Link to this heading">#</a></h3>
+<p>A pattern does not cross a sentence boundary unless you ask for it.
+<code class="docutils literal notranslate"><span class="pre">within(&lt;s&gt;,</span> <span class="pre">...)</span></code> states the default, and <code class="docutils literal notranslate"><span class="pre">within(&lt;doc&gt;,</span> <span class="pre">...)</span></code> lets a match
+span several sentences of one document.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="freedom"] []{0,30} [lemma="peace"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>22 hits in 14 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:within(&lt;s&gt;, [lemma="freedom"] []{0,30} [lemma="peace"])
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>22 hits in 14 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:within(&lt;doc&gt;, [lemma="freedom"] []{0,30} [lemma="peace"])
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>45 hits in 27 documents (State of the Union sample corpus).</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;s&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;doc&gt;</span></code> are the only regions. Other structural regions of CQP, such
+as paragraphs, are not part of the index.</p>
+</section>
+<section id="metadata-conditions">
+<h3>Metadata conditions<a class="headerlink" href="#metadata-conditions" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">where(condition,</span> <span class="pre">query)</span></code> keeps the hits of the query in documents whose
+metadata satisfy the condition. Conditions compare a metadata field with <code class="docutils literal notranslate"><span class="pre">=</span></code>
+or <code class="docutils literal notranslate"><span class="pre">!=</span></code>, a set of values in braces means any of them, and conditions are
+combined with <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (and) and <code class="docutils literal notranslate"><span class="pre">|</span></code> (or).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:where(party="Republican", [lemma="freedom"])
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>329 hits in 33 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:where(party!="Republican", [lemma="freedom"])
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>170 hits in 29 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:where(decade="1980s" | decade="1990s", [lemma="freedom"])
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>157 hits in 20 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:where(party="Republican" &amp; decade="1980s", [lemma="freedom"])
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>99 hits in 8 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:where(party={"Republican","Democratic"}, [lemma="freedom"])
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>499 hits in 62 documents (State of the Union sample corpus).</p>
+<p><code class="docutils literal notranslate"><span class="pre">where(...)</span></code> can enclose <code class="docutils literal notranslate"><span class="pre">within(...)</span></code>:</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:where(president="Ronald Reagan", within(&lt;s&gt;, [lemma="freedom"] []{0,5} [lemma="peace"]))
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>3 hits in 3 documents (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:where(genre="Wissenschaft", [lemma="Freiheit"])
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>26 hits in 6 documents (German DTA sample corpus).</p>
+<p>Rules for <code class="docutils literal notranslate"><span class="pre">where(...)</span></code>:</p>
+<ul class="simple">
+<li><p>It must enclose the whole query. A <code class="docutils literal notranslate"><span class="pre">where(...)</span></code> inside an alternative is
+rejected.</p></li>
+<li><p>The import stores metadata values as strings, so only <code class="docutils literal notranslate"><span class="pre">=</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code> can be
+used. A comparison such as <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> is rejected.</p></li>
+<li><p>A value with leading or trailing spaces is trimmed, and an empty value or an
+empty set is rejected.</p></li>
+<li><p>The corpus needs a metadata index. Without one, the query is rejected
+instead of counting the whole corpus.</p></li>
+</ul>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:where(year&gt;="1990", [lemma="freedom"])
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>rejected with a diagnostic (State of the Union sample corpus).</p>
+</section>
+<section id="similar-words">
+<h3>Similar words<a class="headerlink" href="#similar-words" title="Link to this heading">#</a></h3>
+<p>The operator <code class="docutils literal notranslate"><span class="pre">sim</span></code> stands for a set of word forms that are similar in meaning
+to a given word. <code class="docutils literal notranslate"><span class="pre">sim(&quot;freedom&quot;)</span></code> is short for <code class="docutils literal notranslate"><span class="pre">[sim=&quot;freedom&quot;]</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">[sim=&quot;freedom&quot;&amp;k=30]</span></code> asks for up to 30 neighbors instead of the default 20.
+Before the query runs, CandyConc replaces the operator with
+<code class="docutils literal notranslate"><span class="pre">word</span> <span class="pre">in</span> <span class="pre">{…}</span></code> and the neighbors it found:</p>
+<ul class="simple">
+<li><p>The neighbors are word forms that occur in the corpus, with a cosine
+similarity of at least 0.55 to the given word, excluding stop words and
+forms without letters.</p></li>
+<li><p>The vectors come from the corpus: from its word similarity index, if it
+has one, or else from the static word vectors of the pipeline that
+annotated it, for example <code class="docutils literal notranslate"><span class="pre">en_core_web_md</span></code> for a corpus imported with
+<code class="docutils literal notranslate"><span class="pre">--language</span> <span class="pre">en</span></code>. A corpus annotated with an <code class="docutils literal notranslate"><span class="pre">_sm</span></code> pipeline or with
+<code class="docutils literal notranslate"><span class="pre">blank:</span></code> has no word vectors. A query with <code class="docutils literal notranslate"><span class="pre">sim</span></code> on such a corpus is
+rejected with status 422 and the code <code class="docutils literal notranslate"><span class="pre">word_vectors.unavailable</span></code>, and the
+message names the reason, for example a pipeline without static vectors.
+When the corpus records a pipeline with vectors that is not installed on
+the server, the status is 503 with the code <code class="docutils literal notranslate"><span class="pre">word_vectors.service_error</span></code>,
+and the message names the command that installs it. See
+<a class="reference internal" href="languages.html#word-vectors"><span class="std std-ref">Word vectors</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k</span></code> is limited to 2,000.</p></li>
+</ul>
+<p>The set also contains the given word itself. The result depends on the vectors
+and is therefore not part of the recorded examples. The <code class="docutils literal notranslate"><span class="pre">_md</span></code> pipelines give
+many words the same vector, so the set can be large: on the State of the
+Union sample corpus, <code class="docutils literal notranslate"><span class="pre">sim(&quot;freedom&quot;)</span></code> finds 2,172 hits, and the neighbors
+<em>harmony</em>, <em>world</em>, <em>life</em>, and <em>ideals</em> all have the similarity 1.0 to
+<em>freedom</em>.</p>
+</section>
+<section id="diagnostics">
+<h3>Diagnostics<a class="headerlink" href="#diagnostics" title="Link to this heading">#</a></h3>
+<p>A malformed query is rejected with a message that names the problem and its
+position. CandyConc does not fall back to a looser search.</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[lemma="freedom"
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>rejected with a diagnostic (State of the Union sample corpus).</p>
+<div class="cc-query highlight-text notranslate"><div class="highlight"><pre><span></span>cql:[word&gt;"a"]
+</pre></div>
+</div>
+<p class="cc-query-result"><strong>Result: </strong>rejected with a diagnostic (State of the Union sample corpus).</p>
+<p>The server writes its messages in the language of the web interface,
+English or German. Over the HTTP API, the header <code class="docutils literal notranslate"><span class="pre">Accept-Language</span></code> chooses
+the language, and without it the messages are German.</p>
+</section>
+</section>
+<section id="differences-from-cqp">
+<h2>Differences from CQP<a class="headerlink" href="#differences-from-cqp" title="Link to this heading">#</a></h2>
+<p>The query language follows the syntax of the CQP query language of the IMS
+Open Corpus Workbench for token conditions, sequences, and repetition. These
+parts of CQP are not supported:</p>
+<ul class="simple">
+<li><p>the flag <code class="docutils literal notranslate"><span class="pre">%d</span></code> and flags other than <code class="docutils literal notranslate"><span class="pre">%c</span></code>,</p></li>
+<li><p>comparisons of token values with <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>,</p></li>
+<li><p>structural regions other than sentences and documents, and region
+conditions such as <code class="docutils literal notranslate"><span class="pre">&lt;s&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;/s&gt;</span></code> inside a pattern,</p></li>
+<li><p>labels, target markers, and global constraints that refer to labels,</p></li>
+<li><p>the CQP command language around queries, such as named query results,
+<code class="docutils literal notranslate"><span class="pre">sort</span></code>, <code class="docutils literal notranslate"><span class="pre">count</span></code>, <code class="docutils literal notranslate"><span class="pre">set</span></code>, or subqueries.</p></li>
+</ul>
+<p>Metadata conditions use <code class="docutils literal notranslate"><span class="pre">where(...)</span></code> instead of the <code class="docutils literal notranslate"><span class="pre">::</span></code> global constraints
+of CQP.</p>
+</section>
+<section id="contract-of-the-query-engine">
+<h2>Contract of the query engine<a class="headerlink" href="#contract-of-the-query-engine" title="Link to this heading">#</a></h2>
+<p>The query engine declares, construct by construct, what it supports. The
+declaration classifies the constructs by the levels of the CQLF metamodel
+(ISO 24623-1) and states the current level as <code class="docutils literal notranslate"><span class="pre">2-</span></code>, that is, the constructs
+of level 1 and part of level 2. The interface uses this declaration for
+autocompletion and diagnostics, and the server publishes it as
+<code class="docutils literal notranslate"><span class="pre">cqlf_capability_contract</span></code> at <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/capabilities</span></code>. The following
+table is generated from it.</p>
+<!-- Generated by docs/_tools/generate_query_contract.py from cqlhpc/capabilities.py. Do not edit. -->
+<p>Contract version <code class="docutils literal notranslate"><span class="pre">cqlf-capabilities-v1</span></code>, declared level <code class="docutils literal notranslate"><span class="pre">2-</span></code>, fingerprint <code class="docutils literal notranslate"><span class="pre">fc360380bb40</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Construct</p></th>
+<th class="head"><p>Level</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Execution</p></th>
+<th class="head"><p>Tests</p></th>
+<th class="head"><p>Operators or attributes</p></th>
+<th class="head"><p>Limits and requirements</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Token clauses (<code class="docutils literal notranslate"><span class="pre">cqlf.level1.token_clause</span></code>)</p></td>
+<td><p>1</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Core token attributes (<code class="docutils literal notranslate"><span class="pre">cqlf.level1.token_attributes.core</span></code>)</p></td>
+<td><p>1</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">word</span></code>, <code class="docutils literal notranslate"><span class="pre">lemma</span></code>, <code class="docutils literal notranslate"><span class="pre">pos</span></code></p></td>
+<td><p>Corpus/index must expose the queried attribute. Requires: Fast Index token attributes</p></td>
+</tr>
+<tr class="row-even"><td><p>Equality operator (<code class="docutils literal notranslate"><span class="pre">cqlf.level1.operator.equals</span></code>)</p></td>
+<td><p>1</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">=</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Token sequences (<code class="docutils literal notranslate"><span class="pre">cqlf.level1.sequence</span></code>)</p></td>
+<td><p>1</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Extended token attributes (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.token_attributes.extended</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>supported</p></td>
+<td><p>partial</p></td>
+<td><p>partial</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ent</span></code>, <code class="docutils literal notranslate"><span class="pre">ner</span></code></p></td>
+<td><p>Extended attributes are optional and corpus-specific. Requires: Corpus/index must expose the queried extended attribute.</p></td>
+</tr>
+<tr class="row-odd"><td><p>KWIC rendering for CQL hits (<code class="docutils literal notranslate"><span class="pre">cqlf.level1.kwic</span></code>)</p></td>
+<td><p>1</p></td>
+<td><p>not_applicable</p></td>
+<td><p>supported</p></td>
+<td><p>partial</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Negated equality operator (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.operator.not_equals</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td><p>A value with an unescaped regular expression character is rejected: a negated regular expression is not executed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Regex token operator (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.operator.regex</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>supported</p></td>
+<td><p>partial</p></td>
+<td><p>partial</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+<td><p>Regex execution is bounded by max type and max frequency limits. Requires: Fast Index lexicon regex lookup</p></td>
+</tr>
+<tr class="row-even"><td><p>Case-insensitive value flag (%c) (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.case_insensitive_flag</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">in</span></code>, <code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+<td><p>Applies to =, !=, in and ~ (regex). With != it excludes every spelling of the value. %d (diacritic fold) is rejected at parse time and never silently collapsed to %c.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Semantic similarity macro (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.semantic_similarity_macro</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>supported</p></td>
+<td><p>partial</p></td>
+<td><p>partial</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sim</span></code></p></td>
+<td><p>Expanded to a concrete word-in set before CQLHPC execution. Requires: CandyConc sim macro expansion Requires: Semantic search artifacts</p></td>
+</tr>
+<tr class="row-even"><td><p>Set membership operator (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.operator.in_set</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">in</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Empty token clause (any token) (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.token_clause.any_token</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Conjunctive token conditions (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.token_clause.conjunction</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Grouping (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.grouping</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Alternation (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.alternation</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Quantifiers and bounded gaps (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.quantifiers</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>supported</p></td>
+<td><p>partial</p></td>
+<td><p>partial</p></td>
+<td><p></p></td>
+<td><p>Unbounded quantifiers need scope warnings and execution guards.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sentence/document scope with within() (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.within</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p></p></td>
+<td><p>Currently scoped to <s> and <doc>. Requires: Sentence/document boundaries</p></td>
+</tr>
+<tr class="row-odd"><td><p>Metadata filters with where() (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.where.metadata</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p>where(...) must wrap the whole query. Branch-local where(...) raises. Missing Meta Index raises instead of silently counting the full corpus. Only = and != execute. Ordering needs numeric meta values, and the build path stores every metadata column as a string. &gt; and &lt; never reach the meta parser: the lexer maps them to LANGLE/RANGLE for region syntax. Requires: Fast Index Meta Index</p></td>
+</tr>
+<tr class="row-even"><td><p>Stable query normalization (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.normalization</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>not_applicable</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Builder JSON round-trip (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.builder_roundtrip</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>not_applicable</p></td>
+<td><p>supported</p></td>
+<td><p>supported</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Autocomplete and diagnostics (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.language_service</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>not_applicable</p></td>
+<td><p>not_applicable</p></td>
+<td><p>partial</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Structured query trace (<code class="docutils literal notranslate"><span class="pre">cqlf.level2.query_trace</span></code>)</p></td>
+<td><p>2</p></td>
+<td><p>not_applicable</p></td>
+<td><p>partial</p></td>
+<td><p>unsupported</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Backend capability negotiation (<code class="docutils literal notranslate"><span class="pre">cqlf.level3.capability_negotiation</span></code>)</p></td>
+<td><p>3</p></td>
+<td><p>not_applicable</p></td>
+<td><p>planned</p></td>
+<td><p>unsupported</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Engine-independent CQLF IR (<code class="docutils literal notranslate"><span class="pre">cqlf.level3.engine_independent_ir</span></code>)</p></td>
+<td><p>3</p></td>
+<td><p>planned</p></td>
+<td><p>planned</p></td>
+<td><p>unsupported</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Labels and captures (<code class="docutils literal notranslate"><span class="pre">cqlf.level3.labels_captures</span></code>)</p></td>
+<td><p>3</p></td>
+<td><p>unsupported</p></td>
+<td><p>unsupported</p></td>
+<td><p>unsupported</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Capture constraints (<code class="docutils literal notranslate"><span class="pre">cqlf.level3.capture_constraints</span></code>)</p></td>
+<td><p>3</p></td>
+<td><p>unsupported</p></td>
+<td><p>unsupported</p></td>
+<td><p>unsupported</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Structural region algebra (<code class="docutils literal notranslate"><span class="pre">cqlf.level3.region_algebra</span></code>)</p></td>
+<td><p>3</p></td>
+<td><p>unsupported</p></td>
+<td><p>unsupported</p></td>
+<td><p>unsupported</p></td>
+<td><p></p></td>
+<td><p>Requires: General structural-region index</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Reference</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="cli.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Command line reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-candyconc-tells-the-two-apart">How CandyConc tells the two apart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plain-search">Plain search</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#words-and-case">Words and case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">Wildcards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regular-expressions">Regular expressions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phrases">Phrases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#and-or-not">AND, OR, NOT</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#near">NEAR</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attribute-conditions">Attribute conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency-relations">Dependency relations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-query-language">The query language</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grammar">Grammar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-conditions">Token conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operators">Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-flag-c">The flag %c</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequences">Sequences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repetition">Repetition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternatives-and-grouping">Alternatives and grouping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-hits-are-counted">Which hits are counted</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sentence-and-document-scope">Sentence and document scope</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-conditions">Metadata conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similar-words">Similar words</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diagnostics">Diagnostics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-from-cqp">Differences from CQP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contract-of-the-query-engine">Contract of the query engine</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/reference/query-language.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Command line reference | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/cli';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HTTP API reference" href="http-api.html" />
+    <link rel="prev" title="Query language" href="query-language.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="query-language.html">Query language</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Command line reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http-api.html">HTTP API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input-formats.html">Input formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index-format.html">Index format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export-formats.html">Export formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project-files.html">Project files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Interface reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-platforms.html">Supported platforms and requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages.html">Languages and annotation pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Command line reference</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="command-line-reference">
+<h1>Command line reference<a class="headerlink" href="#command-line-reference" title="Link to this heading">#</a></h1>
+<p>CandyConc installs one command, <code class="docutils literal notranslate"><span class="pre">candy</span></code>. Without a subcommand it starts the
+server and the web interface. The subcommands import corpora, download
+annotation pipelines, show where CandyConc keeps its data, and migrate old
+project files.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">candy</span></code></p></td>
+<td><p>Start the server and the web interface.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span></code></p></td>
+<td><p>Import a corpus: build a corpus index from CSV, JSONL, plain text, Parquet, VRT, a Hugging Face dataset, or paired files.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">pipeline</span> <span class="pre">NAME</span></code></p></td>
+<td><p>Download and install a spaCy annotation pipeline, for example <code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">paths</span></code></p></td>
+<td><p>Show where CandyConc keeps its data and where it reads its configuration file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">migrate-project</span></code></p></td>
+<td><p>Migrate a project file of an older version.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">--version</span></code></p></td>
+<td><p>Show the versions of CandyConc and Python.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">candyconc.entrypoints.cli</span></code> is the same command, with the same
+arguments. <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">serve</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">candy</span></code> without a subcommand.</p>
+<p>The application bundle has its own launcher, <code class="docutils literal notranslate"><span class="pre">./candyconc</span></code>, with slightly
+different commands. It is described in
+<a class="reference internal" href="#the-launcher-of-the-application-bundle">The launcher of the application bundle</a>.</p>
+<section id="starting-the-server">
+<h2>Starting the server<a class="headerlink" href="#starting-the-server" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">candy</span></code> prints the version, the address of the web interface, the corpus it
+opens, the data directory, and whether a language model for the copilot is
+configured. The output is similar to the following:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CandyConc 0.1.0 (Python 3.12.8)
+  Web interface: http://127.0.0.1:8010/
+  Corpus: none yet. Import one in the web interface (Corpora) or with: candy import --help
+  Data: /home/USER/.candyconc
+  Copilot: no language model configured (optional, see Settings &gt; Model connection)
+Press Ctrl+C to stop.
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Port.</strong> Without <code class="docutils literal notranslate"><span class="pre">--port</span></code>, CandyConc uses port 8010, or the next free port
+up to 8029 when 8010 is taken. With <code class="docutils literal notranslate"><span class="pre">--port</span></code>, it uses exactly that port and
+stops with <code class="docutils literal notranslate"><span class="pre">Port</span> <span class="pre">N</span> <span class="pre">on</span> <span class="pre">HOST</span> <span class="pre">is</span> <span class="pre">already</span> <span class="pre">in</span> <span class="pre">use</span></code> when the port is taken.</p></li>
+<li><p><strong>Corpus.</strong> The server opens the corpus in <code class="docutils literal notranslate"><span class="pre">CANDYCONC_INDEX_PATH</span></code> if it is
+set, otherwise the active corpus of the corpus catalog, otherwise the most
+recent corpus in the data directory. Without any corpus it starts with an
+empty catalog, and the web interface offers the import.</p></li>
+<li><p><strong>Address.</strong> The server binds to <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>, so only programs on the same
+computer reach it. A network address needs multi-user mode, see
+<a class="reference internal" href="deployment.html"><span class="std std-doc">Deployment</span></a>.</p></li>
+<li><p><strong>Web interface.</strong> When the built interface is missing (possible in a
+development checkout), the server prints <code class="docutils literal notranslate"><span class="pre">API</span> <span class="pre">only</span> <span class="pre">at</span> <span class="pre">...</span></code> and serves only
+the API.</p></li>
+</ul>
+</section>
+<section id="candy-import-in-brief">
+<h2><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span></code> in brief<a class="headerlink" href="#candy-import-in-brief" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span></code> builds a corpus index in the directory given with <code class="docutils literal notranslate"><span class="pre">--output</span></code>.
+If that directory already holds an index, the new one replaces it when the
+import has finished, and a running server opens it with the next request.
+The format follows from the file extension unless you set <code class="docutils literal notranslate"><span class="pre">--input-format</span></code>.
+Which options apply to which format:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Options</p></th>
+<th class="head"><p>Formats</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--text-column</span></code>, <code class="docutils literal notranslate"><span class="pre">--id-column</span></code>, <code class="docutils literal notranslate"><span class="pre">--meta-columns</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">csv</span></code>, <code class="docutils literal notranslate"><span class="pre">jsonl</span></code>, <code class="docutils literal notranslate"><span class="pre">parquet</span></code>, <code class="docutils literal notranslate"><span class="pre">hf</span></code>, and the paired formats</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--reject-policy</span></code>, <code class="docutils literal notranslate"><span class="pre">--reject-report</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">csv</span></code>, <code class="docutils literal notranslate"><span class="pre">jsonl</span></code>, <code class="docutils literal notranslate"><span class="pre">parquet</span></code>, <code class="docutils literal notranslate"><span class="pre">hf</span></code>, <code class="docutils literal notranslate"><span class="pre">plaintext</span></code>, and the paired formats</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--source</span></code></p></td>
+<td><p>all formats</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--delimiter</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">csv</span></code>, <code class="docutils literal notranslate"><span class="pre">prealigned-csv</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--pair-key-column</span></code>, <code class="docutils literal notranslate"><span class="pre">--pair-role-column</span></code>, <code class="docutils literal notranslate"><span class="pre">--anchor-role</span></code>, <code class="docutils literal notranslate"><span class="pre">--pair-axis</span></code>, <code class="docutils literal notranslate"><span class="pre">--pair-order</span></code>, <code class="docutils literal notranslate"><span class="pre">--variant-column</span></code>, <code class="docutils literal notranslate"><span class="pre">--model-column</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">prealigned-csv</span></code>, <code class="docutils literal notranslate"><span class="pre">prealigned-jsonl</span></code>, <code class="docutils literal notranslate"><span class="pre">prealigned-parquet</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--pattern</span></code>, <code class="docutils literal notranslate"><span class="pre">--split-paragraphs</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">plaintext</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--segment-tag</span></code>, <code class="docutils literal notranslate"><span class="pre">--text-tag</span></code>, <code class="docutils literal notranslate"><span class="pre">--sentence-tag</span></code>, <code class="docutils literal notranslate"><span class="pre">--token-columns</span></code>, and the other options marked VRT</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">vrt</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--hf-config</span></code>, <code class="docutils literal notranslate"><span class="pre">--hf-split</span></code>, <code class="docutils literal notranslate"><span class="pre">--limit</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hf</span></code> (needs the <code class="docutils literal notranslate"><span class="pre">hf</span></code> extra, see <a class="reference internal" href="supported-platforms.html"><span class="std std-doc">Supported platforms and requirements</span></a>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--language</span></code>, <code class="docutils literal notranslate"><span class="pre">--spacy-model</span></code>, <code class="docutils literal notranslate"><span class="pre">--no-deps</span></code>, <code class="docutils literal notranslate"><span class="pre">--enable-deps</span></code>, <code class="docutils literal notranslate"><span class="pre">--enable-ner</span></code>, <code class="docutils literal notranslate"><span class="pre">--batch-size</span></code>, <code class="docutils literal notranslate"><span class="pre">--n-process</span></code>, <code class="docutils literal notranslate"><span class="pre">--max-doc-chars</span></code>, <code class="docutils literal notranslate"><span class="pre">--no-split-long-texts</span></code>, <code class="docutils literal notranslate"><span class="pre">--meta-index-fields</span></code></p></td>
+<td><p>all formats</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--language</span></code> or <code class="docutils literal notranslate"><span class="pre">--spacy-model</span></code> chooses the annotation pipeline, and
+dependency relations are added when the pipeline has a parser. See
+<a class="reference internal" href="languages.html#choosing-the-pipeline"><span class="std std-ref">Choosing the pipeline</span></a>. Before the import
+starts, <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span></code> checks that the pipeline is installed. If it is not, it stops with a message that
+names the command to install it and the tokenization-only alternative, for
+example <code class="docutils literal notranslate"><span class="pre">blank:en</span></code>. The columns and fields of each format are described in
+<a class="reference internal" href="input-formats.html"><span class="std std-doc">Input formats</span></a>. The annotation pipelines are described in
+<a class="reference internal" href="languages.html"><span class="std std-doc">Languages and annotation pipelines</span></a>.</p>
+</section>
+<section id="candy-pipeline">
+<h2><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">pipeline</span></code><a class="headerlink" href="#candy-pipeline" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">pipeline</span> <span class="pre">NAME</span></code> looks up the release of the spaCy pipeline <code class="docutils literal notranslate"><span class="pre">NAME</span></code> that
+fits the installed spaCy, downloads it from GitHub
+(<code class="docutils literal notranslate"><span class="pre">explosion/spacy-models</span></code>), and installs it into the Python environment of
+CandyConc with pip (or uv, in environments that uv created without pip).
+CandyConc never downloads a pipeline on its own. <code class="docutils literal notranslate"><span class="pre">blank:&lt;language&gt;</span></code> needs no
+download. With <code class="docutils literal notranslate"><span class="pre">--user-dir</span></code>, the pipeline goes into the data directory
+(<code class="docutils literal notranslate"><span class="pre">~/.candyconc/pipelines</span></code>) instead, and with <code class="docutils literal notranslate"><span class="pre">--print-url</span></code> the command only
+prints the address of the download.</p>
+</section>
+<section id="candy-paths">
+<h2><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">paths</span></code><a class="headerlink" href="#candy-paths" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">paths</span></code> prints the locations that CandyConc uses on this computer. The
+output is similar to the following:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data dir           /home/USER/.candyconc
+config file        /home/USER/.config/candyconc/config.toml
+corpora dir        /home/USER/.candyconc/corpora
+corpus catalog     /home/USER/.candyconc/corpora.json
+project file       /home/USER/.candyconc/proj.ccproj
+projects dir       /home/USER/.candyconc/projects
+logs dir           /home/USER/.candyconc/logs
+pipelines dir      /home/USER/.candyconc/pipelines
+</pre></div>
+</div>
+<p>What each location holds is described in
+<a class="reference internal" href="../concepts/where-data-lives.html"><span class="std std-doc">Where your data lives</span></a>.</p>
+</section>
+<section id="candy-migrate-project">
+<h2><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">migrate-project</span></code><a class="headerlink" href="#candy-migrate-project" title="Link to this heading">#</a></h2>
+<p>Project files of older versions (SQLite, or JSON of an older layout) are not
+converted automatically. <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">migrate-project</span> <span class="pre">FILE</span></code> checks such a file and
+reports what it contains without changing anything. With <code class="docutils literal notranslate"><span class="pre">--output</span> <span class="pre">NEW_FILE</span></code>
+it writes a migrated copy, and with <code class="docutils literal notranslate"><span class="pre">--in-place</span> <span class="pre">--backup</span> <span class="pre">BACKUP_FILE</span></code> it
+replaces the file after copying it to <code class="docutils literal notranslate"><span class="pre">BACKUP_FILE</span></code>. See
+<a class="reference internal" href="../help/upgrade.html"><span class="std std-doc">Upgrade CandyConc</span></a>.</p>
+</section>
+<section id="all-commands-and-options">
+<h2>All commands and options<a class="headerlink" href="#all-commands-and-options" title="Link to this heading">#</a></h2>
+<p>The following tables are generated from the argument parsers of <code class="docutils literal notranslate"><span class="pre">candy</span></code>, so
+they match the installed version. <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">COMMAND</span> <span class="pre">--help</span></code> prints the same
+information.</p>
+<!-- Generated by docs/_tools/generate_cli_reference.py from candyconc/entrypoints/cli.py. Do not edit. -->
+<section id="candy">
+<h3><code class="docutils literal notranslate"><span class="pre">candy</span></code><a class="headerlink" href="#candy" title="Link to this heading">#</a></h3>
+<p>CandyConc: corpus analysis in the browser. Starts the server and the web interface.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: candy [-h] [--version] [--host HOST] [--port PORT] [--open]
+             [--enable-rbac] [--log-level LOG_LEVEL] [--log-file LOG_FILE]
+</pre></div>
+</div>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code></dt><dd><p>Show this help message and exit.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--version</span></code></dt><dd><p>Show program's version number and exit.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--host</span> <span class="pre">HOST</span></code></dt><dd><p>Bind address (default: 127.0.0.1, loopback only). A network address such as 0.0.0.0 is refused in the default single-user mode. Use it with CANDYCONC_SECURITY_MODE=release and <code class="docutils literal notranslate"><span class="pre">--enable-rbac</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--port</span> <span class="pre">PORT</span></code></dt><dd><p>Port (default: 8010, or the next free one when it is taken).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--open</span></code></dt><dd><p>Open the web interface in the browser. Off unless given.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--enable-rbac</span></code></dt><dd><p>Enforce role-based access control. Off unless given.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--log-level</span> <span class="pre">LOG_LEVEL</span></code></dt><dd><p>Log level, for example DEBUG or WARNING (default: INFO).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--log-file</span> <span class="pre">LOG_FILE</span></code></dt><dd><p>Also write the log to this file.</p>
+</dd>
+</dl>
+</section>
+<section id="candy-import">
+<h3><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span></code><a class="headerlink" href="#candy-import" title="Link to this heading">#</a></h3>
+<p>Import a corpus: build a Fast Index from CSV, JSONL, plain text, Parquet, VRT, a Hugging Face dataset or paired (pre-aligned) files.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: candy import [-h] --input INPUT --output OUTPUT
+                    [--input-format {parquet,vrt,prealigned-parquet,prealigned-csv,prealigned-jsonl,prealigned_parquet,prealigned_csv,prealigned_jsonl,plaintext,csv,jsonl,hf}]
+                    [--language LANGUAGE] [--spacy-model SPACY_MODEL]
+                    [--batch-size BATCH_SIZE] [--n-process N_PROCESS]
+                    [--include-prompts] [--enable-ner] [--enable-deps]
+                    [--no-deps] [--no-split-long-texts]
+                    [--allow-missing-input-text]
+                    [--max-doc-chars MAX_DOC_CHARS]
+                    [--meta-index-fields META_INDEX_FIELDS]
+                    [--no-capture-whitespace] [--segment-tag SEGMENT_TAG]
+                    [--text-tag TEXT_TAG] [--sentence-tag SENTENCE_TAG]
+                    [--source SOURCE] [--register REGISTER]
+                    [--min-text-chars MIN_TEXT_CHARS] [--variant VARIANT]
+                    [--model MODEL] [--token-columns TOKEN_COLUMNS]
+                    [--token-separator {auto,tab,whitespace}]
+                    [--word-column WORD_COLUMN] [--strict-columns]
+                    [--join-mode {smart,space}] [--id-attrs ID_ATTRS]
+                    [--source-attrs SOURCE_ATTRS]
+                    [--register-attrs REGISTER_ATTRS]
+                    [--date-attrs DATE_ATTRS] [--genre-attrs GENRE_ATTRS]
+                    [--annotation-mode {none,sidecar,adopt}] [--inspect]
+                    [--inspect-docs INSPECT_DOCS] [--text-column TEXT_COLUMN]
+                    [--id-column ID_COLUMN]
+                    [--pair-key-column PAIR_KEY_COLUMN]
+                    [--pair-role-column PAIR_ROLE_COLUMN]
+                    [--anchor-role ANCHOR_ROLE] [--pair-axis PAIR_AXIS]
+                    [--pair-order {unsorted,grouped,sorted}]
+                    [--meta-columns [META_COLUMNS ...]]
+                    [--variant-column VARIANT_COLUMN]
+                    [--model-column MODEL_COLUMN] [--delimiter DELIMITER]
+                    [--reject-policy {collect,fail_fast}]
+                    [--reject-report REJECT_REPORT] [--pattern PATTERN]
+                    [--split-paragraphs] [--hf-config HF_CONFIG]
+                    [--hf-split HF_SPLIT] [--limit LIMIT]
+</pre></div>
+</div>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code></dt><dd><p>Show this help message and exit.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--input</span> <span class="pre">INPUT</span></code></dt><dd><p>Input file, a folder of .txt files for plain text, or a dataset ID for <code class="docutils literal notranslate"><span class="pre">--input-format</span></code> hf. Required.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--output</span> <span class="pre">OUTPUT</span></code></dt><dd><p>Directory of the corpus index, for example ~/.candyconc/corpora/NAME. An index already there is replaced when the import has finished. Required.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--input-format</span> <span class="pre">INPUT_FORMAT</span></code></dt><dd><p>Input format (default: from the file extension: .csv/.tsv csv, .jsonl/.ndjson jsonl, .txt or a folder plaintext, .parquet parquet, .vrt/.xml vrt). Values: <code class="docutils literal notranslate"><span class="pre">parquet</span></code>, <code class="docutils literal notranslate"><span class="pre">vrt</span></code>, <code class="docutils literal notranslate"><span class="pre">prealigned-parquet</span></code>, <code class="docutils literal notranslate"><span class="pre">prealigned-csv</span></code>, <code class="docutils literal notranslate"><span class="pre">prealigned-jsonl</span></code>, <code class="docutils literal notranslate"><span class="pre">prealigned_parquet</span></code>, <code class="docutils literal notranslate"><span class="pre">prealigned_csv</span></code>, <code class="docutils literal notranslate"><span class="pre">prealigned_jsonl</span></code>, <code class="docutils literal notranslate"><span class="pre">plaintext</span></code>, <code class="docutils literal notranslate"><span class="pre">csv</span></code>, <code class="docutils literal notranslate"><span class="pre">jsonl</span></code>, <code class="docutils literal notranslate"><span class="pre">hf</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--language</span> <span class="pre">LANGUAGE</span></code></dt><dd><p>ISO 639 code of the corpus language, for example en or de. Selects the standard spaCy pipeline for it (en: en_core_web_md, de: de_core_news_md), or blank:&lt;language&gt; when spaCy has no trained one.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--spacy-model</span> <span class="pre">SPACY_MODEL</span></code></dt><dd><p>SpaCy pipeline for tokenization and annotation, for example en_core_web_sm or de_core_news_md (install with: candy pipeline &lt;name&gt;), or blank:&lt;language&gt; for tokenization only (default: the standard pipeline of <code class="docutils literal notranslate"><span class="pre">--language</span></code>, without <code class="docutils literal notranslate"><span class="pre">--language</span></code> de_core_news_md).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--batch-size</span> <span class="pre">BATCH_SIZE</span></code></dt><dd><p>Texts per spaCy batch (default: 0, chosen from free memory).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--n-process</span> <span class="pre">N_PROCESS</span></code></dt><dd><p>SpaCy worker processes (default: 0, chosen from CPU cores).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--include-prompts</span></code></dt><dd><p>Parquet and VRT: keep the prompt text of generated variants as document metadata. Off unless given.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--enable-ner</span></code></dt><dd><p>Add named entities (attribute ent). Off unless given.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--enable-deps</span></code></dt><dd><p>Add dependency relations (attributes rel and head), needed for word sketches. Default: on when the pipeline has a parser, except VRT annotation adoption.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--no-deps</span></code></dt><dd><p>Import without dependency parsing. On unless given.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--no-split-long-texts</span></code></dt><dd><p>Keep texts longer than <code class="docutils literal notranslate"><span class="pre">--max-doc-chars</span></code> as one document instead of splitting them. On unless given.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--allow-missing-input-text</span></code></dt><dd><p>Parquet and VRT: accept rows without the input_text column. Off unless given.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--max-doc-chars</span> <span class="pre">MAX_DOC_CHARS</span></code></dt><dd><p>Longer texts are split at paragraph or whitespace boundaries (default: 1000000).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--meta-index-fields</span> <span class="pre">META_INDEX_FIELDS</span></code></dt><dd><p>Comma-separated metadata fields for the filter index (default: all fields).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--no-capture-whitespace</span></code></dt><dd><p>Do not record the spacing between tokens (whitespace_after.bin). Concordance lines and texts then show every token separated by a space, for example &quot;soul . No&quot; instead of &quot;soul. No&quot;. On unless given.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--segment-tag</span> <span class="pre">SEGMENT_TAG</span></code></dt><dd><p>VRT: element that becomes one document. Default: <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--text-tag</span> <span class="pre">TEXT_TAG</span></code></dt><dd><p>VRT: parent element that carries text metadata. Default: <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--sentence-tag</span> <span class="pre">SENTENCE_TAG</span></code></dt><dd><p>VRT: sentence element. Default: <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--source</span> <span class="pre">SOURCE</span></code></dt><dd><p>Value of the source metadata field (vrt: used when no source attribute is found).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--register</span> <span class="pre">REGISTER</span></code></dt><dd><p>VRT: fallback value of the register metadata field.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--min-text-chars</span> <span class="pre">MIN_TEXT_CHARS</span></code></dt><dd><p>VRT: skip documents with fewer characters. Default: <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--variant</span> <span class="pre">VARIANT</span></code></dt><dd><p>VRT: value of the variant metadata field. Default: <code class="docutils literal notranslate"><span class="pre">document</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--model</span> <span class="pre">MODEL</span></code></dt><dd><p>VRT: value of the model metadata field. Default: <code class="docutils literal notranslate"><span class="pre">none</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--token-columns</span> <span class="pre">TOKEN_COLUMNS</span></code>, <code class="docutils literal notranslate"><span class="pre">--columns</span> <span class="pre">TOKEN_COLUMNS</span></code></dt><dd><p>VRT: comma-separated names of the token columns, for example word,lemma,pos.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--token-separator</span> <span class="pre">TOKEN_SEPARATOR</span></code></dt><dd><p>VRT: separator between token columns. Values: <code class="docutils literal notranslate"><span class="pre">auto</span></code>, <code class="docutils literal notranslate"><span class="pre">tab</span></code>, <code class="docutils literal notranslate"><span class="pre">whitespace</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">auto</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--word-column</span> <span class="pre">WORD_COLUMN</span></code></dt><dd><p>VRT: column (name or number) with the word form. Default: <code class="docutils literal notranslate"><span class="pre">word</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--strict-columns</span></code></dt><dd><p>VRT: stop at a token line with a different number of columns. Off unless given.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--join-mode</span> <span class="pre">JOIN_MODE</span></code></dt><dd><p>VRT: how tokens are joined into the document text (smart: no space before punctuation). Values: <code class="docutils literal notranslate"><span class="pre">smart</span></code>, <code class="docutils literal notranslate"><span class="pre">space</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">smart</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--id-attrs</span> <span class="pre">ID_ATTRS</span></code></dt><dd><p>VRT: attributes that hold the document ID, comma-separated.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--source-attrs</span> <span class="pre">SOURCE_ATTRS</span></code></dt><dd><p>VRT: attributes that hold the source, comma-separated.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--register-attrs</span> <span class="pre">REGISTER_ATTRS</span></code></dt><dd><p>VRT: attributes that hold the register, comma-separated.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--date-attrs</span> <span class="pre">DATE_ATTRS</span></code></dt><dd><p>VRT: attributes that hold the date, comma-separated.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--genre-attrs</span> <span class="pre">GENRE_ATTRS</span></code></dt><dd><p>VRT: attributes that hold the genre, comma-separated.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--annotation-mode</span> <span class="pre">ANNOTATION_MODE</span></code></dt><dd><p>VRT: annotate with spaCy and keep supplied columns separately (sidecar), drop them (none), or index them unchanged (adopt). Values: <code class="docutils literal notranslate"><span class="pre">none</span></code>, <code class="docutils literal notranslate"><span class="pre">sidecar</span></code>, <code class="docutils literal notranslate"><span class="pre">adopt</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">sidecar</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--inspect</span></code></dt><dd><p>VRT: print what the file contains without building an index. Off unless given.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--inspect-docs</span> <span class="pre">INSPECT_DOCS</span></code></dt><dd><p>VRT: documents shown by <code class="docutils literal notranslate"><span class="pre">--inspect</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--text-column</span> <span class="pre">TEXT_COLUMN</span></code></dt><dd><p>Column with the text. Default: <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--id-column</span> <span class="pre">ID_COLUMN</span></code></dt><dd><p>Column with the document ID. Default: <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--pair-key-column</span> <span class="pre">PAIR_KEY_COLUMN</span></code></dt><dd><p>Paired import: column that groups the variants of one text. Default: <code class="docutils literal notranslate"><span class="pre">pair_id</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--pair-role-column</span> <span class="pre">PAIR_ROLE_COLUMN</span></code></dt><dd><p>Paired import: column with the role of each variant. Default: <code class="docutils literal notranslate"><span class="pre">pair_role</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--anchor-role</span> <span class="pre">ANCHOR_ROLE</span></code></dt><dd><p>Paired import: role of the variant the others are aligned to. Default: <code class="docutils literal notranslate"><span class="pre">source</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--pair-axis</span> <span class="pre">PAIR_AXIS</span></code></dt><dd><p>Paired import: name of the pairing recorded in the manifest. Default: <code class="docutils literal notranslate"><span class="pre">prealigned</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--pair-order</span> <span class="pre">PAIR_ORDER</span></code></dt><dd><p>Paired import: grouped or sorted input streams one group at a time, unsorted keeps all rows in memory. Values: <code class="docutils literal notranslate"><span class="pre">unsorted</span></code>, <code class="docutils literal notranslate"><span class="pre">grouped</span></code>, <code class="docutils literal notranslate"><span class="pre">sorted</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">unsorted</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--meta-columns</span> <span class="pre">META_COLUMNS</span> <span class="pre">...</span></code></dt><dd><p>Columns to keep as document metadata, separated by spaces (default: none).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--variant-column</span> <span class="pre">VARIANT_COLUMN</span></code></dt><dd><p>Paired import: column with the variant name.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--model-column</span> <span class="pre">MODEL_COLUMN</span></code></dt><dd><p>Paired import: column with the name of the generating model.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--delimiter</span> <span class="pre">DELIMITER</span></code></dt><dd><p>CSV: field separator (default: detected).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--reject-policy</span> <span class="pre">REJECT_POLICY</span></code></dt><dd><p>Collect: skip invalid rows and list them in the rejected rows report, fail_fast: stop at the first one. Values: <code class="docutils literal notranslate"><span class="pre">collect</span></code>, <code class="docutils literal notranslate"><span class="pre">fail_fast</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">collect</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--reject-report</span> <span class="pre">REJECT_REPORT</span></code></dt><dd><p>Also write every rejected row to this JSON Lines file (reject_report.json in the index always lists the counts and up to 50 rows).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--pattern</span> <span class="pre">PATTERN</span></code></dt><dd><p>Plain text: file pattern inside the input folder. Default: <code class="docutils literal notranslate"><span class="pre">*.txt</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--split-paragraphs</span></code></dt><dd><p>Plain text: one document per paragraph instead of one per file. Off unless given.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--hf-config</span> <span class="pre">HF_CONFIG</span></code></dt><dd><p>Hugging Face: dataset configuration.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--hf-split</span> <span class="pre">HF_SPLIT</span></code></dt><dd><p>Hugging Face: dataset split. Default: <code class="docutils literal notranslate"><span class="pre">train</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--limit</span> <span class="pre">LIMIT</span></code></dt><dd><p>Hugging Face: import at most this many rows.</p>
+</dd>
+</dl>
+</section>
+<section id="id1">
+<h3><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">pipeline</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Download and install a spaCy pipeline from GitHub (explosion/spacy-models). CandyConc never downloads pipelines by itself.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: candy pipeline [-h] [--target TARGET | --user-dir] [--print-url] name
+</pre></div>
+</div>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code></dt><dd><p>Show this help message and exit.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">name</span></code></dt><dd><p>Pipeline package, e.g. en_core_web_sm, de_core_news_md. Required.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--target</span> <span class="pre">TARGET</span></code></dt><dd><p>Install into this directory instead of the Python environment.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--user-dir</span></code></dt><dd><p>Install into the CandyConc data directory (~/.candyconc/pipelines). Off unless given.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--print-url</span></code></dt><dd><p>Only print the download URL. Off unless given.</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h3><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">migrate-project</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Migrate a legacy .ccproj project without implicit data rewrites.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>usage: candy migrate-project [-h] [--output OUTPUT | --in-place]
+                             [--backup BACKUP] [--dry-run]
+                             project
+</pre></div>
+</div>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code></dt><dd><p>Show this help message and exit.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">project</span></code></dt><dd><p>Legacy .ccproj or JSON project file. Required.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--output</span> <span class="pre">OUTPUT</span></code></dt><dd><p>Write a new migrated project file.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--in-place</span></code></dt><dd><p>Replace the source after backup. Off unless given.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--backup</span> <span class="pre">BACKUP</span></code></dt><dd><p>Required backup path for <code class="docutils literal notranslate"><span class="pre">--in-place</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">--dry-run</span></code></dt><dd><p>Validate and report without writing. Off unless given.</p>
+</dd>
+</dl>
+</section>
+</section>
+<section id="the-launcher-of-the-application-bundle">
+<h2>The launcher of the application bundle<a class="headerlink" href="#the-launcher-of-the-application-bundle" title="Link to this heading">#</a></h2>
+<p>The application bundle contains a launcher script, <code class="docutils literal notranslate"><span class="pre">./candyconc</span></code>, in the
+unpacked folder. It runs the CandyConc of the bundle with the Python of the
+bundle and passes most commands on to <code class="docutils literal notranslate"><span class="pre">candy</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Launcher command</p></th>
+<th class="head"><p>What it does</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span></code></p></td>
+<td><p>Starts the server in the data directory and opens the web interface in the browser. Set <code class="docutils literal notranslate"><span class="pre">CANDYCONC_NO_BROWSER=1</span></code> to start without opening the browser.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">import</span> <span class="pre">...</span></code></p></td>
+<td><p>Same as <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span> <span class="pre">...</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">pipeline</span> <span class="pre">NAME</span></code></p></td>
+<td><p>Installs the spaCy pipeline <code class="docutils literal notranslate"><span class="pre">NAME</span></code> into <code class="docutils literal notranslate"><span class="pre">~/.candyconc/pipelines</span></code>, so that it stays when you replace the bundle with a newer one.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">paths</span></code></p></td>
+<td><p>Same as <code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">paths</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">version</span></code></p></td>
+<td><p>Shows the versions of CandyConc, Python, and spaCy, and the location of the bundle.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">uninstall</span></code></p></td>
+<td><p>Removes the bundle folder after a confirmation. <code class="docutils literal notranslate"><span class="pre">--yes</span></code> skips the confirmation. The data directory stays.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">help</span></code></p></td>
+<td><p>Shows these commands.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">./candyconc</span> <span class="pre">--port</span> <span class="pre">8020</span></code>, and any other option</p></td>
+<td><p>Starts the server with these options, like <code class="docutils literal notranslate"><span class="pre">candy</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="query-language.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Query language</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="http-api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">HTTP API reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-the-server">Starting the server</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#candy-import-in-brief"><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span></code> in brief</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#candy-pipeline"><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">pipeline</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#candy-paths"><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">paths</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#candy-migrate-project"><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">migrate-project</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#all-commands-and-options">All commands and options</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#candy"><code class="docutils literal notranslate"><span class="pre">candy</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#candy-import"><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">import</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">pipeline</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><code class="docutils literal notranslate"><span class="pre">candy</span> <span class="pre">migrate-project</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-launcher-of-the-application-bundle">The launcher of the application bundle</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/reference/cli.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

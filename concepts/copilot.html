@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="auto">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>How the copilot works | CandyConc 0.1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "auto";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "auto";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/candyconc.css?v=d536a156" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/mermaid/mermaid.min.js?v=ceb67554"></script>
+    <script src="../_static/mermaid/candyconc-mermaid.js?v=af6774bd"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=0b7bc765"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'concepts/copilot';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data and privacy" href="data-and-privacy.html" />
+    <link rel="prev" title="Languages and annotation" href="languages-and-annotation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="auto">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">CandyConc 0.1.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../get-started/index.html">
+    Get started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../guides/index.html">
+    Guides
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Concepts
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../methods/index.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../help/index.html">
+    Help
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contribute/index.html">
+    Contribute
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="how-candyconc-works.html">How CandyConc works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="corpus-index.html">The corpus index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries-and-hits.html">Queries and hits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope, subcorpora, and document sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="from-numbers-to-lines.html">From numbers to lines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages-and-annotation.html">Languages and annotation</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">How the copilot works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-and-privacy.html">Data and privacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="where-data-lives.html">Where your data lives</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Concepts</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">How the copilot works</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="how-the-copilot-works">
+<h1>How the copilot works<a class="headerlink" href="#how-the-copilot-works" title="Link to this heading">#</a></h1>
+<p>The copilot answers a research question with the analysis operations of
+CandyConc. A language model decides which operations to run. CandyConc runs
+them on your corpus and records each result as an evidence item. For an
+analysis question, a separate model call then writes the answer from these
+evidence items. Before you see the answer, CandyConc resolves its citations,
+compares its numbers and quotations with the evidence, and adds a record of
+the analyses. Everything else in CandyConc works without the copilot.</p>
+<section id="when-the-copilot-runs">
+<h2>When the copilot runs<a class="headerlink" href="#when-the-copilot-runs" title="Link to this heading">#</a></h2>
+<p>The copilot is off until a model endpoint is set, in
+<strong>Settings &gt; Model connection</strong> or with the setting <code class="docutils literal notranslate"><span class="pre">COPILOT_ENDPOINT</span></code>. An
+installed CandyConc has no endpoint preset. Without one, the copilot panel
+shows <strong>No language model set up</strong>, and a question sent over the HTTP API
+returns the status 424 with the code <code class="docutils literal notranslate"><span class="pre">copilot_not_configured</span></code>.
+<a class="reference internal" href="../guides/copilot/connect-a-model.html"><span class="std std-doc">Connect a language model</span></a> describes
+the setup.</p>
+<p>A question starts when you send it in the copilot panel. The interface posts
+it to <code class="docutils literal notranslate"><span class="pre">/api/v1/chat/stream</span></code> and receives the progress and the answer as
+server-sent events. For an endpoint on the same computer (<code class="docutils literal notranslate"><span class="pre">localhost</span></code> or
+<code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>), CandyConc first asks the model server for its list of loaded
+models. If the server does not answer or does not list the configured model,
+the question ends with an error before any work starts. The copilot sends
+requests to the model endpoint only while it works on a question that you
+sent.</p>
+</section>
+<section id="the-language-of-a-question">
+<h2>The language of a question<a class="headerlink" href="#the-language-of-a-question" title="Link to this heading">#</a></h2>
+<p>CandyConc chooses English or German once for each question, in this order:</p>
+<ol class="arabic simple">
+<li><p>The language detected from the wording of the question.</p></li>
+<li><p>The interface language sent in <code class="docutils literal notranslate"><span class="pre">session.locale</span></code> in the UI context,
+when the wording does not identify a language.</p></li>
+<li><p>The language selected from the request's <code class="docutils literal notranslate"><span class="pre">Accept-Language</span></code> header.</p></li>
+<li><p>German when none of these provides a supported language.</p></li>
+</ol>
+<p>A German question in an English interface therefore gets a German answer.
+Corpus quotations, search expressions, and metadata values keep their own
+language. The corpus language and its annotation pipeline remain the ones
+chosen at import, see <a class="reference internal" href="languages-and-annotation.html"><span class="std std-doc">Languages and annotation</span></a>.</p>
+<p>For an English question, the routing rules map English analysis phrases to
+the German cue vocabulary used to choose recipes, contracts, and tools.
+Quoted search terms are excluded from cue substitution. The model receives
+the question in its original language. The synthesis is instructed to answer in
+English with comma grouping and a decimal point, for example <code class="docutils literal notranslate"><span class="pre">174,284</span></code> and
+<code class="docutils literal notranslate"><span class="pre">1,592.3</span></code>, and the number check reads that format.</p>
+<p>Answers written from fixed templates, evidence package labels, recovery
+messages, experiments, the method card, and the evidence appendix follow
+the answer language. This also applies to notes about missing evidence,
+verification, spelling, and unmet recipe requirements. Interface controls
+and tool cards follow the interface language. Internal instructions to the
+model still include German text, and the API keeps its identifiers,
+including the stage values <code class="docutils literal notranslate"><span class="pre">Vorlauf</span></code>, <code class="docutils literal notranslate"><span class="pre">Werkzeuge</span></code>, and <code class="docutils literal notranslate"><span class="pre">Antwort</span></code>.</p>
+</section>
+<section id="what-happens-to-a-question">
+<h2>What happens to a question<a class="headerlink" href="#what-happens-to-a-question" title="Link to this heading">#</a></h2>
+<pre  class="mermaid">
+        flowchart TB
+  question[&quot;Your question&lt;br/&gt;and the interface context&quot;]
+  prep[&quot;Preparation&lt;br/&gt;analysis recipe and analysis contract&quot;]
+  plan[&quot;Model plans&lt;br/&gt;the next tool calls&quot;]
+  tools[&quot;CandyConc runs the tools&lt;br/&gt;and records evidence items&quot;]
+  submit[&quot;Model submits&lt;br/&gt;its findings&quot;]
+  draft[&quot;Model writes a draft&lt;br/&gt;without tools&quot;]
+  synth[&quot;Synthesis&lt;br/&gt;fresh model call with evidence and draft&quot;]
+  direct[&quot;Answer written by CandyConc&lt;br/&gt;size and lookup questions&quot;]
+  finish[&quot;CandyConc finishes the answer&lt;br/&gt;references, checks, appendices&quot;]
+  answer[&quot;Answer with evidence chips&quot;]
+
+  question --&gt; prep --&gt; plan
+  plan -- &quot;tool calls&quot; --&gt; tools
+  tools -- &quot;results with evidence IDs&quot; --&gt; plan
+  plan --&gt; submit --&gt; draft --&gt; synth --&gt; finish --&gt; answer
+  prep -. &quot;size question&quot; .-&gt; direct
+  tools -. &quot;lookup complete&quot; .-&gt; direct
+  direct --&gt; finish
+    </pre><p>The diagram shows these steps:</p>
+<ul class="simple">
+<li><p>CandyConc prepares the question: it chooses an analysis recipe and sets up
+an analysis contract.</p></li>
+<li><p>The model plans tool calls. CandyConc runs them, records each result as an
+evidence item, and returns the results to the model, which plans the next
+calls. This loop is the tool phase.</p></li>
+<li><p>The model ends the tool phase by submitting its findings. It then writes a
+draft without tools.</p></li>
+<li><p>A fresh model call, the synthesis, writes the answer from the evidence
+items and the draft.</p></li>
+<li><p>A question about the size of the corpus, and a lookup question whose
+required evidence is complete, get an answer that CandyConc writes from the
+corpus description or the tool values, without a model writing the text.</p></li>
+<li><p>Before the answer is shown, CandyConc finishes it without a model, as
+described in
+<a class="reference internal" href="#what-candyconc-checks-and-adds-without-a-model">What CandyConc checks and adds without a model</a>.</p></li>
+</ul>
+<p>The interface shows the current stage of this work. The HTTP API reports it
+in the event <code class="docutils literal notranslate"><span class="pre">copilot.status</span></code>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Stage in the interface</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">stage</span></code> in <code class="docutils literal notranslate"><span class="pre">copilot.status</span></code></p></th>
+<th class="head"><p>What happens</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Preparation</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Vorlauf</span></code></p></td>
+<td><p>CandyConc chooses the analysis recipe and sets up the analysis contract. The model plans the first tool calls.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Tools</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Werkzeuge</span></code></p></td>
+<td><p>CandyConc runs tool calls. The model reads the results and plans the next calls.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Answer</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Antwort</span></code></p></td>
+<td><p>The model writes the draft, the synthesis writes the answer, and CandyConc finishes it.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="preparation-analysis-recipe-and-analysis-contract">
+<h3>Preparation: analysis recipe and analysis contract<a class="headerlink" href="#preparation-analysis-recipe-and-analysis-contract" title="Link to this heading">#</a></h3>
+<p>An analysis recipe is a predefined procedure for one kind of question. There
+are eight: <strong>Frequency</strong>, <strong>Usage (KWIC)</strong>, <strong>Association</strong>, <strong>Contrast</strong>,
+<strong>Trend</strong>, <strong>Profile</strong>, <strong>Metadata &amp; structure</strong>, and <strong>Exploration</strong>.
+Keyword rules choose the recipe when they are decisive. Otherwise one model
+call classifies the question, and a question that fits no recipe continues
+without one. A recipe adds a briefing to the instructions of the model, with
+the steps, the pitfalls, and the form of the answer for its kind of analysis,
+and it makes sure that its core tools are offered.</p>
+<p>Some recipes need a property of the corpus. <strong>Trend</strong>, for example, needs a
+date field. When the corpus description shows that the requirement is
+missing, CandyConc answers at once with an explanation from the recipe,
+without a model call and without tools.</p>
+<p>The analysis contract states which kind of analysis the question asks for,
+what the answer has to deliver, which evidence it requires, and which tools
+may run. Keyword rules set it up where they can. Otherwise structured model
+calls propose, review, and complete it. A contract can also turn an ambiguous
+question into a clarification question, which then becomes the answer or is
+added at its end. A question without a valid contract continues as described
+in <a class="reference internal" href="#questions-without-an-analysis-contract">Questions without an analysis contract</a>.</p>
+</section>
+<section id="the-tool-phase">
+<h3>The tool phase<a class="headerlink" href="#the-tool-phase" title="Link to this heading">#</a></h3>
+<p>In each round, the model receives its instructions, a description of the
+corpus, the context of the interface, the question, the tool calls of the
+question so far with their results, and the tools it may call. It answers
+with tool calls. CandyConc checks each call against the parameter schema of
+the tool and the permissions of the user, runs it in the server process on
+the active corpus, and returns the result to the model. The calls of one
+round run in parallel, except the calls that create document sets, which run
+one after another. The next model call reads the results and plans the next
+round.</p>
+<p>At the autonomy level <strong>Plan first</strong>, the first round of tool calls waits
+until you confirm it. At the default level <strong>Read freely</strong>, the calls run
+without confirmation, because every tool offered to the copilot only reads.</p>
+</section>
+<section id="which-tools-the-model-can-call">
+<h3>Which tools the model can call<a class="headerlink" href="#which-tools-the-model-can-call" title="Link to this heading">#</a></h3>
+<p>The tools are the analysis operations of CandyConc, in these groups:</p>
+<ul class="simple">
+<li><p>searching and reading: concordance search with the exact hit count, hit
+counts with rates per million word tokens, a wider context around one hit, the
+text of a document, and a ranked search for documents</p></li>
+<li><p>statistics: frequency lists, collocations and collocation networks,
+dispersion, trends along a date field, keyness, n-grams, word sketches, and
+lexical diversity</p></li>
+<li><p>comparisons: collocations of two subcorpora, n-gram contrasts, and the
+variants of a paired corpus side by side</p></li>
+<li><p>meaning: semantic passage search and similar words</p></li>
+<li><p>scope: metadata values, subcorpora from metadata or a search, and saved
+subcorpora</p></li>
+<li><p>a search in the documentation of CandyConc</p></li>
+<li><p>one tool without an analysis, with which the model ends the tool phase</p></li>
+</ul>
+<p>These rules decide which of the tools a question is offered:</p>
+<ul class="simple">
+<li><p>Only tools that belong to a function the interface shows as a regular
+feature are offered, as listed in the capability contract at
+<code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/v1/capabilities</span></code>. The tools for semantic clustering belong to a
+hidden function and are not offered.</p></li>
+<li><p>The corpus decides as well. Without a passage index, the semantic search
+tools are removed, and without a word similarity index, the tool for
+similar words. Tools that need dependency relations or paired documents
+refuse a call with the reason. After such a refusal, the tool is not
+offered again in the same question, unless the refusal names an argument
+value that works.</p></li>
+<li><p>Keyword rules and the analysis contract select the tools that fit the
+question. A question whose kind is unclear gets the full list.</p></li>
+<li><p>Tools that the permissions of the user do not allow are removed.</p></li>
+<li><p>The recipe adds its core tools, and the contract limits the calls to the
+tools it allows.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/mcp/tools</span></code> lists the same tools with their parameters, see
+<a class="reference internal" href="how-candyconc-works.html"><span class="std std-doc">How CandyConc works</span></a>.</p>
+</section>
+<section id="the-end-of-the-tool-phase">
+<h3>The end of the tool phase<a class="headerlink" href="#the-end-of-the-tool-phase" title="Link to this heading">#</a></h3>
+<p>The model decides when the tool phase ends. It calls the tool for this
+purpose and states which part of the question the evidence answers, which
+evidence items support it, and what stays open. After that call, the model is
+offered no more tools.</p>
+<p>If the model tries to finish before the evidence that the contract requires
+is there, CandyConc narrows the tools to the missing ones and asks once more.
+Two limits guard against a tool phase that does not end: 200 tool rounds, and
+240 steps per question (<code class="docutils literal notranslate"><span class="pre">CANDYCONC_MAX_COPILOT_STEPS</span></code>). When one of them is
+reached, the model gets no more tools and writes its draft as it does after
+its own submission.</p>
+</section>
+<section id="draft-and-synthesis">
+<h3>Draft and synthesis<a class="headerlink" href="#draft-and-synthesis" title="Link to this heading">#</a></h3>
+<p>After the submission, the model writes a draft answer in the same
+conversation, without tools. The interface does not show the draft.</p>
+<p>The synthesis then writes the answer in a fresh model call. This call
+receives no tools and none of the earlier conversation. It receives the
+question, the lines of the corpus description about source texts, the origin
+of variants, and token attributes, the evidence items of the question as
+text, and the draft. Its instructions ask it to keep the interpretations of
+the draft where the evidence covers them, to check every number, quotation,
+and assignment against the evidence, and to cite the evidence item of every
+number and every corpus quotation with a reference such as
+<code class="docutils literal notranslate"><span class="pre">{{ev:E_run_cqlf_query_2}}</span></code>.</p>
+<p>If the synthesis returns no text, or text that drops most of a long draft,
+CandyConc repeats the call, up to three attempts. If no attempt returns text,
+CandyConc composes the answer from the evidence items without model text.</p>
+</section>
+<section id="answers-that-candyconc-writes-without-a-model">
+<h3>Answers that CandyConc writes without a model<a class="headerlink" href="#answers-that-candyconc-writes-without-a-model" title="Link to this heading">#</a></h3>
+<p>Some questions get an answer whose text no model writes:</p>
+<ul class="simple">
+<li><p>A question about the size of the corpus, such as the number of documents,
+is answered from the corpus description before any tool runs, as long as
+no subcorpus is active.</p></li>
+<li><p>A lookup question is answered from the tool values as soon as the evidence
+that its contract requires is there. A question counts as a lookup when it
+is at most 160 characters long, asks for no interpretation, and its
+contract asks for a lookup answer. The model still plans the tool calls for
+it.</p></li>
+</ul>
+</section>
+<section id="questions-without-an-analysis-contract">
+<h3>Questions without an analysis contract<a class="headerlink" href="#questions-without-an-analysis-contract" title="Link to this heading">#</a></h3>
+<p>When no valid analysis contract can be set up, the question continues without
+one. The model then writes the answer at the end of the tool phase, without a
+separate synthesis and without evidence chips. CandyConc resolves the
+references in this answer. When tool evidence is available, it also checks
+numbers against the tool results and your question. CandyConc asks the model
+once to correct references to missing evidence items and unsupported numbers.
+Numbers that still have no support are replaced by a
+placeholder, and sentences with a placeholder are removed, as long as no more
+than half of the sentences would go. Quotations that present themselves as
+corpus lines and appear in no evidence line are removed together with their
+sentence.</p>
+</section>
+</section>
+<section id="evidence-items-and-evidence-chips">
+<h2>Evidence items and evidence chips<a class="headerlink" href="#evidence-items-and-evidence-chips" title="Link to this heading">#</a></h2>
+<p>Each tool call gets an ID before it runs, in the form <code class="docutils literal notranslate"><span class="pre">E_&lt;tool&gt;_&lt;n&gt;</span></code>, for
+example <code class="docutils literal notranslate"><span class="pre">E_collocate_stats_1</span></code>. The number <code class="docutils literal notranslate"><span class="pre">&lt;n&gt;</span></code> is the position of the call
+among the tool calls of the question, in the order in which the model
+requested them, across all tools. An ID is valid only within its question.</p>
+<p>The model sees the ID at the top of every tool result, together with the name
+of the tool and the arguments of the call. The answer cites evidence with
+references to these IDs. A reference with a field, such as
+<code class="docutils literal notranslate"><span class="pre">{{ev:E_run_cqlf_query_2.total}}</span></code>, is replaced by the value from the evidence
+item. In an answer from the synthesis, a reference without a field becomes an
+evidence chip.</p>
+<p>Before the synthesis starts, the interface receives the list of all evidence
+items of the question with tool, arguments, and status. It shows each
+reference as a button labeled <strong>Evidence</strong> with a number. Evidence items
+are numbered in the order of their first citation in the answer. Every chip
+for the same item keeps that number, so <strong>Evidence 1</strong> always opens the same
+source within that answer. Pointing at a chip shows the arguments of the
+call. A click on a chip does the following:</p>
+<ul class="simple">
+<li><p>For a concordance search or a hit count, it runs the query of that call in
+the concordance, in the corpus and the document set of the call, including
+a subcorpus that the copilot created during the question. The tool aliases
+<code class="docutils literal notranslate"><span class="pre">default</span></code> and <code class="docutils literal notranslate"><span class="pre">active</span></code> refer to the corpus selected in the interface.</p></li>
+<li><p>For every other tool, it scrolls to the card of that tool call in the
+message and highlights it.</p></li>
+</ul>
+<p>Every tool call has its own card in the message, with the name of the tool,
+its status, its parameters under <strong>Show parameters</strong>, and a view of its
+result. The card receives the result as the tool computed it, before any
+shortening for the model.</p>
+<p>At the end of the answer, CandyConc lists the evidence lines of the cited
+evidence items: up to eight items with up to six lines each, taken from the
+rows and values of each item.</p>
+</section>
+<section id="what-the-model-sees-of-your-corpus">
+<h2>What the model sees of your corpus<a class="headerlink" href="#what-the-model-sees-of-your-corpus" title="Link to this heading">#</a></h2>
+<p>In every call of the tool phase, the model receives:</p>
+<ul class="simple">
+<li><p>its instructions, with the briefing of the recipe</p></li>
+<li><p>a description of the corpus with its size, token attributes, metadata
+fields, date fields, capabilities, and the active subcorpus</p></li>
+<li><p>the context of the interface, such as the current query, the filters, the
+number of hits, and the last actions</p></li>
+<li><p>the question</p></li>
+<li><p>the tool calls of the question so far, with their results</p></li>
+</ul>
+<p>Tool results contain corpus text: concordance lines with their context,
+document text, and metadata values.</p>
+<p>A tool result reaches the model unchanged when its JSON has at most 12,000
+characters, at most 20 rows, at most four clusters, and at most six entries
+per table. A larger result reaches it as a compact view that is marked as
+such and states the size of the full result. The view shows up to 200 rows
+and states their total. For a concordance list, the rows are spread evenly
+over the list. A ranked list keeps its top rows, and a comparison table with
+two directions keeps the strongest rows of each direction. The character
+limit of the view grows by 12,000 for every 20 rows. If the rows still do not
+fit, the view shows as many as fit and states how many are left out. The full
+result stays in the server for the evidence item and the tool card.</p>
+<p>The concordance tool returns the exact number of hits separately from its
+lines. When there are more hits than requested lines (50 by default, at most
+1,000), it returns a random sample drawn over all hits, with a seed derived
+from the query and the scope, so the same call draws the same lines. The
+method card at the end of the answer states the hit count, the number of
+lines, and the sample with its seed.</p>
+<p>For trends with more than 60 periods, the copilot tool returns an evenly spaced selection that retains the first and last dated periods and any undated bucket, preserves the counts of the selected periods, and reports the full period count and a reduction warning.</p>
+<p>The synthesis receives the evidence items as text: for each item a header
+with ID, tool, arguments, and status, followed by its rows and values. In a
+concordance item, each line appears with its source and position. When lines
+are left out, the text says how many and gives the exact hit count. The text
+has a limit of 300,000 characters. Beyond it, the text ends at the boundary
+of an item and names the evidence items that are left out.</p>
+<p>During a long tool phase, the working record of the question can outgrow the
+context window of the model. CandyConc then shortens the oldest tool results
+in the model's copy and, if that is not enough, has the model summarize the
+oldest part of the record. These limits follow the context window of the
+model, 173,312 tokens unless <code class="docutils literal notranslate"><span class="pre">CANDYCONC_MODEL_CONTEXT_TOKENS</span></code> sets another
+value. The synthesis reads the evidence items, which this shortening leaves
+unchanged.</p>
+<p><a class="reference internal" href="data-and-privacy.html#what-the-copilot-sends"><span class="std std-ref">Data and privacy</span></a> lists what the
+copilot sends to the endpoint and what CandyConc masks before sending.</p>
+</section>
+<section id="each-question-starts-without-the-earlier-ones">
+<h2>Each question starts without the earlier ones<a class="headerlink" href="#each-question-starts-without-the-earlier-ones" title="Link to this heading">#</a></h2>
+<p>The interface sends only the current question. The server starts a new
+session for every question and does not read the conversation identifier
+that the interface sends along. Earlier questions, their answers, and their
+evidence items do not reach the model. A follow-up such as &quot;and in the other
+period?&quot; arrives without the question it refers to. The context of the
+interface arrives with every question, with the current query, the filters,
+and the last actions. Over the HTTP API, earlier messages in the <code class="docutils literal notranslate"><span class="pre">messages</span></code>
+array of the request reach the model as history.</p>
+<p>The answer appears as a whole when the question is finished. Until then, the
+interface shows the progress of the work.</p>
+</section>
+<section id="what-candyconc-checks-and-adds-without-a-model">
+<h2>What CandyConc checks and adds without a model<a class="headerlink" href="#what-candyconc-checks-and-adds-without-a-model" title="Link to this heading">#</a></h2>
+<p>The tools run in the CandyConc server on your corpus. After the synthesis,
+CandyConc handles the references, numbers, and quotations of the answer
+without a model. These three steps are the grounding check of the answer.</p>
+<p><strong>References.</strong> A reference to an existing evidence item becomes a chip or
+the value from the item. A reference to an ID that does not exist in the
+question is removed, and the sentence around it stays.</p>
+<p><strong>Numbers.</strong> A line with a number of at least 10 that exactly one analysis
+result of the question contains, and that has no chip yet, gets a chip of
+that result at its end, up to eight such chips per answer. The synthesis may
+compute values of its own, such as percentages or ratios, which appear in no
+tool result. CandyConc does not change the numbers that the model wrote
+itself, and the answer shows no difference between inserted and written
+numbers. The evidence lines, the method card, and the tool cards give the
+values to recompute them from.</p>
+<p><strong>Quotations.</strong> CandyConc looks up quotations of at least 12 characters
+that the answer presents as corpus lines, for example with the chip of a
+concordance search after them. It checks German quotation marks „…“ and,
+in an English answer, also curly “…” and straight &quot;…&quot; quotation marks. It
+searches the evidence lines, the rows that the synthesis received, and the
+search terms. A quotation found in
+none of them stays in the answer, because it can also be a wording that the
+model proposes, and a note below the answer names up to three such
+quotations.</p>
+<p><strong>Appendices.</strong> From the evidence items, CandyConc adds these sections to
+the answer:</p>
+<ul class="simple">
+<li><p>the experiments: for each tool call, which tool ran with which parameters
+and what it found</p></li>
+<li><p>the method card: the query level (word form, lemma, or query), case
+folding, window, denominator with its scope, how many hits became lines,
+and the state of the index</p></li>
+<li><p>the evidence lines of the cited evidence items</p></li>
+</ul>
+<p>Between the answer and the appendices, CandyConc adds at most two sentences
+that complete the answer, for example about a part of the question for which
+no analysis ran. Further sentences of this kind go to the <strong>Notes</strong> below the
+answer.</p>
+</section>
+<section id="while-the-copilot-works-and-when-it-stops">
+<h2>While the copilot works, and when it stops<a class="headerlink" href="#while-the-copilot-works-and-when-it-stops" title="Link to this heading">#</a></h2>
+<p>During the work, the copilot panel shows the current stage, a bar with the
+number of tool calls so far out of the step limit, a card for each tool call
+as soon as its result arrives, and system notes, for example when CandyConc
+repeats a call. The research trace lists the steps in plain words while they
+run, with their queries and results. After the answer, a line below it names
+the analysis recipe, the number of model calls, and the duration, and the
+<strong>Timeline</strong> shows how long each stage took.</p>
+<section id="stopping-a-question">
+<h3>Stopping a question<a class="headerlink" href="#stopping-a-question" title="Link to this heading">#</a></h3>
+<p><strong>Stop answer</strong>, closing the copilot panel, and sending a new question each
+stop the running question. The server then starts no further model call, tool
+call, or repeated call. CandyConc does not interrupt a model call that is
+already running and discards its result. The question ends without an
+answer, and the tool cards that arrived stay in the message. A new question
+from the same user also stops a question of that user that still runs on the
+server, for example one from another browser tab.</p>
+</section>
+<section id="time-limits">
+<h3>Time limits<a class="headerlink" href="#time-limits" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">COPILOT_TIMEOUT</span></code> limits one request to the model endpoint. Its default of
+8,000,000 seconds guards against a connection that hangs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CANDYCONC_COPILOT_MAX_TIME_SEC</span></code> sets a time budget for a whole question.
+By default there is none, and a question runs until the model submits its
+findings or the round or step limit is reached.</p></li>
+<li><p>With a budget, the model gets no more tools once 55 percent of it has
+passed (40 percent for <strong>Exploration</strong>) and at least one round has run,
+and it writes its draft from the evidence collected so far. When the
+budget is used up during the tool phase, CandyConc composes the answer from
+the collected evidence without a further model call. If a single step still
+blocks 15 seconds after the end of the budget, the server stops waiting and
+delivers an answer from the results computed so far, with a note under
+<strong>Notes</strong>. Without any evidence, the question ends with the status
+<code class="docutils literal notranslate"><span class="pre">timeout</span></code>. With request timeouts enabled, a question budget also caps
+each model request at the budget minus 20 seconds, with a minimum of one
+second for this cap.</p></li>
+<li><p>The model call that chooses the recipe has its own limit of 300 seconds.
+When it runs out or fails, the question continues with the recipe from the
+keyword rules or without a recipe.</p></li>
+</ul>
+</section>
+<section id="when-the-model-endpoint-stops-answering">
+<h3>When the model endpoint stops answering<a class="headerlink" href="#when-the-model-endpoint-stops-answering" title="Link to this heading">#</a></h3>
+<p>If the endpoint does not answer before the question starts, the question
+ends with an error, and nothing else happens. If it stops answering during
+the question, for example because the model server restarts or unloads the
+model, CandyConc keeps the evidence collected so far, waits, and repeats the
+same call with pauses of 2 to 30 seconds. It allows up to eight consecutive
+retries, resetting this count after a successful model call.
+For an endpoint on the same computer, CandyConc also waits as long as the
+server does not answer or lists no loaded model. Without a time budget, this
+wait has no upper limit, and <strong>Stop answer</strong> ends it. CandyConc does not load
+or switch models.</p>
+<p>When recovery ends after a model failure and evidence is available,
+CandyConc composes an answer from the collected evidence and sends it with
+the status <code class="docutils literal notranslate"><span class="pre">partial</span></code> and the error. The interface displays this text with
+<strong>Partial answer</strong>, keeps the tool cards, and adds a message explaining the
+model failure. An error event followed by this answer does not discard the
+answer or restart the question. If the stream ends with an error and no
+answer, the interface shows the error with <strong>Try again</strong>.</p>
+</section>
+<section id="how-long-a-question-takes">
+<h3>How long a question takes<a class="headerlink" href="#how-long-a-question-takes" title="Link to this heading">#</a></h3>
+<p>A question proceeds through preparation, tool calls, and the answer stage.
+The selected analysis and the number of tool rounds determine the work to
+be done, while the configured model endpoint determines how quickly model
+calls return. During synthesis, the answer stage remains active while the
+model reads the collected evidence and writes its response. Follow the
+stage and tool cards while waiting, then open <strong>Timeline</strong> to see the
+duration of each stage for that question.</p>
+</section>
+</section>
+<section id="which-models-work">
+<h2>Which models work<a class="headerlink" href="#which-models-work" title="Link to this heading">#</a></h2>
+<p>The copilot needs a model that can call tools, served over an
+OpenAI-compatible chat completions interface (<code class="docutils literal notranslate"><span class="pre">/v1/chat/completions</span></code>) or
+responses interface (<code class="docutils literal notranslate"><span class="pre">/v1/responses</span></code>). CandyConc does not ship, load, or
+switch models. If the context window of your model is smaller than 173,312
+tokens, set <code class="docutils literal notranslate"><span class="pre">CANDYCONC_MODEL_CONTEXT_TOKENS</span></code> to its size so that the working
+record is shortened in time. The evidence text of the synthesis keeps its own
+limit of 300,000 characters. How to connect a model on your computer or at a
+provider is described in
+<a class="reference internal" href="../guides/copilot/connect-a-model.html"><span class="std std-doc">Connect a language model</span></a>. How to read
+an answer and follow its evidence is described in
+<a class="reference internal" href="../guides/copilot/ask-and-check.html"><span class="std std-doc">Ask the copilot and check the answer</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="languages-and-annotation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Languages and annotation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="data-and-privacy.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data and privacy</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-the-copilot-runs">When the copilot runs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-language-of-a-question">The language of a question</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-to-a-question">What happens to a question</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation-analysis-recipe-and-analysis-contract">Preparation: analysis recipe and analysis contract</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-tool-phase">The tool phase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-tools-the-model-can-call">Which tools the model can call</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-end-of-the-tool-phase">The end of the tool phase</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draft-and-synthesis">Draft and synthesis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answers-that-candyconc-writes-without-a-model">Answers that CandyConc writes without a model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-without-an-analysis-contract">Questions without an analysis contract</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evidence-items-and-evidence-chips">Evidence items and evidence chips</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-model-sees-of-your-corpus">What the model sees of your corpus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#each-question-starts-without-the-earlier-ones">Each question starts without the earlier ones</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-candyconc-checks-and-adds-without-a-model">What CandyConc checks and adds without a model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-the-copilot-works-and-when-it-stops">While the copilot works, and when it stops</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stopping-a-question">Stopping a question</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-limits">Time limits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-the-model-endpoint-stops-answering">When the model endpoint stops answering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-long-a-question-takes">How long a question takes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#which-models-work">Which models work</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/concepts/copilot.md.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Michael Ruppert.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p class="candyconc-version">Documentation for CandyConc 0.1.0, built from commit 23d3277455b9919817d1e3e35cd672e3fac91f45.</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
